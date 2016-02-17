@@ -101,6 +101,16 @@ final class Instagram
     }
 
     /**
+     * Convenience method for setting CSRF and returning the login URL.
+     *
+     * @return string
+     */
+    public function getLoginUrl()
+    {
+        return $this->getLoginHelper()->getLoginUrl();
+    }
+
+    /**
      * Retrieves an OAuth access token when provided with `$code`. The grant
      * type may also be specified by `$grant`.
      *
@@ -114,14 +124,10 @@ final class Instagram
         if (!$this->getConfig()->has('access_token') && $this->getConfig()->has('redirect_url')) {
             $accessToken = $this->getProvider()->getAccessToken($grant, ['code' => $code]);
             $this->getConfig()->set('access_token', $accessToken);
+            $this->getClient()->setAccessToken($accessToken);
         }
 
         return $this->getConfig()->get('access_token');
-    }
-
-    public function setAccessToken($accessToken)
-    {
-        $this->getConfig()->set('access_token', $accessToken);
     }
 
     /***************

@@ -1,0 +1,48 @@
+{
+    "name": "hassankhan/instagram-sdk",
+    "description": "A simple SDK for accessing Instagram's API",
+    "keywords": [
+        "hassankhan",
+        "instagram-sdk"
+    ],
+    "homepage": "https://github.com/hassankhan/instagram-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hassan Khan",
+            "email": "contact@hassankhan.me",
+            "homepage": "http://hassankhan.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.3.0",
+        "league/oauth2-instagram": "^0.2.0",
+        "hassankhan/config": "^0.10.0",
+        "illuminate/support": "~5.1",
+        "league/container": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1",
+        "vlucas/phpdotenv": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Instagram\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Instagram\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

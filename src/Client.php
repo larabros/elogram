@@ -35,17 +35,17 @@ final class Client
     protected $guzzle;
 
     /**
-     * @var ResponseInterface
-     */
-    protected $lastResponse;
-
-    /**
      * @inheritDoc
      */
-    public function __construct(AccessToken $token, ClientInterface $guzzle = null)
+    public function __construct(ClientInterface $guzzle = null, AccessToken $token = null)
     {
-        $this->token  = $token;
         $this->guzzle = $guzzle;
+        $this->token  = $token;
+    }
+
+    public function setAccessToken(AccessToken $token)
+    {
+        $this->token = $token;
     }
 
     /**
@@ -76,17 +76,7 @@ final class Client
             throw $e;
         }
 
-        return $this->lastResponse = Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
-    }
-
-    /**
-     * Returns the last `ResponseInterface`.
-     *
-     * @return ResponseInterface
-     */
-    public function getLastResponse()
-    {
-        return $this->lastResponse;
+        return Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
     }
 
     /**

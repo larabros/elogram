@@ -5,6 +5,14 @@ namespace Instagram\Entities;
 use Instagram\Client;
 use Instagram\Http\Response;
 
+/**
+ * Media
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 class Media
 {
     /**
@@ -23,42 +31,49 @@ class Media
     }
 
     /**
-     * Retrieves media information by `$id`.
+     * Retrieves information for a media object with `$id`.
      *
-     * @param $id
+     * @param string $id
      *
-     * @return mixed
+     * @return Response
+     *
+     * @see https://www.instagram.com/developer/endpoints/media/#get_media
      */
-    public function getMedia($id)
+    public function get($id)
     {
-        return $this->getClient()->request('GET', "media/$id");
+        return $this->client->request('GET', "media/$id");
     }
 
     /**
-     * Retrieves media information by `$shortcode`, which are usually in embed
-     * links.
+     * Retrieves information for a media object with `$shortcode`.
      *
-     * @param $shortcode
+     * @param string $shortcode
      *
-     * @return mixed
+     * @return Response
+     *
+     * @see https://www.instagram.com/developer/endpoints/media/#get_media_by_shortcode
      */
-    public function getMediaByShortcode($shortcode)
+    public function getByShortcode($shortcode)
     {
-        return $this->getClient()->request('GET', "media/shortcode/$shortcode");
+        return $this->client->request('GET', "media/shortcode/$shortcode");
     }
 
     /**
+     * Searches for recent media in a given area with `$latitude` and $longitude`.
+     * Optionally, `$minTimestamp`, $maxTimestamp` and `$distance` can also be
+     * provided to limit the search.
      *
+     * @param int      $latitude
+     * @param int      $longitude
+     * @param int|null $minTimestamp
+     * @param int|null $maxTimestamp
+     * @param int|null $distance
      *
-     * @param $latitude
-     * @param $longitude
-     * @param null $minTimestamp
-     * @param null $maxTimestamp
-     * @param null $distance
+     * @return Response
      *
-     * @return mixed
+     * @see https://www.instagram.com/developer/endpoints/media/#get_media_search
      */
-    public function searchMedia(
+    public function search(
         $latitude,
         $longitude,
         $minTimestamp = null,
@@ -69,20 +84,12 @@ class Media
             'query' => [
                 'lat'           => $latitude,
                 'lng'           => $longitude,
-                'min_timestamp' => '',
-                'max_timestamp' => '',
-                'distance'      => '',
+                'min_timestamp' => $minTimestamp,
+                'max_timestamp' => $maxTimestamp,
+                'distance'      => $distance,
             ],
         ];
-        if(is_null($minTimestamp)) unset($params['min_timestamp']);
-        if(is_null($maxTimestamp)) unset($params['max_timestamp']);
-        if(is_null($distance))     unset($params['distance']);
 
-        return $this->getClient()->request('GET', 'media/search', $params);
-    }
-
-    public function getPopularMedia()
-    {
-        return $this->getClient()->request('GET', 'media/popular');
+        return $this->client->request('GET', 'media/search', $params);
     }
 }

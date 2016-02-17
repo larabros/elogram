@@ -2,6 +2,16 @@
 
 namespace Instagram\Helpers;
 
+use League\OAuth2\Client\Token\AccessToken;
+
+/**
+ * LoginHelperInterface
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 interface LoginHelperInterface
 {
     /**
@@ -14,7 +24,10 @@ interface LoginHelperInterface
     /**
      * Validates CSRF and returns the access token.
      *
+     * @param string $grant
+     * @param array  $options
+     *
      * @return AccessToken
      */
-    public function getAccessToken();
+    public function getAccessToken($grant = 'authorization_code', $options = []);
 }

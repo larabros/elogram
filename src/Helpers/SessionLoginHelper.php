@@ -4,8 +4,15 @@ namespace Instagram\Helpers;
 
 use Instagram\Exceptions\CsrfException;
 use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
-use League\OAuth2\Client\Token\AccessToken;
 
+/**
+ * SessionLoginHelper
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 class SessionLoginHelper implements LoginHelperInterface
 {
     /**
@@ -21,6 +28,7 @@ class SessionLoginHelper implements LoginHelperInterface
     public function __construct(InstagramProvider $provider)
     {
         $this->provider = $provider;
+        session_start();
     }
 
     /**
@@ -36,13 +44,13 @@ class SessionLoginHelper implements LoginHelperInterface
     /**
      * @inheritDoc
      */
-    public function getAccessToken()
+    public function getAccessToken($grant = 'authorization_code', $options = [])
     {
         $this->validateCsrf();
 
-        return $this->provider->getAccessToken('authorization_code', [
+        return $this->provider->getAccessToken($grant, array_merge([
             'code' => $_GET['code']
-        ]);
+        ], $options));
     }
 
     /**
@@ -51,6 +59,7 @@ class SessionLoginHelper implements LoginHelperInterface
     protected function setCsrf()
     {
         $_SESSION['oauth2state'] = $this->provider->getState();
+        return;
     }
 
     /**
@@ -64,5 +73,6 @@ class SessionLoginHelper implements LoginHelperInterface
             unset($_SESSION['oauth2state']);
             throw new CsrfException('Invalid state');
         }
+        return;
     }
 }

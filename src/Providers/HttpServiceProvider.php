@@ -9,6 +9,14 @@ use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
 
+/**
+ * HttpServiceProvider
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 class HttpServiceProvider extends AbstractServiceProvider
 {
     /**
@@ -47,8 +55,9 @@ class HttpServiceProvider extends AbstractServiceProvider
         $this->getContainer()->add('helper', SessionLoginHelper::class)
             ->withArgument($this->getContainer()->get('provider'));
 
+        // Check if provided, then set, otherwise not
         $this->getContainer()->add('http', Client::class)
-            ->withArgument(new AccessToken(json_decode($config->get('access_token'), true)))
+//            ->withArgument(new AccessToken(json_decode($config->get('access_token'), true)))
             ->withArgument(new GuzzleClient(['base_uri' => $config->get('base_uri')]));
     }
 }

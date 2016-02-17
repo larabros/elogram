@@ -9,11 +9,21 @@ use Noodlehaus\AbstractConfig;
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/noodlehaus/config
+ * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
 class Config extends AbstractConfig
 {
+    /**
+     * Constructor method and sets default options, if any
+     *
+     * @param array $data
+     */
+    public function __construct(array $data)
+    {
+        $this->data = array_merge(array_filter($this->getDefaults()), array_filter($data));
+    }
+
     protected function getDefaults()
     {
         return [

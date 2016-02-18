@@ -45,19 +45,16 @@ class HttpServiceProvider extends AbstractServiceProvider
     {
         $config = $this->getContainer()->get('config');
 
-        $this->getContainer()->add('provider', Instagram::class)
-            ->withArgument([
-                'clientId'     => $config->get('client_id'),
-                'clientSecret' => $config->get('client_secret'),
-                'redirectUri'  => $config->get('redirect_url'),
-            ]);
+        $this->getContainer()->add('provider', new Instagram([
+            'clientId'     => $config->get('client_id'),
+            'clientSecret' => $config->get('client_secret'),
+            'redirectUri'  => $config->get('redirect_url'),
+        ]));
 
-        $this->getContainer()->add('helper', SessionLoginHelper::class)
-            ->withArgument($this->getContainer()->get('provider'));
+        $this->getContainer()->add('helper', new SessionLoginHelper($this->getContainer()->get('provider')));
 
         // Check if provided, then set, otherwise not
-        $this->getContainer()->add('http', Client::class)
+        $this->getContainer()->add('http', new Client(new GuzzleClient(['base_uri' => $config->get('base_uri')])));
 //            ->withArgument(new AccessToken(json_decode($config->get('access_token'), true)))
-            ->withArgument(new GuzzleClient(['base_uri' => $config->get('base_uri')]));
     }
 }

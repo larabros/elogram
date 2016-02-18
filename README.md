@@ -7,8 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+A modern Instagram SDK for PHP 5.4+.
 
 ## Install
 
@@ -20,9 +19,11 @@ $ composer require hassankhan/instagram-sdk
 
 ## Usage
 
+To make requests to the Instagram API, you first need an access token. First, create an instance of `Instagram`.
+
 ``` php
-$client = new Instagram\Client();
-$client->->searchUser('skrawg');
+$instagram = new \Instagram\Instagram($clientId, $clientSecret);
+$instagram->user()->search('skrawg');
 ```
 
 ## Change log

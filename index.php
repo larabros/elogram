@@ -18,7 +18,7 @@ $instagram = new \Instagram\Instagram(
 
 //dd($instagram);
 //$instagram->getUserByName('skrawg');
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 //echo json_encode($instagram->user()->get('268047373')->get());
 //echo json_encode($instagram->user()->find('skrawg')->get());
 //echo json_encode($instagram->user()->getMedia('268047373')->get());
@@ -37,5 +37,11 @@ if (!isset($_GET['code'])) {
 
 } else {
      $token = $instagram->getAccessToken($_GET['code']);
-     echo json_encode($token);
+     // echo json_encode($token);
+
+    echo json_encode($instagram->user()->get('268047373')->get());
+    // echo json_encode($instagram->user()->find('skrawg')->get());
+    // echo json_encode($instagram->user()->getMedia('268047373')->get());
+    // echo json_encode($instagram->user()->getLikedMedia()->get());
+    // echo json_encode($instagram->user()->search('skrawg')->get());
 }

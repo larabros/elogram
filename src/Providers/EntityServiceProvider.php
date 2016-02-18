@@ -31,10 +31,8 @@ class EntityServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        $this->getContainer()->add('entity.user', User::class)
-            ->withArgument($this->getContainer()->get('http'));
+        $this->getContainer()->add('entity.user', new User($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.media', Media::class)
-            ->withArgument($this->getContainer()->get('http'));
+        $this->getContainer()->add('entity.media', new Media($this->getContainer()->get('http')));
     }
 }

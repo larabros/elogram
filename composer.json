@@ -34,7 +34,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Instagram\\Test\\": "tests"
+            "Instagram\\Tests\\": "tests"
         }
     },
     "scripts": {

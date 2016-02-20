@@ -171,17 +171,6 @@ final class Instagram
      */
     public function paginate(Response $response, $limit = null)
     {
-        $count = 0;
-        $responseStack = [$response->get()];
-        $nextUrl       = $response->next();
-
-        while($nextUrl !== null || $limit !== null && $count === $limit) {
-            $nextResponse    = $this->getClient()->rawRequest('GET', $nextUrl);
-            $responseStack[] = $nextResponse->get();
-            $nextUrl         = $nextResponse->next();
-            $count++;
-        }
-
-        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));
+        return $this->getClient()->paginate($response, $limit);
     }
 }

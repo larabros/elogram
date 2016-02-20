@@ -79,17 +79,31 @@ final class Client
         return Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
     }
 
-    public function rawRequest($method, $uri, array $parameters = [])
+    /**
+     * Paginates a `Response`. The pagination limit is set by `$limit` -
+     * setting it to `null` will paginate as far as possible.
+     *
+     * @param Response $response
+     * @param int      $limit
+     *
+     * @return Response
+     */
+    public function paginate(Response $response, $limit = null)
     {
-        try {
-            $response = $this->guzzle->$method($uri, $parameters);
-        } catch (ClientException $e) {
-            throw $e;
-        } catch (Exception $e) {
-            throw $e;
+        $count = 0;
+        $responseStack = [$response->get()];
+        $nextUrl       = $response->next();
+
+        while($nextUrl !== null || $limit !== null && $count === $limit) {
+            $nextResponseData = $this->guzzle->get($nextUrl)->getBody()->getContents();
+            $nextResponse     = Response::createFromResponse(json_decode($nextResponseData, true));
+
+            $responseStack[] = $nextResponse->get();
+            $nextUrl         = $nextResponse->next();
+            $count++;
         }
 
-        return Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
+        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));
     }
 
     /**

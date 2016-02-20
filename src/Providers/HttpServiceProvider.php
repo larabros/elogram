@@ -53,8 +53,11 @@ class HttpServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()->add('helper', new SessionLoginHelper($this->getContainer()->get('provider')));
 
-        // Check if provided, then set, otherwise not
         $this->getContainer()->add('http', new Client(new GuzzleClient(['base_uri' => $config->get('base_uri')])));
-//            ->withArgument(new AccessToken(json_decode($config->get('access_token'), true)))
+
+        // Check if provided, then set, otherwise not
+        if ($config->has('access_token')) {
+            $this->getContainer()->get('http')->setAccessToken(new AccessToken(json_decode($config->get('access_token'), true)));
+        }
     }
 }

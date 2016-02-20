@@ -2,5 +2,5 @@ TODO
 
 - Add remaining entities
 - Add tests
-- Fix pagination
+- Test pagination limiting properly
 - Add more useful domain-specific exceptions

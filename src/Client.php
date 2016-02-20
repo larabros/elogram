@@ -87,8 +87,6 @@ final class Client
     {
         $parameters = array_merge_recursive([
             'query' => [
-                'client_id'     => $this->clientId,
-                'client_secret' => $this->clientSecret,
                 'access_token'  => $this->token->getToken(),
             ],
             'headers' => [

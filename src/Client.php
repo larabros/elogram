@@ -7,7 +7,6 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use Instagram\Http\Response;
 use League\OAuth2\Client\Token\AccessToken;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Instagram client class.
@@ -90,16 +89,24 @@ final class Client
      */
     public function paginate(Response $response, $limit = null)
     {
-        $count = 0;
-        $responseStack = [$response->get()];
-        $nextUrl       = $response->next();
+        // If there's nothing to paginate, return response as-is
+        if (!$response->hasPages()) {
+            return $response;
+        }
 
-        while($nextUrl !== null || $limit !== null && $count === $limit) {
+        // Set `$count`, save the response data and get the next URL
+        // @TODO: Remove $count
+        $count         = 0;
+        $responseStack = [$response->get()];
+        $nextUrl       = $response->nextUrl();
+
+        // If we run out of pages OR reach `$limit`, then stop and return response
+        while($nextUrl !== null || ($limit !== null && $count === $limit)) {
             $nextResponseJson = $this->guzzle->get($nextUrl)->getBody()->getContents();
             $nextResponse     = Response::createFromResponse(json_decode($nextResponseJson, true));
 
             $responseStack[] = $nextResponse->get();
-            $nextUrl         = $nextResponse->next();
+            $nextUrl         = $nextResponse->nextUrl();
             $count++;
         }
 

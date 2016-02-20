@@ -69,13 +69,24 @@ class Response
     }
 
     /**
+     * If the response has a `pagination` field with a `next_url` key, then
+     * returns `true`, otherwise `false`.
+     *
+     * @return bool
+     */
+    public function hasPages()
+    {
+        return !empty($this->pagination) && array_key_exists('next_url', $this->pagination);
+    }
+
+    /**
      * Returns the next URL, if available, otherwise `null`.
      *
      * @return string|null
      */
-    public function next()
+    public function nextUrl()
     {
-        return !empty($this->pagination) && array_key_exists('next_url', $this->pagination)
+        return $this->hasPages()
             ? $this->pagination['next_url']
             : null;
     }

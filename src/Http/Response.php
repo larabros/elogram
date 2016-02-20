@@ -75,7 +75,7 @@ class Response
      */
     public function next()
     {
-        return array_key_exists('next_url', $this->pagination)
+        return !empty($this->pagination) && array_key_exists('next_url', $this->pagination)
             ? $this->pagination['next_url']
             : null;
     }

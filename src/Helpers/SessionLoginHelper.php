@@ -28,7 +28,9 @@ class SessionLoginHelper implements LoginHelperInterface
     public function __construct(InstagramProvider $provider)
     {
         $this->provider = $provider;
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
     }
 
     /**

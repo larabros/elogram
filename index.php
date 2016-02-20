@@ -16,9 +16,7 @@ $instagram = new \Instagram\Instagram(
     'http://localhost:9000'
 );
 
-//dd($instagram);
-//$instagram->getUserByName('skrawg');
-//header('Content-Type: application/json');
+header('Content-Type: application/json');
 //echo json_encode($instagram->user()->get('268047373')->get());
 //echo json_encode($instagram->user()->find('skrawg')->get());
 //echo json_encode($instagram->user()->getMedia('268047373')->get());
@@ -29,19 +27,21 @@ $instagram = new \Instagram\Instagram(
 //echo json_encode($instagram->media()->getByShortcode('9RV6okpRin')->get());
 //echo json_encode($instagram->media()->search(51.503349, -0.252271)->get());
 
-if (!isset($_GET['code'])) {
+echo json_encode($instagram->paginate($instagram->user()->getMedia('268047373'))->get());
+
+//if (!isset($_GET['code'])) {
 
      // If we don't have an authorization code then get one
-     header('Location: '.$instagram->getLoginUrl());
-     exit;
+//     header('Location: '.$instagram->getLoginUrl());
+//     exit;
 
-} else {
-     $token = $instagram->getAccessToken($_GET['code']);
+//} else {
+//     $token = $instagram->getAccessToken($_GET['code']);
      // echo json_encode($token);
 
-    echo json_encode($instagram->user()->get('268047373')->get());
+//    echo json_encode($instagram->user()->get('268047373')->get());
     // echo json_encode($instagram->user()->find('skrawg')->get());
     // echo json_encode($instagram->user()->getMedia('268047373')->get());
     // echo json_encode($instagram->user()->getLikedMedia()->get());
     // echo json_encode($instagram->user()->search('skrawg')->get());
-}
+//}

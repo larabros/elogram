@@ -79,6 +79,19 @@ final class Client
         return Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
     }
 
+    public function rawRequest($method, $uri, array $parameters = [])
+    {
+        try {
+            $response = $this->guzzle->$method($uri, $parameters);
+        } catch (ClientException $e) {
+            throw $e;
+        } catch (Exception $e) {
+            throw $e;
+        }
+
+        return Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
+    }
+
     /**
      * @inheritDoc
      * @TODO Make this a middleware instead.

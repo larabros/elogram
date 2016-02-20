@@ -163,26 +163,25 @@ final class Instagram
 
     /**
      * Paginates a `Response`. The pagination limit is set by `$limit`,
-     * setting it to 0 will paginate as far as possible.
+     * setting it to `null` will paginate as far as possible.
      *
      * @param Response $response
      * @param int      $limit
      * @return mixed
      */
-    public function paginate(Response $response, $limit = 0)
+    public function paginate(Response $response, $limit = null)
     {
-        $responseStack = [$response];
+        $count = 0;
+        $responseStack = [$response->get()];
         $nextUrl       = $response->next();
 
-//        var_dump($nextUrl);
-//        while($nextUrl !== null) {
-//            var_dump($nextUrl);
-//            $response = $this->getClient()->request('GET', $nextUrl);
-//            $responseStack[] = $response;
-//            $nextUrl = $response->next();
-//        }
+        while($nextUrl !== null || $limit !== null && $count === $limit) {
+            $nextResponse    = $this->getClient()->rawRequest('GET', $nextUrl);
+            $responseStack[] = $nextResponse->get();
+            $nextUrl         = $nextResponse->next();
+            $count++;
+        }
 
-        return $responseStack;
-//        return $this->client->request('GET', $response->next());
+        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));
     }
 }

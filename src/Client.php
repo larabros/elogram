@@ -95,8 +95,8 @@ final class Client
         $nextUrl       = $response->next();
 
         while($nextUrl !== null || $limit !== null && $count === $limit) {
-            $nextResponseData = $this->guzzle->get($nextUrl)->getBody()->getContents();
-            $nextResponse     = Response::createFromResponse(json_decode($nextResponseData, true));
+            $nextResponseJson = $this->guzzle->get($nextUrl)->getBody()->getContents();
+            $nextResponse     = Response::createFromResponse(json_decode($nextResponseJson, true));
 
             $responseStack[] = $nextResponse->get();
             $nextUrl         = $nextResponse->next();

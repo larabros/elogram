@@ -58,7 +58,7 @@ echo json_encode($response->get());
 
 ### Paginating requests
 
-You can also paginate requests if the need arises. The `Response` object returned contains the data from the multiple requests combined, including the first one. 
+You can also paginate requests if the need arises. The `Response` object returned contains the data from the multiple requests combined, including the first one.
 
 ``` php
 $instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);

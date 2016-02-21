@@ -4,3 +4,6 @@ TODO
 - Add tests
 - Test pagination limiting properly
 - Add more useful domain-specific exceptions
+
+- Signed requests
+- 

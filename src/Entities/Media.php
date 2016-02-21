@@ -2,7 +2,6 @@
 
 namespace Instagram\Entities;
 
-use Instagram\Client;
 use Instagram\Http\Response;
 
 /**
@@ -13,23 +12,8 @@ use Instagram\Http\Response;
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class Media
+class Media extends AbstractEntity
 {
-    /**
-     * @var Client
-     */
-    protected $client;
-
-    /**
-     * Creates a new instance of `Media`.
-     *
-     * @param Client $client
-     */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
-
     /**
      * Retrieves information for a media object with `$id`.
      *

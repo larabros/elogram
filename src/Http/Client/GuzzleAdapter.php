@@ -62,19 +62,14 @@ final class GuzzleAdapter implements AdapterInterface
 
         // Set `$count`, save the response data and get the next URL
         // @TODO: Remove $count
-        $count         = 0;
         $responseStack = [$response->get()];
         $nextUrl       = $response->nextUrl();
 
         // If we run out of pages OR reach `$limit`, then stop and return response
-        while($nextUrl !== null || ($limit !== null && $count === $limit)) {
-            $nextResponseJson = $this->guzzle->get($nextUrl)->getBody()->getContents();
-//            $nextResponseJson = $this->request('GET', $nextUrl)->getBody()->getContents();
-            $nextResponse     = Response::createFromResponse(json_decode($nextResponseJson, true));
-
+        while($nextUrl !== null || ($limit !== null && count($responseStack) <= $limit)) {
+            $nextResponse    = $this->request('GET', $nextUrl);
             $responseStack[] = $nextResponse->get();
             $nextUrl         = $nextResponse->nextUrl();
-            $count++;
         }
 
         return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));

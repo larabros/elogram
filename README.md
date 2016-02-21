@@ -19,12 +19,57 @@ $ composer require hassankhan/instagram-sdk
 
 ## Usage
 
-To make requests to the Instagram API, you first need an access token. First, create an instance of `Instagram`.
+### Retrieving an access token 
+
+To make requests to the Instagram API, you first need an access token. The `$clientId`, `$clientSecret` and `$redirectUrl` **must** be the same as what you see in the [Instagram Developer Panel](https://www.instagram.com/developer/clients/manage/):
 
 ``` php
-$instagram = new \Instagram\Instagram($clientId, $clientSecret);
-$instagram->user()->search('skrawg');
+$instagram = new \Instagram\Instagram($clientId, $clientSecret, null, $redirectUrl);
+$helper    = $instagram->getLoginHelper();
+
+// If we don't have an authorization code then get one
+if (!isset($_GET['code'])) {
+    header('Location: ' . $helper->getLoginUrl());
+    exit;
+} else {
+    $token = $helper->getAccessToken($_GET['code']);
+    echo json_encode($token);
+}
 ```
+
+Now, when you navigate to your page, you should be redirected to an Instagram login page. After logging in, you should be redirected back to your page and you should be able to see your access token. Copy the whole string and save for future use.
+
+### Making requests with an access token
+
+Once you have retrieved an access token, use it to instantiate
+
+``` php
+$instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
+
+header('Content-Type: application/json');
+$response = $instagram->media()->search(51.503349, -0.252271);
+echo json_encode($response->get());
+```
+
+### Paginating requests
+
+You can also paginate requests if the need arises. The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` parameter to `Instagram::paginate()`, which sets the number of pages to request.
+
+``` php
+$instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
+
+header('Content-Type: application/json');
+$response = $instagram->media()->search(51.503349, -0.252271);
+$response = $instagram->paginate($response, 5);
+echo json_encode($response->get());
+```
+
+## Methods
+
+Check [the API documentation]() for detailed descriptions on available methods:
+
+- [User]()
+- [Media]()
 
 ## Change log
 

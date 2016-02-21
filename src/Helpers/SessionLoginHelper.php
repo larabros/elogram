@@ -75,9 +75,4 @@ class SessionLoginHelper implements LoginHelperInterface
         }
         return;
     }
-
-    public function __destroy()
-    {
-        session_write_close();
-    }
 }

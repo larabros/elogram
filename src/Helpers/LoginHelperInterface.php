@@ -17,9 +17,11 @@ interface LoginHelperInterface
     /**
      * Sets CSRF nonce and returns the login URL.
      *
+     * @param array $options
+     *
      * @return string
      */
-    public function getLoginUrl();
+    public function getLoginUrl(array $options);
 
     /**
      * Validates CSRF and returns the access token.

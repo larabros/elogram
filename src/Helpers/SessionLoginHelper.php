@@ -36,11 +36,11 @@ class SessionLoginHelper implements LoginHelperInterface
     /**
      * @inheritDoc
      */
-    public function getLoginUrl()
+    public function getLoginUrl(array $options = [])
     {
         $this->setCsrf();
 
-        return $this->provider->getAuthorizationUrl();
+        return $this->provider->getAuthorizationUrl($options);
     }
 
     /**

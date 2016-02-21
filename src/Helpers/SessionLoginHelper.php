@@ -46,13 +46,11 @@ class SessionLoginHelper implements LoginHelperInterface
     /**
      * @inheritDoc
      */
-    public function getAccessToken($grant = 'authorization_code', $options = [])
+    public function getAccessToken($code, $grant = 'authorization_code')
     {
         $this->validateCsrf();
 
-        return $this->provider->getAccessToken($grant, array_merge([
-            'code' => $_GET['code']
-        ], $options));
+        return $this->provider->getAccessToken($grant, ['code' => $code]);
     }
 
     /**

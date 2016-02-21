@@ -24,10 +24,11 @@ interface LoginHelperInterface
     /**
      * Validates CSRF and returns the access token.
      *
+     * @param string $code
      * @param string $grant
-     * @param array  $options
      *
      * @return AccessToken
+     *
      */
-    public function getAccessToken($grant = 'authorization_code', $options = []);
+    public function getAccessToken($code, $grant = 'authorization_code');
 }

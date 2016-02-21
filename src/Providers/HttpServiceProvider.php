@@ -3,8 +3,11 @@
 namespace Instagram\Providers;
 
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\HandlerStack;
 use Instagram\Client;
 use Instagram\Helpers\SessionLoginHelper;
+use Instagram\Http\AuthMiddleware;
+use Instagram\Http\Client\GuzzleAdapter;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
@@ -53,11 +56,18 @@ class HttpServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()->add('helper', new SessionLoginHelper($this->getContainer()->get('provider')));
 
-        $this->getContainer()->add('http', new Client(new GuzzleClient(['base_uri' => $config->get('base_uri')])));
+        // If access token is set and valid, then create handler stack and set access token
+        // on client
 
-        // Check if provided, then set, otherwise not
+        // Check if access token was provided, then set, otherwise not
         if ($config->has('access_token')) {
-            $this->getContainer()->get('http')->setAccessToken(new AccessToken(json_decode($config->get('access_token'), true)));
+            $stack = HandlerStack::create();
+            $stack->push(AuthMiddleware::create($config->get('access_token')));
+            $this->getContainer()->add('http', new GuzzleAdapter(new GuzzleClient([
+                'base_uri' => $config->get('base_uri'),
+                'handler'  => $stack,
+            ])));
+//            $this->getContainer()->get('http')->setAccessToken();
         }
     }
 }

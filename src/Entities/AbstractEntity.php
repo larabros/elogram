@@ -2,7 +2,7 @@
 
 namespace Instagram\Entities;
 
-use Instagram\Client;
+use Instagram\Http\Client\AdapterInterface;
 
 /**
  * AbstractEntity
@@ -22,12 +22,10 @@ abstract class AbstractEntity
     /**
      * Creates a new instance of `User`.
      *
-     * @param Client|ClientInterface $client
+     * @param AdapterInterface $client
      */
-    public function __construct(Client $client)
+    public function __construct(AdapterInterface $client)
     {
         $this->client = $client;
     }
-
-
 }

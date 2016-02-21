@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram;
+namespace Instagram\Http\Client;
 
 use Exception;
 use GuzzleHttp\ClientInterface;
@@ -16,16 +16,8 @@ use League\OAuth2\Client\Token\AccessToken;
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-final class Client
+final class GuzzleAdapter implements AdapterInterface
 {
-    /**
-     * The OAuth token, obtained after logging in or provided through the
-     * constructor.
-     *
-     * @var AccessToken|null
-     */
-    protected $token;
-
     /**
      * The Guzzle client instance.
      *
@@ -34,41 +26,22 @@ final class Client
     protected $guzzle;
 
     /**
-     * @inheritDoc
+     * Creates a new instance of `GuzzleAdapter`.
+     *
+     * @param ClientInterface $guzzle
      */
-    public function __construct(ClientInterface $guzzle = null, AccessToken $token = null)
+    public function __construct(ClientInterface $guzzle)
     {
         $this->guzzle = $guzzle;
-        $this->token  = $token;
-    }
-
-    public function setAccessToken(AccessToken $token)
-    {
-        $this->token = $token;
     }
 
     /**
-     * Sends a HTTP request using `$method` to the given `$uri`, with
-     * `$parameters` if provided.
-     *
-     * Use this method in subclasses as a convenient way of making requests
-     * with built-in exception-handling.
-     *
-     * @param  string $method
-     * @param  string $uri
-     * @param  array $parameters
-     * @return mixed
-     *
-     * @throws ClientException
-     * @throws Exception If an invalid HTTP method is specified
+     * @inheritDoc
      */
     public function request($method, $uri, array $parameters = [])
     {
         try {
-            $response = $this->guzzle->$method(
-                $uri,
-                $this->createRequestParameters($parameters)
-            );
+            $response = $this->guzzle->$method($uri, $parameters);
         } catch (ClientException $e) {
             throw $e;
         } catch (Exception $e) {
@@ -79,13 +52,7 @@ final class Client
     }
 
     /**
-     * Paginates a `Response`. The pagination limit is set by `$limit` -
-     * setting it to `null` will paginate as far as possible.
-     *
-     * @param Response $response
-     * @param int      $limit
-     *
-     * @return Response
+     * @inheritDoc
      */
     public function paginate(Response $response, $limit = null)
     {
@@ -103,6 +70,7 @@ final class Client
         // If we run out of pages OR reach `$limit`, then stop and return response
         while($nextUrl !== null || ($limit !== null && $count === $limit)) {
             $nextResponseJson = $this->guzzle->get($nextUrl)->getBody()->getContents();
+//            $nextResponseJson = $this->request('GET', $nextUrl)->getBody()->getContents();
             $nextResponse     = Response::createFromResponse(json_decode($nextResponseJson, true));
 
             $responseStack[] = $nextResponse->get();
@@ -111,23 +79,5 @@ final class Client
         }
 
         return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));
-    }
-
-    /**
-     * @inheritDoc
-     * @TODO Make this a middleware instead.
-     */
-    protected function createRequestParameters($parameters = [])
-    {
-        $parameters = array_merge_recursive([
-            'query' => [
-                'access_token'  => $this->token->getToken(),
-            ],
-            'headers' => [
-                'Content-Type' => 'application/json',
-            ],
-        ], $parameters);
-
-        return array_map('array_filter', $parameters);
     }
 }

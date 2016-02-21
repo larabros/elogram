@@ -21,7 +21,7 @@ class Media extends AbstractEntity
      *
      * @return Response
      *
-     * @see https://www.instagram.com/developer/endpoints/media/#get_media
+     * @see <https://www.instagram.com/developer/endpoints/media/#get_media>
      */
     public function get($id)
     {
@@ -35,7 +35,7 @@ class Media extends AbstractEntity
      *
      * @return Response
      *
-     * @see https://www.instagram.com/developer/endpoints/media/#get_media_by_shortcode
+     * @see <https://www.instagram.com/developer/endpoints/media/#get_media_by_shortcode>
      */
     public function getByShortcode($shortcode)
     {
@@ -47,29 +47,23 @@ class Media extends AbstractEntity
      * Optionally, `$minTimestamp`, $maxTimestamp` and `$distance` can also be
      * provided to limit the search.
      *
-     * @param int      $latitude
-     * @param int      $longitude
-     * @param int|null $minTimestamp
-     * @param int|null $maxTimestamp
-     * @param int|null $distance
+     * @param int $latitude   Latitude of the center search coordinate. If used, lng is required
+     * @param int $longitude  Longitude of the center search coordinate. If used, lat is required
+     * @param int $distance   The distance in kilometres. Default is 1km (distance=1000), max distance is 5km.
      *
      * @return Response
      *
-     * @see https://www.instagram.com/developer/endpoints/media/#get_media_search
+     * @see <https://www.instagram.com/developer/endpoints/media/#get_media_search>
      */
     public function search(
         $latitude,
         $longitude,
-        $minTimestamp = null,
-        $maxTimestamp = null,
-        $distance = null
+        $distance = 1000
     ) {
         $params = [
             'query' => [
                 'lat'           => $latitude,
                 'lng'           => $longitude,
-                'min_timestamp' => $minTimestamp,
-                'max_timestamp' => $maxTimestamp,
                 'distance'      => $distance,
             ],
         ];

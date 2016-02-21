@@ -60,8 +60,7 @@ final class GuzzleAdapter implements AdapterInterface
             return $response;
         }
 
-        // Set `$count`, save the response data and get the next URL
-        // @TODO: Remove $count
+        // Add the response data to the stack and get the next URL
         $responseStack = [$response->get()];
         $nextUrl       = $response->nextUrl();
 

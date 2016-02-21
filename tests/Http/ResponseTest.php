@@ -1,10 +1,11 @@
 <?php
 
-namespace Instagram\Tests;
+namespace Instagram\Tests\Http;
 
 use Instagram\Http\Response;
+use Instagram\Tests\TestCase;
 
-class ResponseTest extends \PHPUnit_Framework_TestCase
+class ResponseTest extends TestCase
 {
     protected $response;
 
@@ -36,14 +37,14 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('image', $this->response->get()['type']);
     }
 
-    public function testNext()
+    public function testNextUrl()
     {
         $this->markTestIncomplete();
     }
 
     public function testNextWithNoPagination()
     {
-        $this->assertNull($this->response->next());
+        $this->assertNull($this->response->nextUrl());
     }
 
     public function testToString()

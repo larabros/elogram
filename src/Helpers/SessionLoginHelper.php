@@ -28,7 +28,7 @@ class SessionLoginHelper implements LoginHelperInterface
     public function __construct(InstagramProvider $provider)
     {
         $this->provider = $provider;
-        if (session_status() == PHP_SESSION_NONE) {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
     }
@@ -74,5 +74,10 @@ class SessionLoginHelper implements LoginHelperInterface
             throw new CsrfException('Invalid state');
         }
         return;
+    }
+
+    public function __destroy()
+    {
+        session_write_close();
     }
 }

@@ -38,14 +38,6 @@ class SessionLoginHelperTest extends TestCase
 
     /**
      * @covers Instagram\Helpers\SessionLoginHelper::__construct()
-     * @runInSeparateProcess
-     */
-    public function testSessionIsNotRestarted()
-    {
-        $this->markTestIncomplete();
-    }
-
-    /**
      * @covers Instagram\Helpers\SessionLoginHelper::getLoginUrl()
      * @covers Instagram\Helpers\SessionLoginHelper::setCsrf()
      * @runInSeparateProcess
@@ -57,6 +49,7 @@ class SessionLoginHelperTest extends TestCase
     }
 
     /**
+     * @covers Instagram\Helpers\SessionLoginHelper::__construct()
      * @covers Instagram\Helpers\SessionLoginHelper::getAccessToken()
      * @covers Instagram\Helpers\SessionLoginHelper::validateCsrf()
      * @runInSeparateProcess
@@ -70,13 +63,14 @@ class SessionLoginHelperTest extends TestCase
     }
 
     /**
+     * @covers Instagram\Helpers\SessionLoginHelper::__construct()
      * @covers Instagram\Helpers\SessionLoginHelper::getAccessToken()
      * @covers Instagram\Helpers\SessionLoginHelper::validateCsrf()
-     * @expectedException CsrfException
      * @runInSeparateProcess
      */
     public function testGetAccessTokenWithInvalidCsrf()
     {
+        $this->setExpectedException(CsrfException::class);
         $this->helper->getAccessToken('1234')->getToken();
 
     }

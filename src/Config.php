@@ -2,6 +2,7 @@
 
 namespace Instagram;
 
+use League\OAuth2\Client\Token\AccessToken;
 use Noodlehaus\AbstractConfig;
 
 /**
@@ -21,7 +22,13 @@ class Config extends AbstractConfig
      */
     public function __construct(array $data)
     {
-        $this->data = array_merge(array_filter($this->getDefaults()), array_filter($data));
+        $filteredData = array_merge(array_filter($this->getDefaults()), array_filter($data));
+
+        if (array_key_exists('access_token', $filteredData)) {
+            $filteredData['access_token'] = new AccessToken(json_decode($filteredData['access_token'], true));
+        }
+
+        $this->data = $filteredData;
     }
 
     protected function getDefaults()

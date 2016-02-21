@@ -15,10 +15,6 @@ class ResponseTest extends TestCase
         $this->response = new Response($data['meta'], $data['data']);
     }
 
-    protected function tearDown()
-    {
-    }
-
     public function testCreateFromJson()
     {
         $response = Response::createFromResponse(json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true));

@@ -21,10 +21,15 @@ $ composer require hassankhan/instagram-sdk
 
 ### Retrieving an access token
 
-To make requests to the Instagram API, you first need an access token. The `$clientId`, `$clientSecret` and `$redirectUrl` **must** be the same as what you see in the [Instagram Developer Panel](https://www.instagram.com/developer/clients/manage/):
+To make requests to the Instagram API, you need an access token. To do this, first instantiate `Instagram` - the `$clientId`, `$clientSecret` and `$redirectUrl` **must** be the same as what you see in the [Instagram Developer Panel](https://www.instagram.com/developer/clients/manage/):
 
 ``` php
 $instagram = new \Instagram\Instagram($clientId, $clientSecret, null, $redirectUrl);
+```
+
+Then retrieve the login helper object and check whether to redirect or retrieve an access token:
+
+```php
 $helper    = $instagram->getLoginHelper();
 
 // If we don't have an authorization code then get one
@@ -37,11 +42,11 @@ if (!isset($_GET['code'])) {
 }
 ```
 
-Now, when you navigate to your page, you should be redirected to an Instagram login page. After logging in, you should be redirected back to your page and you should be able to see your access token. Copy the whole string and save for future use.
+After logging in, you should be redirected back to the `$redirectUri` and you should be able to see your access token. Copy the whole JSON string and save for future use.
 
 ### Making requests with an access token
 
-Once you have retrieved an access token, use it to instantiate
+Once you have retrieved an access token, use it to instantiate:
 
 ``` php
 $instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
@@ -53,7 +58,7 @@ echo json_encode($response->get());
 
 ### Paginating requests
 
-You can also paginate requests if the need arises. The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` parameter to `Instagram::paginate()`, which sets the number of pages to request.
+You can also paginate requests if the need arises. The `Response` object returned contains the data from the multiple requests combined, including the first one. 
 
 ``` php
 $instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
@@ -63,6 +68,8 @@ $response = $instagram->media()->search(51.503349, -0.252271);
 $response = $instagram->paginate($response, 5);
 echo json_encode($response->get());
 ```
+
+You can also pass a `$limit` parameter to `Instagram::paginate()`, which sets the number of pages to request.
 
 ## Methods
 

@@ -19,7 +19,7 @@ $ composer require hassankhan/instagram-sdk
 
 ## Usage
 
-### Retrieving an access token 
+### Retrieving an access token
 
 To make requests to the Instagram API, you first need an access token. The `$clientId`, `$clientSecret` and `$redirectUrl` **must** be the same as what you see in the [Instagram Developer Panel](https://www.instagram.com/developer/clients/manage/):
 
@@ -66,10 +66,10 @@ echo json_encode($response->get());
 
 ## Methods
 
-Check [the API documentation]() for detailed descriptions on available methods:
+Check [the API documentation](http://hassankhan.me/instagram-sdk/docs/) for detailed descriptions on available methods:
 
-- [User]()
-- [Media]()
+- [User](http://hassankhan.me/instagram-sdk/docs/class-Instagram.Entities.User.html)
+- [Media](http://hassankhan.me/instagram-sdk/docs/class-Instagram.Entities.Media.html)
 
 ## Change log
 

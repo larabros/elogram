@@ -6,7 +6,6 @@ use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use Instagram\Http\Response;
-use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Instagram client class.

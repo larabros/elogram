@@ -2,6 +2,7 @@
 
 namespace Instagram\Entities;
 
+use GuzzleHttp\ClientInterface;
 use Instagram\Http\Client\AdapterInterface;
 
 /**

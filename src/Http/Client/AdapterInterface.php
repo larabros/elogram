@@ -2,6 +2,8 @@
 
 namespace Instagram\Http\Client;
 
+use Exception;
+use GuzzleHttp\Exception\ClientException;
 use Instagram\Http\Response;
 
 interface AdapterInterface

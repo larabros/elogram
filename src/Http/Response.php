@@ -12,9 +12,24 @@ namespace Instagram\Http;
  */
 class Response
 {
+    /**
+     * @var array
+     */
     protected $raw;
+
+    /**
+     * @var array
+     */
     protected $meta;
+
+    /**
+     * @var array
+     */
     protected $data;
+
+    /**
+     * @var array
+     */
     protected $pagination;
 
     /**

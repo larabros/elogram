@@ -4,11 +4,12 @@ namespace Instagram;
 
 use Instagram\Entities\Media;
 use Instagram\Entities\User;
+use Instagram\Helpers\LoginHelperInterface;
+use Instagram\Http\Client\AdapterInterface;
 use Instagram\Http\Response;
 use Instagram\Providers\EntityServiceProvider;
 use Instagram\Providers\HttpServiceProvider;
 use League\Container\Container;
-use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Instagram class.
@@ -21,6 +22,11 @@ use League\OAuth2\Client\Token\AccessToken;
 final class Instagram
 {
 
+    /**
+     * A list of default provider classes
+     *
+     * @var array
+     */
     protected $defaultProviders = [
         HttpServiceProvider::class,
         EntityServiceProvider::class,
@@ -58,6 +64,16 @@ final class Instagram
         $this->registerServiceProviders($providers);
     }
 
+    /**
+     * Creates a `Config` object from raw parameters.
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param null   $accessToken
+     * @param string $redirectUrl
+     *
+     * @return Config
+     */
     protected function createConfig($clientId, $clientSecret, $accessToken = null, $redirectUrl)
     {
         return new Config([
@@ -80,16 +96,25 @@ final class Instagram
         }
     }
 
+    /**
+     * @return Config
+     */
     public function getConfig()
     {
         return $this->container->get('config');
     }
 
+    /**
+     * @return LoginHelperInterface
+     */
     public function getLoginHelper()
     {
         return $this->container->get('helper');
     }
 
+    /**
+     * @return AdapterInterface
+     */
     public function getClient()
     {
         return $this->container->get('http');

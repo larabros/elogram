@@ -31,6 +31,9 @@ class Config extends AbstractConfig
         $this->data = $filteredData;
     }
 
+    /**
+     * @inheritDoc
+     */
     protected function getDefaults()
     {
         return [

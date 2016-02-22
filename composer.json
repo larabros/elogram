@@ -26,8 +26,7 @@
         "phpunit/phpunit" : "4.*",
         "scrutinizer/ocular": "~1.1",
         "vlucas/phpdotenv": "^2.2",
-        "mockery/mockery": "^0.9.4",
-        "laravel/homestead": "^3.0"
+        "mockery/mockery": "^0.9.4"
     },
     "autoload": {
         "psr-4": {

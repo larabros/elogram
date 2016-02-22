@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram\Http;
+namespace Instagram\Http\Middleware;
 
 use GuzzleHttp\Psr7\Uri;
 use League\OAuth2\Client\Token\AccessToken;

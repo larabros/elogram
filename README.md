@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A modern Instagram SDK for PHP 5.4+.
+A modern Instagram SDK for PHP 5.5+.
 
 ## Install
 

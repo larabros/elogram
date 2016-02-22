@@ -6,11 +6,10 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use Instagram\Client;
 use Instagram\Helpers\SessionLoginHelper;
-use Instagram\Http\AuthMiddleware;
 use Instagram\Http\Client\GuzzleAdapter;
+use Instagram\Http\Middleware\AuthMiddleware;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
-use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * HttpServiceProvider

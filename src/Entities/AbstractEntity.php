@@ -2,7 +2,6 @@
 
 namespace Instagram\Entities;
 
-use GuzzleHttp\ClientInterface;
 use Instagram\Http\Client\AdapterInterface;
 
 /**
@@ -16,7 +15,7 @@ use Instagram\Http\Client\AdapterInterface;
 abstract class AbstractEntity
 {
     /**
-     * @var ClientInterface
+     * @var AdapterInterface
      */
     protected $client;
 

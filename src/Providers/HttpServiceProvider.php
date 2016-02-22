@@ -66,7 +66,6 @@ class HttpServiceProvider extends AbstractServiceProvider
                 'base_uri' => $config->get('base_uri'),
                 'handler'  => $stack,
             ])));
-//            $this->getContainer()->get('http')->setAccessToken();
         }
     }
 }

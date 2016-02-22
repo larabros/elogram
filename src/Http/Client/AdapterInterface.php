@@ -18,7 +18,8 @@ interface AdapterInterface
      * @param  string $method
      * @param  string $uri
      * @param  array $parameters
-     * @return mixed
+     *
+     * @return Response
      *
      * @throws ClientException
      * @throws Exception If an invalid HTTP method is specified

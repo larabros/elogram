@@ -6,7 +6,7 @@ use GuzzleHttp\Psr7\Uri;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\RequestInterface;
 
-class AuthMiddleware
+final class AuthMiddleware
 {
     /**
      * The next handler in the stack.

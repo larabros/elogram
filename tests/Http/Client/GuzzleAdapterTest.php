@@ -2,7 +2,11 @@
 
 namespace Instagram\Tests\Http\Client;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use Instagram\Http\Client\GuzzleAdapter;
 use Instagram\Tests\TestCase;
+use Mockery as m;
 
 class GuzzleAdapterTest extends TestCase
 {
@@ -10,16 +14,18 @@ class GuzzleAdapterTest extends TestCase
 
     protected function setUp()
     {
-        // $data = json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true);
-        // $this->adapter = new Response($data['meta'], $data['data']);
+        $this->adapter = new GuzzleAdapter(new Client(['base_uri' => 'https://httpbin.org/']));
     }
 
     /**
+     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
      * @covers Instagram\Http\Client\GuzzleAdapter::request()
      */
     public function testRequest()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $expected = ['meta' => ['code' => 200], 'data' => ['foo' => 'bar']];
+        $actual   = $this->adapter->request('POST', '/post', ['json' => $expected]);
+        $this->assertEquals($expected, json_decode($actual->get(), true));
     }
 
     /**
@@ -27,7 +33,8 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testBadRequest()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->setExpectedException(ClientException::class);
+        $this->adapter->request('GET', '/popopopop');
     }
 
     /**

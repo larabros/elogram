@@ -60,7 +60,11 @@ class Response
      */
     public static function createFromResponse(array $response)
     {
-        return new static($response['meta'], $response['data'], $response['pagination'] ?: []);
+        $meta       = array_key_exists('meta', $response)       ? $response['meta']       : ['code' => 200];
+        $data       = array_key_exists('data', $response)       ? $response['data']       : $response;
+        $pagination = array_key_exists('pagination', $response) ? $response['pagination'] : [];
+
+        return new static($meta, $data, $pagination);
     }
 
     /**

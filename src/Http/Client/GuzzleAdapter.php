@@ -47,7 +47,7 @@ final class GuzzleAdapter implements AdapterInterface
             throw $e;
         }
 
-        return Response::createFromResponse(json_decode($response->getBody()->getContents(), true));
+        return Response::createFromJson(json_decode($response->getBody()->getContents(), true));
     }
 
     /**

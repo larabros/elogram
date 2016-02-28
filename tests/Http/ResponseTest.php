@@ -17,7 +17,7 @@ class ResponseTest extends TestCase
 
     public function testCreateFromJson()
     {
-        $response = Response::createFromResponse(json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true));
+        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true));
         $this->assertEquals($this->response, $response);
     }
 

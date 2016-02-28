@@ -58,7 +58,7 @@ class Response
      *
      * @return static
      */
-    public static function createFromResponse(array $response)
+    public static function createFromJson(array $response)
     {
         $meta       = array_key_exists('meta', $response)       ? $response['meta']       : ['code' => 200];
         $data       = array_key_exists('data', $response)       ? $response['data']       : $response;

@@ -2,19 +2,23 @@
 
 namespace Instagram\Tests\Http\Client;
 
+use Guzzle\Http\Message\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Response;
 use Instagram\Http\Client\GuzzleAdapter;
 use Instagram\Tests\TestCase;
 use Mockery as m;
 
 class GuzzleAdapterTest extends TestCase
 {
-    protected $adapter;
+    protected $guzzleMock;
 
     protected function setUp()
     {
-        $this->adapter = new GuzzleAdapter(new Client(['base_uri' => 'https://httpbin.org/']));
+        $this->guzzleMock = m::mock(Client::class);
+//        $this->guzzleMock->shouldReceive('get')->zeroOrMoreTimes();
+//        $this->adapter = new GuzzleAdapter(new Client(['base_uri' => 'https://httpbin.org/']));
     }
 
     /**
@@ -23,9 +27,13 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testRequest()
     {
-        $expected = ['meta' => ['code' => 200], 'data' => ['foo' => 'bar']];
-        $actual   = $this->adapter->request('POST', '/post', ['json' => $expected]);
-        $this->assertEquals($expected, json_decode($actual->get(), true));
+        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
+        $response = new Response(200, [], $json);
+        $this->guzzleMock->shouldReceive('requestAsync')->once()->andReturn($response);
+
+        $adapter  = new GuzzleAdapter($this->guzzleMock);
+        $actual   = $adapter->request('GET', '/');
+        $this->assertEquals($json, (string) $actual);
     }
 
     /**
@@ -34,8 +42,11 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testBadRequest()
     {
+        $exception = new ClientException('test', new \GuzzleHttp\Psr7\Request('GET', '['));
+        $this->guzzleMock->shouldReceive('requestAsync')->once()->andThrow($exception);
+        $adapter = new GuzzleAdapter($this->guzzleMock);
         $this->setExpectedException(ClientException::class);
-        $this->adapter->request('GET', '/popopopop');
+        $adapter->request('GET', '[');
     }
 
     /**
@@ -45,8 +56,12 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginateSingleResponse()
     {
-        $expected = ['meta' => ['code' => 200], 'data' => ['foo' => 'bar']];
-        $actual   = $this->adapter->paginate($this->adapter->request('POST', '/post', ['json' => $expected]));
+        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
+        $response = new Response(200, [], $json);
+        $this->guzzleMock->shouldReceive('requestAsync')->once()->andReturn($response);
+
+        $adapter = new GuzzleAdapter($this->guzzleMock);
+        $actual  = $adapter->paginate($adapter->request('GET', '/'));
         $this->assertFalse($actual->hasPages());
     }
 

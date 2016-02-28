@@ -15,12 +15,20 @@ class ResponseTest extends TestCase
         $this->response = new Response($data['meta'], $data['data']);
     }
 
+    /**
+     * @covers Instagram\Http\Response::createFromJson()
+     * @covers Instagram\Http\Response::__construct()
+     */
     public function testCreateFromJson()
     {
         $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true));
         $this->assertEquals($this->response, $response);
     }
 
+    /**
+     * @covers Instagram\Http\Response::__construct()
+     * @covers Instagram\Http\Response::getRaw()
+     */
     public function testGetRaw()
     {
         $raw = $this->response->getRaw();
@@ -28,23 +36,41 @@ class ResponseTest extends TestCase
         $this->assertEquals(200, $raw['meta']['code']);
     }
 
+    /**
+     * @covers Instagram\Http\Response::__construct()
+     * @covers Instagram\Http\Response::get()
+     */
     public function testGet()
     {
         $this->assertEquals('image', $this->response->get()['type']);
     }
 
+    /**
+     * @covers Instagram\Http\Response::__construct()
+     * @covers Instagram\Http\Response::nextUrl()
+     * @covers Instagram\Http\Response::hasPages()
+     */
     public function testNextUrl()
     {
         $this->markTestIncomplete();
     }
 
+    /**
+     * @covers Instagram\Http\Response::__construct()
+     * @covers Instagram\Http\Response::nextUrl()
+     * @covers Instagram\Http\Response::hasPages()
+     */
     public function testNextWithNoPagination()
     {
         $this->assertNull($this->response->nextUrl());
     }
 
+    /**
+     * @covers Instagram\Http\Response::__construct()
+     * @covers Instagram\Http\Response::__toString()
+     */
     public function testToString()
     {
-        $this->markTestIncomplete();
+        $this->assertEquals(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), (string) $this->response);
     }
 }

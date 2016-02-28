@@ -29,6 +29,7 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
+     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
      * @covers Instagram\Http\Client\GuzzleAdapter::request()
      */
     public function testBadRequest()
@@ -38,14 +39,30 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
+     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Client\GuzzleAdapter::request()
      * @covers Instagram\Http\Client\GuzzleAdapter::paginate()
      */
     public function testPaginateSingleResponse()
+    {
+        $expected = ['meta' => ['code' => 200], 'data' => ['foo' => 'bar']];
+        $actual   = $this->adapter->paginate($this->adapter->request('POST', '/post', ['json' => $expected]));
+        $this->assertFalse($actual->hasPages());
+    }
+
+    /**
+     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Client\GuzzleAdapter::request()
+     * @covers Instagram\Http\Client\GuzzleAdapter::paginate()
+     */
+    public function testPaginateWithLimit()
     {
         $this->markTestIncomplete('Not yet implemented');
     }
 
     /**
+     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Client\GuzzleAdapter::request()
      * @covers Instagram\Http\Client\GuzzleAdapter::paginate()
      */
     public function testPaginate()

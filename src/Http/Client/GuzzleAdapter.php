@@ -40,7 +40,7 @@ final class GuzzleAdapter implements AdapterInterface
     public function request($method, $uri, array $parameters = [])
     {
         try {
-            $response = $this->guzzle->requestAsync($method, $uri, $parameters);
+            $response = $this->guzzle->request($method, $uri, $parameters);
         } catch (ClientException $e) {
             throw $e;
         } catch (Exception $e) {

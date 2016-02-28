@@ -2,7 +2,6 @@
 
 namespace Instagram\Tests\Http\Client;
 
-use Guzzle\Http\Message\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
@@ -29,7 +28,7 @@ class GuzzleAdapterTest extends TestCase
     {
         $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
         $response = new Response(200, [], $json);
-        $this->guzzleMock->shouldReceive('requestAsync')->once()->andReturn($response);
+        $this->guzzleMock->shouldReceive('request')->once()->andReturn($response);
 
         $adapter  = new GuzzleAdapter($this->guzzleMock);
         $actual   = $adapter->request('GET', '/');
@@ -43,7 +42,7 @@ class GuzzleAdapterTest extends TestCase
     public function testBadRequest()
     {
         $exception = new ClientException('test', new \GuzzleHttp\Psr7\Request('GET', '['));
-        $this->guzzleMock->shouldReceive('requestAsync')->once()->andThrow($exception);
+        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
         $adapter = new GuzzleAdapter($this->guzzleMock);
         $this->setExpectedException(ClientException::class);
         $adapter->request('GET', '[');
@@ -58,7 +57,7 @@ class GuzzleAdapterTest extends TestCase
     {
         $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
         $response = new Response(200, [], $json);
-        $this->guzzleMock->shouldReceive('requestAsync')->once()->andReturn($response);
+        $this->guzzleMock->shouldReceive('request')->once()->andReturn($response);
 
         $adapter = new GuzzleAdapter($this->guzzleMock);
         $actual  = $adapter->paginate($adapter->request('GET', '/'));

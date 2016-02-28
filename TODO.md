@@ -1,9 +1,13 @@
 TODO
 
 - Add remaining entities
-- Add tests
-- Test pagination limiting properly
 - Add more useful domain-specific exceptions
 
+## Problems
+- Pagination limiting not working
+
+## Features
 - Signed requests
-- 
+
+## Tests
+- Create separate suite for Entities

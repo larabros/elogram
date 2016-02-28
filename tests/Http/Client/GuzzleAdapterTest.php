@@ -4,6 +4,7 @@ namespace Instagram\Tests\Http\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Instagram\Http\Client\GuzzleAdapter;
 use Instagram\Tests\TestCase;
@@ -16,8 +17,6 @@ class GuzzleAdapterTest extends TestCase
     protected function setUp()
     {
         $this->guzzleMock = m::mock(Client::class);
-//        $this->guzzleMock->shouldReceive('get')->zeroOrMoreTimes();
-//        $this->adapter = new GuzzleAdapter(new Client(['base_uri' => 'https://httpbin.org/']));
     }
 
     /**
@@ -41,7 +40,7 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testBadRequest()
     {
-        $exception = new ClientException('test', new \GuzzleHttp\Psr7\Request('GET', '['));
+        $exception = new ClientException('test', new Request('GET', '['));
         $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
         $adapter = new GuzzleAdapter($this->guzzleMock);
         $this->setExpectedException(ClientException::class);
@@ -81,6 +80,24 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginate()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $first      = file_get_contents(realpath(__DIR__ . '/../../fixtures/first-result.json'));
+        $firstPage  = new Response(200, [], $first);
+        $secondPage = new Response(200, [], $first);
+        $thirdPage  = new Response(200, [], $first);
+        $fourthPage = new Response(200, [], $first);
+
+        $last     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
+        $lastPage = new Response(200, [], $last);
+
+        $this->guzzleMock->shouldReceive('request')
+            ->zeroOrMoreTimes()
+            ->andReturn($firstPage, $secondPage, $thirdPage, $fourthPage, $lastPage);
+
+        $adapter   = new GuzzleAdapter($this->guzzleMock);
+        $response  = $adapter->request('GET', '/');
+        $this->assertTrue($response->hasPages());
+
+        $paginatedResponse = $adapter->paginate($response);
+        $this->assertFalse($paginatedResponse->hasPages());
     }
 }

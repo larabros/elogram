@@ -55,16 +55,13 @@ class Media extends AbstractEntity
      *
      * @see <https://www.instagram.com/developer/endpoints/media/#get_media_search>
      */
-    public function search(
-        $latitude,
-        $longitude,
-        $distance = 1000
-    ) {
+    public function search($latitude, $longitude, $distance = 1000)
+    {
         $params = [
             'query' => [
-                'lat'           => $latitude,
-                'lng'           => $longitude,
-                'distance'      => $distance,
+                'lat'      => $latitude,
+                'lng'      => $longitude,
+                'distance' => $distance,
             ],
         ];
 

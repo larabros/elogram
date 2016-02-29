@@ -37,9 +37,16 @@ final class MockAdapter implements AdapterInterface
     {
         $file = file_get_contents($this->mapRequestToFile($method, $uri));
         return Response::createFromJson(json_decode($file, true));
-
     }
 
+    /**
+     * Convenience method to quickly parse the correct file to load for a given
+     * `$method` and `$uri`.
+     *
+     * @param string $method
+     * @param string $uri
+     * @return string
+     */
     protected function mapRequestToFile($method, $uri)
     {
         $filename  = strtolower($method).'_';
@@ -53,22 +60,6 @@ final class MockAdapter implements AdapterInterface
      */
     public function paginate(Response $response, $limit = null)
     {
-        // If there's nothing to paginate, return response as-is
-        if (!$response->hasPages()) {
-            return $response;
-        }
-
-        // Add the response data to the stack and get the next URL
-        $responseStack = [$response->get()];
-        $nextUrl       = $response->nextUrl();
-
-        // If we run out of pages OR reach `$limit`, then stop and return response
-        while($nextUrl !== null || ($limit !== null && count($responseStack) <= $limit)) {
-            $nextResponse    = $this->request('GET', $nextUrl);
-            $responseStack[] = $nextResponse->get();
-            $nextUrl         = $nextResponse->nextUrl();
-        }
-
-        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));
+        return;
     }
 }

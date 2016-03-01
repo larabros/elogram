@@ -52,7 +52,9 @@ class ResponseTest extends TestCase
      */
     public function testNextUrl()
     {
-        $this->markTestIncomplete();
+        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/geography_recent_media.json'), true));
+        $this->assertTrue($response->hasPages());
+        $this->assertStringStartsWith('https://', $response->nextUrl());
     }
 
     /**
@@ -62,6 +64,7 @@ class ResponseTest extends TestCase
      */
     public function testNextWithNoPagination()
     {
+        $this->assertFalse($this->response->hasPages());
         $this->assertNull($this->response->nextUrl());
     }
 

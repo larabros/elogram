@@ -45,10 +45,13 @@ class Response
         $this->data       = $data;
         $this->pagination = $pagination;
         $this->raw        = [
-            'meta' => $this->meta,
+            'meta' => $meta,
             'data' => $data,
-            'pagination' => $this->pagination
         ];
+
+        if (!empty($pagination)) {
+            $this->raw['pagination'] = $pagination;
+        }
     }
 
     /**

@@ -2,8 +2,6 @@
 
 namespace Instagram\Http\Client;
 
-use Exception;
-use GuzzleHttp\Exception\ClientException;
 use Instagram\Http\Response;
 
 /**
@@ -24,10 +22,11 @@ final class MockAdapter implements AdapterInterface
     /**
      * Creates a new instance of `MockAdapter`.
      *
+     * @param string $fixturesPath
      */
-    public function __construct()
+    public function __construct($fixturesPath)
     {
-        $this->fixturesPath = realpath(__DIR__.'/../../../tests/fixtures/').'/';
+        $this->fixturesPath = $fixturesPath;
     }
 
     /**

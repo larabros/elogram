@@ -25,13 +25,13 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testRequest()
     {
-        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
+        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_media.json'));
         $response = new Response(200, [], $json);
         $this->guzzleMock->shouldReceive('request')->once()->andReturn($response);
 
         $adapter  = new GuzzleAdapter($this->guzzleMock);
         $actual   = $adapter->request('GET', '/');
-        $this->assertEquals($json, (string) $actual);
+        $this->assertJsonStringEqualsJsonString($json, (string) $actual);
     }
 
     /**
@@ -54,7 +54,7 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginateSingleResponse()
     {
-        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
+        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_media.json'));
         $response = new Response(200, [], $json);
         $this->guzzleMock->shouldReceive('request')->once()->andReturn($response);
 

@@ -11,7 +11,7 @@ class ResponseTest extends TestCase
 
     protected function setUp()
     {
-        $data = json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true);
+        $data = json_decode(file_get_contents(__DIR__ . '/../fixtures/get_media.json'), true);
         $this->response = new Response($data['meta'], $data['data']);
     }
 
@@ -21,7 +21,7 @@ class ResponseTest extends TestCase
      */
     public function testCreateFromJson()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), true));
+        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/get_media.json'), true));
         $this->assertEquals($this->response, $response);
     }
 
@@ -71,6 +71,6 @@ class ResponseTest extends TestCase
      */
     public function testToString()
     {
-        $this->assertEquals(file_get_contents(__DIR__ . '/../fixtures/single-result.json'), (string) $this->response);
+        $this->assertJsonStringEqualsJsonString(file_get_contents(__DIR__ . '/../fixtures/get_media.json'), (string) $this->response);
     }
 }

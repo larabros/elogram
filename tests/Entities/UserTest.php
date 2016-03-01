@@ -15,7 +15,7 @@ class UserTest extends TestCase
 
     protected function setUp()
     {
-        $this->user = new User(new MockAdapter());
+        $this->user = new User(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
     }
 
     /**
@@ -66,5 +66,15 @@ class UserTest extends TestCase
     {
         $response = $this->user->find('mikeyk')->get();
         $this->assertEquals('mikeyk', $response['username']);
+    }
+
+    /**
+     * @covers Instagram\Entities\User::__construct()
+     * @covers Instagram\Entities\User::find()
+     */
+    public function testFindReturnsNullWhenNothingFound()
+    {
+        $response = $this->user->find('quh');
+        $this->assertNull($response);
     }
 }

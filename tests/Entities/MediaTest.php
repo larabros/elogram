@@ -15,7 +15,7 @@ class MediaTest extends TestCase
 
     protected function setUp()
     {
-        $this->media = new Media(new MockAdapter());
+        $this->media = new Media(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
     }
 
     /**

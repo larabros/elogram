@@ -49,8 +49,8 @@ final class MockAdapter implements AdapterInterface
     protected function mapRequestToFile($method, $uri)
     {
         $filename  = strtolower($method).'_';
-        $uri       = str_replace('//', '_', preg_replace('/(\w{10}$|self|\d*)/', '', $uri));
-        $filename .= rtrim(str_replace('/', '_', $uri), '_').'.json';
+        $path      = preg_replace('/(\/\w{10}$|self|\d*)/', '', $uri);
+        $filename .= rtrim(preg_replace('/\/{1,2}|\-/', '_', $path), '_').'.json';
         return $this->fixturesPath.$filename;
     }
 

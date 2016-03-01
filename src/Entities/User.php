@@ -58,8 +58,8 @@ class User extends AbstractEntity
     }
 
     /**
-     * Retrieves all media liked by a user. This method only works for the owner
-     * of the access token being used to make the request.
+     * Retrieves all media liked by this user. This method only works for the
+     * owner of the access token being used to make the request.
      *
      * @param int|null $count      Count of media to return
      * @param int|null $maxLikeId  Return media liked before this id
@@ -126,5 +126,76 @@ class User extends AbstractEntity
             }
         }
         return null;
+    }
+
+    /**
+     * Returns a list of users this user follows. This method only works for the
+     * owner of the access token being used to make the request.
+     *
+     * @return Response
+     */
+    public function follows()
+    {
+        return $this->client->request('GET', 'users/self/follows');
+    }
+
+    /**
+     * Returns a list of users this user is followed by. This method only works
+     * for the owner of the access token being used to make the request.
+     *
+     * @return Response
+     */
+    public function followedBy()
+    {
+        return $this->client->request('GET', 'users/self/followed-by');
+    }
+
+    /**
+     * Returns a list of users who have requested this user's permission to
+     * follow. This method only works for the owner of the access token being
+     * used to make the request.
+     *
+     * @return Response
+     */
+    public function requestedBy()
+    {
+        return $this->client->request('GET', 'users/self/requested-by');
+    }
+
+    /**
+     * Get information about the relationship of the owner of the access token
+     * to another user.
+     *
+     * @param string $id
+     *
+     * @return Response
+     */
+    public function getRelationship($id)
+    {
+        return $this->client->request('GET', "users/$id/relationship");
+    }
+
+    /**
+     * Modify the relationship between the owner of the access token and the
+     * target user with `$id`. `$action` can be one of the following:
+     *
+     * - 'follow'
+     * - 'unfollow'
+     * - 'approve'
+     * - 'ignore'
+     *
+     * @param string $id
+     * @param string $action
+     *
+     * @return Response
+     */
+    public function setRelationship($id, $action)
+    {
+        $params = [
+            'form_params' => [
+                'action' => $action,
+            ]
+        ];
+        return $this->client->request('POST', "users/$id/relationship", $params);
     }
 }

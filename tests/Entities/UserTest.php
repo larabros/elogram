@@ -77,4 +77,55 @@ class UserTest extends TestCase
         $response = $this->user->find('quh');
         $this->assertNull($response);
     }
+
+    /**
+     * @covers Instagram\Entities\User::__construct()
+     * @covers Instagram\Entities\User::follows()
+     */
+    public function testFollows()
+    {
+        $response = $this->user->follows()->get();
+        $this->assertCount(50, $response);
+    }
+
+    /**
+     * @covers Instagram\Entities\User::__construct()
+     * @covers Instagram\Entities\User::followedBy()
+     */
+    public function testFollowedBy()
+    {
+        $response = $this->user->followedBy()->get();
+        $this->assertCount(1, $response);
+    }
+
+    /**
+     * @covers Instagram\Entities\User::__construct()
+     * @covers Instagram\Entities\User::requestedBy()
+     */
+    public function testRequestedBy()
+    {
+        $response = $this->user->requestedBy()->get();
+        $this->assertCount(1, $response);
+    }
+
+    /**
+     * @covers Instagram\Entities\User::__construct()
+     * @covers Instagram\Entities\User::getRelationship()
+     */
+    public function testGetRelationship()
+    {
+        $response = $this->user->getRelationship(10)->get();
+        $this->assertArrayHasKey('outgoing_status', $response);
+        $this->assertArrayHasKey('incoming_status', $response);
+    }
+
+    /**
+     * @covers Instagram\Entities\User::__construct()
+     * @covers Instagram\Entities\User::setRelationship()
+     */
+    public function testSetRelationship()
+    {
+        $response = $this->user->setRelationship('10', 'follow')->get();
+        $this->assertArrayHasKey('outgoing_status', $response);
+    }
 }

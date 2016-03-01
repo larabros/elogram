@@ -10,6 +10,9 @@ use Instagram\Tests\TestCase;
 
 class InstagramTest extends TestCase
 {
+    /**
+     * @var Instagram
+     */
     protected $instagram;
 
     protected function setUp()
@@ -45,10 +48,11 @@ class InstagramTest extends TestCase
      * @covers Instagram\Instagram::createConfig()
      * @covers Instagram\Instagram::registerServiceProviders()
      * @covers Instagram\Instagram::getClient()
+     * @runInSeparateProcess
      */
     public function testGetClient()
     {
-//        $this->assertInstanceOf(AdapterInterface::class, $this->instagram->getClient());
-        $this->markTestIncomplete();
+        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
+        $this->assertInstanceOf(AdapterInterface::class, $instagram->getClient());
     }
 }

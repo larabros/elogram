@@ -70,7 +70,28 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginateWithLimit()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $first      = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_users_follows.json'));
+        $firstPage  = new Response(200, [], $first);
+        $secondPage = new Response(200, [], $first);
+        $thirdPage  = new Response(200, [], $first);
+        $fourthPage = new Response(200, [], $first);
+
+        $last       = json_decode($first, true);
+        unset($last['pagination']);
+        $lastPage   = new Response(200, [], json_encode($last));
+
+        $this->guzzleMock->shouldReceive('request')
+            ->zeroOrMoreTimes()
+            ->andReturn($firstPage, $secondPage, $thirdPage, $fourthPage, $lastPage);
+
+        $adapter   = new GuzzleAdapter($this->guzzleMock);
+        $response  = $adapter->request('GET', '/');
+        $this->assertTrue($response->hasPages());
+        $this->assertCount(50, $response->get());
+
+        $paginatedResponse = $adapter->paginate($response, 2);
+        $this->assertFalse($paginatedResponse->hasPages());
+        $this->assertCount(100, $paginatedResponse->get());
     }
 
     /**
@@ -80,14 +101,15 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginate()
     {
-        $first      = file_get_contents(realpath(__DIR__ . '/../../fixtures/first-result.json'));
+        $first      = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_users_follows.json'));
         $firstPage  = new Response(200, [], $first);
         $secondPage = new Response(200, [], $first);
         $thirdPage  = new Response(200, [], $first);
         $fourthPage = new Response(200, [], $first);
 
-        $last     = file_get_contents(realpath(__DIR__ . '/../../fixtures/single-result.json'));
-        $lastPage = new Response(200, [], $last);
+        $last       = json_decode($first, true);
+        unset($last['pagination']);
+        $lastPage   = new Response(200, [], json_encode($last));
 
         $this->guzzleMock->shouldReceive('request')
             ->zeroOrMoreTimes()
@@ -96,8 +118,10 @@ class GuzzleAdapterTest extends TestCase
         $adapter   = new GuzzleAdapter($this->guzzleMock);
         $response  = $adapter->request('GET', '/');
         $this->assertTrue($response->hasPages());
+        $this->assertCount(50, $response->get());
 
         $paginatedResponse = $adapter->paginate($response);
         $this->assertFalse($paginatedResponse->hasPages());
+        $this->assertCount(250, $paginatedResponse->get());
     }
 }

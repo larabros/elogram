@@ -65,7 +65,10 @@ final class GuzzleAdapter implements AdapterInterface
         $nextUrl       = $response->nextUrl();
 
         // If we run out of pages OR reach `$limit`, then stop and return response
-        while($nextUrl !== null || ($limit !== null && count($responseStack) <= $limit)) {
+        while(
+            ($nextUrl !== null && $limit === null)
+            || ($limit !== null && count($responseStack) < $limit)
+        ) {
             $nextResponse    = $this->request('GET', $nextUrl);
             $responseStack[] = $nextResponse->get();
             $nextUrl         = $nextResponse->nextUrl();

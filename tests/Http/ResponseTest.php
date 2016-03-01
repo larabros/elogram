@@ -52,9 +52,9 @@ class ResponseTest extends TestCase
      */
     public function testNextUrl()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/geography_recent_media.json'), true));
+        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/get_users_follows.json'), true));
         $this->assertTrue($response->hasPages());
-        $this->assertStringStartsWith('https://', $response->nextUrl());
+        $this->assertStringStartsWith('http', $response->nextUrl());
     }
 
     /**

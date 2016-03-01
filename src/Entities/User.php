@@ -22,7 +22,7 @@ class User extends AbstractEntity
      *
      * @return Response
      *
-     * @see <https://instagram.com/developer/endpoints/users/#get_users>
+     * @link https://instagram.com/developer/endpoints/users/#get_users
      */
     public function get($id = 'self')
     {
@@ -40,7 +40,7 @@ class User extends AbstractEntity
      *
      * @return Response
      *
-     * @see <https://instagram.com/developer/endpoints/users/#get_users_media_recent>
+     * @link https://instagram.com/developer/endpoints/users/#get_users_media_recent
      */
     public function getMedia($id = 'self', $count = null, $minId = null, $maxId = null)
     {
@@ -66,7 +66,7 @@ class User extends AbstractEntity
      *
      * @return Response
      *
-     * @see <https://instagram.com/developer/endpoints/users/#get_users_feed_liked>
+     * @link https://instagram.com/developer/endpoints/users/#get_users_feed_liked
      */
     public function getLikedMedia($count = null, $maxLikeId = null)
     {
@@ -91,7 +91,7 @@ class User extends AbstractEntity
      *
      * @throws Exception
      *
-     * @see <https://instagram.com/developer/endpoints/users/#get_users_search>
+     * @link https://instagram.com/developer/endpoints/users/#get_users_search
      */
     public function search($query, $count = null)
     {
@@ -133,6 +133,8 @@ class User extends AbstractEntity
      * owner of the access token being used to make the request.
      *
      * @return Response
+     *
+     * @link https://www.instagram.com/developer/endpoints/relationships/#get_users_follows
      */
     public function follows()
     {
@@ -144,6 +146,8 @@ class User extends AbstractEntity
      * for the owner of the access token being used to make the request.
      *
      * @return Response
+     *
+     * @link https://www.instagram.com/developer/endpoints/relationships/#get_users_followed_by
      */
     public function followedBy()
     {
@@ -156,6 +160,8 @@ class User extends AbstractEntity
      * used to make the request.
      *
      * @return Response
+     *
+     * @link https://www.instagram.com/developer/endpoints/relationships/#get_incoming_requests
      */
     public function requestedBy()
     {
@@ -169,6 +175,8 @@ class User extends AbstractEntity
      * @param string $id
      *
      * @return Response
+     *
+     * @link https://www.instagram.com/developer/endpoints/relationships/#get_relationship
      */
     public function getRelationship($id)
     {
@@ -188,14 +196,12 @@ class User extends AbstractEntity
      * @param string $action
      *
      * @return Response
+     *
+     * @link https://www.instagram.com/developer/endpoints/relationships/#post_relationship
      */
     public function setRelationship($id, $action)
     {
-        $params = [
-            'form_params' => [
-                'action' => $action,
-            ]
-        ];
+        $params = ['form_params' => ['action' => $action]];
         return $this->client->request('POST', "users/$id/relationship", $params);
     }
 }

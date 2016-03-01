@@ -49,7 +49,7 @@ After logging in, you should be redirected back to the `$redirectUri` and you sh
 Once you have retrieved an access token, use it to instantiate:
 
 ``` php
-$instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
+$instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken);
 
 header('Content-Type: application/json');
 $response = $instagram->media()->search(51.503349, -0.252271);
@@ -58,7 +58,7 @@ echo json_encode($response->get());
 
 ### Paginating requests
 
-You can also paginate requests if the need arises. The `Response` object returned contains the data from the multiple requests combined, including the first one.
+You can also paginate requests like so:
 
 ``` php
 $instagram = new \Instagram\Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
@@ -69,7 +69,7 @@ $response = $instagram->paginate($response, 5);
 echo json_encode($response->get());
 ```
 
-You can also pass a `$limit` parameter to `Instagram::paginate()`, which sets the number of pages to request.
+The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` parameter to `Instagram::paginate()`, which sets the number of pages to request.
 
 ## Methods
 

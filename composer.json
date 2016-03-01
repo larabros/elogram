@@ -39,7 +39,8 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "apidocs": "apigen"
     },
     "extra": {
         "branch-alias": {

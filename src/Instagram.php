@@ -132,7 +132,7 @@ final class Instagram
      *
      * @return User
      */
-    public function user()
+    public function users()
     {
         return $this->container->get('entity.user');
     }

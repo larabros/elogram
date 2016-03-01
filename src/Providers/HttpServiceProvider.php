@@ -45,27 +45,37 @@ class HttpServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        $config = $this->getContainer()->get('config');
+        $container = $this->getContainer();
+        $config    = $container->get('config');
 
-        $this->getContainer()->add('provider', new Instagram([
-            'clientId'     => $config->get('client_id'),
-            'clientSecret' => $config->get('client_secret'),
-            'redirectUri'  => $config->get('redirect_url'),
-        ]));
+        $container->add('provider', function() use ($config) {
+            return new Instagram([
+                'clientId'     => $config->get('client_id'),
+                'clientSecret' => $config->get('client_secret'),
+                'redirectUri'  => $config->get('redirect_url'),
+            ]);
+        });
 
-        $this->getContainer()->add('helper', new SessionLoginHelper($this->getContainer()->get('provider')));
+        $container->add('helper', function() use ($container) {
+            return new SessionLoginHelper($container->get('provider'));
+        });
 
         // If access token is set and valid, then create handler stack and set access token
         // on client
 
         // Check if access token was provided, then set, otherwise not
         if ($config->has('access_token')) {
-            $stack = HandlerStack::create();
-            $stack->push(AuthMiddleware::create($config->get('access_token')));
-            $this->getContainer()->add('http', new GuzzleAdapter(new GuzzleClient([
-                'base_uri' => $config->get('base_uri'),
-                'handler'  => $stack,
-            ])));
+
+            $container->add('http', function() use ($config) {
+
+                $stack = HandlerStack::create();
+                $stack->push(AuthMiddleware::create($config->get('access_token')));
+
+                return new GuzzleAdapter(new GuzzleClient([
+                    'base_uri' => $config->get('base_uri'),
+                    'handler'  => $stack,
+                ]));
+            });
         }
     }
 }

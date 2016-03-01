@@ -4,7 +4,7 @@ TODO
 - Add more useful domain-specific exceptions
 
 ## Problems
-- Pagination limiting not working
+
 
 ## Features
 - Signed requests

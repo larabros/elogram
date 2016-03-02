@@ -12,6 +12,7 @@ class MockAdapterTest extends TestCase
      * @covers Instagram\Http\Client\MockAdapter::__construct()
      * @covers Instagram\Http\Client\MockAdapter::request()
      * @covers Instagram\Http\Client\MockAdapter::mapRequestToFile()
+     * @covers Instagram\Http\Client\MockAdapter::mapRequestParameters()
      */
     public function testRequest()
     {

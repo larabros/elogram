@@ -34,24 +34,59 @@ final class MockAdapter implements AdapterInterface
      */
     public function request($method, $uri, array $parameters = [])
     {
-        $file = file_get_contents($this->mapRequestToFile($method, $uri));
+        $file = file_get_contents($this->mapRequestToFile($method, $uri, $parameters));
         return Response::createFromJson(json_decode($file, true));
     }
 
     /**
-     * Convenience method to quickly parse the correct file to load for a given
-     * `$method` and `$uri`.
+     * Parse the correct filename from the request.
      *
      * @param string $method
      * @param string $uri
+     * @param array  $parameters
+     *
      * @return string
      */
-    protected function mapRequestToFile($method, $uri)
+    protected function mapRequestToFile($method, $uri, $parameters)
     {
         $filename  = strtolower($method).'_';
         $path      = preg_replace('/(\/\w{10}$|self|\d*)/', '', $uri);
-        $filename .= rtrim(preg_replace('/\/{1,2}|\-/', '_', $path), '_').'.json';
-        return $this->fixturesPath.$filename;
+        $filename .= rtrim(preg_replace('/\/{1,2}|\-/', '_', $path), '_');
+        $suffix    = $this->mapRequestParameters($parameters);
+        return $this->fixturesPath.$filename.$suffix.'.json';
+    }
+
+    /**
+     * Parses any filename properties from the request parameters.
+     *
+     * @param $parameters
+     *
+     * @return string
+     */
+    protected function mapRequestParameters($parameters)
+    {
+        if (empty($parameters) || !array_key_exists('query', $parameters)) {
+            return '';
+        }
+
+        $exclude = [
+            'q',
+            'count',
+            'min_id',
+            'max_id',
+            'min_tag_id',
+            'max_tag_id',
+            'lat',
+            'lng',
+            'distance',
+            'text',
+            'max_like_id',
+            'action',
+        ];
+
+        $modifiers = array_except($parameters['query'], $exclude);
+        $return    = implode('_', array_keys($modifiers));
+        return rtrim("_".$return, '_');
     }
 
     /**

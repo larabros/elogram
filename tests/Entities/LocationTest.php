@@ -47,4 +47,24 @@ class LocationTest extends TestCase
         $response = $this->location->search(48.858325999999998, 2.294505)->get();
         $this->assertCount(3, $response);
     }
+
+    /**
+     * @covers Instagram\Entities\Location::__construct()
+     * @covers Instagram\Entities\Location::searchByFacebookPlacesId()
+     */
+    public function testSearchByFacebookPlacesId()
+    {
+        $response = $this->location->searchByFacebookPlacesId(114226462057675)->get();
+        $this->assertCount(1, $response);
+    }
+
+    /**
+     * @covers Instagram\Entities\Location::__construct()
+     * @covers Instagram\Entities\Location::searchByFoursquareId()
+     */
+    public function testSearchByFoursquareId()
+    {
+        $response = $this->location->searchByFoursquareId(48.858325999999998, 2.294505)->get();
+        $this->assertCount(1, $response);
+    }
 }

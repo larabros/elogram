@@ -10,7 +10,7 @@ page.
 Getting an access token
 ================
 
-To make requests to the Instagram API, you need an access token. To do this, first instantiate ``Instagram`` - the ``$clientId``, ``$clientSecret`` and ``$redirectUrl`` **must** be the same as what you see in the [Instagram Developer Panel](https://www.instagram.com/developer/clients/manage/):
+To make requests to the Instagram API, you need an access token. To do this, first instantiate ``Instagram`` - the ``$clientId``, ``$clientSecret`` and ``$redirectUrl`` **must** be the same as what you see in the `Instagram Developer Panel <https://www.instagram.com/developer/clients/manage/>`_:
 
 
 Creating a Client
@@ -20,7 +20,7 @@ Creating a Client
 
     use Instagram\Instagram;
 
-    $client = new Instagram($clientId, $clientSecret, $accessToken, $redirectUrl);
+    $client = new Instagram($clientId, $clientSecret, null, $redirectUrl);
 
 The client constructor accepts the following parameters:
 
@@ -33,13 +33,13 @@ The client constructor accepts the following parameters:
     panel.
 
 ``accessToken``
-    If you do not currently have one, use ``null``.
+    Assuming you do not currently have one, use ``null``.
 
 ``redirectUrl``
     The URL to redirect to after a user authorizes the Instagram client.
 
-To retrieve an access token, first instantiate the client, then retrieve the
-login helper object and check whether to redirect or retrieve an access token:
+After instantiating the client, retrieve the login helper object and redirect to
+the authorization page (or retrieve an access token if the user has authorized):
 
 .. code-block:: php
 
@@ -59,3 +59,8 @@ login helper object and check whether to redirect or retrieve an access token:
 Sending Requests
 ================
 
+
+Paginated Requests
+------------------
+
+The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` as an optional parameter to `Instagram::paginate()`, which sets the number of pages to request.

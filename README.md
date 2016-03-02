@@ -6,6 +6,7 @@
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
+[![Documentation][ico-docs]][link-docs]
 
 A modern Instagram SDK for PHP 5.5+.
 
@@ -111,11 +112,13 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/hassankhan/instagram-sdk.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/hassankhan/instagram-sdk.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/hassankhan/instagram-sdk.svg?style=flat-square
+[ico-docs]: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/hassankhan/instagram-sdk
 [link-travis]: https://travis-ci.org/hassankhan/instagram-sdk
 [link-scrutinizer]: https://scrutinizer-ci.com/g/hassankhan/instagram-sdk/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/hassankhan/instagram-sdk
 [link-downloads]: https://packagist.org/packages/hassankhan/instagram-sdk
+[link-docs]: http://instagram-sdk.readthedocs.org/en/latest
 [link-author]: https://github.com/hassankhan
 [link-contributors]: ../../contributors

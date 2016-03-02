@@ -90,7 +90,7 @@ class GuzzleAdapterTest extends TestCase
         $this->assertCount(50, $response->get());
 
         $paginatedResponse = $adapter->paginate($response, 2);
-        $this->assertFalse($paginatedResponse->hasPages());
+        $this->assertTrue($paginatedResponse->hasPages());
         $this->assertCount(100, $paginatedResponse->get());
     }
 

@@ -73,7 +73,7 @@ final class GuzzleAdapter implements AdapterInterface
             $nextResponse    = $this->request('GET', $nextUrl);
             $responseStack[] = $nextResponse->get();
             $nextUrl         = $nextResponse->nextUrl();
-            $pagination      = $nextResponse->getRaw()['pagination'];
+            $pagination      = $nextResponse->hasPages() ? $nextResponse->getRaw()['pagination'] : [];
         }
 
         return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1), $pagination);

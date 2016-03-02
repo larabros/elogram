@@ -57,13 +57,11 @@ class Media extends AbstractEntity
      */
     public function search($latitude, $longitude, $distance = 1000)
     {
-        $params = [
-            'query' => [
-                'lat'      => $latitude,
-                'lng'      => $longitude,
-                'distance' => $distance,
-            ],
-        ];
+        $params = ['query' => [
+            'lat'      => $latitude,
+            'lng'      => $longitude,
+            'distance' => $distance,
+        ]];
 
         return $this->client->request('GET', 'media/search', $params);
     }

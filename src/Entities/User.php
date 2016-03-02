@@ -44,11 +44,11 @@ class User extends AbstractEntity
      */
     public function getMedia($id = 'self', $count = null, $minId = null, $maxId = null)
     {
-        $params                    = [];
-        $params['query']['count']  = $count;
-        $params['query']['min_id'] = $minId;
-        $params['query']['max_id'] = $maxId;
-
+        $params = ['query' => [
+            'count'       => $count,
+            'min_id' => $minId,
+            'max_id' => $maxId,
+        ]];
 
         return $this->client->request(
             'GET',
@@ -70,9 +70,10 @@ class User extends AbstractEntity
      */
     public function getLikedMedia($count = null, $maxLikeId = null)
     {
-        $params                         = [];
-        $params['query']['count']       = $count;
-        $params['query']['max_like_id'] = $maxLikeId;
+        $params = ['query' => [
+            'count'       => $count,
+            'max_like_id' => $maxLikeId
+        ]];
 
         return $this->client->request(
             'GET',
@@ -82,7 +83,7 @@ class User extends AbstractEntity
     }
 
     /**
-     * Searches the Instagram API for any users with `$username`.
+     * Searches for any users with `$username`.
      *
      * @param  string   $query  A query string
      * @param  int|null $count  Number of users to return
@@ -95,12 +96,10 @@ class User extends AbstractEntity
      */
     public function search($query, $count = null)
     {
-        $params = [
-            'query' => [
-                'q'     => $query,
-                'count' => $count,
-            ]
-        ];
+        $params = ['query' => [
+            'q'     => $query,
+            'count' => $count,
+        ]];
 
         return $this->client->request(
             'GET',

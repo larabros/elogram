@@ -5,7 +5,7 @@ namespace Instagram\Entities;
 use Instagram\Http\Response;
 
 /**
- * Media
+ * Comment
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>

@@ -1,10 +1,11 @@
 {
-  "data": [{
-    "id": "788029",
-    "latitude": 48.858844300000001,
-    "longitude": 2.2943506,
-    "name": "Eiffel Tower, Paris"
-  },
+  "data": [
+    {
+      "id": "788029",
+      "latitude": 48.858844300000001,
+      "longitude": 2.2943506,
+      "name": "Eiffel Tower, Paris"
+    },
     {
       "id": "545331",
       "latitude": 48.858334059662262,

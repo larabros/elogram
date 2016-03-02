@@ -1,5 +1,6 @@
 {
-  "meta": {
+  "meta":
+  {
     "code": 200
   },
   "data": [
@@ -17,6 +18,5 @@
       "username": "nicole",
       "profile_picture": "http://distillery.s3.amazonaws.com/profiles/profile_6_75sq_1285365377.jpg",
       "id": "6"
-    }
-  ]
+    }]
 }

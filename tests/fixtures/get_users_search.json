@@ -1,7 +1,8 @@
 {
-    "meta": {
+    "meta":
+    {
         "code": 200
-    }, 
+    },
     "data": [
         {
             "username": "mikeyk",
@@ -9,6 +10,5 @@
             "profile_picture": "http://distillery.s3.amazonaws.com/profiles/profile_4_75sq_1292324747_debug.jpg",
             "id": "4",
             "last_name": "Krieger!!"
-        }
-    ]
+        }]
 }

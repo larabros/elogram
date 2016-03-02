@@ -1,0 +1,20 @@
+{
+  "data": [{
+    "id": "788029",
+    "latitude": 48.858844300000001,
+    "longitude": 2.2943506,
+    "name": "Eiffel Tower, Paris"
+  },
+    {
+      "id": "545331",
+      "latitude": 48.858334059662262,
+      "longitude": 2.2943401336669909,
+      "name": "Restaurant 58 Tour Eiffel"
+    },
+    {
+      "id": "421930",
+      "latitude": 48.858325999999998,
+      "longitude": 2.294505,
+      "name": "American Library in Paris"
+    }]
+}

@@ -49,7 +49,7 @@ class Media extends AbstractEntity
      *
      * @param int $latitude   Latitude of the center search coordinate. If used, lng is required
      * @param int $longitude  Longitude of the center search coordinate. If used, lat is required
-     * @param int $distance   The distance in kilometres. Default is 1km (distance=1000), max distance is 5km.
+     * @param int $distance   The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
      *
      * @return Response
      *

@@ -9,6 +9,9 @@ TODO
 ## Features
 - Signed requests
 
+## Refactors
+- Make pagination recursive
+
 ## Tests
 - Create separate suite for Entities
 

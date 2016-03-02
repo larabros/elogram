@@ -20,6 +20,7 @@ class EntityServiceProvider extends AbstractServiceProvider
     protected $provides = [
         'entity.user',
         'entity.media',
+        'entity.comment',
     ];
 
     /**
@@ -34,5 +35,7 @@ class EntityServiceProvider extends AbstractServiceProvider
         $this->getContainer()->add('entity.user', new User($this->getContainer()->get('http')));
 
         $this->getContainer()->add('entity.media', new Media($this->getContainer()->get('http')));
+
+        $this->getContainer()->add('entity.comment', new Media($this->getContainer()->get('http')));
     }
 }

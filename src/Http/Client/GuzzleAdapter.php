@@ -63,6 +63,7 @@ final class GuzzleAdapter implements AdapterInterface
         // Add the response data to the stack and get the next URL
         $responseStack = [$response->get()];
         $nextUrl       = $response->nextUrl();
+        $pagination    = $response->getRaw()['pagination'];
 
         // If we run out of pages OR reach `$limit`, then stop and return response
         while(
@@ -72,8 +73,9 @@ final class GuzzleAdapter implements AdapterInterface
             $nextResponse    = $this->request('GET', $nextUrl);
             $responseStack[] = $nextResponse->get();
             $nextUrl         = $nextResponse->nextUrl();
+            $pagination      = $nextResponse->getRaw()['pagination'];
         }
 
-        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1));
+        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1), $pagination);
     }
 }

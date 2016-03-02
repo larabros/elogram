@@ -21,7 +21,7 @@ class Media extends AbstractEntity
      *
      * @return Response
      *
-     * @see <https://www.instagram.com/developer/endpoints/media/#get_media>
+     * @link https://www.instagram.com/developer/endpoints/media/#get_media
      */
     public function get($id)
     {
@@ -35,7 +35,7 @@ class Media extends AbstractEntity
      *
      * @return Response
      *
-     * @see <https://www.instagram.com/developer/endpoints/media/#get_media_by_shortcode>
+     * @link https://www.instagram.com/developer/endpoints/media/#get_media_by_shortcode
      */
     public function getByShortcode($shortcode)
     {
@@ -53,7 +53,7 @@ class Media extends AbstractEntity
      *
      * @return Response
      *
-     * @see <https://www.instagram.com/developer/endpoints/media/#get_media_search>
+     * @link https://www.instagram.com/developer/endpoints/media/#get_media_search
      */
     public function search($latitude, $longitude, $distance = 1000)
     {

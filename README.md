@@ -69,7 +69,7 @@ $response = $instagram->paginate($response, 5);
 echo json_encode($response->get());
 ```
 
-The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` parameter to `Instagram::paginate()`, which sets the number of pages to request.
+The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` as an optional parameter to `Instagram::paginate()`, which sets the number of pages to request.
 
 ## Methods
 

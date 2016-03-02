@@ -53,8 +53,8 @@ class Comment extends AbstractEntity
     /**
      * Remove a comment either on a media object with `$id`.
      *
-     * @param $mediaId    The ID of the media object
-     * @param $commentId  The ID of the comment
+     * @param string $mediaId    The ID of the media object
+     * @param string $commentId  The ID of the comment
      *
      * @return Response
      *

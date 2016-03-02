@@ -74,8 +74,8 @@ class Location extends AbstractEntity
     /**
      * Search for a location by geographic coordinate.
      *
-     * @param string $facebookPlacesId  A Facebook Places ID
-     * @param int    $distance          The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
+     * @param int $facebookPlacesId  A Facebook Places ID
+     * @param int $distance          The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
      *
      * @return Response
      *

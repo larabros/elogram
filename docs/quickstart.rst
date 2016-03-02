@@ -59,8 +59,39 @@ the authorization page (or retrieve an access token if the user has authorized):
 Sending Requests
 ================
 
+Simple requests
+---------------
+
+.. code-block:: php
+
+    use Instagram\Instagram;
+
+    $client   = new Instagram($clientId, $clientSecret, $accessToken);
+    $response = $client->users()->find('skrawg');
+    echo json_encode($response->get());
+
+    $response = $client->media()->getByShortcode('9RV6okpRin');
+    echo json_encode($response->get());
+
 
 Paginated Requests
 ------------------
 
-The `Response` object returned contains the data from the multiple requests combined, including the first one. You can also pass a `$limit` as an optional parameter to `Instagram::paginate()`, which sets the number of pages to request.
+The `Response` object that you receive from making requests contains the data
+from the multiple requests combined, including the first one. You can also pass
+a ``$limit`` as an optional parameter to ``Instagram::paginate()``, which sets the
+number of pages to request.
+
+.. code-block:: php
+
+    use Instagram\Instagram;
+
+    $client   = new Instagram($clientId, $clientSecret, $accessToken);
+    $response = $instagram->users()->follows();
+    echo json_encode($response->get());
+
+    $response = $instagram->paginate($response, 2);
+    echo json_encode($response->get());
+
+    $response = $instagram->paginate($response);
+    echo json_encode($response->get());

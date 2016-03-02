@@ -83,6 +83,10 @@ Licensed using the `MIT license <http://opensource.org/licenses/MIT>`_.
 Contributing
 ============
 
+Documentation
+-------------
+
+The complete API documentation can be found at http://instagram-sdk.readthedocs.org/en/latest/_static/api/.
 
 Guidelines
 ----------

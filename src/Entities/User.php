@@ -15,10 +15,10 @@ use Instagram\Http\Response;
 class User extends AbstractEntity
 {
     /**
-     * Retrieves user information for a user with `$id`. If no `$id` is provided,
-     * then the ID of the owner of the access token is used instead.
+     * Retrieves user information for a user. If no `$id` is provided,then the
+     * ID of the owner of the access token is used instead.
      *
-     * @param string $id
+     * @param string $id  The ID of the user
      *
      * @return Response
      *
@@ -30,10 +30,10 @@ class User extends AbstractEntity
     }
 
     /**
-     * Retrieves recent media for a user with `$id`. If `$id` is not provided,
-     * then the ID of the owner of the access token is used instead.
+     * Retrieves recent media for a user. If no `$id` is provided, then the ID
+     * of the owner of the access token is used instead.
      *
-     * @param string   $id
+     * @param string   $id     The ID of the user
      * @param int|null $count  Count of media to return
      * @param int|null $minId  Return media later than this min_id
      * @param int|null $maxId  Return media earlier than this max_id
@@ -83,14 +83,12 @@ class User extends AbstractEntity
     }
 
     /**
-     * Searches for any users with `$username`.
+     * Searches for any users.
      *
-     * @param  string   $query  A query string
+     * @param  string   $query  A query string to search for
      * @param  int|null $count  Number of users to return
      *
      * @return Response
-     *
-     * @throws Exception
      *
      * @link https://instagram.com/developer/endpoints/users/#get_users_search
      */
@@ -109,8 +107,8 @@ class User extends AbstractEntity
     }
 
     /**
-     * Searches for and returns a single user's information for a user with
-     * `$username`. If no results are found, `null` is returned.
+     * Searches for and returns a single user's information for a user . If no
+     * results are found, `null` is returned.
      *
      * @param string $username  A username to search for
      *

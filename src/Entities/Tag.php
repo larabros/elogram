@@ -16,9 +16,9 @@ class Tag extends AbstractEntity
 {
 
     /**
-     * Get information about a tag object with name `$tag`.
+     * Get information about a tag object.
      *
-     * @param string $tag
+     * @param string $tag  Name of the tag
      *
      * @return Response
      *
@@ -30,12 +30,12 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * Set a like on a media object with `$id` by the currently authenticated user.
+     * Get a list of recently tagged media.
      *
-     * @param string      $tag
-     * @param int|null    $count
-     * @param string|null $minTagId
-     * @param string|null $maxTagId
+     * @param string      $tag       Name of the tag
+     * @param int|null    $count     Count of tagged media to return
+     * @param string|null $minTagId  Return media before this min_tag_id
+     * @param string|null $maxTagId  Return media after this max_tag_id
      *
      * @return Response
      *
@@ -52,9 +52,9 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * Search for tags with name `$tag`.
+     * Search for tags.
      *
-     * @param $tag
+     * @param $tag  Name of the tag
      *
      * @return Response
      *

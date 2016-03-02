@@ -16,9 +16,9 @@ class Comment extends AbstractEntity
 {
 
     /**
-     * Get a list of recent comments on a media object with `$mediaId`.
+     * Get a list of recent comments on a media object.
      *
-     * @param string $mediaId
+     * @param string $mediaId  The ID of the media object
      *
      * @return Response
      *
@@ -30,15 +30,15 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * Create a comment on a media object with `$mediaId` using the following rules:
+     * Create a comment on a media object using the following rules:
      *
      * - The total length of the comment cannot exceed 300 characters.
      * - The comment cannot contain more than 4 hashtags.
      * - The comment cannot contain more than 1 URL.
      * - The comment cannot consist of all capital letters.
      *
-     * @param string $mediaId
-     * @param string $text
+     * @param string $mediaId  The ID of the media object
+     * @param string $text     Text to post as a comment on the media object as specified by `$mediaId`
      *
      * @return Response
      *
@@ -53,8 +53,8 @@ class Comment extends AbstractEntity
     /**
      * Remove a comment either on a media object with `$id`.
      *
-     * @param $mediaId
-     * @param $commentId
+     * @param $mediaId    The ID of the media object
+     * @param $commentId  The ID of the comment
      *
      * @return Response
      *

@@ -16,9 +16,9 @@ class Like extends AbstractEntity
 {
 
     /**
-     * Get a list of likes on a media object with `$mediaId`.
+     * Get a list of likes on a media object.
      *
-     * @param string $mediaId
+     * @param string $mediaId  The ID of the media object
      *
      * @return Response
      *
@@ -30,9 +30,9 @@ class Like extends AbstractEntity
     }
 
     /**
-     * Set a like on a media object with `$id` by the currently authenticated user.
+     * Set a like on a media object by the currently authenticated user.
      *
-     * @param string $mediaId
+     * @param string $mediaId  The ID of the media object
      *
      * @return Response
      *
@@ -44,9 +44,9 @@ class Like extends AbstractEntity
     }
 
     /**
-     * Remove a like on a media object with `$id` by the currently authenticated user.
+     * Remove a like on a media object by the currently authenticated user.
      *
-     * @param $mediaId
+     * @param string $mediaId  The ID of the media object
      *
      * @return Response
      *

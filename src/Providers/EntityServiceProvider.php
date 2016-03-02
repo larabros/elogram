@@ -2,6 +2,8 @@
 
 namespace Instagram\Providers;
 
+use Instagram\Entities\Comment;
+use Instagram\Entities\Like;
 use Instagram\Entities\Media;
 use Instagram\Entities\User;
 use League\Container\ServiceProvider\AbstractServiceProvider;
@@ -21,6 +23,7 @@ class EntityServiceProvider extends AbstractServiceProvider
         'entity.user',
         'entity.media',
         'entity.comment',
+        'entity.like',
     ];
 
     /**
@@ -36,6 +39,8 @@ class EntityServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()->add('entity.media', new Media($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.comment', new Media($this->getContainer()->get('http')));
+        $this->getContainer()->add('entity.comment', new Comment($this->getContainer()->get('http')));
+
+        $this->getContainer()->add('entity.like', new Like($this->getContainer()->get('http')));
     }
 }

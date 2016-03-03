@@ -81,13 +81,9 @@ class Location extends AbstractEntity
      *
      * @link https://www.instagram.com/developer/endpoints/locations/#get_locations_search
      */
-    public function searchByFacebookPlacesId($facebookPlacesId, $distance = 1000)
+    public function searchByFacebookPlacesId($facebookPlacesId)
     {
-        $params = ['query' => [
-            'facebook_places_id' => $facebookPlacesId,
-            'distance'           => $distance,
-        ]];
-
+        $params = ['query' => ['facebook_places_id' => $facebookPlacesId]];
         return $this->client->request('GET', 'locations/search', $params);
     }
 
@@ -101,13 +97,9 @@ class Location extends AbstractEntity
      *
      * @link https://www.instagram.com/developer/endpoints/locations/#get_locations_search
      */
-    public function searchByFoursquareId($foursquareId, $distance = 1000)
+    public function searchByFoursquareId($foursquareId)
     {
-        $params = ['query' => [
-            'foursquare_v2_id' => $foursquareId,
-            'distance'         => $distance,
-        ]];
-
+        $params = ['query' => ['foursquare_v2_id' => $foursquareId]];
         return $this->client->request('GET', 'locations/search', $params);
     }
 }

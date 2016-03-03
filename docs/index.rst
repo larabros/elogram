@@ -38,4 +38,5 @@ User Guide
 
     overview
     quickstart
+    endpoints
     faq

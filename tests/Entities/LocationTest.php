@@ -64,7 +64,7 @@ class LocationTest extends TestCase
      */
     public function testSearchByFoursquareId()
     {
-        $response = $this->location->searchByFoursquareId(48.858325999999998, 2.294505)->get();
+        $response = $this->location->searchByFoursquareId('51a2445e5019c80b56934c75')->get();
         $this->assertCount(1, $response);
     }
 }

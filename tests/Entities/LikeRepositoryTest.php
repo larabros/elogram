@@ -2,25 +2,25 @@
 
 namespace Instagram\Tests\Entities;
 
-use Instagram\Entities\Like;
+use Instagram\Entities\LikeRepository;
 use Instagram\Http\Client\MockAdapter;
 use Instagram\Tests\TestCase;
 
-class LikeTest extends TestCase
+class LikeRepositoryTest extends TestCase
 {
     /**
-     * @var Like
+     * @var LikeRepository
      */
     protected $like;
 
     protected function setUp()
     {
-        $this->like = new Like(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
+        $this->like = new LikeRepository(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
     }
 
     /**
-     * @covers Instagram\Entities\Like::__construct()
-     * @covers Instagram\Entities\Like::get()
+     * @covers Instagram\Entities\LikeRepository::__construct()
+     * @covers Instagram\Entities\LikeRepository::get()
      */
     public function testGet()
     {
@@ -29,8 +29,8 @@ class LikeTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Like::__construct()
-     * @covers Instagram\Entities\Like::like()
+     * @covers Instagram\Entities\LikeRepository::__construct()
+     * @covers Instagram\Entities\LikeRepository::like()
      */
     public function testCreate()
     {
@@ -39,8 +39,8 @@ class LikeTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Like::__construct()
-     * @covers Instagram\Entities\Like::unlike()
+     * @covers Instagram\Entities\LikeRepository::__construct()
+     * @covers Instagram\Entities\LikeRepository::unlike()
      */
     public function testDelete()
     {

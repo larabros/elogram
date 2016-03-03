@@ -5,14 +5,14 @@ namespace Instagram\Entities;
 use Instagram\Http\Response;
 
 /**
- * Like
+ * LikeRepository class.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class Like extends AbstractEntity
+class LikeRepository extends AbstractEntity
 {
 
     /**

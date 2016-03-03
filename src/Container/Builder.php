@@ -10,7 +10,6 @@ use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;
 use League\Container\ContainerInterface;
 use League\Container\ServiceProvider\ServiceProviderInterface;
-use Noodlehaus\ConfigInterface;
 
 /**
  * Builder class.
@@ -24,17 +23,24 @@ class Builder implements ContainerAwareInterface
 {
     use ContainerAwareTrait;
 
+    /**
+     * Default application service providers.
+     *
+     * @var array
+     */
     protected $defaultProviders = [
         HttpServiceProvider::class,
         EntityServiceProvider::class,
     ];
 
-    public function __construct($container = null)
+    /**
+     * Creates a new instance of `Builder`.
+     *
+     * @param array $config
+     */
+    public function __construct(array $config)
     {
-        $container instanceof ContainerInterface
-            ? $this->setContainer($container)
-            : $this->setContainer($this->createContainer($container));
-
+        $this->setContainer($this->createContainer($config));
         $this->createConfig($this->getContainer()->get('config.raw'));
     }
 

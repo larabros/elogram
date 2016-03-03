@@ -99,8 +99,8 @@ http://instagram-sdk.readthedocs.org/en/latest/_static/api.
 Guidelines
 ----------
 
--  **`PSR-2 Coding Standard`_** - The easiest way to apply the
-   conventions is to install `PHP Code Sniffer`_.
+-  **PSR-2 Coding Standard** - The easiest way to apply the `Standard`_ is to
+    install `PHP Code Sniffer`_.
 
 -  **PHP 5.5** - Instagram-SDK has a minimum PHP version requirement of
    PHP 5.5. Pull requests must not require a PHP version greater than
@@ -112,7 +112,7 @@ Guidelines
 -  **Document any change in behaviour** - Make sure the ``README.md``
    and any other relevant documentation are kept up-to-date.
 
--  **Consider our release cycle** - We try to follow `SemVer v2.0.0`_.
+-  **Consider our release cycle** - We try to follow `SemVer v2`_.
    Randomly breaking public APIs is not an option.
 
 -  **Create feature branches** - Don’t ask us to pull from your master
@@ -164,7 +164,7 @@ Reporting a security vulnerability
 **Happy coding**!
 
 .. _Github: https://github.com/hassankhan/instagram-sdk
-.. _PSR-2 Coding Standard: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
+.. _Standard: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 .. _PHP Code Sniffer: http://pear.php.net/package/PHP_CodeSniffer
-.. _SemVer v2.0.0: http://semver.org/
+.. _SemVer v2: http://semver.org/
 .. _squash them: http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages

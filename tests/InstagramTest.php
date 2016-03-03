@@ -24,8 +24,8 @@ class InstagramTest extends TestCase
 
     /**
      * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::createConfig()
-     * @covers Instagram\Instagram::registerServiceProviders()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::getConfig()
      */
     public function testGetConfig()
@@ -35,8 +35,8 @@ class InstagramTest extends TestCase
 
     /**
      * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::createConfig()
-     * @covers Instagram\Instagram::registerServiceProviders()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::getLoginHelper()
      * @runInSeparateProcess
      */
@@ -47,8 +47,8 @@ class InstagramTest extends TestCase
 
     /**
      * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::createConfig()
-     * @covers Instagram\Instagram::registerServiceProviders()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::getClient()
      */
     public function testGetClient()
@@ -59,8 +59,8 @@ class InstagramTest extends TestCase
 
     /**
      * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::createConfig()
-     * @covers Instagram\Instagram::registerServiceProviders()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::users()
      */
     public function testUsers()
@@ -72,8 +72,8 @@ class InstagramTest extends TestCase
 
     /**
      * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::createConfig()
-     * @covers Instagram\Instagram::registerServiceProviders()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::media()
      */
     public function testMedia()

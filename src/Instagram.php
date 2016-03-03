@@ -2,6 +2,7 @@
 
 namespace Instagram;
 
+use Instagram\Container\Builder;
 use Instagram\Entities\Media;
 use Instagram\Entities\User;
 use Instagram\Helpers\LoginHelperInterface;
@@ -55,45 +56,50 @@ final class Instagram
         $redirectUrl = '',
         $providers = []
     ) {
-        $this->container    = new Container();
-        $this->container->add(
-            'config',
-            $this->createConfig($clientId, $clientSecret, $accessToken, $redirectUrl)
+        $this->container = $this->buildContainer(
+            $clientId,
+            $clientSecret,
+            $accessToken,
+            $redirectUrl
         );
-
-        $this->registerServiceProviders($providers);
     }
 
     /**
-     * Creates a `Config` object from raw parameters.
+     * Takes the constructor parameters and uses them to instantiate and build a
+     * `Container` object.
      *
-     * @param string $clientId
-     * @param string $clientSecret
-     * @param null   $accessToken
-     * @param string $redirectUrl
+     * @param string      $clientId
+     * @param string      $clientSecret
+     * @param string|null $accessToken
+     * @param string      $redirectUrl
+     * @param array       $providers
      *
-     * @return Config
+     * @return \League\Container\ContainerInterface
      */
-    protected function createConfig($clientId, $clientSecret, $accessToken = null, $redirectUrl)
-    {
-        return new Config([
-            'base_url'      => 'https://api.instagram.com/v1/',
+    protected function buildContainer(
+        $clientId,
+        $clientSecret,
+        $accessToken = null,
+        $redirectUrl = '',
+        $providers = []
+    ) {
+        return (new Builder([
             'client_id'     => $clientId,
             'client_secret' => $clientSecret,
             'access_token'  => $accessToken,
             'redirect_url'  => $redirectUrl,
-        ]);
+        ]))->register($this->getProviders($providers))
+            ->getContainer();
     }
 
     /**
      * @param array $providers
+     *
+     * @return array
      */
-    public function registerServiceProviders(array $providers)
+    protected function getProviders(array $providers)
     {
-        $newProviders = empty($providers) ? $this->defaultProviders :  $providers;
-        foreach($newProviders as $provider) {
-            $this->container->addServiceProvider($provider);
-        }
+        return array_merge($this->defaultProviders, $providers);
     }
 
     /**

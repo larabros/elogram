@@ -6,9 +6,10 @@ This page provides a quick introduction to Instagram-SDK and introductory exampl
 If you have not already installed, head over to the :ref:`installation`
 page.
 
+.. _access_token:
 
 Getting an access token
-================
+=======================
 
 To make requests to the Instagram API, you need an access token. To do this, first instantiate ``Instagram`` - the ``$clientId``, ``$clientSecret`` and ``$redirectUrl`` **must** be the same as what you see in the `Instagram Developer Panel <https://www.instagram.com/developer/clients/manage/>`_:
 

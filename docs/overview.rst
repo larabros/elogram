@@ -143,8 +143,7 @@ Reporting a security vulnerability
 | We want to ensure that Instagram-SDK is secure for everyone. If you’ve
   discovered
 | a security vulnerability, we appreciate your help in disclosing it to
-| us in a
-  ``responsible manner <http://en.wikipedia.org/wiki/Responsible_disclosure>``\ \_.
+| us in a `responsible manner`_.
 
 | Publicly disclosing a vulnerability can put the entire community at
   risk. If
@@ -168,3 +167,4 @@ Reporting a security vulnerability
 .. _PHP Code Sniffer: http://pear.php.net/package/PHP_CodeSniffer
 .. _SemVer v2: http://semver.org/
 .. _squash them: http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages
+.. _responsible manner: http://en.wikipedia.org/wiki/Responsible_disclosure

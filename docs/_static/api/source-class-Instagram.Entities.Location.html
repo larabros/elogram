@@ -26,6 +26,11 @@
 
 						<ul>
 				<li>
+					<a href="namespace-Instagram.Container.html">
+						Container					</a>
+
+						</li>
+				<li>
 					<a href="namespace-Instagram.Entities.html">
 						Entities					</a>
 
@@ -73,9 +78,10 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-Instagram.Config.html">Instagram\Config</a></li>
+				<li><a href="class-Instagram.Container.Builder.html">Instagram\Container\Builder</a></li>
 				<li><a href="class-Instagram.Entities.AbstractEntity.html">Instagram\Entities\AbstractEntity</a></li>
 				<li><a href="class-Instagram.Entities.Comment.html">Instagram\Entities\Comment</a></li>
-				<li><a href="class-Instagram.Entities.Like.html">Instagram\Entities\Like</a></li>
+				<li><a href="class-Instagram.Entities.LikeRepository.html">Instagram\Entities\LikeRepository</a></li>
 				<li><a href="class-Instagram.Entities.Location.html">Instagram\Entities\Location</a></li>
 				<li><a href="class-Instagram.Entities.Media.html">Instagram\Entities\Media</a></li>
 				<li><a href="class-Instagram.Entities.Tag.html">Instagram\Entities\Tag</a></li>
@@ -218,36 +224,29 @@
 </span></span><span id="81" class="l"><a href="#81"> 81: </a><span class="php-comment">     *
 </span></span><span id="82" class="l"><a href="#82"> 82: </a><span class="php-comment">     * @link https://www.instagram.com/developer/endpoints/locations/#get_locations_search
 </span></span><span id="83" class="l"><a href="#83"> 83: </a><span class="php-comment">     */</span>
-</span><span id="84" class="l"><a href="#84"> 84: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> searchByFacebookPlacesId(<span class="php-var">$facebookPlacesId</span>, <span class="php-var">$distance</span> = <span class="php-num">1000</span>)
+</span><span id="84" class="l"><a href="#84"> 84: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> searchByFacebookPlacesId(<span class="php-var">$facebookPlacesId</span>)
 </span><span id="85" class="l"><a href="#85"> 85: </a>    {
-</span><span id="86" class="l"><a href="#86"> 86: </a>        <span class="php-var">$params</span> = [<span class="php-quote">'query'</span> =&gt; [
-</span><span id="87" class="l"><a href="#87"> 87: </a>            <span class="php-quote">'facebook_places_id'</span> =&gt; <span class="php-var">$facebookPlacesId</span>,
-</span><span id="88" class="l"><a href="#88"> 88: </a>            <span class="php-quote">'distance'</span>           =&gt; <span class="php-var">$distance</span>,
-</span><span id="89" class="l"><a href="#89"> 89: </a>        ]];
-</span><span id="90" class="l"><a href="#90"> 90: </a>
-</span><span id="91" class="l"><a href="#91"> 91: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;client-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-quote">'locations/search'</span>, <span class="php-var">$params</span>);
-</span><span id="92" class="l"><a href="#92"> 92: </a>    }
-</span><span id="93" class="l"><a href="#93"> 93: </a>
-</span><span id="94" class="l"><a href="#94"> 94: </a>    <span class="php-comment">/**
-</span></span><span id="95" class="l"><a href="#95"> 95: </a><span class="php-comment">     * Search for a location by geographic coordinate.
-</span></span><span id="96" class="l"><a href="#96"> 96: </a><span class="php-comment">     *
-</span></span><span id="97" class="l"><a href="#97"> 97: </a><span class="php-comment">     * @param string $foursquareId  A Foursquare V2 API location ID
-</span></span><span id="98" class="l"><a href="#98"> 98: </a><span class="php-comment">     * @param int    $distance      The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
-</span></span><span id="99" class="l"><a href="#99"> 99: </a><span class="php-comment">     *
-</span></span><span id="100" class="l"><a href="#100">100: </a><span class="php-comment">     * @return Response
-</span></span><span id="101" class="l"><a href="#101">101: </a><span class="php-comment">     *
-</span></span><span id="102" class="l"><a href="#102">102: </a><span class="php-comment">     * @link https://www.instagram.com/developer/endpoints/locations/#get_locations_search
-</span></span><span id="103" class="l"><a href="#103">103: </a><span class="php-comment">     */</span>
-</span><span id="104" class="l"><a href="#104">104: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> searchByFoursquareId(<span class="php-var">$foursquareId</span>, <span class="php-var">$distance</span> = <span class="php-num">1000</span>)
-</span><span id="105" class="l"><a href="#105">105: </a>    {
-</span><span id="106" class="l"><a href="#106">106: </a>        <span class="php-var">$params</span> = [<span class="php-quote">'query'</span> =&gt; [
-</span><span id="107" class="l"><a href="#107">107: </a>            <span class="php-quote">'foursquare_v2_id'</span> =&gt; <span class="php-var">$foursquareId</span>,
-</span><span id="108" class="l"><a href="#108">108: </a>            <span class="php-quote">'distance'</span>         =&gt; <span class="php-var">$distance</span>,
-</span><span id="109" class="l"><a href="#109">109: </a>        ]];
-</span><span id="110" class="l"><a href="#110">110: </a>
-</span><span id="111" class="l"><a href="#111">111: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;client-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-quote">'locations/search'</span>, <span class="php-var">$params</span>);
-</span><span id="112" class="l"><a href="#112">112: </a>    }
-</span><span id="113" class="l"><a href="#113">113: </a>}</span></code></pre>
+</span><span id="86" class="l"><a href="#86"> 86: </a>        <span class="php-var">$params</span> = [<span class="php-quote">'query'</span> =&gt; [<span class="php-quote">'facebook_places_id'</span> =&gt; <span class="php-var">$facebookPlacesId</span>]];
+</span><span id="87" class="l"><a href="#87"> 87: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;client-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-quote">'locations/search'</span>, <span class="php-var">$params</span>);
+</span><span id="88" class="l"><a href="#88"> 88: </a>    }
+</span><span id="89" class="l"><a href="#89"> 89: </a>
+</span><span id="90" class="l"><a href="#90"> 90: </a>    <span class="php-comment">/**
+</span></span><span id="91" class="l"><a href="#91"> 91: </a><span class="php-comment">     * Search for a location by geographic coordinate.
+</span></span><span id="92" class="l"><a href="#92"> 92: </a><span class="php-comment">     *
+</span></span><span id="93" class="l"><a href="#93"> 93: </a><span class="php-comment">     * @param string $foursquareId  A Foursquare V2 API location ID
+</span></span><span id="94" class="l"><a href="#94"> 94: </a><span class="php-comment">     * @param int    $distance      The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
+</span></span><span id="95" class="l"><a href="#95"> 95: </a><span class="php-comment">     *
+</span></span><span id="96" class="l"><a href="#96"> 96: </a><span class="php-comment">     * @return Response
+</span></span><span id="97" class="l"><a href="#97"> 97: </a><span class="php-comment">     *
+</span></span><span id="98" class="l"><a href="#98"> 98: </a><span class="php-comment">     * @link https://www.instagram.com/developer/endpoints/locations/#get_locations_search
+</span></span><span id="99" class="l"><a href="#99"> 99: </a><span class="php-comment">     */</span>
+</span><span id="100" class="l"><a href="#100">100: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> searchByFoursquareId(<span class="php-var">$foursquareId</span>)
+</span><span id="101" class="l"><a href="#101">101: </a>    {
+</span><span id="102" class="l"><a href="#102">102: </a>        <span class="php-var">$params</span> = [<span class="php-quote">'query'</span> =&gt; [<span class="php-quote">'foursquare_v2_id'</span> =&gt; <span class="php-var">$foursquareId</span>]];
+</span><span id="103" class="l"><a href="#103">103: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;client-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-quote">'locations/search'</span>, <span class="php-var">$params</span>);
+</span><span id="104" class="l"><a href="#104">104: </a>    }
+</span><span id="105" class="l"><a href="#105">105: </a>}
+</span><span id="106" class="l"><a href="#106">106: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
@@ -255,6 +254,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cb3925991615e04c245db04485b7c3fe92de84be"></script>
-<script src="elementlist.js?97d5a612126cf88b55c19593b33d597cb713a50a"></script>
+<script src="elementlist.js?07616fafa2434c5e176218793775a49d8b9c6310"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@ use Instagram\Http\Client\GuzzleAdapter;
 use Instagram\Http\Middleware\AuthMiddleware;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * HttpServiceProvider
@@ -48,7 +49,7 @@ class HttpServiceProvider extends AbstractServiceProvider
         $container = $this->getContainer();
         $config    = $container->get('config');
 
-        $container->add('provider', function() use ($config) {
+        $container->share('provider', function() use ($config) {
             return new Instagram([
                 'clientId'     => $config->get('client_id'),
                 'clientSecret' => $config->get('client_secret'),
@@ -56,7 +57,7 @@ class HttpServiceProvider extends AbstractServiceProvider
             ]);
         });
 
-        $container->add('helper', function() use ($container) {
+        $container->share('helper', function() use ($container) {
             return new SessionLoginHelper($container->get('provider'));
         });
 
@@ -66,7 +67,7 @@ class HttpServiceProvider extends AbstractServiceProvider
         // Check if access token was provided, then set, otherwise not
         if ($config->has('access_token')) {
 
-            $container->add('http', function() use ($config) {
+            $container->share('http', function() use ($config) {
 
                 $stack = HandlerStack::create();
                 $stack->push(AuthMiddleware::create($config->get('access_token')));

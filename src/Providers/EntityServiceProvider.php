@@ -38,16 +38,16 @@ class EntityServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        $this->getContainer()->add('entity.user', new User($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.user', new User($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.media', new Media($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.media', new Media($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.comment', new Comment($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.comment', new Comment($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.like', new LikeRepository($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.like', new LikeRepository($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.tag', new Tag($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.tag', new Tag($this->getContainer()->get('http')));
 
-        $this->getContainer()->add('entity.location', new Location($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.location', new Location($this->getContainer()->get('http')));
     }
 }

@@ -229,11 +229,6 @@ Likes
     The ``public_content`` permission scope is required to create likes on a
     media object that does not belong to the owner of the access token.
 
-.. important::
-
-    This method only works if either the ``public_content`` or ``likes`` scope
-    is set on the access token.
-
 .. code-block:: php
 
     $client   = new Instagram($clientId, $clientSecret, $accessToken);
@@ -247,11 +242,6 @@ Likes
 
     The ``public_content`` permission scope is required to delete likes on a
     media object that does not belong to the owner of the access token.
-
-.. important::
-
-    This method only works if either the ``public_content`` or ``likes`` scope
-    is set on the access token.
 
 .. code-block:: php
 

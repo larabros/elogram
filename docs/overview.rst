@@ -139,7 +139,7 @@ Reporting a security vulnerability
 
 We want to ensure that Instagram-SDK is secure for everyone. If you’ve
 discovered a security vulnerability, we appreciate your help in
-disclosing it to us in a `responsible manner <http://en.wikipedia.org/wiki/Responsible_disclosure>`.
+disclosing it to us in a `responsible manner <http://en.wikipedia.org/wiki/Responsible_disclosure>`_.
 
 Publicly disclosing a vulnerability can put the entire community at
 risk. If you’ve discovered a security concern, please email us at

@@ -2,6 +2,7 @@
 
 namespace Instagram\Tests\Http\Client;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
@@ -44,6 +45,19 @@ class GuzzleAdapterTest extends TestCase
         $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
         $adapter = new GuzzleAdapter($this->guzzleMock);
         $this->setExpectedException(ClientException::class);
+        $adapter->request('GET', '[');
+    }
+
+    /**
+     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Client\GuzzleAdapter::request()
+     */
+    public function testBadResponse()
+    {
+        $exception = new Exception('Server exception');
+        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
+        $adapter = new GuzzleAdapter($this->guzzleMock);
+        $this->setExpectedException(Exception::class);
         $adapter->request('GET', '[');
     }
 

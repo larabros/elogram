@@ -25,6 +25,24 @@ class MockAdapterTest extends TestCase
     }
 
     /**
+     * @covers Instagram\Http\Client\MockAdapter::__construct()
+     * @covers Instagram\Http\Client\MockAdapter::request()
+     * @covers Instagram\Http\Client\MockAdapter::mapRequestToFile()
+     * @covers Instagram\Http\Client\MockAdapter::mapRequestParameters()
+     */
+    public function testRequestWithParameters()
+    {
+        $path = realpath(__DIR__.'/../../fixtures/').'/';
+        $adapter = new MockAdapter($path);
+
+        $expected = file_get_contents($path.'get_locations_search_facebook_places_id.json');
+        $actual = $adapter->request('GET', 'locations/search', [
+            'query' => ['facebook_places_id' => 'lalala']
+        ]);
+        $this->assertJsonStringEqualsJsonString((string) $actual, $expected);
+    }
+
+    /**
      */
     public function testPaginate()
     {

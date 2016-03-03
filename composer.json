@@ -40,7 +40,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "apidocs": "apigen generate -s ./src -d ./docs/_statics/api"
+        "apidocs": "apigen generate -s ./src -d ./docs/_static/api"
     },
     "extra": {
         "branch-alias": {

@@ -27,6 +27,7 @@ class EntityServiceProvider extends AbstractServiceProvider
         'entity.comment',
         'entity.like',
         'entity.tag',
+        'entity.location',
     ];
 
     /**

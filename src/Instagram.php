@@ -3,7 +3,11 @@
 namespace Instagram;
 
 use Instagram\Container\Builder;
+use Instagram\Entities\Comment;
+use Instagram\Entities\LikeRepository;
+use Instagram\Entities\Location;
 use Instagram\Entities\Media;
+use Instagram\Entities\Tag;
 use Instagram\Entities\User;
 use Instagram\Helpers\LoginHelperInterface;
 use Instagram\Http\Client\AdapterInterface;
@@ -144,11 +148,53 @@ final class Instagram
     }
 
     /**
+     * Returns the current instance of `Media`.
+     *
      * @return Media
      */
     public function media()
     {
         return $this->container->get('entity.media');
+    }
+
+    /**
+     * Returns the current instance of `Comment`.
+     *
+     * @return Comment
+     */
+    public function comments()
+    {
+        return $this->container->get('entity.comment');
+    }
+
+    /**
+     * Returns the current instance of `LikeRepository`.
+     *
+     * @return LikeRepository
+     */
+    public function likes()
+    {
+        return $this->container->get('entity.like');
+    }
+
+    /**
+     * Returns the current instance of `Tag`.
+     *
+     * @return Tag
+     */
+    public function tags()
+    {
+        return $this->container->get('entity.tag');
+    }
+
+    /**
+     * Returns the current instance of `Location`.
+     *
+     * @return Location
+     */
+    public function locations()
+    {
+        return $this->container->get('entity.location');
     }
 
     /***************
@@ -163,7 +209,8 @@ final class Instagram
      *
      * @param Response $response
      * @param int      $limit
-     * @return mixed
+     *
+     * @return Response
      */
     public function paginate(Response $response, $limit = null)
     {

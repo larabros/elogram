@@ -3,7 +3,11 @@
 namespace Instagram\Tests\Http;
 
 use Instagram\Config;
+use Instagram\Entities\Comment;
+use Instagram\Entities\LikeRepository;
+use Instagram\Entities\Location;
 use Instagram\Entities\Media;
+use Instagram\Entities\Tag;
 use Instagram\Entities\User;
 use Instagram\Helpers\LoginHelperInterface;
 use Instagram\Http\Client\AdapterInterface;
@@ -81,5 +85,68 @@ class InstagramTest extends TestCase
         $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
         $media     = $instagram->media();
         $this->assertInstanceOf(Media::class, $media);
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
+     * @covers Instagram\Instagram::comments()
+     */
+    public function testComments()
+    {
+        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
+        $comments  = $instagram->comments();
+        $this->assertInstanceOf(Comment::class, $comments);
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
+     * @covers Instagram\Instagram::likes()
+     */
+    public function testLikes()
+    {
+        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
+        $likes     = $instagram->likes();
+        $this->assertInstanceOf(LikeRepository::class, $likes);
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
+     * @covers Instagram\Instagram::tags()
+     */
+    public function testTags()
+    {
+        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
+        $tags      = $instagram->tags();
+        $this->assertInstanceOf(Tag::class, $tags);
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
+     * @covers Instagram\Instagram::locations()
+     */
+    public function testLocations()
+    {
+        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
+        $locations = $instagram->locations();
+        $this->assertInstanceOf(Location::class, $locations);
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getProviders()
+     * @covers Instagram\Instagram::paginate()
+     */
+    public function testPaginate()
+    {
+        $this->markTestIncomplete();
     }
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Interface Instagram\Http\Client\AdapterInterface</title>
+	<title>Interface Instagram\Http\Clients\AdapterInterface</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -51,13 +51,18 @@
 
 						<ul>
 				<li class="active">
-					<a href="namespace-Instagram.Http.Client.html">
-						Client					</a>
+					<a href="namespace-Instagram.Http.Clients.html">
+						Clients					</a>
 
 						</li>
 				<li>
 					<a href="namespace-Instagram.Http.Middleware.html">
 						Middleware					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Instagram.Http.Sessions.html">
+						Sessions					</a>
 
 						</li>
 							</ul></li>
@@ -76,13 +81,13 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Instagram.Http.Client.GuzzleAdapter.html">GuzzleAdapter</a></li>
-				<li><a href="class-Instagram.Http.Client.MockAdapter.html">MockAdapter</a></li>
+				<li><a href="class-Instagram.Http.Clients.GuzzleAdapter.html">GuzzleAdapter</a></li>
+				<li><a href="class-Instagram.Http.Clients.MockAdapter.html">MockAdapter</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li class="active"><a href="class-Instagram.Http.Client.AdapterInterface.html">AdapterInterface</a></li>
+				<li class="active"><a href="class-Instagram.Http.Clients.AdapterInterface.html">AdapterInterface</a></li>
 			</ul>
 
 
@@ -108,7 +113,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Instagram.Http.Client.html" title="Summary of Instagram\Http\Client"><span>Namespace</span></a>
+				<a href="namespace-Instagram.Http.Clients.html" title="Summary of Instagram\Http\Clients"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -130,8 +135,8 @@
 
 	<div>
 		<h4>Direct known implementers</h4>
-			<a href="class-Instagram.Http.Client.GuzzleAdapter.html">Instagram\Http\Client\GuzzleAdapter</a>, 
-			<a href="class-Instagram.Http.Client.MockAdapter.html">Instagram\Http\Client\MockAdapter</a>
+			<a href="class-Instagram.Http.Clients.GuzzleAdapter.html">Instagram\Http\Clients\GuzzleAdapter</a>, 
+			<a href="class-Instagram.Http.Clients.MockAdapter.html">Instagram\Http\Clients\MockAdapter</a>
 	</div>
 
 
@@ -140,10 +145,10 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Http.html">Http</a>\<a href="namespace-Instagram.Http.Client.html">Client</a><br>
+		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Http.html">Http</a>\<a href="namespace-Instagram.Http.Clients.html">Clients</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Instagram.Http.Client.AdapterInterface.html#9-39" title="Go to source code">Http/Client/AdapterInterface.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Http.Clients.AdapterInterface.html#9-39" title="Go to source code">Http/Clients/AdapterInterface.php</a>
 		<br>
 	</div>
 
@@ -163,7 +168,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_request">#</a>
-		<code><a href="source-class-Instagram.Http.Client.AdapterInterface.html#11-27" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
+		<code><a href="source-class-Instagram.Http.Clients.AdapterInterface.html#11-27" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>Sends a HTTP request using <code>$method</code> to the given <code>$uri</code>, with
@@ -216,7 +221,7 @@ with built-in exception-handling.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_paginate">#</a>
-		<code><a href="source-class-Instagram.Http.Client.AdapterInterface.html#29-38" title="Go to source code">paginate</a>( <span><code><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></code> <var>$response</var></span>, <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Instagram.Http.Clients.AdapterInterface.html#29-38" title="Go to source code">paginate</a>( <span><code><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></code> <var>$response</var></span>, <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Paginates a <code>Response</code>. The pagination limit is set by <code>$limit</code> -

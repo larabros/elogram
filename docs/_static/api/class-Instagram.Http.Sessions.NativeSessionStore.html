@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Instagram\Container\Builder</title>
+	<title>Class Instagram\Http\Sessions\NativeSessionStore</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -24,7 +24,7 @@
 					</a>
 
 						<ul>
-				<li class="active">
+				<li>
 					<a href="namespace-Instagram.Container.html">
 						Container					</a>
 
@@ -44,7 +44,7 @@
 						Helpers					</a>
 
 						</li>
-				<li>
+				<li class="active">
 					<a href="namespace-Instagram.Http.html">
 						Http<span></span>
 					</a>
@@ -60,7 +60,7 @@
 						Middleware					</a>
 
 						</li>
-				<li>
+				<li class="active">
 					<a href="namespace-Instagram.Http.Sessions.html">
 						Sessions					</a>
 
@@ -81,9 +81,13 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-Instagram.Container.Builder.html">Builder</a></li>
+				<li class="active"><a href="class-Instagram.Http.Sessions.NativeSessionStore.html">NativeSessionStore</a></li>
 			</ul>
 
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Instagram.Http.Sessions.DataStoreInterface.html">DataStoreInterface</a></li>
+			</ul>
 
 
 
@@ -108,7 +112,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Instagram.Container.html" title="Summary of Instagram\Container"><span>Namespace</span></a>
+				<a href="namespace-Instagram.Http.Sessions.html" title="Summary of Instagram\Http\Sessions"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -120,22 +124,19 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Builder</h1>
+	<h1>Class NativeSessionStore</h1>
 
 
 	<div class="description">
-	<p>Builder class.</p>
+	<p>Instagram mock client class.</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span>Instagram\Container\Builder</span></b>			
+<b><span>Instagram\Http\Sessions\NativeSessionStore</span></b>			
 			 implements 
-<span>League\Container\ContainerAwareInterface</span>
+				<a href="class-Instagram.Http.Sessions.DataStoreInterface.html"><span>Instagram\Http\Sessions\DataStoreInterface</span></a>
 			
-			 uses 
-					League\Container\ContainerAwareTrait (not available)
-
 			
 		</dd>
 	</dl>
@@ -150,7 +151,7 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Container.html">Container</a><br>
+		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Http.html">Http</a>\<a href="namespace-Instagram.Http.Sessions.html">Sessions</a><br>
 		<b>Package:</b> Instagram<br>
 
 				<b>License:</b>
@@ -159,7 +160,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Container.Builder.html#14-95" title="Go to source code">Container/Builder.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Http.Sessions.NativeSessionStore.html#5-39" title="Go to source code">Http/Sessions/NativeSessionStore.php</a>
 		<br>
 	</div>
 
@@ -179,21 +180,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#36-45" title="Go to source code">__construct</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Instagram.Http.Sessions.NativeSessionStore.html#12-20" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
-			<p>Creates a new instance of <code>Builder</code>.</p>
+			<p>Creates an instance of <code>NativeSessionStore</code>.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a new instance of <code>Builder</code>.</p>
+			<p>Creates an instance of <code>NativeSessionStore</code>.</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$config</var></dt>
-					<dd></dd>
-				</dl></div>
 
 
 
@@ -202,46 +198,51 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="createConfig" id="_createConfig">
+	<tr data-order="get" id="_get">
 
 		<td class="attributes"><code>
-			 protected 
+			 public 
 
-			<code><a href="class-Instagram.Config.html">Instagram\Config</a></code>
+			mixed
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_createConfig">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#47-57" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Instagram.Http.Sessions.NativeSessionStore.html#22-31" title="Go to source code">get</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
-			<p>Creates a <code>Config</code> object from raw parameters.</p>
+			
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a <code>Config</code> object from raw parameters.</p>
+			
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$config</var></dt>
+					<dt><var>$key</var></dt>
 					<dd></dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Instagram.Config.html">Instagram\Config</a></code>
+					mixed
 				</div>
 
 
+				<h4>Inheritdoc</h4>
+				<div class="list">
+				</div>
 
 
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Instagram.Http.Sessions.DataStoreInterface.html#_get">Instagram\Http\Sessions\DataStoreInterface::get()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="register" id="_register">
+	<tr data-order="set" id="_set">
 
 		<td class="attributes"><code>
 			 public 
@@ -252,74 +253,34 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_register">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#59-78" title="Go to source code">register</a>( <span>array|string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
+		<a class="anchor" href="#_set">#</a>
+		<code><a href="source-class-Instagram.Http.Sessions.NativeSessionStore.html#32-38" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
-			<p>Registers service providers onto the container. This method can be passed
-an array, a string or a <code>ServiceProviderInterface</code>.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Registers service providers onto the container. This method can be passed
-an array, a string or a <code>ServiceProviderInterface</code>.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$provider</var></dt>
-					<dd></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<br>$this
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="createContainer" id="_createContainer">
-
-		<td class="attributes"><code>
-			 public 
-
-			League\Container\ContainerInterface
 			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_createContainer">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#80-94" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
-
-		<div class="description short">
-			<p>Creates and returns a new <code>Container</code> instance after adding the raw
-config values to it.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates and returns a new <code>Container</code> instance after adding the raw
-config values to it.</p>
+			
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$config</var></dt>
+					<dt><var>$key</var></dt>
+					<dd></dd>
+					<dt><var>$value</var></dt>
 					<dd></dd>
 				</dl></div>
 
-				<h4>Returns</h4>
+
+
+				<h4>Inheritdoc</h4>
 				<div class="list">
-					League\Container\ContainerInterface
 				</div>
 
 
-
-
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Instagram.Http.Sessions.DataStoreInterface.html#_set">Instagram\Http\Sessions\DataStoreInterface::set()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -338,31 +299,28 @@ config values to it.</p>
 
 	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="defaultProviders" id="$defaultProviders">
+	<tr data-order="sessionPrefix" id="$sessionPrefix">
 		<td class="attributes"><code>
 			protected  
-			array
+			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Container.Builder.html#26-34" title="Go to source code"><var>$defaultProviders</var></a>
+				<a href="source-class-Instagram.Http.Sessions.NativeSessionStore.html#7-10" title="Go to source code"><var>$sessionPrefix</var></a>
 
 			<div class="description short">
-				<p>Default application service providers.</p>
+				<p>Prefix to use for session variables.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Default application service providers.</p>
+				<p>Prefix to use for session variables.</p>
 
 			</div>
 		</td>
 		<td class="value">
 			<div>
-				<a href="#$defaultProviders" class="anchor">#</a>
-				<code>[
-    HttpServiceProvider::<span class="php-keyword1">class</span>,
-    EntityServiceProvider::<span class="php-keyword1">class</span>,
-]</code>
+				<a href="#$sessionPrefix" class="anchor">#</a>
+				<code><span class="php-quote">'IG_'</span></code>
 			</div>
 		</td>
 	</tr>

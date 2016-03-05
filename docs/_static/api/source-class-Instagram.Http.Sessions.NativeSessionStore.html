@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex">
 
-	<title>File Helpers/LoginHelperInterface.php</title>
+	<title>File Http/Sessions/NativeSessionStore.php</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -150,41 +150,43 @@
 
 <pre><code><span id="1" class="l"><a href="#1"> 1: </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a href="#2"> 2: </a>
-</span><span id="3" class="l"><a href="#3"> 3: </a><span class="php-keyword1">namespace</span> Instagram\Helpers;
+</span><span id="3" class="l"><a href="#3"> 3: </a><span class="php-keyword1">namespace</span> Instagram\Http\Sessions;
 </span><span id="4" class="l"><a href="#4"> 4: </a>
-</span><span id="5" class="l"><a href="#5"> 5: </a><span class="php-keyword1">use</span> League\OAuth2\Client\Token\AccessToken;
-</span><span id="6" class="l"><a href="#6"> 6: </a>
-</span><span id="7" class="l"><a href="#7"> 7: </a><span class="php-comment">/**
-</span></span><span id="8" class="l"><a href="#8"> 8: </a><span class="php-comment"> * LoginHelperInterface
-</span></span><span id="9" class="l"><a href="#9"> 9: </a><span class="php-comment"> *
-</span></span><span id="10" class="l"><a href="#10">10: </a><span class="php-comment"> * @package    Instagram
-</span></span><span id="11" class="l"><a href="#11">11: </a><span class="php-comment"> * @author     Hassan Khan &lt;contact@hassankhan.me&gt;
-</span></span><span id="12" class="l"><a href="#12">12: </a><span class="php-comment"> * @link       https://github.com/hassankhan/instagram-sdk
-</span></span><span id="13" class="l"><a href="#13">13: </a><span class="php-comment"> * @license    MIT
-</span></span><span id="14" class="l"><a href="#14">14: </a><span class="php-comment"> */</span>
-</span><span id="15" class="l"><a href="#15">15: </a><span class="php-keyword1">interface</span> LoginHelperInterface
-</span><span id="16" class="l"><a href="#16">16: </a>{
-</span><span id="17" class="l"><a href="#17">17: </a>    <span class="php-comment">/**
-</span></span><span id="18" class="l"><a href="#18">18: </a><span class="php-comment">     * Sets CSRF nonce and returns the login URL.
-</span></span><span id="19" class="l"><a href="#19">19: </a><span class="php-comment">     *
-</span></span><span id="20" class="l"><a href="#20">20: </a><span class="php-comment">     * @param array $options
-</span></span><span id="21" class="l"><a href="#21">21: </a><span class="php-comment">     *
-</span></span><span id="22" class="l"><a href="#22">22: </a><span class="php-comment">     * @return string
-</span></span><span id="23" class="l"><a href="#23">23: </a><span class="php-comment">     */</span>
-</span><span id="24" class="l"><a href="#24">24: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getLoginUrl(<span class="php-keyword1">array</span> <span class="php-var">$options</span>);
-</span><span id="25" class="l"><a href="#25">25: </a>
-</span><span id="26" class="l"><a href="#26">26: </a>    <span class="php-comment">/**
-</span></span><span id="27" class="l"><a href="#27">27: </a><span class="php-comment">     * Validates CSRF and returns the access token.
-</span></span><span id="28" class="l"><a href="#28">28: </a><span class="php-comment">     *
-</span></span><span id="29" class="l"><a href="#29">29: </a><span class="php-comment">     * @param string $code
-</span></span><span id="30" class="l"><a href="#30">30: </a><span class="php-comment">     * @param string $grant
-</span></span><span id="31" class="l"><a href="#31">31: </a><span class="php-comment">     *
-</span></span><span id="32" class="l"><a href="#32">32: </a><span class="php-comment">     * @return AccessToken
-</span></span><span id="33" class="l"><a href="#33">33: </a><span class="php-comment">     *
+</span><span id="5" class="l"><a href="#5"> 5: </a><span class="php-keyword1">class</span> NativeSessionStore <span class="php-keyword1">implements</span> DataStoreInterface
+</span><span id="6" class="l"><a href="#6"> 6: </a>{
+</span><span id="7" class="l"><a href="#7"> 7: </a>    <span class="php-comment">/**
+</span></span><span id="8" class="l"><a href="#8"> 8: </a><span class="php-comment">     * @var string Prefix to use for session variables.
+</span></span><span id="9" class="l"><a href="#9"> 9: </a><span class="php-comment">     */</span>
+</span><span id="10" class="l"><a href="#10">10: </a>    <span class="php-keyword1">protected</span> <span class="php-var">$sessionPrefix</span> = <span class="php-quote">'IG_'</span>;
+</span><span id="11" class="l"><a href="#11">11: </a>
+</span><span id="12" class="l"><a href="#12">12: </a>    <span class="php-comment">/**
+</span></span><span id="13" class="l"><a href="#13">13: </a><span class="php-comment">     * Creates an instance of `NativeSessionStore`.
+</span></span><span id="14" class="l"><a href="#14">14: </a><span class="php-comment">     */</span>
+</span><span id="15" class="l"><a href="#15">15: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct()
+</span><span id="16" class="l"><a href="#16">16: </a>    {
+</span><span id="17" class="l"><a href="#17">17: </a>        <span class="php-keyword1">if</span> (session_status() !== PHP_SESSION_ACTIVE) {
+</span><span id="18" class="l"><a href="#18">18: </a>            <span class="php-keyword2">session_start</span>();
+</span><span id="19" class="l"><a href="#19">19: </a>        }
+</span><span id="20" class="l"><a href="#20">20: </a>    }
+</span><span id="21" class="l"><a href="#21">21: </a>
+</span><span id="22" class="l"><a href="#22">22: </a>    <span class="php-comment">/**
+</span></span><span id="23" class="l"><a href="#23">23: </a><span class="php-comment">     * @inheritDoc
+</span></span><span id="24" class="l"><a href="#24">24: </a><span class="php-comment">     */</span>
+</span><span id="25" class="l"><a href="#25">25: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> get(<span class="php-var">$key</span>)
+</span><span id="26" class="l"><a href="#26">26: </a>    {
+</span><span id="27" class="l"><a href="#27">27: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-var">$this</span>-&gt;sessionPrefix . <span class="php-var">$key</span>])) {
+</span><span id="28" class="l"><a href="#28">28: </a>            <span class="php-keyword1">return</span> <span class="php-var">$_SESSION</span>[<span class="php-var">$this</span>-&gt;sessionPrefix . <span class="php-var">$key</span>];
+</span><span id="29" class="l"><a href="#29">29: </a>        }
+</span><span id="30" class="l"><a href="#30">30: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+</span><span id="31" class="l"><a href="#31">31: </a>    }
+</span><span id="32" class="l"><a href="#32">32: </a>    <span class="php-comment">/**
+</span></span><span id="33" class="l"><a href="#33">33: </a><span class="php-comment">     * @inheritDoc
 </span></span><span id="34" class="l"><a href="#34">34: </a><span class="php-comment">     */</span>
-</span><span id="35" class="l"><a href="#35">35: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getAccessToken(<span class="php-var">$code</span>, <span class="php-var">$grant</span> = <span class="php-quote">'authorization_code'</span>);
-</span><span id="36" class="l"><a href="#36">36: </a>}
-</span><span id="37" class="l"><a href="#37">37: </a></span></code></pre>
+</span><span id="35" class="l"><a href="#35">35: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> set(<span class="php-var">$key</span>, <span class="php-var">$value</span>)
+</span><span id="36" class="l"><a href="#36">36: </a>    {
+</span><span id="37" class="l"><a href="#37">37: </a>        <span class="php-var">$_SESSION</span>[<span class="php-var">$this</span>-&gt;sessionPrefix . <span class="php-var">$key</span>] = <span class="php-var">$value</span>;
+</span><span id="38" class="l"><a href="#38">38: </a>    }
+</span><span id="39" class="l"><a href="#39">39: </a>}</span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>

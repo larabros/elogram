@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Instagram\Providers\HttpServiceProvider</title>
+	<title>Interface Instagram\Http\Sessions\DataStoreInterface</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -44,7 +44,7 @@
 						Helpers					</a>
 
 						</li>
-				<li>
+				<li class="active">
 					<a href="namespace-Instagram.Http.html">
 						Http<span></span>
 					</a>
@@ -60,13 +60,13 @@
 						Middleware					</a>
 
 						</li>
-				<li>
+				<li class="active">
 					<a href="namespace-Instagram.Http.Sessions.html">
 						Sessions					</a>
 
 						</li>
 							</ul></li>
-				<li class="active">
+				<li>
 					<a href="namespace-Instagram.Providers.html">
 						Providers					</a>
 
@@ -81,10 +81,13 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Instagram.Providers.EntityServiceProvider.html">EntityServiceProvider</a></li>
-				<li class="active"><a href="class-Instagram.Providers.HttpServiceProvider.html">HttpServiceProvider</a></li>
+				<li><a href="class-Instagram.Http.Sessions.NativeSessionStore.html">NativeSessionStore</a></li>
 			</ul>
 
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-Instagram.Http.Sessions.DataStoreInterface.html">DataStoreInterface</a></li>
+			</ul>
 
 
 
@@ -109,7 +112,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Instagram.Providers.html" title="Summary of Instagram\Providers"><span>Namespace</span></a>
+				<a href="namespace-Instagram.Http.Sessions.html" title="Summary of Instagram\Http\Sessions"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -121,30 +124,21 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class HttpServiceProvider</h1>
+	<h1>Interface DataStoreInterface</h1>
 
 
 	<div class="description">
-	<p>HttpServiceProvider</p>
+	<p>Instagram mock client class.</p>
 	</div>
 
-	<dl class="tree">
-		<dd style="padding-left:0px">
-League\Container\ServiceProvider\AbstractServiceProvider
-			
-			
-		</dd>
-		<dd style="padding-left:30px">
-			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Instagram\Providers\HttpServiceProvider</span></b>			
-			
-			
-		</dd>
-	</dl>
 
 
 
 
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Instagram.Http.Sessions.NativeSessionStore.html">Instagram\Http\Sessions\NativeSessionStore</a>
+	</div>
 
 
 
@@ -152,7 +146,7 @@ League\Container\ServiceProvider\AbstractServiceProvider
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Providers.html">Providers</a><br>
+		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Http.html">Http</a>\<a href="namespace-Instagram.Http.Sessions.html">Sessions</a><br>
 		<b>Package:</b> Instagram<br>
 
 				<b>License:</b>
@@ -161,7 +155,7 @@ League\Container\ServiceProvider\AbstractServiceProvider
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Providers.HttpServiceProvider.html#15-103" title="Go to source code">Providers/HttpServiceProvider.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Http.Sessions.DataStoreInterface.html#5-31" title="Go to source code">Http/Sessions/DataStoreInterface.php</a>
 		<br>
 	</div>
 
@@ -169,7 +163,46 @@ League\Container\ServiceProvider\AbstractServiceProvider
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="register" id="_register">
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Instagram.Http.Sessions.DataStoreInterface.html#15-22" title="Go to source code">get</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			<p>Get a value from a persistent data store.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get a value from a persistent data store.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set" id="_set">
 
 		<td class="attributes"><code>
 			 public 
@@ -180,21 +213,24 @@ League\Container\ServiceProvider\AbstractServiceProvider
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_register">#</a>
-		<code><a href="source-class-Instagram.Providers.HttpServiceProvider.html#41-102" title="Go to source code">register</a>( )</code>
+		<a class="anchor" href="#_set">#</a>
+		<code><a href="source-class-Instagram.Http.Sessions.DataStoreInterface.html#23-29" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
-			<p>Use the register method to register items with the container via the
-protected $this->container property or the <code>getContainer</code> method
-from the ContainerAwareTrait.</p>
+			<p>Set a value in the persistent data store.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Use the register method to register items with the container via the
-protected $this->container property or the <code>getContainer</code> method
-from the ContainerAwareTrait.</p>
+			<p>Set a value in the persistent data store.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd></dd>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
 
 
 
@@ -216,47 +252,6 @@ from the ContainerAwareTrait.</p>
 
 
 
-	<table class="summary properties" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="provides" id="$provides">
-		<td class="attributes"><code>
-			protected  
-			array
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Instagram.Providers.HttpServiceProvider.html#25-39" title="Go to source code"><var>$provides</var></a>
-
-			<div class="description short">
-				<p>The provides array is a way to let the container
-know that a service is provided by this service
-provider. Every service that is registered via
-this service provider must have an alias added
-to this array or it will be ignored.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>The provides array is a way to let the container
-know that a service is provided by this service
-provider. Every service that is registered via
-this service provider must have an alias added
-to this array or it will be ignored.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$provides" class="anchor">#</a>
-				<code>[
-    <span class="php-quote">'provider'</span>,
-    <span class="php-quote">'helper'</span>,
-    <span class="php-quote">'http'</span>,
-    HandlerStack::<span class="php-keyword1">class</span>
-]</code>
-			</div>
-		</td>
-	</tr>
-	</table>
 
 
 

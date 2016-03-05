@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex">
 
-	<title>File Http/Client/MockAdapter.php</title>
+	<title>File Http/Clients/MockAdapter.php</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -52,13 +52,18 @@
 
 						<ul>
 				<li>
-					<a href="namespace-Instagram.Http.Client.html">
-						Client					</a>
+					<a href="namespace-Instagram.Http.Clients.html">
+						Clients					</a>
 
 						</li>
 				<li>
 					<a href="namespace-Instagram.Http.Middleware.html">
 						Middleware					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Instagram.Http.Sessions.html">
+						Sessions					</a>
 
 						</li>
 							</ul></li>
@@ -86,11 +91,12 @@
 				<li><a href="class-Instagram.Entities.Media.html">Instagram\Entities\Media</a></li>
 				<li><a href="class-Instagram.Entities.Tag.html">Instagram\Entities\Tag</a></li>
 				<li><a href="class-Instagram.Entities.User.html">Instagram\Entities\User</a></li>
-				<li><a href="class-Instagram.Helpers.SessionLoginHelper.html">Instagram\Helpers\SessionLoginHelper</a></li>
-				<li><a href="class-Instagram.Http.Client.GuzzleAdapter.html">Instagram\Http\Client\GuzzleAdapter</a></li>
-				<li><a href="class-Instagram.Http.Client.MockAdapter.html">Instagram\Http\Client\MockAdapter</a></li>
+				<li><a href="class-Instagram.Helpers.RedirectLoginHelper.html">Instagram\Helpers\RedirectLoginHelper</a></li>
+				<li><a href="class-Instagram.Http.Clients.GuzzleAdapter.html">Instagram\Http\Clients\GuzzleAdapter</a></li>
+				<li><a href="class-Instagram.Http.Clients.MockAdapter.html">Instagram\Http\Clients\MockAdapter</a></li>
 				<li><a href="class-Instagram.Http.Middleware.AuthMiddleware.html">Instagram\Http\Middleware\AuthMiddleware</a></li>
 				<li><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></li>
+				<li><a href="class-Instagram.Http.Sessions.NativeSessionStore.html">Instagram\Http\Sessions\NativeSessionStore</a></li>
 				<li><a href="class-Instagram.Instagram.html">Instagram\Instagram</a></li>
 				<li><a href="class-Instagram.Providers.EntityServiceProvider.html">Instagram\Providers\EntityServiceProvider</a></li>
 				<li><a href="class-Instagram.Providers.HttpServiceProvider.html">Instagram\Providers\HttpServiceProvider</a></li>
@@ -99,7 +105,8 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-Instagram.Helpers.LoginHelperInterface.html">Instagram\Helpers\LoginHelperInterface</a></li>
-				<li><a href="class-Instagram.Http.Client.AdapterInterface.html">Instagram\Http\Client\AdapterInterface</a></li>
+				<li><a href="class-Instagram.Http.Clients.AdapterInterface.html">Instagram\Http\Clients\AdapterInterface</a></li>
+				<li><a href="class-Instagram.Http.Sessions.DataStoreInterface.html">Instagram\Http\Sessions\DataStoreInterface</a></li>
 			</ul>
 
 
@@ -143,7 +150,7 @@
 
 <pre><code><span id="1" class="l"><a href="#1">  1: </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a href="#2">  2: </a>
-</span><span id="3" class="l"><a href="#3">  3: </a><span class="php-keyword1">namespace</span> Instagram\Http\Client;
+</span><span id="3" class="l"><a href="#3">  3: </a><span class="php-keyword1">namespace</span> Instagram\Http\Clients;
 </span><span id="4" class="l"><a href="#4">  4: </a>
 </span><span id="5" class="l"><a href="#5">  5: </a><span class="php-keyword1">use</span> Instagram\Http\Response;
 </span><span id="6" class="l"><a href="#6">  6: </a>
@@ -237,7 +244,7 @@
 </span></span><span id="94" class="l"><a href="#94"> 94: </a><span class="php-comment">     */</span>
 </span><span id="95" class="l"><a href="#95"> 95: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> paginate(Response <span class="php-var">$response</span>, <span class="php-var">$limit</span> = <span class="php-keyword1">null</span>)
 </span><span id="96" class="l"><a href="#96"> 96: </a>    {
-</span><span id="97" class="l"><a href="#97"> 97: </a>        <span class="php-keyword1">return</span>;
+</span><span id="97" class="l"><a href="#97"> 97: </a>        <span class="php-keyword1">return</span> <span class="php-var">$response</span>;
 </span><span id="98" class="l"><a href="#98"> 98: </a>    }
 </span><span id="99" class="l"><a href="#99"> 99: </a>}
 </span><span id="100" class="l"><a href="#100">100: </a></span></code></pre>
@@ -248,6 +255,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cb3925991615e04c245db04485b7c3fe92de84be"></script>
-<script src="elementlist.js?07616fafa2434c5e176218793775a49d8b9c6310"></script>
+<script src="elementlist.js?983ec3da6977b2f0f465af8e35d25773fe92b502"></script>
 </body>
 </html>

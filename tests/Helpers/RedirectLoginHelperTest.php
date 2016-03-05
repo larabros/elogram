@@ -3,7 +3,7 @@
 namespace Instagram\Tests\Http;
 
 use Instagram\Exceptions\CsrfException;
-use Instagram\Helpers\SessionLoginHelper;
+use Instagram\Helpers\RedirectLoginHelper;
 use Instagram\Http\Sessions\NativeSessionStore;
 use Instagram\Tests\TestCase;
 use League\OAuth2\Client\Provider\Instagram;
@@ -11,7 +11,7 @@ use League\OAuth2\Client\Token\AccessToken;
 use \Mockery as m;
 
 
-class SessionLoginHelperTest extends TestCase
+class RedirectLoginHelperTest extends TestCase
 {
     protected $helper;
 
@@ -45,12 +45,12 @@ class SessionLoginHelperTest extends TestCase
             ->zeroOrMoreTimes()
             ->andReturn('0000');
 
-        $this->helper = new SessionLoginHelper($provider, $store);
+        $this->helper = new RedirectLoginHelper($provider, $store);
     }
 
     /**
-     * @covers Instagram\Helpers\SessionLoginHelper::__construct()
-     * @covers Instagram\Helpers\SessionLoginHelper::getLoginUrl()
+     * @covers Instagram\Helpers\RedirectLoginHelper::__construct()
+     * @covers Instagram\Helpers\RedirectLoginHelper::getLoginUrl()
      */
     public function testGetLoginUrl()
     {
@@ -58,10 +58,10 @@ class SessionLoginHelperTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Helpers\SessionLoginHelper::__construct()
-     * @covers Instagram\Helpers\SessionLoginHelper::getAccessToken()
-     * @covers Instagram\Helpers\SessionLoginHelper::validateCsrf()
-     * @covers Instagram\Helpers\SessionLoginHelper::getInput()
+     * @covers Instagram\Helpers\RedirectLoginHelper::__construct()
+     * @covers Instagram\Helpers\RedirectLoginHelper::getAccessToken()
+     * @covers Instagram\Helpers\RedirectLoginHelper::validateCsrf()
+     * @covers Instagram\Helpers\RedirectLoginHelper::getInput()
      */
     public function testGetAccessToken()
     {
@@ -72,10 +72,10 @@ class SessionLoginHelperTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Helpers\SessionLoginHelper::__construct()
-     * @covers Instagram\Helpers\SessionLoginHelper::getAccessToken()
-     * @covers Instagram\Helpers\SessionLoginHelper::validateCsrf()
-     * @covers Instagram\Helpers\SessionLoginHelper::getInput()
+     * @covers Instagram\Helpers\RedirectLoginHelper::__construct()
+     * @covers Instagram\Helpers\RedirectLoginHelper::getAccessToken()
+     * @covers Instagram\Helpers\RedirectLoginHelper::validateCsrf()
+     * @covers Instagram\Helpers\RedirectLoginHelper::getInput()
      */
     public function testGetAccessTokenWithInvalidCsrf()
     {

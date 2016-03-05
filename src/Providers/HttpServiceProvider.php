@@ -5,7 +5,7 @@ namespace Instagram\Providers;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use Illuminate\Support\Facades\Session;
-use Instagram\Helpers\SessionLoginHelper;
+use Instagram\Helpers\RedirectLoginHelper;
 use Instagram\Http\Client\GuzzleAdapter;
 use Instagram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
@@ -64,7 +64,7 @@ class HttpServiceProvider extends AbstractServiceProvider
         });
 
         $container->share('helper', function() use ($container, $config) {
-            return new SessionLoginHelper(
+            return new RedirectLoginHelper(
                 $container->get('provider'),
                 $container->get(DataStoreInterface::class)
             );

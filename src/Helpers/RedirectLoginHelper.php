@@ -7,14 +7,14 @@ use Instagram\Http\Sessions\DataStoreInterface;
 use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
 
 /**
- * SessionLoginHelper
+ * RedirectLoginHelper
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class SessionLoginHelper implements LoginHelperInterface
+class RedirectLoginHelper implements LoginHelperInterface
 {
     /**
      * @var InstagramProvider
@@ -27,7 +27,7 @@ class SessionLoginHelper implements LoginHelperInterface
     protected $store;
 
     /**
-     * Creates an instance of `SessionLoginHelper`.
+     * Creates an instance of `RedirectLoginHelper`.
      *
      * @param InstagramProvider  $provider
      * @param DataStoreInterface $store

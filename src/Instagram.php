@@ -51,14 +51,12 @@ final class Instagram
      * @param string $clientSecret
      * @param null   $accessToken
      * @param string $redirectUrl
-     * @param array  $providers
      */
     public function __construct(
         $clientId,
         $clientSecret,
         $accessToken = null,
-        $redirectUrl = '',
-        $providers = []
+        $redirectUrl = ''
     ) {
         $this->container = $this->buildContainer(
             $clientId,
@@ -76,7 +74,6 @@ final class Instagram
      * @param string      $clientSecret
      * @param string|null $accessToken
      * @param string      $redirectUrl
-     * @param array       $providers
      *
      * @return \League\Container\ContainerInterface
      */
@@ -84,26 +81,15 @@ final class Instagram
         $clientId,
         $clientSecret,
         $accessToken = null,
-        $redirectUrl = '',
-        $providers = []
+        $redirectUrl = ''
     ) {
         return (new Builder([
             'client_id'     => $clientId,
             'client_secret' => $clientSecret,
             'access_token'  => $accessToken,
             'redirect_url'  => $redirectUrl,
-        ]))->register($this->getProviders($providers))
+        ]))->register($this->defaultProviders)
             ->getContainer();
-    }
-
-    /**
-     * @param array $providers
-     *
-     * @return array
-     */
-    protected function getProviders(array $providers)
-    {
-        return array_merge($this->defaultProviders, $providers);
     }
 
     /**

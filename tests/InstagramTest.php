@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram\Tests\Http;
+namespace Instagram\Tests;
 
 use Instagram\Config;
 use Instagram\Entities\Comment;
@@ -12,7 +12,6 @@ use Instagram\Entities\User;
 use Instagram\Helpers\LoginHelperInterface;
 use Instagram\Http\Client\AdapterInterface;
 use Instagram\Instagram;
-use Instagram\Tests\TestCase;
 
 class InstagramTest extends TestCase
 {
@@ -29,7 +28,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::getConfig()
      */
     public function testGetConfig()
@@ -40,7 +38,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::getLoginHelper()
      * @runInSeparateProcess
      */
@@ -52,7 +49,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::getClient()
      */
     public function testGetClient()
@@ -64,7 +60,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::users()
      */
     public function testUsers()
@@ -77,7 +72,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::media()
      */
     public function testMedia()
@@ -90,7 +84,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::comments()
      */
     public function testComments()
@@ -103,7 +96,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::likes()
      */
     public function testLikes()
@@ -116,7 +108,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::tags()
      */
     public function testTags()
@@ -129,7 +120,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::locations()
      */
     public function testLocations()
@@ -142,7 +132,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getProviders()
      * @covers Instagram\Instagram::paginate()
      */
     public function testPaginate()

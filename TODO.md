@@ -11,6 +11,11 @@ TODO
 
 ## Refactors
 - Make pagination recursive
+- Create `Sessions\NativeSession` and inject into `SessionLoginHelper`
+- Rename `SessionLoginHelper` to `RedirectLoginHelper`
+- Rename `Entities` to `Repositories`
+- Rename `Client` to `Clients`
+- Make `Response::get()` return a `Collection`
 
 ## Tests
 - Create separate suite for Entities

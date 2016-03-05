@@ -8,6 +8,9 @@ use League\OAuth2\Client\Token\AccessToken;
 
 class ConfigTest extends TestCase
 {
+    /**
+     * @var Config
+     */
     protected $config;
 
     protected function setUp()
@@ -22,17 +25,7 @@ class ConfigTest extends TestCase
      */
     public function testCreateWithoutAccessToken()
     {
+        $this->assertEquals('https://api.instagram.com/v1/', $this->config->get('base_uri'));
         $this->assertNull($this->config->get('access_token'));
-    }
-
-    /**
-     * @covers Instagram\Config::__construct()
-     * @covers Instagram\Config::getDefaults()
-     * @covers Instagram\Config::get()
-     */
-    public function testCreateWithAccessToken()
-    {
-        $config = new Config(['access_token' => '{"access_token": "sometoken"}']);
-        $this->assertInstanceOf(AccessToken::class, $config->get('access_token'));
     }
 }

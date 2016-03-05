@@ -2,7 +2,8 @@
 
 namespace Instagram;
 
-use League\OAuth2\Client\Token\AccessToken;
+use Instagram\Helpers\SessionLoginHelper;
+use Instagram\Http\Middleware\AuthMiddleware;
 use Noodlehaus\AbstractConfig;
 
 /**
@@ -22,13 +23,8 @@ class Config extends AbstractConfig
      */
     public function __construct(array $data)
     {
-        $filteredData = array_merge(array_filter($this->getDefaults()), array_filter($data));
-
-        if (array_key_exists('access_token', $filteredData)) {
-            $filteredData['access_token'] = new AccessToken(json_decode($filteredData['access_token'], true));
-        }
-
-        $this->data = $filteredData;
+        $filteredData = array_filter(array_merge($this->getDefaults(), $data));
+        parent::__construct($filteredData);
     }
 
     /**
@@ -42,6 +38,11 @@ class Config extends AbstractConfig
             'client_secret' => '',
             'access_token'  => null,
             'redirect_url'  => '',
+            'session_store' => SessionLoginHelper::class,
+            'middleware'    => [
+                'auth'   => AuthMiddleware::class,
+//                'secure' => '',
+            ],
         ];
     }
 }

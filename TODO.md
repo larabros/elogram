@@ -11,7 +11,6 @@ TODO
 
 ## Refactors
 - Make pagination recursive
-- Create `Sessions\NativeSession` and inject into `SessionLoginHelper`
 - Rename `SessionLoginHelper` to `RedirectLoginHelper`
 - Rename `Entities` to `Repositories`
 - Rename `Client` to `Clients`

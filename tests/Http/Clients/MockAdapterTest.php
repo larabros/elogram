@@ -9,6 +9,22 @@ use Mockery as m;
 class MockAdapterTest extends TestCase
 {
     /**
+     * @var string
+     */
+    protected $path;
+
+    /**
+     * @var MockAdapter
+     */
+    protected $adapter;
+
+    protected function setUp()
+    {
+        $this->path = realpath(__DIR__.'/../../fixtures/').'/';
+        $this->adapter = new MockAdapter($this->path);
+    }
+
+    /**
      * @covers Instagram\Http\Clients\MockAdapter::__construct()
      * @covers Instagram\Http\Clients\MockAdapter::request()
      * @covers Instagram\Http\Clients\MockAdapter::mapRequestToFile()
@@ -16,11 +32,8 @@ class MockAdapterTest extends TestCase
      */
     public function testRequest()
     {
-        $path = realpath(__DIR__.'/../../fixtures/').'/';
-        $adapter = new MockAdapter($path);
-
-        $expected = file_get_contents($path.'get_users_search.json');
-        $actual = $adapter->request('GET', 'users/search');
+        $expected = file_get_contents($this->path.'get_users_search.json');
+        $actual = $this->adapter->request('GET', 'users/search');
         $this->assertJsonStringEqualsJsonString((string) $actual, $expected);
     }
 
@@ -32,20 +45,20 @@ class MockAdapterTest extends TestCase
      */
     public function testRequestWithParameters()
     {
-        $path = realpath(__DIR__.'/../../fixtures/').'/';
-        $adapter = new MockAdapter($path);
-
-        $expected = file_get_contents($path.'get_locations_search_facebook_places_id.json');
-        $actual = $adapter->request('GET', 'locations/search', [
+        $expected = file_get_contents($this->path.'get_locations_search_facebook_places_id.json');
+        $actual = $this->adapter->request('GET', 'locations/search', [
             'query' => ['facebook_places_id' => 'lalala']
         ]);
         $this->assertJsonStringEqualsJsonString((string) $actual, $expected);
     }
 
     /**
+     * @covers Instagram\Http\Clients\MockAdapter::__construct()
+     * @covers Instagram\Http\Clients\MockAdapter::paginate()
      */
     public function testPaginate()
     {
-        $this->markTestIncomplete();
+        $actual = $this->adapter->request('GET', 'users/search');
+        $this->assertJsonStringEqualsJsonString((string) $actual, (string) $this->adapter->paginate($actual));
     }
 }

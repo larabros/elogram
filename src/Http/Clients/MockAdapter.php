@@ -94,6 +94,6 @@ final class MockAdapter implements AdapterInterface
      */
     public function paginate(Response $response, $limit = null)
     {
-        return;
+        return $response;
     }
 }

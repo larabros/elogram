@@ -1,6 +1,6 @@
-==========
+=========
 Endpoints
-==========
+=========
 
 This page provides a list of all endpoints supported by Instagram-SDK and
 introductory examples. If you have not already acquired an access token, head
@@ -285,7 +285,7 @@ Locations
 =========
 
 ``get($id)``
--------------
+------------
 
 .. code-block:: php
 

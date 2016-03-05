@@ -1,8 +1,8 @@
 .. title:: Instagram-SDK
 
-====================
+=============
 Documentation
-====================
+=============
 
 Instagram-SDK is a PHP client for the Instagram API. It offers:
 

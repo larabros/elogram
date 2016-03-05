@@ -3,7 +3,7 @@
 namespace Instagram\Tests\Entities;
 
 use Instagram\Entities\LikeRepository;
-use Instagram\Http\Client\MockAdapter;
+use Instagram\Http\Clients\MockAdapter;
 use Instagram\Tests\TestCase;
 
 class LikeRepositoryTest extends TestCase

@@ -10,7 +10,7 @@ use Instagram\Entities\Media;
 use Instagram\Entities\Tag;
 use Instagram\Entities\User;
 use Instagram\Helpers\LoginHelperInterface;
-use Instagram\Http\Client\AdapterInterface;
+use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Http\Response;
 use Instagram\Providers\EntityServiceProvider;
 use Instagram\Providers\HttpServiceProvider;

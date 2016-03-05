@@ -2,7 +2,7 @@
 
 namespace Instagram\Entities;
 
-use Instagram\Http\Client\AdapterInterface;
+use Instagram\Http\Clients\AdapterInterface;
 
 /**
  * AbstractEntity

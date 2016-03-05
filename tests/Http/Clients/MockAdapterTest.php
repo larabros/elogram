@@ -1,18 +1,18 @@
 <?php
 
-namespace Instagram\Tests\Http\Client;
+namespace Instagram\Tests\Http\Clients;
 
-use Instagram\Http\Client\MockAdapter;
+use Instagram\Http\Clients\MockAdapter;
 use Instagram\Tests\TestCase;
 use Mockery as m;
 
 class MockAdapterTest extends TestCase
 {
     /**
-     * @covers Instagram\Http\Client\MockAdapter::__construct()
-     * @covers Instagram\Http\Client\MockAdapter::request()
-     * @covers Instagram\Http\Client\MockAdapter::mapRequestToFile()
-     * @covers Instagram\Http\Client\MockAdapter::mapRequestParameters()
+     * @covers Instagram\Http\Clients\MockAdapter::__construct()
+     * @covers Instagram\Http\Clients\MockAdapter::request()
+     * @covers Instagram\Http\Clients\MockAdapter::mapRequestToFile()
+     * @covers Instagram\Http\Clients\MockAdapter::mapRequestParameters()
      */
     public function testRequest()
     {
@@ -25,10 +25,10 @@ class MockAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\MockAdapter::__construct()
-     * @covers Instagram\Http\Client\MockAdapter::request()
-     * @covers Instagram\Http\Client\MockAdapter::mapRequestToFile()
-     * @covers Instagram\Http\Client\MockAdapter::mapRequestParameters()
+     * @covers Instagram\Http\Clients\MockAdapter::__construct()
+     * @covers Instagram\Http\Clients\MockAdapter::request()
+     * @covers Instagram\Http\Clients\MockAdapter::mapRequestToFile()
+     * @covers Instagram\Http\Clients\MockAdapter::mapRequestParameters()
      */
     public function testRequestWithParameters()
     {

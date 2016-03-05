@@ -6,7 +6,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use Illuminate\Support\Facades\Session;
 use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Client\GuzzleAdapter;
+use Instagram\Http\Clients\GuzzleAdapter;
 use Instagram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;

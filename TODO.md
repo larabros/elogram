@@ -12,7 +12,6 @@ TODO
 ## Refactors
 - Make pagination recursive
 - Rename `Entities` to `Repositories`
-- Rename `Client` to `Clients`
 - Make `Response::get()` return a `Collection`
 
 ## Tests

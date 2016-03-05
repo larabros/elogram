@@ -3,7 +3,7 @@
 namespace Instagram\Tests\Entities;
 
 use Instagram\Entities\Location;
-use Instagram\Http\Client\MockAdapter;
+use Instagram\Http\Clients\MockAdapter;
 use Instagram\Tests\TestCase;
 
 class LocationTest extends TestCase

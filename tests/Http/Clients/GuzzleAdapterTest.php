@@ -1,13 +1,13 @@
 <?php
 
-namespace Instagram\Tests\Http\Client;
+namespace Instagram\Tests\Http\Clients;
 
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Instagram\Http\Client\GuzzleAdapter;
+use Instagram\Http\Clients\GuzzleAdapter;
 use Instagram\Tests\TestCase;
 use Mockery as m;
 
@@ -21,8 +21,8 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Client\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      */
     public function testRequest()
     {
@@ -36,8 +36,8 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Client\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      */
     public function testBadRequest()
     {
@@ -49,8 +49,8 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Client\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      */
     public function testBadResponse()
     {
@@ -62,9 +62,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Client\GuzzleAdapter::request()
-     * @covers Instagram\Http\Client\GuzzleAdapter::paginate()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::paginate()
      */
     public function testPaginateSingleResponse()
     {
@@ -78,9 +78,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Client\GuzzleAdapter::request()
-     * @covers Instagram\Http\Client\GuzzleAdapter::paginate()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::paginate()
      */
     public function testPaginateWithLimit()
     {
@@ -109,9 +109,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Client\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Client\GuzzleAdapter::request()
-     * @covers Instagram\Http\Client\GuzzleAdapter::paginate()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::paginate()
      */
     public function testPaginate()
     {

@@ -3,6 +3,7 @@
 namespace Instagram\Helpers;
 
 use Instagram\Exceptions\CsrfException;
+use Instagram\Http\Sessions\DataStoreInterface;
 use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
 
 /**
@@ -21,16 +22,20 @@ class SessionLoginHelper implements LoginHelperInterface
     protected $provider;
 
     /**
+     * @var DataStoreInterface
+     */
+    protected $store;
+
+    /**
      * Creates an instance of `SessionLoginHelper`.
      *
-     * @param InstagramProvider $provider
+     * @param InstagramProvider  $provider
+     * @param DataStoreInterface $store
      */
-    public function __construct(InstagramProvider $provider)
+    public function __construct(InstagramProvider $provider, DataStoreInterface $store)
     {
         $this->provider = $provider;
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
+        $this->store    = $store;
     }
 
     /**
@@ -38,8 +43,7 @@ class SessionLoginHelper implements LoginHelperInterface
      */
     public function getLoginUrl(array $options = [])
     {
-        $this->setCsrf();
-
+        $this->store->set('oauth2state', $this->provider->getState());
         return $this->provider->getAuthorizationUrl($options);
     }
 
@@ -49,17 +53,7 @@ class SessionLoginHelper implements LoginHelperInterface
     public function getAccessToken($code, $grant = 'authorization_code')
     {
         $this->validateCsrf();
-
         return $this->provider->getAccessToken($grant, ['code' => $code]);
-    }
-
-    /**
-     * Sets the CSRF nonce for the session.
-     */
-    protected function setCsrf()
-    {
-        $_SESSION['oauth2state'] = $this->provider->getState();
-        return;
     }
 
     /**
@@ -69,10 +63,25 @@ class SessionLoginHelper implements LoginHelperInterface
      */
     protected function validateCsrf()
     {
-        if (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
-            unset($_SESSION['oauth2state']);
+        if (
+            empty($this->getInput('state'))
+            || ($this->getInput('state') !== $this->store->get('oauth2state'))
+        ) {
+            $this->store->set('oauth2state', null);
             throw new CsrfException('Invalid state');
         }
         return;
+    }
+
+    /**
+     * Retrieves and returns a value from a GET param.
+     *
+     * @param string $key
+     *
+     * @return string|null
+     */
+    protected function getInput($key)
+    {
+        return isset($_GET[$key]) ? $_GET[$key] : null;
     }
 }

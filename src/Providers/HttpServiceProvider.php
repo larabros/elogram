@@ -4,7 +4,10 @@ namespace Instagram\Providers;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
+use Illuminate\Support\Facades\Session;
+use Instagram\Helpers\SessionLoginHelper;
 use Instagram\Http\Client\GuzzleAdapter;
+use Instagram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
@@ -55,9 +58,16 @@ class HttpServiceProvider extends AbstractServiceProvider
             ]);
         });
 
-        $container->share('helper', function() use ($container, $config) {
+        $container->share(DataStoreInterface::class, function() use ($config) {
             $class = $config->get('session_store');
-            return new $class($container->get('provider'));
+            return new $class();
+        });
+
+        $container->share('helper', function() use ($container, $config) {
+            return new SessionLoginHelper(
+                $container->get('provider'),
+                $container->get(DataStoreInterface::class)
+            );
         });
 
         // If access token was provided, then instantiate and add to middleware

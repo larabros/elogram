@@ -4,6 +4,7 @@ namespace Instagram\Tests\Http;
 
 use Instagram\Exceptions\CsrfException;
 use Instagram\Helpers\SessionLoginHelper;
+use Instagram\Http\Sessions\NativeSessionStore;
 use Instagram\Tests\TestCase;
 use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
@@ -18,6 +19,7 @@ class SessionLoginHelperTest extends TestCase
     {
         $token    = m::mock(AccessToken::class, [['access_token' => "somenumbers"]]);
         $provider = m::mock(Instagram::class);
+        $store    = m::mock(NativeSessionStore::class);
 
         $token->shouldReceive('getToken')
             ->zeroOrMoreTimes()
@@ -33,40 +35,47 @@ class SessionLoginHelperTest extends TestCase
             ->zeroOrMoreTimes()
             ->andReturn('0000');
 
-        $this->helper = new SessionLoginHelper($provider);
+        $store->shouldReceive('set')
+            ->withAnyArgs()
+            ->zeroOrMoreTimes()
+            ->andReturnNull();
+
+        $store->shouldReceive('get')
+            ->with('oauth2state')
+            ->zeroOrMoreTimes()
+            ->andReturn('0000');
+
+        $this->helper = new SessionLoginHelper($provider, $store);
     }
 
     /**
      * @covers Instagram\Helpers\SessionLoginHelper::__construct()
      * @covers Instagram\Helpers\SessionLoginHelper::getLoginUrl()
-     * @covers Instagram\Helpers\SessionLoginHelper::setCsrf()
-     * @runInSeparateProcess
      */
     public function testGetLoginUrl()
     {
-        $this->assertEquals('http://localhost:9000' ,$this->helper->getLoginUrl());
-        $this->assertEquals('0000', $_SESSION['oauth2state']);
+        $this->assertEquals('http://localhost:9000', $this->helper->getLoginUrl());
     }
 
     /**
      * @covers Instagram\Helpers\SessionLoginHelper::__construct()
      * @covers Instagram\Helpers\SessionLoginHelper::getAccessToken()
      * @covers Instagram\Helpers\SessionLoginHelper::validateCsrf()
-     * @runInSeparateProcess
+     * @covers Instagram\Helpers\SessionLoginHelper::getInput()
      */
     public function testGetAccessToken()
     {
         $this->helper->getLoginUrl();
         $_GET['state'] = "0000";
         $this->assertEquals('somenumbers', $this->helper->getAccessToken('1234')->getToken());
-
+        unset($_GET['state']);
     }
 
     /**
      * @covers Instagram\Helpers\SessionLoginHelper::__construct()
      * @covers Instagram\Helpers\SessionLoginHelper::getAccessToken()
      * @covers Instagram\Helpers\SessionLoginHelper::validateCsrf()
-     * @runInSeparateProcess
+     * @covers Instagram\Helpers\SessionLoginHelper::getInput()
      */
     public function testGetAccessTokenWithInvalidCsrf()
     {

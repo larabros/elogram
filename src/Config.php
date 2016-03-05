@@ -2,8 +2,8 @@
 
 namespace Instagram;
 
-use Instagram\Helpers\SessionLoginHelper;
 use Instagram\Http\Middleware\AuthMiddleware;
+use Instagram\Http\Sessions\NativeSessionStore;
 use Noodlehaus\AbstractConfig;
 
 /**
@@ -38,7 +38,7 @@ class Config extends AbstractConfig
             'client_secret' => '',
             'access_token'  => null,
             'redirect_url'  => '',
-            'session_store' => SessionLoginHelper::class,
+            'session_store' => NativeSessionStore::class,
             'middleware'    => [
                 'auth'   => AuthMiddleware::class,
 //                'secure' => '',

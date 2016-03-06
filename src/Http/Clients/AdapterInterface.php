@@ -12,8 +12,8 @@ interface AdapterInterface
      * Sends a HTTP request using `$method` to the given `$uri`, with
      * `$parameters` if provided.
      *
-     * Use this method in subclasses as a convenient way of making requests
-     * with built-in exception-handling.
+     * Use this method as a convenient way of making requests with built-in
+     * exception-handling.
      *
      * @param  string $method
      * @param  string $uri
@@ -30,8 +30,8 @@ interface AdapterInterface
      * Paginates a `Response`. The pagination limit is set by `$limit` -
      * setting it to `null` will paginate as far as possible.
      *
-     * @param Response $response
-     * @param int      $limit
+     * @param Response  $response
+     * @param int|null  $limit
      *
      * @return Response
      */

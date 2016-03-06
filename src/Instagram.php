@@ -12,9 +12,6 @@ use Instagram\Entities\User;
 use Instagram\Helpers\RedirectLoginHelper;
 use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Http\Response;
-use Instagram\Providers\CoreServiceProvider;
-use Instagram\Providers\EntityServiceProvider;
-use Instagram\Providers\GuzzleServiceProvider;
 use League\Container\Container;
 
 /**
@@ -27,6 +24,11 @@ use League\Container\Container;
  */
 final class Instagram
 {
+    /**
+     * The current version of the API.
+     */
+    const API_VERSION = 1;
+
     /**
      * The application IoC container.
      *

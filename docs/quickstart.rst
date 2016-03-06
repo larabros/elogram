@@ -83,7 +83,7 @@ Paginated Requests
 The `Response` object that you receive from making requests contains the data
 from the multiple requests combined, including the first one. You can also pass
 a ``$limit`` as an optional parameter to ``Instagram::paginate()``, which sets the
-number of pages to request.
+number of pages to request, assuming they are available.
 
 .. code-block:: php
 

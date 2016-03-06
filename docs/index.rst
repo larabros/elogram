@@ -40,3 +40,4 @@ User Guide
     quickstart
     endpoints
     faq
+    developers

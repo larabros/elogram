@@ -1,0 +1,39 @@
+==========
+Developers
+==========
+
+Extending core components
+=========================
+
+`NativeSessionStore`
+--------------------
+
+When using Instagram-SDK in a framework, you may want to replace the built-in
+session storage handler with a custom class that interacts with the framework.
+This class **must** implement the `DataStoreInterface`. An example is provided
+below:
+
+.. code-block:: php
+
+    use Instagram\Http\Sessions\DataStoreInterface;
+
+    class FrameworkSessionStorageHandler implements DataStorageInterface
+    {
+        public function get($key)
+        {
+            //
+        }
+
+        public function set($key, $value)
+        {
+            //
+        }
+    }
+
+After creating this class, the `Instagram` class must be instantiated with an array of options:
+
+.. code-block:: php
+
+    $options = ['session_store' => FrameworkSessionStorageHandler::class];
+    $client = new Instagram\Instagram($clientId, $clientSecret, null, $redirectUrl, $options);
+

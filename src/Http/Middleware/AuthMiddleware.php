@@ -52,8 +52,8 @@ final class AuthMiddleware implements MiddlewareInterface
     {
         $uri     = Uri::withQueryValue($request->getUri(), 'access_token', $this->token->getToken());
         $request = $request->withUri($uri)->withHeader('Content-Type', 'application/json');
-
-        return call_user_func_array($this->nextHandler, [$request, $options]);
+        $next    = $this->nextHandler;
+        return $next($request, $options);
     }
 
     /**

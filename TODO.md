@@ -10,9 +10,9 @@ TODO
 - Generators
 
 ## Refactors
-- Make pagination recursive
 - Rename `Entities` to `Repositories`
 - Make `Response::get()` return a `Collection`
+- Add `Response::merge()`
 
 ## Tests
 - Create separate suite for Entities

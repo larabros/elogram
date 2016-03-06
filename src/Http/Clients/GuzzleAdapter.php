@@ -56,26 +56,25 @@ final class GuzzleAdapter implements AdapterInterface
     public function paginate(Response $response, $limit = null)
     {
         // If there's nothing to paginate, return response as-is
-        if (!$response->hasPages()) {
+        if (!$response->hasPages() || $limit === 0) {
             return $response;
         }
 
-        // Add the response data to the stack and get the next URL
-        $responseStack = [$response->get()];
-        $nextUrl       = $response->nextUrl();
-        $pagination    = $response->getRaw()['pagination'];
+        $next       = $this->request('GET', $response->nextUrl());
+        $meta       = $next->getRaw()['meta'];
+        $data       = array_flatten([$response->get(), $next->get()], 1);
+        $pagination = $next->hasPages()
+            ? $next->getRaw()['pagination']
+            : [];
+        $merged     = new Response($meta, $data, $pagination);
 
-        // If we run out of pages OR reach `$limit`, then stop and return response
-        while(
-            ($nextUrl !== null && $limit === null)
-            || ($limit !== null && count($responseStack) < $limit)
-        ) {
-            $nextResponse    = $this->request('GET', $nextUrl);
-            $responseStack[] = $nextResponse->get();
-            $nextUrl         = $nextResponse->nextUrl();
-            $pagination      = $nextResponse->hasPages() ? $nextResponse->getRaw()['pagination'] : [];
+        // If `$limit` is not set then call itself indefinitely
+        if ($limit === null) {
+            return $this->paginate($merged);
         }
 
-        return new Response($response->getRaw()['meta'], array_flatten($responseStack, 1), $pagination);
+        // If `$limit` is set, call itself while decrementing it each time
+        $limit--;
+        return $this->paginate($merged, $limit);
     }
 }

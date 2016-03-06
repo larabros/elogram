@@ -8,7 +8,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Documentation][ico-docs]][link-docs]
 
-[![Build Status][ico-builds]][link-travis]
+[![Build Status][ico-phpeye]][link-phpeye]
 
 A modern Instagram SDK for PHP 5.5+.
 
@@ -42,7 +42,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/hassankhan/instagram-sdk.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/hassankhan/instagram-sdk/master.svg?style=flat-square
-[ico-builds]: http://php-eye.com/badge/hassankhan/instagram-sdk/tested.svg?style=flat-square
+[ico-phpeye]: http://php-eye.com/badge/hassankhan/instagram-sdk/tested.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/hassankhan/instagram-sdk.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/hassankhan/instagram-sdk.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/hassankhan/instagram-sdk.svg?style=flat-square
@@ -50,6 +50,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [link-packagist]: https://packagist.org/packages/hassankhan/instagram-sdk
 [link-travis]: https://travis-ci.org/hassankhan/instagram-sdk
+[link-phpeye]: http://php-eye.com/package/hassankhan/instagram-sdk
 [link-scrutinizer]: https://scrutinizer-ci.com/g/hassankhan/instagram-sdk/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/hassankhan/instagram-sdk
 [link-downloads]: https://packagist.org/packages/hassankhan/instagram-sdk

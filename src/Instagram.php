@@ -83,8 +83,7 @@ final class Instagram
             'client_secret' => $clientSecret,
             'access_token'  => $accessToken,
             'redirect_url'  => $redirectUrl,
-        ], $options)))
-            ->getContainer();
+        ], $options)))->getContainer();
     }
 
     /**
@@ -101,14 +100,6 @@ final class Instagram
     public function getLoginHelper()
     {
         return $this->container->get(RedirectLoginHelper::class);
-    }
-
-    /**
-     * @return AdapterInterface
-     */
-    public function getClient()
-    {
-        return $this->container->get(AdapterInterface::class);
     }
 
     /**

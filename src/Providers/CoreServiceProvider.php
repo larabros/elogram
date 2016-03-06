@@ -2,25 +2,20 @@
 
 namespace Instagram\Providers;
 
-use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\HandlerStack;
-use Illuminate\Support\Facades\Session;
 use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\GuzzleAdapter;
 use Instagram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
-use League\OAuth2\Client\Token\AccessToken;
 
 /**
- * HttpServiceProvider
+ * CoreServiceProvider
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class HttpServiceProvider extends AbstractServiceProvider
+class CoreServiceProvider extends AbstractServiceProvider
 {
     /**
      * The provides array is a way to let the container
@@ -33,9 +28,7 @@ class HttpServiceProvider extends AbstractServiceProvider
      */
     protected $provides = [
         'provider',
-        'helper',
-        'http',
-        HandlerStack::class
+        RedirectLoginHelper::class,
     ];
 
     /**
@@ -63,41 +56,11 @@ class HttpServiceProvider extends AbstractServiceProvider
             return new $class();
         });
 
-        $container->share('helper', function() use ($container, $config) {
+        $container->share(RedirectLoginHelper::class, function() use ($container) {
             return new RedirectLoginHelper(
                 $container->get('provider'),
                 $container->get(DataStoreInterface::class)
             );
-        });
-
-        // If access token was provided, then instantiate and add to middleware
-        if ($config->has('access_token')) {
-
-            $container->share(AccessToken::class, function() use ($config) {
-                return new AccessToken(json_decode($config->get('access_token'), true));
-            });
-
-            $container->add('middleware.auth', function() use ($config, $container) {
-                $class  = $config->get('middleware.auth');
-                return $class::create($container->get(AccessToken::class));
-            });
-
-        }
-
-        $container->share(HandlerStack::class, function() use ($config, $container) {
-            $stack = HandlerStack::create();
-
-            foreach($config->get('middleware') as $name => $item) {
-                $stack->push($container->get("middleware.$name"), $name);
-            }
-            return $stack;
-        });
-
-        $container->share('http', function() use ($config, $container) {
-            return new GuzzleAdapter(new GuzzleClient([
-                'base_uri' => $config->get('base_uri'),
-                'handler'  => $container->get(HandlerStack::class),
-            ]));
         });
     }
 }

@@ -3,8 +3,9 @@
 namespace Instagram\Container;
 
 use Instagram\Config;
+use Instagram\Providers\CoreServiceProvider;
 use Instagram\Providers\EntityServiceProvider;
-use Instagram\Providers\HttpServiceProvider;
+use Instagram\Providers\GuzzleServiceProvider;
 use League\Container\Container;
 use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;
@@ -29,19 +30,26 @@ class Builder implements ContainerAwareInterface
      * @var array
      */
     protected $defaultProviders = [
-        HttpServiceProvider::class,
+        CoreServiceProvider::class,
+        GuzzleServiceProvider::class,
         EntityServiceProvider::class,
     ];
 
     /**
-     * Creates a new instance of `Builder`.
+     * Creates a new instance of `Builder`. If `$registerProviders` is set to
+     * `true`, then the default providers are registered onto the container.
      *
      * @param array $config
+     * @param bool  $registerProviders
      */
-    public function __construct(array $config)
+    public function __construct(array $config, $registerProviders = true)
     {
         $this->setContainer($this->createContainer($config));
         $this->createConfig($this->getContainer()->get('config.raw'));
+
+        if($registerProviders) {
+            $this->registerProviders($this->defaultProviders);
+        }
     }
 
     /**
@@ -57,23 +65,30 @@ class Builder implements ContainerAwareInterface
     }
 
     /**
-     * Registers service providers onto the container. This method can be passed
-     * an array, a string or a `ServiceProviderInterface`.
+     * Register default service providers onto the container.
      *
-     * @param array|string|ServiceProviderInterface $provider
+     * @param array $providers
      *
-     * @return $this
+     * @return Builder
      */
-    public function register($provider)
+    public function registerProviders(array $providers = [])
     {
-        if (!is_array($provider) || $provider instanceof ServiceProviderInterface) {
-            $this->getContainer()->addServiceProvider($provider);
-            return $this;
+        foreach ($providers as $provider) {
+            $this->registerProvider($provider);
         }
+        return $this;
+    }
 
-        foreach($provider as $aProvider) {
-            $this->register($aProvider);
-        }
+    /**
+     * Registers a service provider onto the container.
+     *
+     * @param string|ServiceProviderInterface $provider
+     *
+     * @return Builder
+     */
+    public function registerProvider($provider)
+    {
+        $this->getContainer()->addServiceProvider($provider);
         return $this;
     }
 

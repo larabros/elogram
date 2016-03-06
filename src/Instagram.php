@@ -9,11 +9,12 @@ use Instagram\Entities\Location;
 use Instagram\Entities\Media;
 use Instagram\Entities\Tag;
 use Instagram\Entities\User;
-use Instagram\Helpers\LoginHelperInterface;
+use Instagram\Helpers\RedirectLoginHelper;
 use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Http\Response;
+use Instagram\Providers\CoreServiceProvider;
 use Instagram\Providers\EntityServiceProvider;
-use Instagram\Providers\HttpServiceProvider;
+use Instagram\Providers\GuzzleServiceProvider;
 use League\Container\Container;
 
 /**
@@ -26,17 +27,6 @@ use League\Container\Container;
  */
 final class Instagram
 {
-
-    /**
-     * A list of default provider classes
-     *
-     * @var array
-     */
-    protected $defaultProviders = [
-        HttpServiceProvider::class,
-        EntityServiceProvider::class,
-    ];
-
     /**
      * The application IoC container.
      *
@@ -47,22 +37,25 @@ final class Instagram
     /**
      * Create an instance of `Instagram`.
      *
-     * @param string $clientId
-     * @param string $clientSecret
-     * @param null   $accessToken
-     * @param string $redirectUrl
+     * @param string        $clientId
+     * @param string        $clientSecret
+     * @param string|null   $accessToken
+     * @param string        $redirectUrl
+     * @param array         $options
      */
     public function __construct(
         $clientId,
         $clientSecret,
         $accessToken = null,
-        $redirectUrl = ''
+        $redirectUrl = '',
+        array $options = []
     ) {
         $this->container = $this->buildContainer(
             $clientId,
             $clientSecret,
             $accessToken,
-            $redirectUrl
+            $redirectUrl,
+            $options
         );
     }
 
@@ -74,6 +67,7 @@ final class Instagram
      * @param string      $clientSecret
      * @param string|null $accessToken
      * @param string      $redirectUrl
+     * @param array       $options
      *
      * @return \League\Container\ContainerInterface
      */
@@ -81,14 +75,15 @@ final class Instagram
         $clientId,
         $clientSecret,
         $accessToken = null,
-        $redirectUrl = ''
+        $redirectUrl = '',
+        array $options = []
     ) {
-        return (new Builder([
+        return (new Builder(array_merge([
             'client_id'     => $clientId,
             'client_secret' => $clientSecret,
             'access_token'  => $accessToken,
             'redirect_url'  => $redirectUrl,
-        ]))->register($this->defaultProviders)
+        ], $options)))
             ->getContainer();
     }
 
@@ -101,11 +96,11 @@ final class Instagram
     }
 
     /**
-     * @return LoginHelperInterface
+     * @return RedirectLoginHelper
      */
     public function getLoginHelper()
     {
-        return $this->container->get('helper');
+        return $this->container->get(RedirectLoginHelper::class);
     }
 
     /**
@@ -113,14 +108,13 @@ final class Instagram
      */
     public function getClient()
     {
-        return $this->container->get('http');
+        return $this->container->get(AdapterInterface::class);
     }
 
-    /***************
+    /**
      *
      * API methods
      *
-     ***************
      */
 
     /**
@@ -183,20 +177,39 @@ final class Instagram
         return $this->container->get('entity.location');
     }
 
-    /***************
+    /**
      *
      * Helper methods
      *
-     ****************/
+     */
+
+    /**
+     * Sends a request and returns a `Response` object.
+     *
+     * @param string $method
+     * @param string $uri
+     * @param array  $parameters
+     *
+     * @return Response
+     *
+     * @see Instagram\Http\Clients\AdapterInterface::request()
+     */
+    public function request($method, $uri, array $parameters = [])
+    {
+        return $this->container->get(AdapterInterface::class)
+            ->request($method, $uri, $parameters);
+    }
 
     /**
      * Paginates a `Response`. The pagination limit is set by `$limit`,
      * setting it to `null` will paginate as far as possible.
      *
-     * @param Response $response
-     * @param int      $limit
+     * @param Response  $response
+     * @param int|null  $limit
      *
      * @return Response
+     *
+     * @see Instagram\Http\Clients\AdapterInterface::paginate()
      */
     public function paginate(Response $response, $limit = null)
     {

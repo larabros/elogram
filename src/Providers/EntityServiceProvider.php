@@ -8,6 +8,7 @@ use Instagram\Entities\Location;
 use Instagram\Entities\Media;
 use Instagram\Entities\Tag;
 use Instagram\Entities\User;
+use Instagram\Http\Clients\AdapterInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 class EntityServiceProvider extends AbstractServiceProvider
@@ -39,16 +40,11 @@ class EntityServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        $this->getContainer()->share('entity.user', new User($this->getContainer()->get('http')));
-
-        $this->getContainer()->share('entity.media', new Media($this->getContainer()->get('http')));
-
-        $this->getContainer()->share('entity.comment', new Comment($this->getContainer()->get('http')));
-
-        $this->getContainer()->share('entity.like', new LikeRepository($this->getContainer()->get('http')));
-
-        $this->getContainer()->share('entity.tag', new Tag($this->getContainer()->get('http')));
-
-        $this->getContainer()->share('entity.location', new Location($this->getContainer()->get('http')));
+        $this->getContainer()->share('entity.user',     new User($this->getContainer()->get(AdapterInterface::class)));
+        $this->getContainer()->share('entity.media',    new Media($this->getContainer()->get(AdapterInterface::class)));
+        $this->getContainer()->share('entity.comment',  new Comment($this->getContainer()->get(AdapterInterface::class)));
+        $this->getContainer()->share('entity.like',     new LikeRepository($this->getContainer()->get(AdapterInterface::class)));
+        $this->getContainer()->share('entity.tag',      new Tag($this->getContainer()->get(AdapterInterface::class)));
+        $this->getContainer()->share('entity.location', new Location($this->getContainer()->get(AdapterInterface::class)));
     }
 }

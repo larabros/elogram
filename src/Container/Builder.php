@@ -13,7 +13,7 @@ use League\Container\ContainerInterface;
 use League\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
- * Builder class.
+ * Builds `Container` objects for use by the application.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -93,8 +93,8 @@ class Builder implements ContainerAwareInterface
     }
 
     /**
-     * Creates and returns a new `Container` instance after adding the raw
-     * config values to it.
+     * Creates and returns a new instance of `Container` after adding `$config`
+     * to it.
      *
      * @param array $config
      *

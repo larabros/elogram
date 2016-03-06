@@ -3,7 +3,7 @@
 namespace Instagram\Http;
 
 /**
- * Response
+ * Represents a response returned from Instagram's API.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>

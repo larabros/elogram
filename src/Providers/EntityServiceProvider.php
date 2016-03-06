@@ -11,6 +11,14 @@ use Instagram\Entities\User;
 use Instagram\Http\Clients\AdapterInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
+/**
+ * EntityServiceProvider
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 class EntityServiceProvider extends AbstractServiceProvider
 {
     /**

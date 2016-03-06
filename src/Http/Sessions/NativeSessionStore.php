@@ -2,6 +2,14 @@
 
 namespace Instagram\Http\Sessions;
 
+/**
+ * An implementation of `DataStoreInterface` that uses PHP's native sessions.
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 class NativeSessionStore implements DataStoreInterface
 {
     /**
@@ -29,6 +37,7 @@ class NativeSessionStore implements DataStoreInterface
         }
         return null;
     }
+
     /**
      * @inheritDoc
      */

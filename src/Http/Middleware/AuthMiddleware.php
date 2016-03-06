@@ -6,6 +6,14 @@ use GuzzleHttp\Psr7\Uri;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * A middleware class for authenticating requests made to Instagram's API.
+ *
+ * @package    Instagram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/hassankhan/instagram-sdk
+ * @license    MIT
+ */
 final class AuthMiddleware
 {
     /**

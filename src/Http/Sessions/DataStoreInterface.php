@@ -3,7 +3,7 @@
 namespace Instagram\Http\Sessions;
 
 /**
- * Instagram mock client class.
+ * Defines an interface for getting and setting values on the session.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -20,6 +20,7 @@ interface DataStoreInterface
      * @return mixed
      */
     public function get($key);
+
     /**
      * Set a value in the persistent data store.
      *
@@ -27,5 +28,4 @@ interface DataStoreInterface
      * @param mixed  $value
      */
     public function set($key, $value);
-
 }

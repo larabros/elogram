@@ -7,7 +7,7 @@ use Instagram\Http\Sessions\NativeSessionStore;
 use Noodlehaus\AbstractConfig;
 
 /**
- * Config
+ * Stores the application configuration.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -41,7 +41,6 @@ class Config extends AbstractConfig
             'session_store' => NativeSessionStore::class,
             'middleware'    => [
                 'auth'   => AuthMiddleware::class,
-//                'secure' => '',
             ],
         ];
     }

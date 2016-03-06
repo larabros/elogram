@@ -29,7 +29,7 @@ class Config extends AbstractConfig
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function getDefaults()
     {

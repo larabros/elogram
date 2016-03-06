@@ -46,7 +46,7 @@ final class AuthMiddleware implements MiddlewareInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function __invoke(RequestInterface $request, array $options)
     {

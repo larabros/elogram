@@ -30,7 +30,7 @@ final class MockAdapter implements AdapterInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function request($method, $uri, array $parameters = [])
     {
@@ -90,7 +90,7 @@ final class MockAdapter implements AdapterInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function paginate(Response $response, $limit = null)
     {

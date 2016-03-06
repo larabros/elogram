@@ -35,7 +35,7 @@ final class GuzzleAdapter implements AdapterInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function request($method, $uri, array $parameters = [])
     {
@@ -51,7 +51,7 @@ final class GuzzleAdapter implements AdapterInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function paginate(Response $response, $limit = null)
     {

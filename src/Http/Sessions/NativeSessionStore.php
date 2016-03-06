@@ -28,7 +28,7 @@ class NativeSessionStore implements DataStoreInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function get($key)
     {
@@ -39,7 +39,7 @@ class NativeSessionStore implements DataStoreInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function set($key, $value)
     {

@@ -39,7 +39,7 @@ class RedirectLoginHelper implements LoginHelperInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getLoginUrl(array $options = [])
     {
@@ -48,7 +48,7 @@ class RedirectLoginHelper implements LoginHelperInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getAccessToken($code, $grant = 'authorization_code')
     {

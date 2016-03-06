@@ -159,7 +159,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Container.Builder.html#14-95" title="Go to source code">Container/Builder.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Container.Builder.html#15-110" title="Go to source code">Container/Builder.php</a>
 		<br>
 	</div>
 
@@ -179,19 +179,23 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#36-45" title="Go to source code">__construct</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#38-53" title="Go to source code">__construct</a>( <span>array <var>$config</var></span>, <span>boolean <var>$registerProviders</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
-			<p>Creates a new instance of <code>Builder</code>.</p>
+			<p>Creates a new instance of <code>Builder</code>. If <code>$registerProviders</code> is set to
+<code>true</code>, then the default providers are registered onto the container.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a new instance of <code>Builder</code>.</p>
+			<p>Creates a new instance of <code>Builder</code>. If <code>$registerProviders</code> is set to
+<code>true</code>, then the default providers are registered onto the container.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$config</var></dt>
+					<dd></dd>
+					<dt><var>$registerProviders</var></dt>
 					<dd></dd>
 				</dl></div>
 
@@ -214,7 +218,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createConfig">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#47-57" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#55-65" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
 
 		<div class="description short">
 			<p>Creates a <code>Config</code> object from raw parameters.</p>
@@ -241,28 +245,65 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="register" id="_register">
+	<tr data-order="registerProviders" id="_registerProviders">
 
 		<td class="attributes"><code>
 			 public 
 
-			
+			<code><a href="class-Instagram.Container.Builder.html">Instagram\Container\Builder</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_register">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#59-78" title="Go to source code">register</a>( <span>array|string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
+		<a class="anchor" href="#_registerProviders">#</a>
+		<code><a href="source-class-Instagram.Container.Builder.html#67-80" title="Go to source code">registerProviders</a>( <span>array <var>$providers</var> = []</span> )</code>
 
 		<div class="description short">
-			<p>Registers service providers onto the container. This method can be passed
-an array, a string or a <code>ServiceProviderInterface</code>.</p>
+			<p>Register default service providers onto the container.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Registers service providers onto the container. This method can be passed
-an array, a string or a <code>ServiceProviderInterface</code>.</p>
+			<p>Register default service providers onto the container.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$providers</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Instagram.Container.Builder.html">Instagram\Container\Builder</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="registerProvider" id="_registerProvider">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Instagram.Container.Builder.html">Instagram\Container\Builder</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_registerProvider">#</a>
+		<code><a href="source-class-Instagram.Container.Builder.html#82-93" title="Go to source code">registerProvider</a>( <span>string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
+
+		<div class="description short">
+			<p>Registers a service provider onto the container.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Registers a service provider onto the container.</p>
 
 
 				<h4>Parameters</h4>
@@ -273,7 +314,7 @@ an array, a string or a <code>ServiceProviderInterface</code>.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<br>$this
+					<code><a href="class-Instagram.Container.Builder.html">Instagram\Container\Builder</a></code>
 				</div>
 
 
@@ -294,7 +335,7 @@ an array, a string or a <code>ServiceProviderInterface</code>.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createContainer">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#80-94" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#95-109" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
 
 		<div class="description short">
 			<p>Creates and returns a new <code>Container</code> instance after adding the raw
@@ -345,7 +386,7 @@ config values to it.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Container.Builder.html#26-34" title="Go to source code"><var>$defaultProviders</var></a>
+				<a href="source-class-Instagram.Container.Builder.html#27-36" title="Go to source code"><var>$defaultProviders</var></a>
 
 			<div class="description short">
 				<p>Default application service providers.</p>
@@ -360,7 +401,8 @@ config values to it.</p>
 			<div>
 				<a href="#$defaultProviders" class="anchor">#</a>
 				<code>[
-    HttpServiceProvider::<span class="php-keyword1">class</span>,
+    CoreServiceProvider::<span class="php-keyword1">class</span>,
+    GuzzleServiceProvider::<span class="php-keyword1">class</span>,
     EntityServiceProvider::<span class="php-keyword1">class</span>,
 ]</code>
 			</div>

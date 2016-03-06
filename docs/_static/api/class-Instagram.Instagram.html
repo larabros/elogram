@@ -148,7 +148,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Instagram.html#19-205" title="Go to source code">Instagram.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Instagram.html#20-210" title="Go to source code">Instagram.php</a>
 		<br>
 	</div>
 
@@ -168,7 +168,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#47-67" title="Go to source code">__construct</a>( <span>string <var>$clientId</var></span>, <span>string <var>$clientSecret</var></span>, <span>null <var>$accessToken</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$redirectUrl</var> = <span class="php-quote">''</span> </span> )</code>
+		<code><a href="source-class-Instagram.Instagram.html#37-60" title="Go to source code">__construct</a>( <span>string <var>$clientId</var></span>, <span>string <var>$clientSecret</var></span>, <span>string|null <var>$accessToken</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$redirectUrl</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = [] </span> )</code>
 
 		<div class="description short">
 			<p>Create an instance of <code>Instagram</code>.</p>
@@ -187,6 +187,8 @@
 					<dt><var>$accessToken</var></dt>
 					<dd></dd>
 					<dt><var>$redirectUrl</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
 					<dd></dd>
 				</dl></div>
 
@@ -209,7 +211,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_buildContainer">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#69-93" title="Go to source code">buildContainer</a>( <span>string <var>$clientId</var></span>, <span>string <var>$clientSecret</var></span>, <span>string|null <var>$accessToken</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$redirectUrl</var> = <span class="php-quote">''</span> </span> )</code>
+		<code><a href="source-class-Instagram.Instagram.html#62-87" title="Go to source code">buildContainer</a>( <span>string <var>$clientId</var></span>, <span>string <var>$clientSecret</var></span>, <span>string|null <var>$accessToken</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$redirectUrl</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = [] </span> )</code>
 
 		<div class="description short">
 			<p>Takes the constructor parameters and uses them to instantiate and build a
@@ -230,6 +232,8 @@
 					<dt><var>$accessToken</var></dt>
 					<dd></dd>
 					<dt><var>$redirectUrl</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
 					<dd></dd>
 				</dl></div>
 
@@ -256,7 +260,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConfig">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#95-101" title="Go to source code">getConfig</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#89-95" title="Go to source code">getConfig</a>( )</code>
 
 		<div class="description short">
 			
@@ -283,14 +287,14 @@
 		<td class="attributes"><code>
 			 public 
 
-			<code><a href="class-Instagram.Helpers.LoginHelperInterface.html">Instagram\Helpers\LoginHelperInterface</a></code>
+			<code><a href="class-Instagram.Helpers.RedirectLoginHelper.html">Instagram\Helpers\RedirectLoginHelper</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLoginHelper">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#103-109" title="Go to source code">getLoginHelper</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#97-103" title="Go to source code">getLoginHelper</a>( )</code>
 
 		<div class="description short">
 			
@@ -303,41 +307,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Instagram.Helpers.LoginHelperInterface.html">Instagram\Helpers\LoginHelperInterface</a></code>
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getClient" id="_getClient">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-Instagram.Http.Clients.AdapterInterface.html">Instagram\Http\Clients\AdapterInterface</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getClient">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#111-117" title="Go to source code">getClient</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Instagram.Http.Clients.AdapterInterface.html">Instagram\Http\Clients\AdapterInterface</a></code>
+					<code><a href="class-Instagram.Helpers.RedirectLoginHelper.html">Instagram\Helpers\RedirectLoginHelper</a></code>
 				</div>
 
 
@@ -358,7 +328,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_users">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#126-134" title="Go to source code">users</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#111-119" title="Go to source code">users</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current instance of <code>User</code>.</p>
@@ -392,7 +362,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_media">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#136-144" title="Go to source code">media</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#121-129" title="Go to source code">media</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current instance of <code>Media</code>.</p>
@@ -426,7 +396,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_comments">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#146-154" title="Go to source code">comments</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#131-139" title="Go to source code">comments</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current instance of <code>Comment</code>.</p>
@@ -460,7 +430,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_likes">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#156-164" title="Go to source code">likes</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#141-149" title="Go to source code">likes</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current instance of <code>LikeRepository</code>.</p>
@@ -494,7 +464,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_tags">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#166-174" title="Go to source code">tags</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#151-159" title="Go to source code">tags</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current instance of <code>Tag</code>.</p>
@@ -528,7 +498,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_locations">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#176-184" title="Go to source code">locations</a>( )</code>
+		<code><a href="source-class-Instagram.Instagram.html#161-169" title="Go to source code">locations</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current instance of <code>Location</code>.</p>
@@ -550,6 +520,53 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="request" id="_request">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_request">#</a>
+		<code><a href="source-class-Instagram.Instagram.html#177-192" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Sends a request and returns a <code>Response</code> object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sends a request and returns a <code>Response</code> object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd></dd>
+					<dt><var>$uri</var></dt>
+					<dd></dd>
+					<dt><var>$parameters</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></code>
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Instagram.Http.Clients.AdapterInterface.html#_request">Instagram\Http\Clients\AdapterInterface::request()</a></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="paginate" id="_paginate">
 
 		<td class="attributes"><code>
@@ -562,7 +579,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_paginate">#</a>
-		<code><a href="source-class-Instagram.Instagram.html#192-204" title="Go to source code">paginate</a>( <span><code><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></code> <var>$response</var></span>, <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Instagram.Instagram.html#194-209" title="Go to source code">paginate</a>( <span><code><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></code> <var>$response</var></span>, <span>integer|null <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Paginates a <code>Response</code>. The pagination limit is set by <code>$limit</code>,
@@ -588,6 +605,10 @@ setting it to <code>null</code> will paginate as far as possible.</p>
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Instagram.Http.Clients.AdapterInterface.html#_paginate">Instagram\Http\Clients\AdapterInterface::paginate()</a></code><br>
+				</div>
 
 
 		</div>
@@ -608,34 +629,6 @@ setting it to <code>null</code> will paginate as far as possible.</p>
 
 	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="defaultProviders" id="$defaultProviders">
-		<td class="attributes"><code>
-			protected  
-			array
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Instagram.Instagram.html#30-38" title="Go to source code"><var>$defaultProviders</var></a>
-
-			<div class="description short">
-				<p>A list of default provider classes</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>A list of default provider classes</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$defaultProviders" class="anchor">#</a>
-				<code>[
-    HttpServiceProvider::<span class="php-keyword1">class</span>,
-    EntityServiceProvider::<span class="php-keyword1">class</span>,
-]</code>
-			</div>
-		</td>
-	</tr>
 	<tr data-order="container" id="$container">
 		<td class="attributes"><code>
 			protected  
@@ -643,7 +636,7 @@ setting it to <code>null</code> will paginate as far as possible.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Instagram.html#40-45" title="Go to source code"><var>$container</var></a>
+				<a href="source-class-Instagram.Instagram.html#30-35" title="Go to source code"><var>$container</var></a>
 
 			<div class="description short">
 				<p>The application IoC container.</p>

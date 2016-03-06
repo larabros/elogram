@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Instagram\Config</title>
+	<title>Class Instagram\Providers\CoreServiceProvider</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -66,7 +66,7 @@
 
 						</li>
 							</ul></li>
-				<li>
+				<li class="active">
 					<a href="namespace-Instagram.Providers.html">
 						Providers					</a>
 
@@ -81,8 +81,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-Instagram.Config.html">Config</a></li>
-				<li><a href="class-Instagram.Instagram.html">Instagram</a></li>
+				<li class="active"><a href="class-Instagram.Providers.CoreServiceProvider.html">CoreServiceProvider</a></li>
+				<li><a href="class-Instagram.Providers.EntityServiceProvider.html">EntityServiceProvider</a></li>
+				<li><a href="class-Instagram.Providers.GuzzleServiceProvider.html">GuzzleServiceProvider</a></li>
 			</ul>
 
 
@@ -109,7 +110,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Instagram.html" title="Summary of Instagram"><span>Namespace</span></a>
+				<a href="namespace-Instagram.Providers.html" title="Summary of Instagram\Providers"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -121,22 +122,22 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Config</h1>
+	<h1>Class CoreServiceProvider</h1>
 
 
 	<div class="description">
-	<p>Config</p>
+	<p>CoreServiceProvider</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-Noodlehaus\AbstractConfig
+League\Container\ServiceProvider\AbstractServiceProvider
 			
 			
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Instagram\Config</span></b>			
+<b><span>Instagram\Providers\CoreServiceProvider</span></b>			
 			
 			
 		</dd>
@@ -152,7 +153,7 @@ Noodlehaus\AbstractConfig
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a><br>
+		<b>Namespace:</b> <a href="namespace-Instagram.html">Instagram</a>\<a href="namespace-Instagram.Providers.html">Providers</a><br>
 		<b>Package:</b> Instagram<br>
 
 				<b>License:</b>
@@ -161,7 +162,7 @@ Noodlehaus\AbstractConfig
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Config.html#9-47" title="Go to source code">Config.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Providers.CoreServiceProvider.html#10-66" title="Go to source code">Providers/CoreServiceProvider.php</a>
 		<br>
 	</div>
 
@@ -169,7 +170,7 @@ Noodlehaus\AbstractConfig
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+	<tr data-order="register" id="_register">
 
 		<td class="attributes"><code>
 			 public 
@@ -180,58 +181,24 @@ Noodlehaus\AbstractConfig
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Instagram.Config.html#19-28" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
+		<a class="anchor" href="#_register">#</a>
+		<code><a href="source-class-Instagram.Providers.CoreServiceProvider.html#34-65" title="Go to source code">register</a>( )</code>
 
 		<div class="description short">
-			<p>Constructor method and sets default options, if any</p>
+			<p>Use the register method to register items with the container via the
+protected $this->container property or the <code>getContainer</code> method
+from the ContainerAwareTrait.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Constructor method and sets default options, if any</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$data</var></dt>
-					<dd></dd>
-				</dl></div>
+			<p>Use the register method to register items with the container via the
+protected $this->container property or the <code>getContainer</code> method
+from the ContainerAwareTrait.</p>
 
 
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getDefaults" id="_getDefaults">
-
-		<td class="attributes"><code>
-			 protected 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getDefaults">#</a>
-		<code><a href="source-class-Instagram.Config.html#30-46" title="Go to source code">getDefaults</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-				<h4>Inheritdoc</h4>
-				<div class="list">
-				</div>
 
 
 		</div>
@@ -250,6 +217,45 @@ Noodlehaus\AbstractConfig
 
 
 
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="provides" id="$provides">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Instagram.Providers.CoreServiceProvider.html#20-32" title="Go to source code"><var>$provides</var></a>
+
+			<div class="description short">
+				<p>The provides array is a way to let the container
+know that a service is provided by this service
+provider. Every service that is registered via
+this service provider must have an alias added
+to this array or it will be ignored.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The provides array is a way to let the container
+know that a service is provided by this service
+provider. Every service that is registered via
+this service provider must have an alias added
+to this array or it will be ignored.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$provides" class="anchor">#</a>
+				<code>[
+    <span class="php-quote">'provider'</span>,
+    RedirectLoginHelper::<span class="php-keyword1">class</span>,
+]</code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 

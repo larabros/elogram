@@ -7,8 +7,9 @@ Documentation
 Instagram-SDK is a PHP client for the Instagram API. It offers:
 
 - Simple interface for interacting with the web API. Use methods and arguments
-  instead of creating query params manually.
+  instead of cURL.
 - Provides an easy-to-use CSRF-protected solution for retrieving access tokens.
+- Well-tested
 - Makes pagination a breeze.
 
 .. code-block:: php

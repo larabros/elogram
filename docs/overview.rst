@@ -99,7 +99,7 @@ Guidelines
 ----------
 
 -  **PSR-2 Coding Standard** - The easiest way to apply the `Standard`_ is to
-    install `PHP Code Sniffer`_.
+   install `PHP Code Sniffer`_.
 
 -  **PHP 5.5** - Instagram-SDK has a minimum PHP version requirement of
    PHP 5.5. Pull requests must not require a PHP version greater than

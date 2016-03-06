@@ -2,10 +2,11 @@
 
 namespace Instagram\Providers;
 
-use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Http\Clients\GuzzleAdapter;
+use League\Container\Argument\RawArgument;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Token\AccessToken;
 
@@ -48,30 +49,43 @@ class GuzzleServiceProvider extends AbstractServiceProvider
         // If access token was provided, then instantiate and add to middleware
         if ($config->has('access_token')) {
 
-            $container->share(AccessToken::class, function() use ($config) {
-                return new AccessToken(json_decode($config->get('access_token'), true));
-            });
+            $container->share(AccessToken::class)
+                ->withArgument(new RawArgument(json_decode($config->get('access_token'), true)));
 
             $container->add('middleware.auth', function() use ($config, $container) {
                 $class  = $config->get('middleware.auth');
                 return $class::create($container->get(AccessToken::class));
             });
+
         }
 
-        $container->share(HandlerStack::class, function() use ($config, $container) {
-            $stack = HandlerStack::create();
-
-            foreach($config->get('middleware') as $name => $item) {
-                $stack->push($container->get("middleware.$name"), $name);
-            }
-            return $stack;
+        $container->share(HandlerStack::class, function() {
+            return HandlerStack::create();
         });
 
-        $container->share(AdapterInterface::class, function() use ($config, $container) {
-            return new GuzzleAdapter(new GuzzleClient([
+        $this->addMiddleware();
+
+        $container->share(Client::class)
+            ->withArgument(new RawArgument([
                 'base_uri' => $config->get('base_uri'),
                 'handler'  => $container->get(HandlerStack::class),
             ]));
-        });
+
+        if ($config->get('http_adapter') === GuzzleAdapter::class) {
+            $container->share(AdapterInterface::class, function() use ($container) {
+                return new GuzzleAdapter($container->get(Client::class));
+            });
+        }
+    }
+
+    protected function addMiddleware()
+    {
+        $container = $this->getContainer();
+        $config    = $container->get('config');
+        $stack     = $container->get(HandlerStack::class);
+
+        foreach($config->get('middleware') as $name => $item) {
+            $stack->push($container->get("middleware.$name"), $name);
+        }
     }
 }

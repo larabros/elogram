@@ -49,17 +49,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getClient()
-     */
-    public function testGetClient()
-    {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $this->assertInstanceOf(AdapterInterface::class, $instagram->getClient());
-    }
-
-    /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
      * @covers Instagram\Instagram::users()
      */
     public function testUsers()

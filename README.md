@@ -16,7 +16,7 @@ A modern Instagram SDK for PHP 5.5+.
 
 Documentation for this project is available at the [ReadTheDocs page][link-docs].
 
-Documentation for the API is available at http://instagram-sdk.readthedocs.org/en/latest/_static/api.
+The API reference is available at http://instagram-sdk.readthedocs.org/en/latest/_static/api.
 
 ## Change log
 

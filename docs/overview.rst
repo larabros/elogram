@@ -92,7 +92,7 @@ Documentation
 Documentation for this project is available at
 http://instagram-sdk.readthedocs.org.
 
-Documentation for the API is available at
+The API reference is available at
 http://instagram-sdk.readthedocs.org/en/latest/_static/api.
 
 Guidelines
@@ -139,25 +139,19 @@ and install dependencies using Composer:
 Reporting a security vulnerability
 ----------------------------------
 
-| We want to ensure that Instagram-SDK is secure for everyone. If you’ve
-  discovered
-| a security vulnerability, we appreciate your help in disclosing it to
-| us in a `responsible manner`_.
+We want to ensure that Instagram-SDK is secure for everyone. If you’ve
+discovered a security vulnerability, we appreciate your help in disclosing it to
+us in a `responsible manner`_.
 
-| Publicly disclosing a vulnerability can put the entire community at
-  risk. If
-| you’ve discovered a security concern, please email us at
-| contact@hassankhan.me. We’ll work with you to make sure that we
-  understand the
-| scope of the issue, and that we fully address your concern. We
-  consider
-| correspondence sent to this email address our highest priority, and
-  work to
-| address any issues that arise as quickly as possible.
+Publicly disclosing a vulnerability can put the entire community at risk. If
+you’ve discovered a security concern, please email us at contact@hassankhan.me.
+We’ll work with you to make sure that we understand the scope of the issue, and
+that we fully address your concern. We consider correspondence sent to this
+email address our highest priority, and work to address any issues that arise as
+quickly as possible.
 
-| After a security vulnerability has been corrected, a security hotfix
-  release will
-| be deployed as soon as possible.
+After a security vulnerability has been corrected, a security hotfix release
+will be deployed as soon as possible.
 
 **Happy coding**!
 

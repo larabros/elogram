@@ -2,6 +2,7 @@
 
 namespace Instagram\Http\Middleware;
 
+use Closure;
 use GuzzleHttp\Psr7\Uri;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\RequestInterface;
@@ -14,7 +15,7 @@ use Psr\Http\Message\RequestInterface;
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-final class AuthMiddleware
+final class AuthMiddleware implements MiddlewareInterface
 {
     /**
      * The next handler in the stack.
@@ -45,11 +46,7 @@ final class AuthMiddleware
     }
 
     /**
-     * Execute the middleware.
-     *
-     * @param RequestInterface $request
-     * @param array $options
-     * @return mixed
+     * @inheritDoc
      */
     public function __invoke(RequestInterface $request, array $options)
     {
@@ -63,7 +60,8 @@ final class AuthMiddleware
      * Factory method used to register this class on a handler stack.
      *
      * @param AccessToken $token
-     * @return \Closure
+     *
+     * @return Closure
      */
     public static function create(AccessToken $token)
     {

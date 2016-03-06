@@ -204,6 +204,7 @@ final class Instagram
      */
     public function paginate(Response $response, $limit = null)
     {
-        return $this->getClient()->paginate($response, $limit);
+        return $this->container->get(AdapterInterface::class)
+            ->paginate($response, $limit);
     }
 }

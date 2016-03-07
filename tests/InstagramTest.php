@@ -9,7 +9,7 @@ use Instagram\Entities\Location;
 use Instagram\Entities\Media;
 use Instagram\Entities\Tag;
 use Instagram\Entities\User;
-use Instagram\Helpers\LoginHelperInterface;
+use Instagram\Helpers\RedirectLoginHelper;
 use Instagram\Instagram;
 
 class InstagramTest extends TestCase
@@ -45,7 +45,7 @@ class InstagramTest extends TestCase
      */
     public function testGetLoginHelper()
     {
-        $this->assertInstanceOf(LoginHelperInterface::class, $this->instagram->getLoginHelper());
+        $this->assertInstanceOf(RedirectLoginHelper::class, $this->instagram->getLoginHelper());
     }
 
     /**

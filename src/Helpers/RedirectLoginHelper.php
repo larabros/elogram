@@ -5,6 +5,7 @@ namespace Instagram\Helpers;
 use Instagram\Exceptions\CsrfException;
 use Instagram\Http\Sessions\DataStoreInterface;
 use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * RedirectLoginHelper
@@ -14,7 +15,7 @@ use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class RedirectLoginHelper implements LoginHelperInterface
+class RedirectLoginHelper
 {
     /**
      * @var InstagramProvider
@@ -39,7 +40,13 @@ class RedirectLoginHelper implements LoginHelperInterface
     }
 
     /**
-     * {@inheritDoc}
+     * Sets CSRF nonce and returns the login URL.
+     *
+     * @param array $options
+     *
+     * @return string
+     *
+     * @see League\OAuth2\Client\Provider\AbstractProvider::getAuthorizationUrl()
      */
     public function getLoginUrl(array $options = [])
     {
@@ -49,7 +56,14 @@ class RedirectLoginHelper implements LoginHelperInterface
     }
 
     /**
-     * {@inheritDoc}
+     * Validates CSRF and returns the access token.
+     *
+     * @param string $code
+     * @param string $grant
+     *
+     * @return AccessToken
+     *
+     * @see League\OAuth2\Client\Provider\AbstractProvider::getAccessToken()
      */
     public function getAccessToken($code, $grant = 'authorization_code')
     {

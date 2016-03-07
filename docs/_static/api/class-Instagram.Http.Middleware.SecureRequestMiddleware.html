@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Instagram\Http\Middleware\AuthMiddleware</title>
+	<title>Class Instagram\Http\Middleware\SecureRequestMiddleware</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -81,8 +81,8 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-Instagram.Http.Middleware.AuthMiddleware.html">AuthMiddleware</a></li>
-				<li><a href="class-Instagram.Http.Middleware.SecureRequestMiddleware.html">SecureRequestMiddleware</a></li>
+				<li><a href="class-Instagram.Http.Middleware.AuthMiddleware.html">AuthMiddleware</a></li>
+				<li class="active"><a href="class-Instagram.Http.Middleware.SecureRequestMiddleware.html">SecureRequestMiddleware</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
@@ -125,16 +125,16 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class AuthMiddleware</h1>
+	<h1>Class SecureRequestMiddleware</h1>
 
 
 	<div class="description">
-	<p>A middleware class for authenticating requests made to Instagram's API.</p>
+	<p>A middleware class for making secure requests to Instagram's API.</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span>Instagram\Http\Middleware\AuthMiddleware</span></b>			
+<b><span>Instagram\Http\Middleware\SecureRequestMiddleware</span></b>			
 			 implements 
 				<a href="class-Instagram.Http.Middleware.MiddlewareInterface.html"><span>Instagram\Http\Middleware\MiddlewareInterface</span></a>
 			
@@ -161,7 +161,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Http.Middleware.AuthMiddleware.html#10-74" title="Go to source code">Http/Middleware/AuthMiddleware.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#10-105" title="Go to source code">Http/Middleware/SecureRequestMiddleware.php</a>
 		<br>
 	</div>
 
@@ -181,7 +181,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___invoke">#</a>
-		<code><a href="source-class-Instagram.Http.Middleware.AuthMiddleware.html#48-59" title="Go to source code">__invoke</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>array <var>$options</var></span> )</code>
+		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#48-68" title="Go to source code">__invoke</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>array <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Execute the middleware.</p>
@@ -212,6 +212,36 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="generateSig" id="_generateSig">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_generateSig">#</a>
+		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#83-91" title="Go to source code">generateSig</a>( <span> <var>$endpoint</var></span>, <span> <var>$params</var></span>, <span> <var>$secret</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="create" id="_create">
 
 		<td class="attributes"><code>
@@ -224,7 +254,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_create">#</a>
-		<code><a href="source-class-Instagram.Http.Middleware.AuthMiddleware.html#61-73" title="Go to source code">create</a>( <span>League\OAuth2\Client\Token\AccessToken <var>$token</var></span> )</code>
+		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#93-104" title="Go to source code">create</a>( <span>Noodlehaus\ConfigInterface <var>$config</var></span> )</code>
 
 		<div class="description short">
 			<p>Factory method used to register this class on a handler stack.</p>
@@ -236,7 +266,7 @@
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$token</var></dt>
+					<dt><var>$config</var></dt>
 					<dd></dd>
 				</dl></div>
 
@@ -273,7 +303,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Http.Middleware.AuthMiddleware.html#20-25" title="Go to source code"><var>$nextHandler</var></a>
+				<a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#20-25" title="Go to source code"><var>$nextHandler</var></a>
 
 			<div class="description short">
 				<p>The next handler in the stack.</p>
@@ -291,27 +321,27 @@
 			</div>
 		</td>
 	</tr>
-	<tr data-order="token" id="$token">
+	<tr data-order="config" id="$config">
 		<td class="attributes"><code>
 			protected  
-			League\OAuth2\Client\Token\AccessToken
+			Noodlehaus\ConfigInterface
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Http.Middleware.AuthMiddleware.html#27-32" title="Go to source code"><var>$token</var></a>
+				<a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#27-32" title="Go to source code"><var>$config</var></a>
 
 			<div class="description short">
-				<p>The access token used to authenticate requests.</p>
+				<p>The application configuration.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>The access token used to authenticate requests.</p>
+				<p>The application configuration.</p>
 
 			</div>
 		</td>
 		<td class="value">
 			<div>
-				<a href="#$token" class="anchor">#</a>
+				<a href="#$config" class="anchor">#</a>
 				<code></code>
 			</div>
 		</td>

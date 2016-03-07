@@ -95,6 +95,7 @@
 				<li><a href="class-Instagram.Http.Clients.GuzzleAdapter.html">Instagram\Http\Clients\GuzzleAdapter</a></li>
 				<li><a href="class-Instagram.Http.Clients.MockAdapter.html">Instagram\Http\Clients\MockAdapter</a></li>
 				<li><a href="class-Instagram.Http.Middleware.AuthMiddleware.html">Instagram\Http\Middleware\AuthMiddleware</a></li>
+				<li><a href="class-Instagram.Http.Middleware.SecureRequestMiddleware.html">Instagram\Http\Middleware\SecureRequestMiddleware</a></li>
 				<li><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></li>
 				<li><a href="class-Instagram.Http.Sessions.NativeSessionStore.html">Instagram\Http\Sessions\NativeSessionStore</a></li>
 				<li><a href="class-Instagram.Instagram.html">Instagram\Instagram</a></li>
@@ -117,6 +118,7 @@
 				<li><a href="class-Instagram.Exceptions.Exception.html">Instagram\Exceptions\Exception</a></li>
 				<li><a href="class-Instagram.Exceptions.IncompatibleResponseException.html">Instagram\Exceptions\IncompatibleResponseException</a></li>
 				<li><a href="class-Instagram.Exceptions.OAuthException.html">Instagram\Exceptions\OAuthException</a></li>
+				<li><a href="class-Instagram.Exceptions.OAuthForbiddenException.html">Instagram\Exceptions\OAuthForbiddenException</a></li>
 				<li><a href="class-Instagram.Exceptions.OAuthRateLimitException.html">Instagram\Exceptions\OAuthRateLimitException</a></li>
 			</ul>
 
@@ -204,26 +206,28 @@
 </span><span id="51" class="l"><a href="#51">51: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __invoke(RequestInterface <span class="php-var">$request</span>, <span class="php-keyword1">array</span> <span class="php-var">$options</span>)
 </span><span id="52" class="l"><a href="#52">52: </a>    {
 </span><span id="53" class="l"><a href="#53">53: </a>        <span class="php-var">$uri</span>     = Uri::withQueryValue(<span class="php-var">$request</span>-&gt;getUri(), <span class="php-quote">'access_token'</span>, <span class="php-var">$this</span>-&gt;token-&gt;getToken());
-</span><span id="54" class="l"><a href="#54">54: </a>        <span class="php-var">$request</span> = <span class="php-var">$request</span>-&gt;withUri(<span class="php-var">$uri</span>)-&gt;withHeader(<span class="php-quote">'Content-Type'</span>, <span class="php-quote">'application/json'</span>);
-</span><span id="55" class="l"><a href="#55">55: </a>        <span class="php-var">$next</span>    = <span class="php-var">$this</span>-&gt;nextHandler;
-</span><span id="56" class="l"><a href="#56">56: </a>        <span class="php-keyword1">return</span> <span class="php-var">$next</span>(<span class="php-var">$request</span>, <span class="php-var">$options</span>);
-</span><span id="57" class="l"><a href="#57">57: </a>    }
-</span><span id="58" class="l"><a href="#58">58: </a>
-</span><span id="59" class="l"><a href="#59">59: </a>    <span class="php-comment">/**
-</span></span><span id="60" class="l"><a href="#60">60: </a><span class="php-comment">     * Factory method used to register this class on a handler stack.
-</span></span><span id="61" class="l"><a href="#61">61: </a><span class="php-comment">     *
-</span></span><span id="62" class="l"><a href="#62">62: </a><span class="php-comment">     * @param AccessToken $token
+</span><span id="54" class="l"><a href="#54">54: </a>        <span class="php-var">$next</span>    = <span class="php-var">$this</span>-&gt;nextHandler;
+</span><span id="55" class="l"><a href="#55">55: </a>        <span class="php-keyword1">return</span> <span class="php-var">$next</span>(
+</span><span id="56" class="l"><a href="#56">56: </a>            <span class="php-var">$request</span>-&gt;withUri(<span class="php-var">$uri</span>)-&gt;withHeader(<span class="php-quote">'Content-Type'</span>, <span class="php-quote">'application/json'</span>),
+</span><span id="57" class="l"><a href="#57">57: </a>            <span class="php-var">$options</span>
+</span><span id="58" class="l"><a href="#58">58: </a>        );
+</span><span id="59" class="l"><a href="#59">59: </a>    }
+</span><span id="60" class="l"><a href="#60">60: </a>
+</span><span id="61" class="l"><a href="#61">61: </a>    <span class="php-comment">/**
+</span></span><span id="62" class="l"><a href="#62">62: </a><span class="php-comment">     * Factory method used to register this class on a handler stack.
 </span></span><span id="63" class="l"><a href="#63">63: </a><span class="php-comment">     *
-</span></span><span id="64" class="l"><a href="#64">64: </a><span class="php-comment">     * @return Closure
-</span></span><span id="65" class="l"><a href="#65">65: </a><span class="php-comment">     */</span>
-</span><span id="66" class="l"><a href="#66">66: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> create(AccessToken <span class="php-var">$token</span>)
-</span><span id="67" class="l"><a href="#67">67: </a>    {
-</span><span id="68" class="l"><a href="#68">68: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-keyword1">callable</span> <span class="php-var">$handler</span>) <span class="php-keyword1">use</span> (<span class="php-var">$token</span>) {
-</span><span id="69" class="l"><a href="#69">69: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">new</span> <span class="php-keyword1">static</span>(<span class="php-var">$handler</span>, <span class="php-var">$token</span>);
-</span><span id="70" class="l"><a href="#70">70: </a>        };
-</span><span id="71" class="l"><a href="#71">71: </a>    }
-</span><span id="72" class="l"><a href="#72">72: </a>}
-</span><span id="73" class="l"><a href="#73">73: </a></span></code></pre>
+</span></span><span id="64" class="l"><a href="#64">64: </a><span class="php-comment">     * @param AccessToken $token
+</span></span><span id="65" class="l"><a href="#65">65: </a><span class="php-comment">     *
+</span></span><span id="66" class="l"><a href="#66">66: </a><span class="php-comment">     * @return Closure
+</span></span><span id="67" class="l"><a href="#67">67: </a><span class="php-comment">     */</span>
+</span><span id="68" class="l"><a href="#68">68: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> create(AccessToken <span class="php-var">$token</span>)
+</span><span id="69" class="l"><a href="#69">69: </a>    {
+</span><span id="70" class="l"><a href="#70">70: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-keyword1">callable</span> <span class="php-var">$handler</span>) <span class="php-keyword1">use</span> (<span class="php-var">$token</span>) {
+</span><span id="71" class="l"><a href="#71">71: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">new</span> <span class="php-keyword1">static</span>(<span class="php-var">$handler</span>, <span class="php-var">$token</span>);
+</span><span id="72" class="l"><a href="#72">72: </a>        };
+</span><span id="73" class="l"><a href="#73">73: </a>    }
+</span><span id="74" class="l"><a href="#74">74: </a>}
+</span><span id="75" class="l"><a href="#75">75: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
@@ -231,6 +235,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cb3925991615e04c245db04485b7c3fe92de84be"></script>
-<script src="elementlist.js?b5e30433c285ead78b708aa06b1c7c6fa766b3ad"></script>
+<script src="elementlist.js?e53ab1ddd77a97a0f3cb9d76cf64e06d6a264a99"></script>
 </body>
 </html>

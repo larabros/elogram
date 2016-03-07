@@ -10,6 +10,8 @@ use Instagram\Entities\Media;
 use Instagram\Entities\Tag;
 use Instagram\Entities\User;
 use Instagram\Helpers\RedirectLoginHelper;
+use Instagram\Http\Clients\MockAdapter;
+use Instagram\Http\Response;
 use Instagram\Instagram;
 
 class InstagramTest extends TestCase
@@ -24,7 +26,11 @@ class InstagramTest extends TestCase
      */
     protected function setUp()
     {
-        $this->instagram = new Instagram('foo', 'bar', null, '/');
+        $options = [
+//            'session_store' => NativeSessionStore::class,
+            'http_adapter'  => MockAdapter::class,
+        ];
+        $this->instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/', $options);
     }
 
     /**
@@ -55,8 +61,7 @@ class InstagramTest extends TestCase
      */
     public function testUsers()
     {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $users     = $instagram->users();
+        $users = $this->instagram->users();
         $this->assertInstanceOf(User::class, $users);
     }
 
@@ -67,8 +72,7 @@ class InstagramTest extends TestCase
      */
     public function testMedia()
     {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $media     = $instagram->media();
+        $media = $this->instagram->media();
         $this->assertInstanceOf(Media::class, $media);
     }
 
@@ -79,8 +83,7 @@ class InstagramTest extends TestCase
      */
     public function testComments()
     {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $comments  = $instagram->comments();
+        $comments = $this->instagram->comments();
         $this->assertInstanceOf(Comment::class, $comments);
     }
 
@@ -91,8 +94,7 @@ class InstagramTest extends TestCase
      */
     public function testLikes()
     {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $likes     = $instagram->likes();
+        $likes = $this->instagram->likes();
         $this->assertInstanceOf(LikeRepository::class, $likes);
     }
 
@@ -103,8 +105,7 @@ class InstagramTest extends TestCase
      */
     public function testTags()
     {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $tags      = $instagram->tags();
+        $tags = $this->instagram->tags();
         $this->assertInstanceOf(Tag::class, $tags);
     }
 
@@ -115,9 +116,19 @@ class InstagramTest extends TestCase
      */
     public function testLocations()
     {
-        $instagram = new Instagram('foo', 'bar', '{"access_token": "baz"}', '/');
-        $locations = $instagram->locations();
+        $locations = $this->instagram->locations();
         $this->assertInstanceOf(Location::class, $locations);
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::request()
+     */
+    public function testRequest()
+    {
+        $response = $this->instagram->request('GET', 'users/4');
+        $this->assertInstanceOf(Response::class, $response);
     }
 
     /**
@@ -127,6 +138,23 @@ class InstagramTest extends TestCase
      */
     public function testPaginate()
     {
-        $this->markTestIncomplete();
+        $response = $this->instagram->request('GET', 'users/self/follows');
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertCount(50, $response->get());
+
+        $merged = $this->instagram->paginate($response, 1);
+        $this->assertCount(100, $merged->get());
+    }
+
+    /**
+     * @covers Instagram\Instagram::__construct()
+     * @covers Instagram\Instagram::buildContainer()
+     * @covers Instagram\Instagram::getLoginUrl()
+     */
+    public function testGetLoginUrl()
+    {
+        $expected = 'https://api.instagram.com/oauth/authorize?';
+        $actual = $this->instagram->getLoginUrl();
+        $this->assertStringStartsWith($expected, $actual);
     }
 }

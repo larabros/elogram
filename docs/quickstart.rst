@@ -48,15 +48,17 @@ the authorization page (or retrieve an access token if the user has authorized):
 
     // Create a client
     $client = new Instagram($clientId, $clientSecret, null, $redirectUrl);
-    $helper = $instagram->getLoginHelper();
     // If we don't have an authorization code then get one
     if (!isset($_GET['code'])) {
-        header('Location: ' . $helper->getLoginUrl());
+        header('Location: ' . $client->getLoginUrl());
         exit;
     } else {
-        $token = $helper->getAccessToken($_GET['code']);
+        $token = $client->getAccessToken($_GET['code']);
         echo json_encode($token);
     }
+
+    // You can now make requests to the API
+    $client->users()->search('skrawg');
 
 
 Sending Requests
@@ -82,8 +84,8 @@ Paginated Requests
 
 The `Response` object that you receive from making requests contains the data
 from the multiple requests combined, including the first one. You can also pass
-a ``$limit`` as an optional parameter to ``Instagram::paginate()``, which sets the
-number of pages to request, assuming they are available.
+a ``$limit`` as an optional parameter to ``Instagram::paginate()``, which sets
+the number of pages to request, assuming they are available.
 
 .. code-block:: php
 

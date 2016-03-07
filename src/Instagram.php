@@ -83,14 +83,6 @@ final class Instagram
     }
 
     /**
-     * @return RedirectLoginHelper
-     */
-    public function getLoginHelper()
-    {
-        return $this->container->get(RedirectLoginHelper::class);
-    }
-
-    /**
      *
      * API methods
      *

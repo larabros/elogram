@@ -46,17 +46,6 @@ class InstagramTest extends TestCase
     /**
      * @covers Instagram\Instagram::__construct()
      * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getLoginHelper()
-     * @runInSeparateProcess
-     */
-    public function testGetLoginHelper()
-    {
-        $this->assertInstanceOf(RedirectLoginHelper::class, $this->instagram->getLoginHelper());
-    }
-
-    /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
      * @covers Instagram\Instagram::users()
      */
     public function testUsers()

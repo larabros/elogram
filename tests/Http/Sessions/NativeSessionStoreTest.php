@@ -2,6 +2,7 @@
 
 namespace Instagram\Tests\Http\Sessions;
 
+use Instagram\Exceptions\Exception;
 use Instagram\Http\Sessions\NativeSessionStore;
 use Instagram\Tests\TestCase;
 
@@ -18,6 +19,18 @@ class NativeSessionStoreTest extends TestCase
     protected function setUp()
     {
         $this->store = new NativeSessionStore();
+    }
+
+    /**
+     * @covers Instagram\Http\Sessions\NativeSessionStore::__construct()
+     * @covers Instagram\Http\Sessions\NativeSessionStore::get()
+     * @runInSeparateProcess
+     */
+    public function testWhenSessionIsNotStarted()
+    {
+        session_write_close();
+        $this->setExpectedException(Exception::class);
+        $session = new NativeSessionStore();
     }
 
     /**

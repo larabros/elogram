@@ -1,6 +1,7 @@
 <?php
 
 namespace Instagram\Http\Sessions;
+use Instagram\Exceptions\Exception;
 
 /**
  * An implementation of `DataStoreInterface` that uses PHP's native sessions.
@@ -23,7 +24,7 @@ class NativeSessionStore implements DataStoreInterface
     public function __construct()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
+            throw new Exception('Sessions are not active.');
         }
     }
 

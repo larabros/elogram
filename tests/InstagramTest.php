@@ -119,42 +119,4 @@ class InstagramTest extends TestCase
         $locations = $this->instagram->locations();
         $this->assertInstanceOf(Location::class, $locations);
     }
-
-    /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::request()
-     */
-    public function testRequest()
-    {
-        $response = $this->instagram->request('GET', 'users/4');
-        $this->assertInstanceOf(Response::class, $response);
-    }
-
-    /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::paginate()
-     */
-    public function testPaginate()
-    {
-        $response = $this->instagram->request('GET', 'users/self/follows');
-        $this->assertInstanceOf(Response::class, $response);
-        $this->assertCount(50, $response->get());
-
-        $merged = $this->instagram->paginate($response, 1);
-        $this->assertCount(100, $merged->get());
-    }
-
-    /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getLoginUrl()
-     */
-    public function testGetLoginUrl()
-    {
-        $expected = 'https://api.instagram.com/oauth/authorize?';
-        $actual = $this->instagram->getLoginUrl();
-        $this->assertStringStartsWith($expected, $actual);
-    }
 }

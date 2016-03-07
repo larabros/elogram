@@ -172,6 +172,8 @@ final class Instagram
      * @return Response
      *
      * @see Instagram\Http\Clients\AdapterInterface::request()
+     *
+     * @codeCoverageIgnore
      */
     public function request($method, $uri, array $parameters = [])
     {
@@ -188,6 +190,8 @@ final class Instagram
      * @return Response
      *
      * @see Instagram\Http\Clients\AdapterInterface::paginate()
+     *
+     * @codeCoverageIgnore
      */
     public function paginate(Response $response, $limit = null)
     {
@@ -209,6 +213,8 @@ final class Instagram
      * @return string
      *
      * @see Instagram\Helpers\RedirectLoginHelper::getLoginUrl()
+     *
+     * @codeCoverageIgnore
      */
     public function getLoginUrl(array $options = [])
     {
@@ -225,6 +231,8 @@ final class Instagram
      * @return AccessToken
      *
      * @see Instagram\Helpers\RedirectLoginHelper::getAccessToken()
+     *
+     * @codeCoverageIgnore
      */
     public function getAccessToken($code, $grant = 'authorization_code')
     {
@@ -241,6 +249,8 @@ final class Instagram
      * @param AccessToken $token
      *
      * @return Instagram
+     *
+     * @codeCoverageIgnore
      */
     public function setAccessToken(AccessToken $token)
     {

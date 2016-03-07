@@ -14,7 +14,6 @@ TODO
 - Rename `Entities` to `Repositories`
 - Allow `Config` implementation to be specified
 - Add `fixtures` option to `Config`
-- Make `AuthMiddleware::create()` use `Config`
 
 ## Tests
 -

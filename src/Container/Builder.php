@@ -6,6 +6,7 @@ use Instagram\Config;
 use Instagram\Providers\CoreServiceProvider;
 use Instagram\Providers\EntityServiceProvider;
 use Instagram\Providers\GuzzleServiceProvider;
+use Instagram\Providers\MiddlewareServiceProvider;
 use League\Container\Container;
 use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;
@@ -31,6 +32,7 @@ class Builder implements ContainerAwareInterface
      */
     protected $defaultProviders = [
         CoreServiceProvider::class,
+        MiddlewareServiceProvider::class,
         GuzzleServiceProvider::class,
         EntityServiceProvider::class,
     ];

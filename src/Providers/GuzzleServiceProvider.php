@@ -9,7 +9,6 @@ use Instagram\Http\Clients\GuzzleAdapter;
 use Instagram\Http\Clients\MockAdapter;
 use League\Container\Argument\RawArgument;
 use League\Container\ServiceProvider\AbstractServiceProvider;
-use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * GuzzleServiceProvider
@@ -32,7 +31,6 @@ class GuzzleServiceProvider extends AbstractServiceProvider
      */
     protected $provides = [
         AdapterInterface::class,
-        HandlerStack::class
     ];
 
     /**
@@ -46,29 +44,6 @@ class GuzzleServiceProvider extends AbstractServiceProvider
     {
         $container = $this->getContainer();
         $config    = $container->get('config');
-
-        // If access token was provided, then instantiate and add to middleware
-        if ($config->has('access_token')) {
-
-            $container->share(AccessToken::class)
-                ->withArgument(new RawArgument(json_decode($config->get('access_token'), true)));
-
-            $container->add('middleware.auth', function() use ($config, $container) {
-                $class  = $config->get('middleware.auth');
-                return $class::create($container->get(AccessToken::class));
-            });
-
-            $container->add('middleware.secure', function() use ($config, $container) {
-                $class  = $config->get('middleware.secure');
-                return $class::create($container->get('config'));
-            });
-        }
-
-        $container->share(HandlerStack::class, function() {
-            return HandlerStack::create();
-        });
-
-        $this->addMiddleware();
 
         $container->share(Client::class)
             ->withArgument(new RawArgument([
@@ -85,17 +60,6 @@ class GuzzleServiceProvider extends AbstractServiceProvider
         if ($config->get('http_adapter') === MockAdapter::class) {
             $path = realpath(__DIR__.'/../../tests/fixtures').'/';
             $container->share(AdapterInterface::class, new MockAdapter($path));
-        }
-    }
-
-    protected function addMiddleware()
-    {
-        $container = $this->getContainer();
-        $config    = $container->get('config');
-        $stack     = $container->get(HandlerStack::class);
-
-        foreach($config->get('middleware') as $name => $item) {
-            $stack->push($container->get("middleware.$name"), $name);
         }
     }
 }

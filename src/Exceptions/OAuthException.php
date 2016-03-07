@@ -10,6 +10,6 @@ namespace Instagram\Exceptions;
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class OAuthException extends \Exception
+class OAuthException extends Exception
 {
 }

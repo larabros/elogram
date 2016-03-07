@@ -2,14 +2,16 @@
 
 namespace Instagram\Exceptions;
 
+use Exception as BaseException;
+
 /**
- * Thrown if the CSRF verification failed.
+ * Base exception class for this package.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class CsrfException extends Exception
+class Exception extends BaseException
 {
 }

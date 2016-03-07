@@ -4,12 +4,13 @@ TODO
 
 ## Problems
 - No tests for failure cases
+- User::find('000000')
 
 ## Features
 - Generators
 
 ## Refactors
-- Change `Response::getRaw()`
+- Change `Response::getRaw()` to accept a `$key` parameter
 - Create new `RequestBody` class
 - Rename `Entities` to `Repositories`
 - Allow `Config` implementation to be specified

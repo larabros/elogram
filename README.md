@@ -9,7 +9,7 @@
 [![Documentation][ico-docs]][link-docs]
 
 [![Build Status][ico-phpeye]][link-phpeye]
-[![Gitter][ico-gitter][link-gitter]]
+[![Gitter][ico-gitter]][link-gitter]
 
 A modern Instagram SDK for PHP 5.5+.
 

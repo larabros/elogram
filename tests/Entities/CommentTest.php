@@ -13,9 +13,12 @@ class CommentTest extends TestCase
      */
     protected $comment;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
-        $this->comment = new Comment(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
+        $this->comment = new Comment(new MockAdapter($this->getFixturesPath()));
     }
 
     /**

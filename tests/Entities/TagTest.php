@@ -13,9 +13,12 @@ class TagTest extends TestCase
      */
     protected $tag;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
-        $this->tag = new Tag(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
+        $this->tag = new Tag(new MockAdapter($this->getFixturesPath()));
     }
 
     /**

@@ -12,6 +12,9 @@ class NativeSessionStoreTest extends TestCase
      */
     protected $store;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
         $this->store = new NativeSessionStore();

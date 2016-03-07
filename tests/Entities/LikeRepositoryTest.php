@@ -13,9 +13,12 @@ class LikeRepositoryTest extends TestCase
      */
     protected $like;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
-        $this->like = new LikeRepository(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
+        $this->like = new LikeRepository(new MockAdapter($this->getFixturesPath()));
     }
 
     /**

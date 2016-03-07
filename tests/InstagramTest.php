@@ -10,7 +10,6 @@ use Instagram\Entities\Media;
 use Instagram\Entities\Tag;
 use Instagram\Entities\User;
 use Instagram\Helpers\LoginHelperInterface;
-use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Instagram;
 
 class InstagramTest extends TestCase
@@ -20,6 +19,9 @@ class InstagramTest extends TestCase
      */
     protected $instagram;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
         $this->instagram = new Instagram('foo', 'bar', null, '/');

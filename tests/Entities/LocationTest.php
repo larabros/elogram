@@ -13,9 +13,12 @@ class LocationTest extends TestCase
      */
     protected $location;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
-        $this->location = new Location(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
+        $this->location = new Location(new MockAdapter($this->getFixturesPath()));
     }
 
     /**

@@ -16,7 +16,7 @@ class ResponseTest extends TestCase
 
     protected function setUp()
     {
-        $data           = json_decode(file_get_contents(__DIR__ . '/../fixtures/get_media.json'), true);
+        $data           = $this->getFixture('get_media.json');
         $this->response = new Response($data['meta'], $data['data']);
     }
 
@@ -26,7 +26,7 @@ class ResponseTest extends TestCase
      */
     public function testCreateFromJson()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__.'/../fixtures/get_media.json'), true));
+        $response = Response::createFromJson($this->getFixture('get_media.json'));
         $this->assertEquals($this->response, $response);
     }
 
@@ -61,7 +61,7 @@ class ResponseTest extends TestCase
      */
     public function testGetCollection()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__.'/../fixtures/get_users_follows.json'), true));
+        $response = Response::createFromJson($this->getFixture('get_users_follows.json'));
         $this->assertTrue($response->get() instanceof Collection);
     }
 
@@ -73,7 +73,7 @@ class ResponseTest extends TestCase
      */
     public function testMergeCollections()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__.'/../fixtures/get_users_follows.json'), true));
+        $response = Response::createFromJson($this->getFixture('get_users_follows.json'));
         $merged   = $response->merge($response);
         $this->assertCount(100, $merged->get());
         $this->assertTrue($merged->get() instanceof Collection);
@@ -100,7 +100,7 @@ class ResponseTest extends TestCase
      */
     public function testMergeFailure()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__.'/../fixtures/get_users_follows.json'), true));
+        $response = Response::createFromJson($this->getFixture('get_users_follows.json'));
         $this->setExpectedException(IncompatibleResponseException::class);
         $this->response->merge($response);
     }
@@ -125,7 +125,7 @@ class ResponseTest extends TestCase
      */
     public function testNextUrl()
     {
-        $response = Response::createFromJson(json_decode(file_get_contents(__DIR__ . '/../fixtures/get_users_follows.json'), true));
+        $response = Response::createFromJson($this->getFixture('get_users_follows.json'));
         $this->assertTrue($response->hasPages());
         $this->assertStringStartsWith('http', $response->nextUrl());
     }

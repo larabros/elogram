@@ -19,6 +19,9 @@ class BuilderTest extends TestCase
      */
     protected $builder;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
         $this->builder = new Builder([

@@ -13,9 +13,12 @@ class UserTest extends TestCase
      */
     protected $user;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
-        $this->user = new User(new MockAdapter(realpath(__DIR__.'/../fixtures/').'/'));
+        $this->user = new User(new MockAdapter($this->getFixturesPath()));
     }
 
     /**

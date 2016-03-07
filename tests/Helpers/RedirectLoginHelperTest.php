@@ -13,8 +13,14 @@ use \Mockery as m;
 
 class RedirectLoginHelperTest extends TestCase
 {
+    /**
+     * @var RedirectLoginHelper
+     */
     protected $helper;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
         $token    = m::mock(AccessToken::class, [['access_token' => "somenumbers"]]);

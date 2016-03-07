@@ -15,6 +15,9 @@ class GuzzleAdapterTest extends TestCase
 {
     protected $guzzleMock;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
         $this->guzzleMock = m::mock(Client::class);
@@ -26,7 +29,7 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testRequest()
     {
-        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_media.json'));
+        $json     = $this->getFixture('get_media.json', false);
         $response = new Response(200, [], $json);
         $this->guzzleMock->shouldReceive('request')->once()->andReturn($response);
 
@@ -68,7 +71,7 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginateSingleResponse()
     {
-        $json     = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_media.json'));
+        $json     = $this->getFixture('get_media.json', false);
         $response = new Response(200, [], $json);
         $this->guzzleMock->shouldReceive('request')->once()->andReturn($response);
 
@@ -84,7 +87,7 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginateWithLimit()
     {
-        $first      = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_users_follows.json'));
+        $first      = $this->getFixture('get_users_follows.json', false);
         $firstPage  = new Response(200, [], $first);
         $secondPage = new Response(200, [], $first);
         $thirdPage  = new Response(200, [], $first);
@@ -115,7 +118,7 @@ class GuzzleAdapterTest extends TestCase
      */
     public function testPaginate()
     {
-        $first      = file_get_contents(realpath(__DIR__ . '/../../fixtures/get_users_follows.json'));
+        $first      = $this->getFixture('get_users_follows.json', false);
         $firstPage  = new Response(200, [], $first);
         $secondPage = new Response(200, [], $first);
         $thirdPage  = new Response(200, [], $first);

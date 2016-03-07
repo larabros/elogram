@@ -21,4 +21,18 @@ class TestCase extends \PHPUnit_Framework_TestCase
     {
         m::close();
     }
+
+    protected function getFixturesPath()
+    {
+        return realpath(__DIR__.'/fixtures/').'/';
+    }
+
+    protected function getFixture($filename, $decode = true)
+    {
+        $file = file_get_contents($this->getFixturesPath().$filename);
+
+        return $decode
+            ? json_decode($file, true)
+            : $file;
+    }
 }

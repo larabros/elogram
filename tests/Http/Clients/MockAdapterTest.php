@@ -9,19 +9,16 @@ use Mockery as m;
 class MockAdapterTest extends TestCase
 {
     /**
-     * @var string
-     */
-    protected $path;
-
-    /**
      * @var MockAdapter
      */
     protected $adapter;
 
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp()
     {
-        $this->path = realpath(__DIR__.'/../../fixtures/').'/';
-        $this->adapter = new MockAdapter($this->path);
+        $this->adapter = new MockAdapter($this->getFixturesPath());
     }
 
     /**
@@ -32,8 +29,8 @@ class MockAdapterTest extends TestCase
      */
     public function testRequest()
     {
-        $expected = file_get_contents($this->path.'get_users_search.json');
-        $actual = $this->adapter->request('GET', 'users/search');
+        $expected = $this->getFixture('get_users_search.json', false);
+        $actual   = $this->adapter->request('GET', 'users/search');
         $this->assertJsonStringEqualsJsonString((string) $actual, $expected);
     }
 
@@ -45,8 +42,8 @@ class MockAdapterTest extends TestCase
      */
     public function testRequestWithParameters()
     {
-        $expected = file_get_contents($this->path.'get_locations_search_facebook_places_id.json');
-        $actual = $this->adapter->request('GET', 'locations/search', [
+        $expected = $this->getFixture('get_locations_search_facebook_places_id.json', false);
+        $actual   = $this->adapter->request('GET', 'locations/search', [
             'query' => ['facebook_places_id' => 'lalala']
         ]);
         $this->assertJsonStringEqualsJsonString((string) $actual, $expected);

@@ -26,7 +26,7 @@ final class MockAdapter implements AdapterInterface
      */
     public function __construct($fixturesPath)
     {
-        $this->fixturesPath = $fixturesPath;
+        $this->fixturesPath = rtrim($fixturesPath, '/').'/';
     }
 
     /**

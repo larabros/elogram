@@ -3,13 +3,13 @@
 namespace Instagram\Exceptions;
 
 /**
- * RateLimitExceededException
+ * OAuthRateLimitException
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-class RateLimitExceededException extends \Exception
+class OAuthRateLimitException extends \Exception
 {
 }

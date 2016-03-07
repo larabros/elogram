@@ -2,6 +2,9 @@
 
 namespace Instagram\Http;
 
+use Illuminate\Support\Collection;
+use Instagram\Exceptions\IncompatibleResponseException;
+
 /**
  * Represents a response returned from Instagram's API.
  *
@@ -83,11 +86,83 @@ class Response
     /**
      * Returns `data` from the response.
      *
-     * @return array
+     * @return array|Collection
      */
     public function get()
     {
-        return $this->data;
+        return $this->isCollection($this->data)
+            ? new Collection($this->data)
+            : $this->data;
+    }
+
+    /**
+     * Merges the contents of this response with `$response` and returns a new
+     * `Response` instance.
+     *
+     * @param Response $response
+     *
+     * @return Response
+     *
+     * @throws IncompatibleResponseException
+     */
+    public function merge(Response $response)
+    {
+        $meta       = $response->getRaw()['meta'];
+        $data       = $response->get();
+        $pagination = $response->hasPages()
+            ? $response->getRaw()['pagination']
+            : [];
+
+        if ($this->isCollection($this->data) && $this->isCollection($data)) {
+            $data = array_flatten([$this->data, $data], 1);
+            return new Response($meta, $data, $pagination);
+        }
+
+        if ($this->isRecord($this->data) && $this->isRecord($data)) {
+            return new Response($meta, [$this->data, $data], $pagination);
+        }
+
+        throw new IncompatibleResponseException('The response contents cannot be merged');
+    }
+
+    /**
+     * Tests the current response data to see if one or more records were
+     * returned.
+     *
+     * @param array|Collection $data
+     *
+     * @return bool
+     */
+    protected function isCollection($data)
+    {
+        $isCollection = false;
+
+        if ($data === null) {
+            return $isCollection;
+        }
+
+        if (!$this->isRecord($data)) {
+            $isCollection = true;
+        }
+
+        return $isCollection;
+    }
+
+    /**
+     * Tests the current response data to see if a single record was returned.
+     *
+     * @param array|Collection $data
+     *
+     * @return bool
+     */
+    protected function isRecord($data)
+    {
+        if ($data instanceof Collection) {
+            return false;
+        }
+
+        $keys = array_keys($data);
+        return (in_array('id', $keys, true) || in_array('name', $keys, true));
     }
 
     /**

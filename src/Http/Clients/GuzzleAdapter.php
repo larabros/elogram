@@ -60,13 +60,8 @@ final class GuzzleAdapter implements AdapterInterface
             return $response;
         }
 
-        $next       = $this->request('GET', $response->nextUrl());
-        $meta       = $next->getRaw()['meta'];
-        $data       = array_flatten([$response->get(), $next->get()], 1);
-        $pagination = $next->hasPages()
-            ? $next->getRaw()['pagination']
-            : [];
-        $merged     = new Response($meta, $data, $pagination);
+        $next   = $this->request('GET', $response->nextUrl());
+        $merged = $response->merge($next);
 
         // If `$limit` is not set then call itself indefinitely
         if ($limit === null) {

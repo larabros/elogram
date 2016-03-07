@@ -43,8 +43,9 @@ class RedirectLoginHelper implements LoginHelperInterface
      */
     public function getLoginUrl(array $options = [])
     {
+        $url = $this->provider->getAuthorizationUrl($options);
         $this->store->set('oauth2state', $this->provider->getState());
-        return $this->provider->getAuthorizationUrl($options);
+        return $url;
     }
 
     /**

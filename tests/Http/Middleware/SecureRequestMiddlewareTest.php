@@ -35,6 +35,7 @@ class SecureRequestMiddlewareTest extends TestCase
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::create()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__construct()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getParams()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getPath()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::generateSig()
@@ -69,6 +70,7 @@ class SecureRequestMiddlewareTest extends TestCase
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::create()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__construct()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getParams()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getPath()
      * @covers Instagram\Http\Middleware\SecureRequestMiddleware::generateSig()
@@ -85,6 +87,36 @@ class SecureRequestMiddlewareTest extends TestCase
                     '260634b241a6cfef5e4644c205fb30246ff637591142781b86e2075faf1b163a',
                     $query['sig']
                 );
+                return new Response(200);
+            }
+        ]);
+
+        $middleware = SecureRequestMiddleware::create($this->config);
+        $stack      = new HandlerStack($handler);
+        $stack->push($middleware);
+        $client = new Client(['handler' => $stack]);
+        $client->get('https://api.instagram.com/v1/media/657988443280050001_25025320', [
+            'query' => [
+                'access_token' => 'fb2e77d.47a0479900504cb3ab4a1f626d174d2d',
+                'count'        => 10
+            ]]);
+    }
+
+    /**
+     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::create()
+     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__construct()
+     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
+     */
+    public function testDoesNotAddSigValue()
+    {
+        $this->config->set('secure_requests', false);
+        $handler = new MockHandler([
+            function (RequestInterface $request) {
+                $query = [];
+                parse_str($request->getUri()->getQuery(), $query);
+
+                $this->assertArrayNotHasKey('sig', $query);
                 return new Response(200);
             }
         ]);

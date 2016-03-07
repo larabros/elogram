@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Instagram\Config;
 use Instagram\Http\Middleware\AuthMiddleware;
 use Instagram\Tests\TestCase;
 use League\OAuth2\Client\Token\AccessToken;
@@ -14,13 +15,31 @@ use Psr\Http\Message\RequestInterface;
 class AuthMiddlewareTest extends TestCase
 {
     /**
+     * @var Config
+     */
+    protected $config;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function setUp()
+    {
+        $token = new AccessToken(json_decode('{"access_token":"fb2e77d.47a0479900504cb3ab4a1f626d174d2d"}', true));
+        $this->config = new Config([
+            'client_id' => 'CS',
+            'client_secret' => '6dc1787668c64c939929c17683d7cb74',
+            'access_token'  => $token,
+        ]);
+    }
+
+    /**
      * @covers Instagram\Http\Middleware\AuthMiddleware::create()
      * @covers Instagram\Http\Middleware\AuthMiddleware::__construct()
      * @covers Instagram\Http\Middleware\AuthMiddleware::__invoke()
+     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
      */
     public function testAddsContentTypeHeader()
     {
-        $token = new AccessToken(['access_token' => 'token']);
         $handler = new MockHandler([
             function (RequestInterface $request) {
                 $this->assertTrue($request->hasHeader('Content-Type'));
@@ -28,7 +47,8 @@ class AuthMiddlewareTest extends TestCase
                 return new Response(200);
             }
         ]);
-        $middleware = AuthMiddleware::create($token);
+
+        $middleware = AuthMiddleware::create($this->config);
         $stack      = new HandlerStack($handler);
         $stack->push($middleware);
         $client = new Client(['handler' => $stack]);
@@ -39,21 +59,48 @@ class AuthMiddlewareTest extends TestCase
      * @covers Instagram\Http\Middleware\AuthMiddleware::create()
      * @covers Instagram\Http\Middleware\AuthMiddleware::__construct()
      * @covers Instagram\Http\Middleware\AuthMiddleware::__invoke()
+     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
      */
     public function testAddsAccessToken()
     {
-        $token = new AccessToken(['access_token' => 'token']);
         $handler = new MockHandler([
             function (RequestInterface $request) {
                 $query = [];
                 parse_str($request->getUri()->getQuery(), $query);
 
                 $this->assertArrayHasKey('access_token', $query);
-                $this->assertEquals('token', $query['access_token']);
+                $this->assertEquals('fb2e77d.47a0479900504cb3ab4a1f626d174d2d', $query['access_token']);
                 return new Response(200);
             }
         ]);
-        $middleware = AuthMiddleware::create($token);
+
+        $middleware = AuthMiddleware::create($this->config);
+        $stack      = new HandlerStack($handler);
+        $stack->push($middleware);
+        $client = new Client(['handler' => $stack]);
+        $client->get('http://google.com');
+    }
+
+    /**
+     * @covers Instagram\Http\Middleware\AuthMiddleware::create()
+     * @covers Instagram\Http\Middleware\AuthMiddleware::__construct()
+     * @covers Instagram\Http\Middleware\AuthMiddleware::__invoke()
+     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
+     */
+    public function testDoesNotAddAccessToken()
+    {
+        $this->config->set('access_token', null);
+        $handler = new MockHandler([
+            function (RequestInterface $request) {
+                $query = [];
+                parse_str($request->getUri()->getQuery(), $query);
+
+                $this->assertArrayNotHasKey('access_token', $query);
+                return new Response(200);
+            }
+        ]);
+
+        $middleware = AuthMiddleware::create($this->config);
         $stack      = new HandlerStack($handler);
         $stack->push($middleware);
         $client = new Client(['handler' => $stack]);

@@ -4,7 +4,6 @@ namespace Instagram\Http\Middleware;
 
 use GuzzleHttp\Psr7\Uri;
 use Instagram\Instagram;
-use Noodlehaus\ConfigInterface;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -15,36 +14,8 @@ use Psr\Http\Message\RequestInterface;
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-final class SecureRequestMiddleware implements MiddlewareInterface
+final class SecureRequestMiddleware extends AbstractMiddleware
 {
-    /**
-     * The next handler in the stack.
-     *
-     * @var callable
-     */
-    protected $nextHandler;
-
-    /**
-     * The application configuration.
-     *
-     * @var ConfigInterface
-     */
-    protected $config;
-
-    /**
-     * Creates an instance of `AuthMiddleware`.
-     *
-     * @param callable        $nextHandler
-     * @param ConfigInterface $config
-     *
-     * @see SecureRequestMiddleware::create()
-     */
-    private function __construct(callable $nextHandler, ConfigInterface $config)
-    {
-        $this->nextHandler = $nextHandler;
-        $this->config      = $config;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -60,11 +31,9 @@ final class SecureRequestMiddleware implements MiddlewareInterface
         $params  = $this->getParams($uri->getQuery());
         $path    = $this->getPath($uri->getPath());
         $secret  = $this->config->get('client_secret');
-
         $uri     = Uri::withQueryValue($uri, 'sig', $this->generateSig($path, $params, $secret));
 
-        $next    = $this->nextHandler;
-        return $next($request->withUri($uri), $options);
+        return parent::__invoke($request->withUri($uri), $options);
     }
 
     private function getPath($path)
@@ -88,18 +57,5 @@ final class SecureRequestMiddleware implements MiddlewareInterface
             $sig .= "|$key=$val";
         }
         return hash_hmac('sha256', $sig, $secret, false);
-    }
-
-    /**
-     * Factory method used to register this class on a handler stack.
-     *
-     * @param ConfigInterface $config
-     * @return \Closure
-     */
-    public static function create(ConfigInterface $config)
-    {
-        return function (callable $handler) use ($config) {
-            return new static($handler, $config);
-        };
     }
 }

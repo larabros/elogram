@@ -8,14 +8,14 @@ use GuzzleHttp\Exception\ClientException;
 use Instagram\Http\Response;
 
 /**
- * Instagram client class.
+ * A HTTP client adapter for Guzzle.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-final class GuzzleAdapter implements AdapterInterface
+final class GuzzleAdapter extends AbstractAdapter
 {
     /**
      * The Guzzle client instance.
@@ -57,28 +57,5 @@ final class GuzzleAdapter implements AdapterInterface
         }
 
         return Response::createFromJson(json_decode($response->getBody()->getContents(), true));
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function paginate(Response $response, $limit = null)
-    {
-        // If there's nothing to paginate, return response as-is
-        if (!$response->hasPages() || $limit === 0) {
-            return $response;
-        }
-
-        $next   = $this->request('GET', $response->nextUrl());
-        $merged = $response->merge($next);
-
-        // If `$limit` is not set then call itself indefinitely
-        if ($limit === null) {
-            return $this->paginate($merged);
-        }
-
-        // If `$limit` is set, call itself while decrementing it each time
-        $limit--;
-        return $this->paginate($merged, $limit);
     }
 }

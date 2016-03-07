@@ -5,14 +5,14 @@ namespace Instagram\Http\Clients;
 use Instagram\Http\Response;
 
 /**
- * Instagram mock client class.
+ * A mock HTTP client adapter.
  *
  * @package    Instagram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/hassankhan/instagram-sdk
  * @license    MIT
  */
-final class MockAdapter implements AdapterInterface
+final class MockAdapter extends AbstractAdapter
 {
     /**
      * @var string
@@ -96,28 +96,5 @@ final class MockAdapter implements AdapterInterface
         $modifiers = array_except($parameters['query'], $exclude);
         $return    = implode('_', array_keys($modifiers));
         return rtrim("_".$return, '_');
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function paginate(Response $response, $limit = null)
-    {
-        // If there's nothing to paginate, return response as-is
-        if (!$response->hasPages() || $limit === 0) {
-            return $response;
-        }
-
-        $next   = $this->request('GET', $response->nextUrl());
-        $merged = $response->merge($next);
-
-        // If `$limit` is not set then call itself indefinitely
-        if ($limit === null) {
-            return $this->paginate($merged);
-        }
-
-        // If `$limit` is set, call itself while decrementing it each time
-        $limit--;
-        return $this->paginate($merged, $limit);
     }
 }

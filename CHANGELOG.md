@@ -19,6 +19,15 @@ All notable changes to `instagram-sdk` will be documented in this file
 ### Security
 - Nothing
 
+## 1.0.4 - 2016-03-08
+
+### Added
+- Added more rules to `.gitattributes`
+- Extracted `AbstractMiddleware::create()` into `CreateMiddlewareTrait`
+
+### Fixed
+- Package now works from PHP 5.5.9 and above
+
 ## 1.0.3 - 2016-03-07
 
 ### Fixed

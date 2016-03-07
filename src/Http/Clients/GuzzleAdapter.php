@@ -48,9 +48,7 @@ final class GuzzleAdapter extends AbstractAdapter
                 throw $e;
             }
 
-            $response  = json_decode($e->getResponse()->getBody()->getContents());
-            $exception = '\\Instagram\\Exceptions\\'.$response->meta->error_type;
-            throw new $exception($response->meta->error_message);
+            throw $this->resolveExceptionClass($e);
 
         } catch (Exception $e) {
             throw $e;

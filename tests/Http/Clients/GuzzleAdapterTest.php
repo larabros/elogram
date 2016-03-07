@@ -66,8 +66,8 @@ class GuzzleAdapterTest extends TestCase
 
     /**
      * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      * @covers Instagram\Http\Clients\GuzzleAdapter::paginate()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      */
     public function testPaginateSingleResponse()
     {
@@ -82,8 +82,8 @@ class GuzzleAdapterTest extends TestCase
 
     /**
      * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      * @covers Instagram\Http\Clients\GuzzleAdapter::paginate()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
      */
     public function testPaginateWithLimit()
     {

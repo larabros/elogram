@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Instagram\Providers\CoreServiceProvider</title>
+	<title>Class Instagram\Providers\MiddlewareServiceProvider</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -81,10 +81,10 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-Instagram.Providers.CoreServiceProvider.html">CoreServiceProvider</a></li>
+				<li><a href="class-Instagram.Providers.CoreServiceProvider.html">CoreServiceProvider</a></li>
 				<li><a href="class-Instagram.Providers.EntityServiceProvider.html">EntityServiceProvider</a></li>
 				<li><a href="class-Instagram.Providers.GuzzleServiceProvider.html">GuzzleServiceProvider</a></li>
-				<li><a href="class-Instagram.Providers.MiddlewareServiceProvider.html">MiddlewareServiceProvider</a></li>
+				<li class="active"><a href="class-Instagram.Providers.MiddlewareServiceProvider.html">MiddlewareServiceProvider</a></li>
 			</ul>
 
 
@@ -123,11 +123,11 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class CoreServiceProvider</h1>
+	<h1>Class MiddlewareServiceProvider</h1>
 
 
 	<div class="description">
-	<p>CoreServiceProvider</p>
+	<p>MiddlewareServiceProvider</p>
 	</div>
 
 	<dl class="tree">
@@ -138,7 +138,7 @@ League\Container\ServiceProvider\AbstractServiceProvider
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Instagram\Providers\CoreServiceProvider</span></b>			
+<b><span>Instagram\Providers\MiddlewareServiceProvider</span></b>			
 			
 			
 		</dd>
@@ -163,7 +163,7 @@ League\Container\ServiceProvider\AbstractServiceProvider
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Providers.CoreServiceProvider.html#10-66" title="Go to source code">Providers/CoreServiceProvider.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Providers.MiddlewareServiceProvider.html#9-80" title="Go to source code">Providers/MiddlewareServiceProvider.php</a>
 		<br>
 	</div>
 
@@ -183,7 +183,7 @@ League\Container\ServiceProvider\AbstractServiceProvider
 
 		<td class="name"><div>
 		<a class="anchor" href="#_register">#</a>
-		<code><a href="source-class-Instagram.Providers.CoreServiceProvider.html#34-65" title="Go to source code">register</a>( )</code>
+		<code><a href="source-class-Instagram.Providers.MiddlewareServiceProvider.html#32-68" title="Go to source code">register</a>( )</code>
 
 		<div class="description short">
 			<p>Use the register method to register items with the container via the
@@ -195,6 +195,36 @@ from the ContainerAwareTrait.</p>
 			<p>Use the register method to register items with the container via the
 protected $this->container property or the <code>getContainer</code> method
 from the ContainerAwareTrait.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addMiddleware" id="_addMiddleware">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addMiddleware">#</a>
+		<code><a href="source-class-Instagram.Providers.MiddlewareServiceProvider.html#70-79" title="Go to source code">addMiddleware</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
 
 
 
@@ -227,7 +257,7 @@ from the ContainerAwareTrait.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Providers.CoreServiceProvider.html#20-32" title="Go to source code"><var>$provides</var></a>
+				<a href="source-class-Instagram.Providers.MiddlewareServiceProvider.html#19-30" title="Go to source code"><var>$provides</var></a>
 
 			<div class="description short">
 				<p>The provides array is a way to let the container
@@ -250,8 +280,7 @@ to this array or it will be ignored.</p>
 			<div>
 				<a href="#$provides" class="anchor">#</a>
 				<code>[
-    <span class="php-quote">'provider'</span>,
-    RedirectLoginHelper::<span class="php-keyword1">class</span>
+    HandlerStack::<span class="php-keyword1">class</span>
 ]</code>
 			</div>
 		</td>

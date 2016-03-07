@@ -81,6 +81,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Instagram.Http.Middleware.AbstractMiddleware.html">AbstractMiddleware</a></li>
 				<li><a href="class-Instagram.Http.Middleware.AuthMiddleware.html">AuthMiddleware</a></li>
 				<li class="active"><a href="class-Instagram.Http.Middleware.SecureRequestMiddleware.html">SecureRequestMiddleware</a></li>
 			</ul>
@@ -90,6 +91,10 @@
 				<li><a href="class-Instagram.Http.Middleware.MiddlewareInterface.html">MiddlewareInterface</a></li>
 			</ul>
 
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Instagram.Http.Middleware.CreateMiddlewareTrait.html">CreateMiddlewareTrait</a></li>
+			</ul>
 
 
 
@@ -134,10 +139,19 @@
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span>Instagram\Http\Middleware\SecureRequestMiddleware</span></b>			
+			<a href="class-Instagram.Http.Middleware.AbstractMiddleware.html"><span>Instagram\Http\Middleware\AbstractMiddleware</span></a>
+			
 			 implements 
 				<a href="class-Instagram.Http.Middleware.MiddlewareInterface.html"><span>Instagram\Http\Middleware\MiddlewareInterface</span></a>
 			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Instagram\Http\Middleware\SecureRequestMiddleware</span></b>			
+			
+			 uses 
+					<a href="class-Instagram.Http.Middleware.CreateMiddlewareTrait.html"><span>Instagram\Http\Middleware\CreateMiddlewareTrait</span></a>
 			
 		</dd>
 	</dl>
@@ -161,7 +175,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#10-105" title="Go to source code">Http/Middleware/SecureRequestMiddleware.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#9-63" title="Go to source code">Http/Middleware/SecureRequestMiddleware.php</a>
 		<br>
 	</div>
 
@@ -181,7 +195,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___invoke">#</a>
-		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#48-68" title="Go to source code">__invoke</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>array <var>$options</var></span> )</code>
+		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#21-39" title="Go to source code">__invoke</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>array <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Execute the middleware.</p>
@@ -206,9 +220,9 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Instagram.Http.Middleware.AbstractMiddleware.html#___invoke">Instagram\Http\Middleware\AbstractMiddleware::__invoke()</a></code></div>
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Instagram.Http.Middleware.MiddlewareInterface.html#___invoke">Instagram\Http\Middleware\MiddlewareInterface::__invoke()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -224,7 +238,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateSig">#</a>
-		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#83-91" title="Go to source code">generateSig</a>( <span> <var>$endpoint</var></span>, <span> <var>$params</var></span>, <span> <var>$secret</var></span> )</code>
+		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#54-62" title="Go to source code">generateSig</a>( <span> <var>$endpoint</var></span>, <span> <var>$params</var></span>, <span> <var>$secret</var></span> )</code>
 
 		<div class="description short">
 			
@@ -242,44 +256,23 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="create" id="_create">
+	</table>
 
-		<td class="attributes"><code>
-			 public static
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Instagram.Http.Middleware.AbstractMiddleware.html#methods">Instagram\Http\Middleware\AbstractMiddleware</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Instagram.Http.Middleware.AbstractMiddleware.html#___construct">__construct()</a>
+		</code></td>
+	</tr>
+	</table>
 
-			Closure
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_create">#</a>
-		<code><a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#93-104" title="Go to source code">create</a>( <span>Noodlehaus\ConfigInterface <var>$config</var></span> )</code>
-
-		<div class="description short">
-			<p>Factory method used to register this class on a handler stack.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Factory method used to register this class on a handler stack.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$config</var></dt>
-					<dd></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					Closure
-				</div>
-
-
-
-
-		</div>
-		</div></td>
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Instagram.Http.Middleware.CreateMiddlewareTrait.html#methods">Instagram\Http\Middleware\CreateMiddlewareTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Instagram.Http.Middleware.CreateMiddlewareTrait.html#_create">create()</a>
+		</code></td>
 	</tr>
 	</table>
 
@@ -293,61 +286,15 @@
 
 
 
-
-	<table class="summary properties" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="nextHandler" id="$nextHandler">
-		<td class="attributes"><code>
-			protected  
-			callable
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Instagram.Http.Middleware.AbstractMiddleware.html#properties">Instagram\Http\Middleware\AbstractMiddleware</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Instagram.Http.Middleware.AbstractMiddleware.html#$config"><var>$config</var></a>, 
+			<a href="class-Instagram.Http.Middleware.AbstractMiddleware.html#$nextHandler"><var>$nextHandler</var></a>
 		</code></td>
-
-		<td class="name">
-				<a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#20-25" title="Go to source code"><var>$nextHandler</var></a>
-
-			<div class="description short">
-				<p>The next handler in the stack.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>The next handler in the stack.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$nextHandler" class="anchor">#</a>
-				<code></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="config" id="$config">
-		<td class="attributes"><code>
-			protected  
-			Noodlehaus\ConfigInterface
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Instagram.Http.Middleware.SecureRequestMiddleware.html#27-32" title="Go to source code"><var>$config</var></a>
-
-			<div class="description short">
-				<p>The application configuration.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>The application configuration.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$config" class="anchor">#</a>
-				<code></code>
-			</div>
-		</td>
 	</tr>
 	</table>
-
 
 
 

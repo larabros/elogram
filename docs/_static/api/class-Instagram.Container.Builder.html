@@ -159,7 +159,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Container.Builder.html#15-110" title="Go to source code">Container/Builder.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Container.Builder.html#16-112" title="Go to source code">Container/Builder.php</a>
 		<br>
 	</div>
 
@@ -179,7 +179,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#38-53" title="Go to source code">__construct</a>( <span>array <var>$config</var></span>, <span>boolean <var>$registerProviders</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#40-55" title="Go to source code">__construct</a>( <span>array <var>$config</var></span>, <span>boolean <var>$registerProviders</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			<p>Creates a new instance of <code>Builder</code>. If <code>$registerProviders</code> is set to
@@ -218,7 +218,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createConfig">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#55-65" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#57-67" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
 
 		<div class="description short">
 			<p>Creates a <code>Config</code> object from raw parameters.</p>
@@ -257,7 +257,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_registerProviders">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#67-80" title="Go to source code">registerProviders</a>( <span>array <var>$providers</var> = []</span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#69-82" title="Go to source code">registerProviders</a>( <span>array <var>$providers</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>Register default service providers onto the container.</p>
@@ -296,7 +296,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_registerProvider">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#82-93" title="Go to source code">registerProvider</a>( <span>string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#84-95" title="Go to source code">registerProvider</a>( <span>string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
 
 		<div class="description short">
 			<p>Registers a service provider onto the container.</p>
@@ -335,7 +335,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createContainer">#</a>
-		<code><a href="source-class-Instagram.Container.Builder.html#95-109" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Instagram.Container.Builder.html#97-111" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
 
 		<div class="description short">
 			<p>Creates and returns a new instance of <code>Container</code> after adding <code>$config</code>
@@ -386,7 +386,7 @@ to it.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Container.Builder.html#27-36" title="Go to source code"><var>$defaultProviders</var></a>
+				<a href="source-class-Instagram.Container.Builder.html#28-38" title="Go to source code"><var>$defaultProviders</var></a>
 
 			<div class="description short">
 				<p>Default application service providers.</p>
@@ -402,6 +402,7 @@ to it.</p>
 				<a href="#$defaultProviders" class="anchor">#</a>
 				<code>[
     CoreServiceProvider::<span class="php-keyword1">class</span>,
+    MiddlewareServiceProvider::<span class="php-keyword1">class</span>,
     GuzzleServiceProvider::<span class="php-keyword1">class</span>,
     EntityServiceProvider::<span class="php-keyword1">class</span>,
 ]</code>

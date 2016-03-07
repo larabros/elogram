@@ -95,7 +95,6 @@
 				<li><a href="class-Instagram.Http.Clients.GuzzleAdapter.html">Instagram\Http\Clients\GuzzleAdapter</a></li>
 				<li><a href="class-Instagram.Http.Clients.MockAdapter.html">Instagram\Http\Clients\MockAdapter</a></li>
 				<li><a href="class-Instagram.Http.Middleware.AuthMiddleware.html">Instagram\Http\Middleware\AuthMiddleware</a></li>
-				<li><a href="class-Instagram.Http.Middleware.SecureRequestMiddleware.html">Instagram\Http\Middleware\SecureRequestMiddleware</a></li>
 				<li><a href="class-Instagram.Http.Response.html">Instagram\Http\Response</a></li>
 				<li><a href="class-Instagram.Http.Sessions.NativeSessionStore.html">Instagram\Http\Sessions\NativeSessionStore</a></li>
 				<li><a href="class-Instagram.Instagram.html">Instagram\Instagram</a></li>
@@ -106,7 +105,6 @@
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li><a href="class-Instagram.Helpers.LoginHelperInterface.html">Instagram\Helpers\LoginHelperInterface</a></li>
 				<li><a href="class-Instagram.Http.Clients.AdapterInterface.html">Instagram\Http\Clients\AdapterInterface</a></li>
 				<li><a href="class-Instagram.Http.Middleware.MiddlewareInterface.html">Instagram\Http\Middleware\MiddlewareInterface</a></li>
 				<li><a href="class-Instagram.Http.Sessions.DataStoreInterface.html">Instagram\Http\Sessions\DataStoreInterface</a></li>
@@ -116,8 +114,10 @@
 			<h3>Exceptions</h3>
 			<ul>
 				<li><a href="class-Instagram.Exceptions.CsrfException.html">Instagram\Exceptions\CsrfException</a></li>
+				<li><a href="class-Instagram.Exceptions.Exception.html">Instagram\Exceptions\Exception</a></li>
+				<li><a href="class-Instagram.Exceptions.IncompatibleResponseException.html">Instagram\Exceptions\IncompatibleResponseException</a></li>
 				<li><a href="class-Instagram.Exceptions.OAuthException.html">Instagram\Exceptions\OAuthException</a></li>
-				<li><a href="class-Instagram.Exceptions.RateLimitExceededException.html">Instagram\Exceptions\RateLimitExceededException</a></li>
+				<li><a href="class-Instagram.Exceptions.OAuthRateLimitException.html">Instagram\Exceptions\OAuthRateLimitException</a></li>
 			</ul>
 
 
@@ -179,7 +179,7 @@
 </span></span><span id="26" class="l"><a href="#26"> 26: </a><span class="php-comment">     */</span>
 </span><span id="27" class="l"><a href="#27"> 27: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$fixturesPath</span>)
 </span><span id="28" class="l"><a href="#28"> 28: </a>    {
-</span><span id="29" class="l"><a href="#29"> 29: </a>        <span class="php-var">$this</span>-&gt;fixturesPath = <span class="php-var">$fixturesPath</span>;
+</span><span id="29" class="l"><a href="#29"> 29: </a>        <span class="php-var">$this</span>-&gt;fixturesPath = <span class="php-keyword2">rtrim</span>(<span class="php-var">$fixturesPath</span>, <span class="php-quote">'/'</span>).<span class="php-quote">'/'</span>;
 </span><span id="30" class="l"><a href="#30"> 30: </a>    }
 </span><span id="31" class="l"><a href="#31"> 31: </a>
 </span><span id="32" class="l"><a href="#32"> 32: </a>    <span class="php-comment">/**
@@ -203,54 +203,78 @@
 </span><span id="50" class="l"><a href="#50"> 50: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> mapRequestToFile(<span class="php-var">$method</span>, <span class="php-var">$uri</span>, <span class="php-var">$parameters</span>)
 </span><span id="51" class="l"><a href="#51"> 51: </a>    {
 </span><span id="52" class="l"><a href="#52"> 52: </a>        <span class="php-var">$filename</span>  = <span class="php-keyword2">strtolower</span>(<span class="php-var">$method</span>).<span class="php-quote">'_'</span>;
-</span><span id="53" class="l"><a href="#53"> 53: </a>        <span class="php-var">$path</span>      = <span class="php-keyword2">preg_replace</span>(<span class="php-quote">'/(\/\w{10}$|self|\d*)/'</span>, <span class="php-quote">''</span>, <span class="php-var">$uri</span>);
-</span><span id="54" class="l"><a href="#54"> 54: </a>        <span class="php-var">$filename</span> .= <span class="php-keyword2">rtrim</span>(<span class="php-keyword2">preg_replace</span>(<span class="php-quote">'/\/{1,2}|\-/'</span>, <span class="php-quote">'_'</span>, <span class="php-var">$path</span>), <span class="php-quote">'_'</span>);
-</span><span id="55" class="l"><a href="#55"> 55: </a>        <span class="php-var">$suffix</span>    = <span class="php-var">$this</span>-&gt;mapRequestParameters(<span class="php-var">$parameters</span>);
-</span><span id="56" class="l"><a href="#56"> 56: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;fixturesPath.<span class="php-var">$filename</span>.<span class="php-var">$suffix</span>.<span class="php-quote">'.json'</span>;
-</span><span id="57" class="l"><a href="#57"> 57: </a>    }
-</span><span id="58" class="l"><a href="#58"> 58: </a>
-</span><span id="59" class="l"><a href="#59"> 59: </a>    <span class="php-comment">/**
-</span></span><span id="60" class="l"><a href="#60"> 60: </a><span class="php-comment">     * Parses any filename properties from the request parameters.
-</span></span><span id="61" class="l"><a href="#61"> 61: </a><span class="php-comment">     *
-</span></span><span id="62" class="l"><a href="#62"> 62: </a><span class="php-comment">     * @param $parameters
-</span></span><span id="63" class="l"><a href="#63"> 63: </a><span class="php-comment">     *
-</span></span><span id="64" class="l"><a href="#64"> 64: </a><span class="php-comment">     * @return string
-</span></span><span id="65" class="l"><a href="#65"> 65: </a><span class="php-comment">     */</span>
-</span><span id="66" class="l"><a href="#66"> 66: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> mapRequestParameters(<span class="php-var">$parameters</span>)
-</span><span id="67" class="l"><a href="#67"> 67: </a>    {
-</span><span id="68" class="l"><a href="#68"> 68: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">empty</span>(<span class="php-var">$parameters</span>) || !<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'query'</span>, <span class="php-var">$parameters</span>)) {
-</span><span id="69" class="l"><a href="#69"> 69: </a>            <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
-</span><span id="70" class="l"><a href="#70"> 70: </a>        }
-</span><span id="71" class="l"><a href="#71"> 71: </a>
-</span><span id="72" class="l"><a href="#72"> 72: </a>        <span class="php-var">$exclude</span> = [
-</span><span id="73" class="l"><a href="#73"> 73: </a>            <span class="php-quote">'q'</span>,
-</span><span id="74" class="l"><a href="#74"> 74: </a>            <span class="php-quote">'count'</span>,
-</span><span id="75" class="l"><a href="#75"> 75: </a>            <span class="php-quote">'min_id'</span>,
-</span><span id="76" class="l"><a href="#76"> 76: </a>            <span class="php-quote">'max_id'</span>,
-</span><span id="77" class="l"><a href="#77"> 77: </a>            <span class="php-quote">'min_tag_id'</span>,
-</span><span id="78" class="l"><a href="#78"> 78: </a>            <span class="php-quote">'max_tag_id'</span>,
-</span><span id="79" class="l"><a href="#79"> 79: </a>            <span class="php-quote">'lat'</span>,
-</span><span id="80" class="l"><a href="#80"> 80: </a>            <span class="php-quote">'lng'</span>,
-</span><span id="81" class="l"><a href="#81"> 81: </a>            <span class="php-quote">'distance'</span>,
-</span><span id="82" class="l"><a href="#82"> 82: </a>            <span class="php-quote">'text'</span>,
-</span><span id="83" class="l"><a href="#83"> 83: </a>            <span class="php-quote">'max_like_id'</span>,
-</span><span id="84" class="l"><a href="#84"> 84: </a>            <span class="php-quote">'action'</span>,
-</span><span id="85" class="l"><a href="#85"> 85: </a>        ];
-</span><span id="86" class="l"><a href="#86"> 86: </a>
-</span><span id="87" class="l"><a href="#87"> 87: </a>        <span class="php-var">$modifiers</span> = array_except(<span class="php-var">$parameters</span>[<span class="php-quote">'query'</span>], <span class="php-var">$exclude</span>);
-</span><span id="88" class="l"><a href="#88"> 88: </a>        <span class="php-var">$return</span>    = <span class="php-keyword2">implode</span>(<span class="php-quote">'_'</span>, <span class="php-keyword2">array_keys</span>(<span class="php-var">$modifiers</span>));
-</span><span id="89" class="l"><a href="#89"> 89: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">rtrim</span>(<span class="php-quote">&quot;_&quot;</span>.<span class="php-var">$return</span>, <span class="php-quote">'_'</span>);
-</span><span id="90" class="l"><a href="#90"> 90: </a>    }
-</span><span id="91" class="l"><a href="#91"> 91: </a>
-</span><span id="92" class="l"><a href="#92"> 92: </a>    <span class="php-comment">/**
-</span></span><span id="93" class="l"><a href="#93"> 93: </a><span class="php-comment">     * {@inheritDoc}
-</span></span><span id="94" class="l"><a href="#94"> 94: </a><span class="php-comment">     */</span>
-</span><span id="95" class="l"><a href="#95"> 95: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> paginate(Response <span class="php-var">$response</span>, <span class="php-var">$limit</span> = <span class="php-keyword1">null</span>)
-</span><span id="96" class="l"><a href="#96"> 96: </a>    {
-</span><span id="97" class="l"><a href="#97"> 97: </a>        <span class="php-keyword1">return</span> <span class="php-var">$response</span>;
-</span><span id="98" class="l"><a href="#98"> 98: </a>    }
-</span><span id="99" class="l"><a href="#99"> 99: </a>}
-</span><span id="100" class="l"><a href="#100">100: </a></span></code></pre>
+</span><span id="53" class="l"><a href="#53"> 53: </a>        <span class="php-var">$filename</span> .= <span class="php-var">$this</span>-&gt;cleanPath(<span class="php-var">$uri</span>);
+</span><span id="54" class="l"><a href="#54"> 54: </a>        <span class="php-var">$suffix</span>    = <span class="php-var">$this</span>-&gt;mapRequestParameters(<span class="php-var">$parameters</span>);
+</span><span id="55" class="l"><a href="#55"> 55: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;fixturesPath.<span class="php-var">$filename</span>.<span class="php-var">$suffix</span>.<span class="php-quote">'.json'</span>;
+</span><span id="56" class="l"><a href="#56"> 56: </a>    }
+</span><span id="57" class="l"><a href="#57"> 57: </a>
+</span><span id="58" class="l"><a href="#58"> 58: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> cleanPath(<span class="php-var">$uri</span>)
+</span><span id="59" class="l"><a href="#59"> 59: </a>    {
+</span><span id="60" class="l"><a href="#60"> 60: </a>        <span class="php-var">$urlPath</span>   = <span class="php-keyword2">parse_url</span>(<span class="php-var">$uri</span>, PHP_URL_PATH);
+</span><span id="61" class="l"><a href="#61"> 61: </a>        <span class="php-var">$uri</span>       = <span class="php-keyword2">str_replace</span>(<span class="php-quote">'v1/'</span>, <span class="php-quote">''</span>, <span class="php-var">$urlPath</span>);
+</span><span id="62" class="l"><a href="#62"> 62: </a>        <span class="php-var">$path</span>      = <span class="php-keyword2">preg_replace</span>(<span class="php-quote">'/(\/\w{10}$|self|\d*)/'</span>, <span class="php-quote">''</span>, <span class="php-var">$uri</span>);
+</span><span id="63" class="l"><a href="#63"> 63: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">trim</span>(<span class="php-keyword2">preg_replace</span>(<span class="php-quote">'/\/{1,2}|\-/'</span>, <span class="php-quote">'_'</span>, <span class="php-var">$path</span>), <span class="php-quote">'_'</span>);
+</span><span id="64" class="l"><a href="#64"> 64: </a>    }
+</span><span id="65" class="l"><a href="#65"> 65: </a>
+</span><span id="66" class="l"><a href="#66"> 66: </a>    <span class="php-comment">/**
+</span></span><span id="67" class="l"><a href="#67"> 67: </a><span class="php-comment">     * Parses any filename properties from the request parameters.
+</span></span><span id="68" class="l"><a href="#68"> 68: </a><span class="php-comment">     *
+</span></span><span id="69" class="l"><a href="#69"> 69: </a><span class="php-comment">     * @param $parameters
+</span></span><span id="70" class="l"><a href="#70"> 70: </a><span class="php-comment">     *
+</span></span><span id="71" class="l"><a href="#71"> 71: </a><span class="php-comment">     * @return string
+</span></span><span id="72" class="l"><a href="#72"> 72: </a><span class="php-comment">     */</span>
+</span><span id="73" class="l"><a href="#73"> 73: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> mapRequestParameters(<span class="php-var">$parameters</span>)
+</span><span id="74" class="l"><a href="#74"> 74: </a>    {
+</span><span id="75" class="l"><a href="#75"> 75: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">empty</span>(<span class="php-var">$parameters</span>) || !<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'query'</span>, <span class="php-var">$parameters</span>)) {
+</span><span id="76" class="l"><a href="#76"> 76: </a>            <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
+</span><span id="77" class="l"><a href="#77"> 77: </a>        }
+</span><span id="78" class="l"><a href="#78"> 78: </a>
+</span><span id="79" class="l"><a href="#79"> 79: </a>        <span class="php-var">$exclude</span> = [
+</span><span id="80" class="l"><a href="#80"> 80: </a>            <span class="php-quote">'q'</span>,
+</span><span id="81" class="l"><a href="#81"> 81: </a>            <span class="php-quote">'count'</span>,
+</span><span id="82" class="l"><a href="#82"> 82: </a>            <span class="php-quote">'min_id'</span>,
+</span><span id="83" class="l"><a href="#83"> 83: </a>            <span class="php-quote">'max_id'</span>,
+</span><span id="84" class="l"><a href="#84"> 84: </a>            <span class="php-quote">'min_tag_id'</span>,
+</span><span id="85" class="l"><a href="#85"> 85: </a>            <span class="php-quote">'max_tag_id'</span>,
+</span><span id="86" class="l"><a href="#86"> 86: </a>            <span class="php-quote">'lat'</span>,
+</span><span id="87" class="l"><a href="#87"> 87: </a>            <span class="php-quote">'lng'</span>,
+</span><span id="88" class="l"><a href="#88"> 88: </a>            <span class="php-quote">'distance'</span>,
+</span><span id="89" class="l"><a href="#89"> 89: </a>            <span class="php-quote">'text'</span>,
+</span><span id="90" class="l"><a href="#90"> 90: </a>            <span class="php-quote">'max_like_id'</span>,
+</span><span id="91" class="l"><a href="#91"> 91: </a>            <span class="php-quote">'action'</span>,
+</span><span id="92" class="l"><a href="#92"> 92: </a>            <span class="php-quote">'cursor'</span>,
+</span><span id="93" class="l"><a href="#93"> 93: </a>            <span class="php-quote">'access_token'</span>,
+</span><span id="94" class="l"><a href="#94"> 94: </a>        ];
+</span><span id="95" class="l"><a href="#95"> 95: </a>
+</span><span id="96" class="l"><a href="#96"> 96: </a>        <span class="php-var">$modifiers</span> = array_except(<span class="php-var">$parameters</span>[<span class="php-quote">'query'</span>], <span class="php-var">$exclude</span>);
+</span><span id="97" class="l"><a href="#97"> 97: </a>        <span class="php-var">$return</span>    = <span class="php-keyword2">implode</span>(<span class="php-quote">'_'</span>, <span class="php-keyword2">array_keys</span>(<span class="php-var">$modifiers</span>));
+</span><span id="98" class="l"><a href="#98"> 98: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">rtrim</span>(<span class="php-quote">&quot;_&quot;</span>.<span class="php-var">$return</span>, <span class="php-quote">'_'</span>);
+</span><span id="99" class="l"><a href="#99"> 99: </a>    }
+</span><span id="100" class="l"><a href="#100">100: </a>
+</span><span id="101" class="l"><a href="#101">101: </a>    <span class="php-comment">/**
+</span></span><span id="102" class="l"><a href="#102">102: </a><span class="php-comment">     * {@inheritDoc}
+</span></span><span id="103" class="l"><a href="#103">103: </a><span class="php-comment">     */</span>
+</span><span id="104" class="l"><a href="#104">104: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> paginate(Response <span class="php-var">$response</span>, <span class="php-var">$limit</span> = <span class="php-keyword1">null</span>)
+</span><span id="105" class="l"><a href="#105">105: </a>    {
+</span><span id="106" class="l"><a href="#106">106: </a>        <span class="php-comment">// If there's nothing to paginate, return response as-is</span>
+</span><span id="107" class="l"><a href="#107">107: </a>        <span class="php-keyword1">if</span> (!<span class="php-var">$response</span>-&gt;hasPages() || <span class="php-var">$limit</span> === <span class="php-num">0</span>) {
+</span><span id="108" class="l"><a href="#108">108: </a>            <span class="php-keyword1">return</span> <span class="php-var">$response</span>;
+</span><span id="109" class="l"><a href="#109">109: </a>        }
+</span><span id="110" class="l"><a href="#110">110: </a>
+</span><span id="111" class="l"><a href="#111">111: </a>        <span class="php-var">$next</span>   = <span class="php-var">$this</span>-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-var">$response</span>-&gt;nextUrl());
+</span><span id="112" class="l"><a href="#112">112: </a>        <span class="php-var">$merged</span> = <span class="php-var">$response</span>-&gt;merge(<span class="php-var">$next</span>);
+</span><span id="113" class="l"><a href="#113">113: </a>
+</span><span id="114" class="l"><a href="#114">114: </a>        <span class="php-comment">// If `$limit` is not set then call itself indefinitely</span>
+</span><span id="115" class="l"><a href="#115">115: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$limit</span> === <span class="php-keyword1">null</span>) {
+</span><span id="116" class="l"><a href="#116">116: </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;paginate(<span class="php-var">$merged</span>);
+</span><span id="117" class="l"><a href="#117">117: </a>        }
+</span><span id="118" class="l"><a href="#118">118: </a>
+</span><span id="119" class="l"><a href="#119">119: </a>        <span class="php-comment">// If `$limit` is set, call itself while decrementing it each time</span>
+</span><span id="120" class="l"><a href="#120">120: </a>        <span class="php-var">$limit</span>--;
+</span><span id="121" class="l"><a href="#121">121: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;paginate(<span class="php-var">$merged</span>, <span class="php-var">$limit</span>);
+</span><span id="122" class="l"><a href="#122">122: </a>    }
+</span><span id="123" class="l"><a href="#123">123: </a>}
+</span><span id="124" class="l"><a href="#124">124: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
@@ -258,6 +282,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cb3925991615e04c245db04485b7c3fe92de84be"></script>
-<script src="elementlist.js?bdedd1fa4c751e7619a55c7693a503211e45b3dc"></script>
+<script src="elementlist.js?b5e30433c285ead78b708aa06b1c7c6fa766b3ad"></script>
 </body>
 </html>

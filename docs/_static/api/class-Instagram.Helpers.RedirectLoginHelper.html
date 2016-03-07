@@ -84,10 +84,6 @@
 				<li class="active"><a href="class-Instagram.Helpers.RedirectLoginHelper.html">RedirectLoginHelper</a></li>
 			</ul>
 
-			<h3>Interfaces</h3>
-			<ul>
-				<li><a href="class-Instagram.Helpers.LoginHelperInterface.html">LoginHelperInterface</a></li>
-			</ul>
 
 
 
@@ -131,15 +127,6 @@
 	<p>RedirectLoginHelper</p>
 	</div>
 
-	<dl class="tree">
-		<dd style="padding-left:0px">
-<b><span>Instagram\Helpers\RedirectLoginHelper</span></b>			
-			 implements 
-				<a href="class-Instagram.Helpers.LoginHelperInterface.html"><span>Instagram\Helpers\LoginHelperInterface</span></a>
-			
-			
-		</dd>
-	</dl>
 
 
 
@@ -160,7 +147,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/hassankhan/instagram-sdk">https://github.com/hassankhan/instagram-sdk</a><br>
-			<b>Located at</b> <a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#9-87" title="Go to source code">Helpers/RedirectLoginHelper.php</a>
+			<b>Located at</b> <a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#10-102" title="Go to source code">Helpers/RedirectLoginHelper.php</a>
 		<br>
 	</div>
 
@@ -180,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#29-39" title="Go to source code">__construct</a>( <span>League\OAuth2\Client\Provider\Instagram <var>$provider</var></span>, <span><code><a href="class-Instagram.Http.Sessions.DataStoreInterface.html">Instagram\Http\Sessions\DataStoreInterface</a></code> <var>$store</var></span> )</code>
+		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#30-40" title="Go to source code">__construct</a>( <span>League\OAuth2\Client\Provider\Instagram <var>$provider</var></span>, <span><code><a href="class-Instagram.Http.Sessions.DataStoreInterface.html">Instagram\Http\Sessions\DataStoreInterface</a></code> <var>$store</var></span> )</code>
 
 		<div class="description short">
 			<p>Creates an instance of <code>RedirectLoginHelper</code>.</p>
@@ -217,7 +204,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLoginUrl">#</a>
-		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#41-48" title="Go to source code">getLoginUrl</a>( <span>array <var>$options</var> = []</span> )</code>
+		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#42-56" title="Go to source code">getLoginUrl</a>( <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>Sets CSRF nonce and returns the login URL.</p>
@@ -239,10 +226,12 @@
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						League\OAuth2\Client\Provider\AbstractProvider::getAuthorizationUrl()<br>
+				</div>
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Instagram.Helpers.LoginHelperInterface.html#_getLoginUrl">Instagram\Helpers\LoginHelperInterface::getLoginUrl()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -251,14 +240,14 @@
 		<td class="attributes"><code>
 			 public 
 
-			AccessToken
+			League\OAuth2\Client\Token\AccessToken
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAccessToken">#</a>
-		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#50-57" title="Go to source code">getAccessToken</a>( <span>string <var>$code</var></span>, <span>string <var>$grant</var> = <span class="php-quote">'authorization_code'</span></span> )</code>
+		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#58-72" title="Go to source code">getAccessToken</a>( <span>string <var>$code</var></span>, <span>string <var>$grant</var> = <span class="php-quote">'authorization_code'</span></span> )</code>
 
 		<div class="description short">
 			<p>Validates CSRF and returns the access token.</p>
@@ -278,14 +267,16 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					AccessToken
+					League\OAuth2\Client\Token\AccessToken
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						League\OAuth2\Client\Provider\AbstractProvider::getAccessToken()<br>
+				</div>
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Instagram.Helpers.LoginHelperInterface.html#_getAccessToken">Instagram\Helpers\LoginHelperInterface::getAccessToken()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -301,7 +292,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateCsrf">#</a>
-		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#59-74" title="Go to source code">validateCsrf</a>( )</code>
+		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#74-89" title="Go to source code">validateCsrf</a>( )</code>
 
 		<div class="description short">
 			<p>Validates any CSRF parameters.</p>
@@ -335,7 +326,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInput">#</a>
-		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#76-86" title="Go to source code">getInput</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#91-101" title="Go to source code">getInput</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			<p>Retrieves and returns a value from a GET param.</p>
@@ -384,7 +375,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#19-22" title="Go to source code"><var>$provider</var></a>
+				<a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#20-23" title="Go to source code"><var>$provider</var></a>
 
 			<div class="description short">
 				
@@ -409,7 +400,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#24-27" title="Go to source code"><var>$store</var></a>
+				<a href="source-class-Instagram.Helpers.RedirectLoginHelper.html#25-28" title="Go to source code"><var>$store</var></a>
 
 			<div class="description short">
 				

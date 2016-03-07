@@ -4,6 +4,7 @@ namespace Instagram;
 
 use Instagram\Http\Clients\GuzzleAdapter;
 use Instagram\Http\Middleware\AuthMiddleware;
+use Instagram\Http\Middleware\SecureRequestMiddleware;
 use Instagram\Http\Sessions\NativeSessionStore;
 use Noodlehaus\AbstractConfig;
 
@@ -34,15 +35,17 @@ class Config extends AbstractConfig
     protected function getDefaults()
     {
         return [
-            'base_uri'      => 'https://api.instagram.com/v1/',
-            'client_id'     => '',
-            'client_secret' => '',
-            'access_token'  => null,
-            'redirect_url'  => '',
-            'session_store' => NativeSessionStore::class,
-            'http_adapter'  => GuzzleAdapter::class,
-            'middleware'    => [
+            'base_uri'        => 'https://api.instagram.com/v1/',
+            'client_id'       => '',
+            'client_secret'   => '',
+            'access_token'    => null,
+            'redirect_url'    => '',
+            'secure_requests' => false,
+            'session_store'   => NativeSessionStore::class,
+            'http_adapter'    => GuzzleAdapter::class,
+            'middleware'      => [
                 'auth'   => AuthMiddleware::class,
+                'secure' => SecureRequestMiddleware::class,
             ],
         ];
     }

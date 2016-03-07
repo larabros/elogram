@@ -258,4 +258,17 @@ final class Instagram
         $stack = $this->container->get(HandlerStack::class);
         $stack->push($this->container->get("middleware.auth"), 'auth');
     }
+
+    /**
+     * Enables or disables secure requests by adding or removing
+     * `SecureRequestMiddleware`.
+     *
+     * @param bool $enable
+     *
+     * @codeCoverageIgnore
+     */
+    public function secureRequests($enable = true)
+    {
+        $this->getConfig()->set('secure_requests', $enable);
+    }
 }

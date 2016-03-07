@@ -6,7 +6,6 @@ TODO
 - No tests for failure cases
 
 ## Features
-- Signed requests
 - Generators
 
 ## Refactors

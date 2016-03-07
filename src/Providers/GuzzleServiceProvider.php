@@ -58,6 +58,10 @@ class GuzzleServiceProvider extends AbstractServiceProvider
                 return $class::create($container->get(AccessToken::class));
             });
 
+            $container->add('middleware.secure', function() use ($config, $container) {
+                $class  = $config->get('middleware.secure');
+                return $class::create($container->get('config'));
+            });
         }
 
         $container->share(HandlerStack::class, function() {

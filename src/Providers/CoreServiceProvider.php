@@ -3,8 +3,6 @@
 namespace Instagram\Providers;
 
 use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\AdapterInterface;
-use Instagram\Http\Clients\MockAdapter;
 use Instagram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
@@ -30,7 +28,7 @@ class CoreServiceProvider extends AbstractServiceProvider
      */
     protected $provides = [
         'provider',
-        RedirectLoginHelper::class,
+        RedirectLoginHelper::class
     ];
 
     /**
@@ -64,10 +62,5 @@ class CoreServiceProvider extends AbstractServiceProvider
                 $container->get(DataStoreInterface::class)
             );
         });
-
-        if ($config->get('http_adapter') === MockAdapter::class) {
-            $path = realpath(__DIR__.'/../../tests/fixtures').'/';
-            $container->share(AdapterInterface::class, new MockAdapter($path));
-        }
     }
 }

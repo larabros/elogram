@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Http\Clients\GuzzleAdapter;
+use Instagram\Http\Clients\MockAdapter;
 use League\Container\Argument\RawArgument;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Token\AccessToken;
@@ -75,6 +76,11 @@ class GuzzleServiceProvider extends AbstractServiceProvider
             $container->share(AdapterInterface::class, function() use ($container) {
                 return new GuzzleAdapter($container->get(Client::class));
             });
+        }
+
+        if ($config->get('http_adapter') === MockAdapter::class) {
+            $path = realpath(__DIR__.'/../../tests/fixtures').'/';
+            $container->share(AdapterInterface::class, new MockAdapter($path));
         }
     }
 

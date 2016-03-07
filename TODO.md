@@ -10,6 +10,7 @@ TODO
 - Generators
 
 ## Refactors
+- Change `Response::getRaw()`
 - Create new `RequestBody` class
 - Rename `Entities` to `Repositories`
 - Allow `Config` implementation to be specified

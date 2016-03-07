@@ -54,40 +54,24 @@ final class Instagram
         $redirectUrl = '',
         array $options = []
     ) {
-        $this->container = $this->buildContainer(
-            $clientId,
-            $clientSecret,
-            $accessToken,
-            $redirectUrl,
-            $options
-        );
+        $this->container = $this->buildContainer(array_merge([
+            'client_id'     => $clientId,
+            'client_secret' => $clientSecret,
+            'access_token'  => $accessToken,
+            'redirect_url'  => $redirectUrl,
+        ], $options));
     }
 
     /**
      * Takes the constructor parameters and uses them to instantiate and build a
      * `Container` object.
      *
-     * @param string      $clientId
-     * @param string      $clientSecret
-     * @param string|null $accessToken
-     * @param string      $redirectUrl
      * @param array       $options
      *
      * @return \League\Container\ContainerInterface
      */
-    protected function buildContainer(
-        $clientId,
-        $clientSecret,
-        $accessToken = null,
-        $redirectUrl = '',
-        array $options = []
-    ) {
-        return (new Builder(array_merge([
-            'client_id'     => $clientId,
-            'client_secret' => $clientSecret,
-            'access_token'  => $accessToken,
-            'redirect_url'  => $redirectUrl,
-        ], $options)))->getContainer();
+    protected function buildContainer(array $options) {
+        return (new Builder($options))->getContainer();
     }
 
     /**
@@ -174,12 +158,12 @@ final class Instagram
 
     /**
      *
-     * Helper methods
+     * Request methods
      *
      */
 
     /**
-     * Sends a request and returns a `Response` object.
+     * Sends a request and returns a `Response` instance.
      *
      * @param string $method
      * @param string $uri
@@ -196,8 +180,7 @@ final class Instagram
     }
 
     /**
-     * Paginates a `Response`. The pagination limit is set by `$limit`,
-     * setting it to `null` will paginate as far as possible.
+     * Paginates a `Response` and returns a new `Response` instance.
      *
      * @param Response  $response
      * @param int|null  $limit

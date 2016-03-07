@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="Instagram-SDK">
+    <description>PHPCS configuration for Instagram-SDK</description>
+
+    <file>src</file>
+
+    <exclude-pattern>*/Tests/*</exclude-pattern>
+
+    <arg name="report" value="summary"/>
+    <arg value="np"/>
+
+    <rule ref="PSR2"/>
+</ruleset>

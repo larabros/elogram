@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `instagram-sdk` will be documented in this file
+All notable changes to `instagram-sdk` will be documented in this file
 
 ## NEXT - YYYY-MM-DD
 
@@ -18,3 +18,8 @@ All Notable changes to `instagram-sdk` will be documented in this file
 
 ### Security
 - Nothing
+
+## 1.0.1 - 2016-03-07
+
+### Added
+- An `OAuthException` is now thrown if the required parameters are not provided to a request.

@@ -13,9 +13,7 @@ TODO
 - Create new `RequestBody` class
 - Rename `Entities` to `Repositories`
 - Allow `Config` implementation to be specified
-- Add `Instagram::setAccessToken()` and `setSecureRequests()`
 - Add `fixtures` option to `Config`
-- Throw exception if session hasn't been initialised
 - Make `AuthMiddleware::create()` use `Config`
 
 ## Tests

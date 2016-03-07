@@ -50,10 +50,17 @@ final class MockAdapter implements AdapterInterface
     protected function mapRequestToFile($method, $uri, $parameters)
     {
         $filename  = strtolower($method).'_';
-        $path      = preg_replace('/(\/\w{10}$|self|\d*)/', '', $uri);
-        $filename .= rtrim(preg_replace('/\/{1,2}|\-/', '_', $path), '_');
+        $filename .= $this->cleanPath($uri);
         $suffix    = $this->mapRequestParameters($parameters);
         return $this->fixturesPath.$filename.$suffix.'.json';
+    }
+
+    protected function cleanPath($uri)
+    {
+        $urlPath   = parse_url($uri, PHP_URL_PATH);
+        $uri       = str_replace('v1/', '', $urlPath);
+        $path      = preg_replace('/(\/\w{10}$|self|\d*)/', '', $uri);
+        return trim(preg_replace('/\/{1,2}|\-/', '_', $path), '_');
     }
 
     /**
@@ -82,6 +89,8 @@ final class MockAdapter implements AdapterInterface
             'text',
             'max_like_id',
             'action',
+            'cursor',
+            'access_token',
         ];
 
         $modifiers = array_except($parameters['query'], $exclude);
@@ -94,6 +103,21 @@ final class MockAdapter implements AdapterInterface
      */
     public function paginate(Response $response, $limit = null)
     {
-        return $response;
+        // If there's nothing to paginate, return response as-is
+        if (!$response->hasPages() || $limit === 0) {
+            return $response;
+        }
+
+        $next   = $this->request('GET', $response->nextUrl());
+        $merged = $response->merge($next);
+
+        // If `$limit` is not set then call itself indefinitely
+        if ($limit === null) {
+            return $this->paginate($merged);
+        }
+
+        // If `$limit` is set, call itself while decrementing it each time
+        $limit--;
+        return $this->paginate($merged, $limit);
     }
 }

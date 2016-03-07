@@ -23,7 +23,6 @@ class NativeSessionStoreTest extends TestCase
     /**
      * @covers Instagram\Http\Sessions\NativeSessionStore::__construct()
      * @covers Instagram\Http\Sessions\NativeSessionStore::get()
-     * @runInSeparateProcess
      */
     public function testGetNonexistentKey()
     {
@@ -34,7 +33,6 @@ class NativeSessionStoreTest extends TestCase
      * @covers Instagram\Http\Sessions\NativeSessionStore::__construct()
      * @covers Instagram\Http\Sessions\NativeSessionStore::set()
      * @covers Instagram\Http\Sessions\NativeSessionStore::get()
-     * @runInSeparateProcess
      */
     public function testSetAndGet()
     {

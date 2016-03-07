@@ -45,13 +45,8 @@ class AuthMiddlewareTest extends TestCase
         $token = new AccessToken(['access_token' => 'token']);
         $handler = new MockHandler([
             function (RequestInterface $request) {
-
                 $query = [];
-                $queryParts = explode('&', $request->getUri()->getQuery());
-                foreach($queryParts as $part) {
-                    $exploded = explode('=', $part);
-                    $query[$exploded[0]] = $exploded[1];
-                }
+                parse_str($request->getUri()->getQuery(), $query);
 
                 $this->assertArrayHasKey('access_token', $query);
                 $this->assertEquals('token', $query['access_token']);

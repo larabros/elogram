@@ -26,3 +26,5 @@ TODO
 - `Instagram::setAccessToken()`
 - Signed requests
 - Mention any exceptions thrown
+
+- Create issue/PR templates

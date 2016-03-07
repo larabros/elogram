@@ -15,6 +15,8 @@ use Psr\Http\Message\RequestInterface;
  */
 final class AuthMiddleware extends AbstractMiddleware
 {
+    use CreateMiddlewareTrait;
+
     /**
      * {@inheritDoc}
      */

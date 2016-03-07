@@ -2,7 +2,6 @@
 
 namespace Instagram\Http\Middleware;
 
-use Closure;
 use Noodlehaus\ConfigInterface;
 use Psr\Http\Message\RequestInterface;
 
@@ -51,19 +50,5 @@ abstract class AbstractMiddleware implements MiddlewareInterface
     {
         $next = $this->nextHandler;
         return $next($request, $options);
-    }
-
-    /**
-     * Factory method used to register this middleware on a handler stack.
-     *
-     * @param ConfigInterface $config
-     *
-     * @return Closure
-     */
-    public static function create(ConfigInterface $config)
-    {
-        return function (callable $handler) use ($config) {
-            return new static($handler, $config);
-        };
     }
 }

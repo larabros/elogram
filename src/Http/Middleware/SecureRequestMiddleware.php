@@ -16,6 +16,8 @@ use Psr\Http\Message\RequestInterface;
  */
 final class SecureRequestMiddleware extends AbstractMiddleware
 {
+    use CreateMiddlewareTrait;
+
     /**
      * {@inheritDoc}
      */

@@ -33,7 +33,7 @@ class RedirectLoginHelperTest extends TestCase
 
         $provider->shouldReceive('getAuthorizationUrl')
             ->zeroOrMoreTimes()
-            ->andReturn('http://localhost:9000');
+            ->andReturn('https://api.instagram.com/oauth/authorize?redirect_url=http://localhost:9000');
         $provider->shouldReceive('getAccessToken')
             ->zeroOrMoreTimes()
             ->andReturn($token);
@@ -60,7 +60,9 @@ class RedirectLoginHelperTest extends TestCase
      */
     public function testGetLoginUrl()
     {
-        $this->assertEquals('http://localhost:9000', $this->helper->getLoginUrl());
+        $expected = 'https://api.instagram.com/oauth/authorize?';
+        $actual   = $this->helper->getLoginUrl();
+        $this->assertStringStartsWith($expected, $actual);
     }
 
     /**

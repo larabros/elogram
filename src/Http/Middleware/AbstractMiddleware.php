@@ -38,7 +38,7 @@ abstract class AbstractMiddleware implements MiddlewareInterface
      *
      * @see AbstractMiddleware::create()
      */
-    private function __construct(callable $nextHandler, ConfigInterface $config)
+    protected function __construct(callable $nextHandler, ConfigInterface $config)
     {
         $this->nextHandler = $nextHandler;
         $this->config      = $config;

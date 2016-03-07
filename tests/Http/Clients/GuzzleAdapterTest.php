@@ -7,6 +7,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use Instagram\Exceptions\Exception as InstagramException;
+use Instagram\Exceptions\OAuthParameterException;
 use Instagram\Http\Clients\GuzzleAdapter;
 use Instagram\Tests\TestCase;
 use Mockery as m;
@@ -36,32 +38,6 @@ class GuzzleAdapterTest extends TestCase
         $adapter  = new GuzzleAdapter($this->guzzleMock);
         $actual   = $adapter->request('GET', '/');
         $this->assertJsonStringEqualsJsonString($json, (string) $actual);
-    }
-
-    /**
-     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
-     */
-    public function testBadRequest()
-    {
-        $exception = new ClientException('test', new Request('GET', '['));
-        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
-        $adapter = new GuzzleAdapter($this->guzzleMock);
-        $this->setExpectedException(ClientException::class);
-        $adapter->request('GET', '[');
-    }
-
-    /**
-     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
-     */
-    public function testBadResponse()
-    {
-        $exception = new Exception('Server exception');
-        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
-        $adapter = new GuzzleAdapter($this->guzzleMock);
-        $this->setExpectedException(Exception::class);
-        $adapter->request('GET', '[');
     }
 
     /**
@@ -140,5 +116,71 @@ class GuzzleAdapterTest extends TestCase
         $paginatedResponse = $adapter->paginate($response);
         $this->assertFalse($paginatedResponse->hasPages());
         $this->assertCount(250, $paginatedResponse->get());
+    }
+
+    /**
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     */
+    public function testBadRequest()
+    {
+        $exception = new ClientException('test', new Request('GET', '['));
+        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
+        $adapter = new GuzzleAdapter($this->guzzleMock);
+        $this->setExpectedException(ClientException::class);
+        $adapter->request('GET', '[');
+    }
+
+    /**
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\AbstractAdapter::resolveExceptionClass()
+     */
+    public function testRequestWithSomethingWrong()
+    {
+        $exception = new ClientException(
+            'test',
+            new Request('GET', '['),
+            new Response(200, [], null)
+        );
+        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
+        $adapter = new GuzzleAdapter($this->guzzleMock);
+        $this->setExpectedException(InstagramException::class);
+        $adapter->request('GET', '[');
+    }
+
+    /**
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     * @covers Instagram\Http\Clients\AbstractAdapter::resolveExceptionClass()
+     */
+    public function testRequestWithMissingParameters()
+    {
+        $error = [
+            'error_type'    => 'OAuthParameterException',
+            'error_message' => 'Missing parameter',
+        ];
+        $exception = new ClientException(
+            'test',
+            new Request('GET', '['),
+            new Response(200, [], json_encode($error))
+        );
+        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
+        $adapter = new GuzzleAdapter($this->guzzleMock);
+        $this->setExpectedException(OAuthParameterException::class);
+        $adapter->request('GET', '[');
+    }
+
+    /**
+     * @covers Instagram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Instagram\Http\Clients\GuzzleAdapter::request()
+     */
+    public function testBadResponse()
+    {
+        $exception = new Exception('Server exception');
+        $this->guzzleMock->shouldReceive('request')->once()->andThrow($exception);
+        $adapter = new GuzzleAdapter($this->guzzleMock);
+        $this->setExpectedException(Exception::class);
+        $adapter->request('GET', '[');
     }
 }

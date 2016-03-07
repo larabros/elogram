@@ -41,8 +41,17 @@ final class GuzzleAdapter implements AdapterInterface
     {
         try {
             $response = $this->guzzle->request($method, $uri, $parameters);
+
         } catch (ClientException $e) {
-            throw $e;
+
+            if (!$e->hasResponse()) {
+                throw $e;
+            }
+
+            $response  = json_decode($e->getResponse()->getBody()->getContents());
+            $exception = "\\Instagram\\Exceptions\\$response->error_type";
+            throw new $exception($response->error_message);
+
         } catch (Exception $e) {
             throw $e;
         }

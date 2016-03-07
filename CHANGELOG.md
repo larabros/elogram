@@ -19,6 +19,17 @@ All notable changes to `instagram-sdk` will be documented in this file
 ### Security
 - Nothing
 
+## 1.0.2 - 2016-03-07
+
+### Added
+- More exceptions as per the API.
+
+### Fixed
+- The correct exceptions were not being thrown due to the API returning data inconsistently.
+
+### Removed
+- Removed `Instagram::getLoginHelper()` in favour of `getLoginUrl()` and `getAccessToken()`.
+
 ## 1.0.1 - 2016-03-07
 
 ### Added

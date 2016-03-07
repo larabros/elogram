@@ -2,6 +2,7 @@
 
 namespace Instagram;
 
+use GuzzleHttp\HandlerStack;
 use Instagram\Container\Builder;
 use Instagram\Entities\Comment;
 use Instagram\Entities\LikeRepository;
@@ -13,6 +14,7 @@ use Instagram\Helpers\RedirectLoginHelper;
 use Instagram\Http\Clients\AdapterInterface;
 use Instagram\Http\Response;
 use League\Container\Container;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Instagram class.
@@ -208,5 +210,59 @@ final class Instagram
     {
         return $this->container->get(AdapterInterface::class)
             ->paginate($response, $limit);
+    }
+
+    /**
+     *
+     * Helper methods
+     *
+     */
+
+    /**
+     * Gets the login URL.
+     *
+     * @param array $options
+     *
+     * @return string
+     *
+     * @see Instagram\Helpers\RedirectLoginHelper::getLoginUrl()
+     */
+    public function getLoginUrl(array $options = [])
+    {
+        return $this->container->get(RedirectLoginHelper::class)
+            ->getLoginUrl($options);
+    }
+
+    /**
+     * Sets and returns the access token.
+     *
+     * @param string $code
+     * @param string $grant
+     *
+     * @return AccessToken
+     *
+     * @see Instagram\Helpers\RedirectLoginHelper::getAccessToken()
+     */
+    public function getAccessToken($code, $grant = 'authorization_code')
+    {
+        $token = $this->container->get(RedirectLoginHelper::class)
+            ->getAccessToken($code, $grant);
+        $this->setAccessToken($token);
+        return $token;
+    }
+
+    /**
+     * Sets an access token and adds it to `AuthMiddleware` so the application
+     * can make authenticated requests.
+     *
+     * @param AccessToken $token
+     *
+     * @return Instagram
+     */
+    public function setAccessToken(AccessToken $token)
+    {
+        $this->getConfig()->set('access_token', json_encode($token));
+        $stack = $this->container->get(HandlerStack::class);
+        $stack->push($this->container->get("middleware.auth"), 'auth');
     }
 }

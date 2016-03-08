@@ -27,6 +27,7 @@ All notable changes to `instagram-sdk` will be documented in this file
 
 ### Fixed
 - Package now works from PHP 5.5.9 and above
+- Project now fully adheres to the PSR-2 standard
 
 ## 1.0.3 - 2016-03-07
 

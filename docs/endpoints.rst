@@ -13,6 +13,7 @@ Users
 =====
 
 .. http:get:: /users/(string:$id)
+---------------------------------
 
     :param id: The ID of a user. Default is ``self``.
 

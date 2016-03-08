@@ -31,7 +31,7 @@ You can add Elogram as a dependency using the ``composer.phar`` CLI:
 
 .. code-block:: bash
 
-    php composer.phar require hassankhan/elogram:~1.0
+    php composer.phar require larabros/elogram:~1.0
 
 Alternatively, you can specify it as a dependency in your project's
 existing ``composer.json`` file:
@@ -40,7 +40,7 @@ existing ``composer.json`` file:
 
     {
       "require": {
-         "hassankhan/elogram": "~1.0"
+         "larabros/elogram": "~1.0"
       }
    }
 
@@ -132,7 +132,7 @@ and install dependencies using Composer:
 
 .. code:: bash
 
-    $ git clone https://github.com/hassankhan/elogram.git
+    $ git clone https://github.com/larabros/elogram.git
     $ cd elogram && composer install --dev
     $ php vendor/bin/phpunit
 
@@ -155,7 +155,7 @@ will be deployed as soon as possible.
 
 **Happy coding**!
 
-.. _Github: https://github.com/hassankhan/elogram
+.. _Github: https://github.com/larabros/elogram
 .. _Standard: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 .. _PHP Code Sniffer: http://pear.php.net/package/PHP_CodeSniffer
 .. _SemVer v2: http://semver.org/

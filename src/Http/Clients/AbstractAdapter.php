@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/elogram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 abstract class AbstractAdapter implements AdapterInterface

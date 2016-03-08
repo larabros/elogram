@@ -12,7 +12,7 @@ use League\OAuth2\Client\Token\AccessToken;
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/elogram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class RedirectLoginHelper

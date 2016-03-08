@@ -1,12 +1,12 @@
 {
-    "name": "hassankhan/elogram",
+    "name": "larabros/elogram",
     "description": "An \"eloquent\" way of accessing Instagram's API",
     "keywords": [
         "larabros",
         "instagram",
         "sdk"
     ],
-    "homepage": "https://github.com/hassankhan/elogram",
+    "homepage": "https://github.com/larabros/elogram",
     "license": "MIT",
     "authors": [
         {

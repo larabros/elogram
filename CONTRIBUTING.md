@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/hassankhan/elogram).
+We accept contributions via Pull Requests on [Github](https://github.com/larabros/elogram).
 
 ## Documentation
 
@@ -34,7 +34,7 @@ Documentation for the API is available at http://elogram.readthedocs.org/en/late
 In order to contribute, you'll need to checkout the source from GitHub and install dependencies using Composer:
 
 ``` bash
-$ git clone https://github.com/hassankhan/elogram.git
+$ git clone https://github.com/larabros/elogram.git
 $ cd elogram && composer install --dev
 $ php vendor/bin/phpunit
 ```
@@ -43,7 +43,7 @@ $ php vendor/bin/phpunit
 
 We want to ensure that Elogram is secure for everyone. If you've discovered
 a security vulnerability, we appreciate your help in disclosing it to
-us in a `responsible manner <http://en.wikipedia.org/wiki/Responsible_disclosure>`_.
+us in a [responsible manner](http://en.wikipedia.org/wiki/Responsible_disclosure).
 
 Publicly disclosing a vulnerability can put the entire community at risk. If
 you've discovered a security concern, please email us at

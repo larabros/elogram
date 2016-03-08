@@ -9,7 +9,7 @@ use Larabros\Elogram\Exceptions\Exception;
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/elogram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class NativeSessionStore implements DataStoreInterface

@@ -11,7 +11,7 @@ use Psr\Http\Message\RequestInterface;
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/elogram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 final class SecureRequestMiddleware extends AbstractMiddleware

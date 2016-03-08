@@ -40,23 +40,23 @@ If you discover any security related issues, please email contact@hassankhan.me 
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/hassankhan/elogram.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/larabros/elogram.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/hassankhan/elogram/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/hassankhan/elogram.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/hassankhan/elogram.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/hassankhan/elogram.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/larabros/elogram/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/larabros/elogram.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/larabros/elogram.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/larabros/elogram.svg?style=flat-square
 [ico-docs]: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square
-[ico-phpeye]: http://php-eye.com/badge/hassankhan/elogram/tested.svg?style=flat-square
-[ico-gitter]: https://img.shields.io/gitter/room/hassankhan/elogram.svg?style=flat-square
+[ico-phpeye]: http://php-eye.com/badge/larabros/elogram/tested.svg?style=flat-square
+[ico-gitter]: https://img.shields.io/gitter/room/larabros/elogram.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/hassankhan/elogram
-[link-travis]: https://travis-ci.org/hassankhan/elogram
-[link-scrutinizer]: https://scrutinizer-ci.com/g/hassankhan/elogram/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/hassankhan/elogram
-[link-downloads]: https://packagist.org/packages/hassankhan/elogram
+[link-packagist]: https://packagist.org/packages/larabros/elogram
+[link-travis]: https://travis-ci.org/larabros/elogram
+[link-scrutinizer]: https://scrutinizer-ci.com/g/larabros/elogram/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/larabros/elogram
+[link-downloads]: https://packagist.org/packages/larabros/elogram
 [link-docs]: http://elogram.readthedocs.org/en/latest
-[link-phpeye]: http://php-eye.com/package/hassankhan/elogram
-[link-gitter]: https://gitter.im/hassankhan/elogram
+[link-phpeye]: http://php-eye.com/package/larabros/elogram
+[link-gitter]: https://gitter.im/larabros/elogram
 [link-author]: https://github.com/hassankhan
 [link-contributors]: ../../contributors

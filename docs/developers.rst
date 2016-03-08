@@ -34,6 +34,8 @@ After creating this class, the `Instagram` class must be instantiated with an ar
 
 .. code-block:: php
 
+    use Larabros\Elogram\Client;
+
     $options = ['session_store' => FrameworkSessionStorageHandler::class];
-    $client = new Elogram\Instagram($clientId, $clientSecret, null, $redirectUrl, $options);
+    $client  = new Client($clientId, $clientSecret, $accessToken, $redirectUrl, $options);
 

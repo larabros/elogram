@@ -2,13 +2,13 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/hassankhan/instagram-sdk).
+We accept contributions via Pull Requests on [Github](https://github.com/hassankhan/elogram).
 
 ## Documentation
 
-Documentation for this project is available at http://instagram-sdk.readthedocs.org.
+Documentation for this project is available at http://elogram.readthedocs.org.
 
-Documentation for the API is available at http://instagram-sdk.readthedocs.org/en/latest/_static/api.
+Documentation for the API is available at http://elogram.readthedocs.org/en/latest/_static/api.
 
 ## Guidelines
 
@@ -34,8 +34,8 @@ Documentation for the API is available at http://instagram-sdk.readthedocs.org/e
 In order to contribute, you'll need to checkout the source from GitHub and install dependencies using Composer:
 
 ``` bash
-$ git clone https://github.com/hassankhan/instagram-sdk.git
-$ cd instagram-sdk && composer install --dev
+$ git clone https://github.com/hassankhan/elogram.git
+$ cd elogram && composer install --dev
 $ php vendor/bin/phpunit
 ```
 

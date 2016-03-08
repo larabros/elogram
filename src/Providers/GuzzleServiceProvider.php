@@ -52,7 +52,7 @@ class GuzzleServiceProvider extends AbstractServiceProvider
             ]));
 
         if ($config->get('http_adapter') === GuzzleAdapter::class) {
-            $container->share(AdapterInterface::class, function() use ($container) {
+            $container->share(AdapterInterface::class, function () use ($container) {
                 return new GuzzleAdapter($container->get(Client::class));
             });
         }

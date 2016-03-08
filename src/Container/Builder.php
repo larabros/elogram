@@ -49,7 +49,7 @@ class Builder implements ContainerAwareInterface
         $this->setContainer($this->createContainer($config));
         $this->createConfig($this->getContainer()->get('config.raw'));
 
-        if($registerProviders) {
+        if ($registerProviders) {
             $this->registerProviders($this->defaultProviders);
         }
     }

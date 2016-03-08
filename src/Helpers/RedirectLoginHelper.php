@@ -78,8 +78,7 @@ class RedirectLoginHelper
      */
     protected function validateCsrf()
     {
-        if (
-            empty($this->getInput('state'))
+        if (empty($this->getInput('state'))
             || ($this->getInput('state') !== $this->store->get('oauth2state'))
         ) {
             $this->store->set('oauth2state', null);

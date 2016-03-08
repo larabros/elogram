@@ -41,13 +41,12 @@ class MiddlewareServiceProvider extends AbstractServiceProvider
         $container = $this->getContainer();
         $config    = $container->get('config');
 
-        $container->share(HandlerStack::class, function() {
+        $container->share(HandlerStack::class, function () {
             return HandlerStack::create();
         });
 
         // If access token was provided, then instantiate and add to middleware
-        if (
-            $config->has('access_token')
+        if ($config->has('access_token')
             && $config->get('access_token') !== null
         ) {
 
@@ -57,8 +56,8 @@ class MiddlewareServiceProvider extends AbstractServiceProvider
                 new AccessToken(json_decode($config->get('access_token'), true))
             );
 
-            foreach($config->get('middleware') as $name => $class) {
-                $container->add("middleware.$name", function() use ($class, $config) {
+            foreach ($config->get('middleware') as $name => $class) {
+                $container->add("middleware.$name", function () use ($class, $config) {
                     return $class::create($config);
                 });
             }
@@ -73,7 +72,7 @@ class MiddlewareServiceProvider extends AbstractServiceProvider
         $config    = $container->get('config');
         $stack     = $container->get(HandlerStack::class);
 
-        foreach($config->get('middleware') as $name => $item) {
+        foreach ($config->get('middleware') as $name => $item) {
             $stack->push($container->get("middleware.$name"), $name);
         }
     }

@@ -70,7 +70,8 @@ final class Instagram
      *
      * @return \League\Container\ContainerInterface
      */
-    protected function buildContainer(array $options) {
+    protected function buildContainer(array $options)
+    {
         return (new Builder($options))->getContainer();
     }
 

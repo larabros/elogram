@@ -117,8 +117,8 @@ class User extends AbstractEntity
     public function find($username)
     {
         $response = $this->search($username);
-        foreach($response->get() as $user) {
-            if($username === $user['username']) {
+        foreach ($response->get() as $user) {
+            if ($username === $user['username']) {
                 return $this->get($user['id']);
             }
         }

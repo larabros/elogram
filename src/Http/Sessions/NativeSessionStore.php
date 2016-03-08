@@ -1,6 +1,7 @@
 <?php
 
 namespace Instagram\Http\Sessions;
+
 use Instagram\Exceptions\Exception;
 
 /**

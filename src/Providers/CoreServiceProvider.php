@@ -43,7 +43,7 @@ class CoreServiceProvider extends AbstractServiceProvider
         $container = $this->getContainer();
         $config    = $container->get('config');
 
-        $container->share('provider', function() use ($config) {
+        $container->share('provider', function () use ($config) {
             return new Instagram([
                 'clientId'     => $config->get('client_id'),
                 'clientSecret' => $config->get('client_secret'),
@@ -51,12 +51,12 @@ class CoreServiceProvider extends AbstractServiceProvider
             ]);
         });
 
-        $container->share(DataStoreInterface::class, function() use ($config) {
+        $container->share(DataStoreInterface::class, function () use ($config) {
             $class = $config->get('session_store');
             return new $class();
         });
 
-        $container->share(RedirectLoginHelper::class, function() use ($container) {
+        $container->share(RedirectLoginHelper::class, function () use ($container) {
             return new RedirectLoginHelper(
                 $container->get('provider'),
                 $container->get(DataStoreInterface::class)

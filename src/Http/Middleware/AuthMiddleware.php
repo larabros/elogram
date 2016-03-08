@@ -24,8 +24,7 @@ final class AuthMiddleware extends AbstractMiddleware
     {
         $next = $this->nextHandler;
 
-        if (
-            !$this->config->has('access_token')
+        if (!$this->config->has('access_token')
             || $this->config->get('access_token') === null
         ) {
             return $next($request, $options);

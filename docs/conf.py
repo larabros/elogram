@@ -13,27 +13,24 @@ source_suffix = '.rst'
 master_doc = 'index'
 project = u'Instagram SDK'
 copyright = u'2016, Hassan Khan'
-version = '6'
+version = '1'
 html_title = "Instagram SDK Documentation"
 html_short_title = "Instagram SDK"
 
 exclude_patterns = ['_build']
 html_static_path = ['_static']
 
-##### Guzzle sphinx theme
+##### ReadTheDocs theme
 
-import guzzle_sphinx_theme
-html_translator_class = 'guzzle_sphinx_theme.HTMLTranslator'
-html_theme_path = guzzle_sphinx_theme.html_theme_path()
-html_theme = 'guzzle_sphinx_theme'
-
-# Custom sidebar templates, maps document names to template names.
-html_sidebars = {
-    '**': ['logo-text.html', 'globaltoc.html', 'searchbox.html']
-}
+import sphinx_rtd_theme
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme = "sphinx_rtd_theme"
 
 # Register the theme as an extension to generate a sitemap.xml
-extensions.append("guzzle_sphinx_theme")
+extensions = [
+    "sphinxcontrib.httpdomain",
+    "sphinx_rtd_theme",
+]
 
 # Guzzle theme options (see theme.conf for more information)
 html_theme_options = {

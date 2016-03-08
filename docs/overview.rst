@@ -17,7 +17,7 @@ Requirements
 Installation
 ============
 
-The recommended way to install Instagram-SDK is with
+The recommended way to install Elogram is with
 `Composer <http://getcomposer.org>`_. Composer is a dependency management tool
 for PHP that allows you to declare the dependencies your project needs and
 installs them into your project.
@@ -27,14 +27,14 @@ installs them into your project.
     # Install Composer
     curl -sS https://getcomposer.org/installer | php
 
-You can add Instagram-SDK as a dependency using the composer.phar CLI:
+You can add Elogram as a dependency using the ``composer.phar`` CLI:
 
 .. code-block:: bash
 
     php composer.phar require hassankhan/instagram-sdk:~1.0
 
 Alternatively, you can specify it as a dependency in your project's
-existing composer.json file:
+existing ``composer.json`` file:
 
 .. code-block:: js
 
@@ -101,7 +101,7 @@ Guidelines
 -  **PSR-2 Coding Standard** - The easiest way to apply the `Standard`_ is to
    install `PHP Code Sniffer`_.
 
--  **PHP 5.5** - Instagram-SDK has a minimum PHP version requirement of
+-  **PHP 5.5** - Elogram has a minimum PHP version requirement of
    PHP 5.5. Pull requests must not require a PHP version greater than
    PHP 5.5 unless the feature is only utilized conditionally.
 
@@ -139,7 +139,7 @@ and install dependencies using Composer:
 Reporting a security vulnerability
 ----------------------------------
 
-We want to ensure that Instagram-SDK is secure for everyone. If you’ve
+We want to ensure that Elogram is secure for everyone. If you’ve
 discovered a security vulnerability, we appreciate your help in disclosing it to
 us in a `responsible manner`_.
 

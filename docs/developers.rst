@@ -8,14 +8,14 @@ Extending core components
 `NativeSessionStore`
 --------------------
 
-When using Instagram-SDK in a framework, you may want to replace the built-in
+When using Elogram in a framework, you may want to replace the built-in
 session storage handler with a custom class that interacts with the framework.
 This class **must** implement the `DataStoreInterface`. An example is provided
 below:
 
 .. code-block:: php
 
-    use Instagram\Http\Sessions\DataStoreInterface;
+    use Elogram\Http\Sessions\DataStoreInterface;
 
     class FrameworkSessionStorageHandler implements DataStorageInterface
     {
@@ -35,5 +35,5 @@ After creating this class, the `Instagram` class must be instantiated with an ar
 .. code-block:: php
 
     $options = ['session_store' => FrameworkSessionStorageHandler::class];
-    $client = new Instagram\Instagram($clientId, $clientSecret, null, $redirectUrl, $options);
+    $client = new Elogram\Instagram($clientId, $clientSecret, null, $redirectUrl, $options);
 

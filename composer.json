@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Instagram\\": "src"
+            "Elogram\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Instagram\\Tests\\": "tests"
+            "Elogram\\Tests\\": "tests"
         }
     },
     "scripts": {

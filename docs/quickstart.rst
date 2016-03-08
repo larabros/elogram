@@ -2,7 +2,7 @@
 Quickstart
 ==========
 
-This page provides a quick introduction to Instagram-SDK and introductory examples.
+This page provides a quick introduction to Elogram and introductory examples.
 If you have not already installed, head over to the :ref:`installation`
 page.
 
@@ -21,7 +21,7 @@ Creating a Client
 
 .. code-block:: php
 
-    use Instagram\Instagram;
+    use Elogram\Instagram;
 
     $client = new Instagram($clientId, $clientSecret, null, $redirectUrl);
 
@@ -46,8 +46,6 @@ the authorization page (or retrieve an access token if the user has authorized):
 
 .. code-block:: php
 
-    // Create a client
-    $client = new Instagram($clientId, $clientSecret, null, $redirectUrl);
     // If we don't have an authorization code then get one
     if (!isset($_GET['code'])) {
         header('Location: ' . $client->getLoginUrl());
@@ -69,7 +67,7 @@ Simple requests
 
 .. code-block:: php
 
-    use Instagram\Instagram;
+    use Elogram\Instagram;
 
     $client   = new Instagram($clientId, $clientSecret, $accessToken);
     $response = $client->users()->find('skrawg');
@@ -89,7 +87,7 @@ the number of pages to request, assuming they are available.
 
 .. code-block:: php
 
-    use Instagram\Instagram;
+    use Elogram\Instagram;
 
     $client   = new Instagram($clientId, $clientSecret, $accessToken);
     $response = $instagram->users()->follows();

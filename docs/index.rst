@@ -1,10 +1,10 @@
-.. title:: Instagram-SDK
+.. title:: Elogram
 
 =============
 Documentation
 =============
 
-Instagram-SDK is a PHP client for the Instagram API. It offers:
+Elogram is a PHP client for the Instagram API. It offers:
 
 - Simple interface for interacting with the web API. Use methods and arguments
   instead of cURL.

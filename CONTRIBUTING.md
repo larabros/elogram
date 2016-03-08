@@ -14,7 +14,7 @@ Documentation for the API is available at http://instagram-sdk.readthedocs.org/e
 
 - **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
-- **PHP 5.5** - Instagram-SDK has a minimum PHP version requirement of PHP 5.5. Pull requests must not require a PHP version greater than PHP 5.5 unless the feature is only utilized conditionally.
+- **PHP 5.5** - Elogram has a minimum PHP version requirement of PHP 5.5. Pull requests must not require a PHP version greater than PHP 5.5 unless the feature is only utilized conditionally.
 
 - **Add tests!** - All pull requests must include unit tests to ensure the change works as expected and to prevent regressions.
 
@@ -41,7 +41,7 @@ $ php vendor/bin/phpunit
 
 ## Reporting a security vulnerability
 
-We want to ensure that Instagram-SDK is secure for everyone. If you've discovered
+We want to ensure that Elogram is secure for everyone. If you've discovered
 a security vulnerability, we appreciate your help in disclosing it to
 us in a `responsible manner <http://en.wikipedia.org/wiki/Responsible_disclosure>`_.
 

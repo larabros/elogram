@@ -14,32 +14,32 @@ Users
 
 .. http:get:: /users/(string:$id)
 
-.. warning::
-
-    The ``public_content`` scope mst be set on the access token if a user with
-    ``$id`` is not the owner of the access token.
-
-**Example request**:
-
-.. code-block:: php
-
-    $client   = new Instagram($clientId, $clientSecret, $accessToken);
-    $response = $client->users()->get(4);
-    echo json_encode($response);
-
-**Example response**:
-
-.. code-block:: json
-
-    {
-        "username": "mikeyk",
-        "first_name": "Mike",
-        "profile_picture": "http://distillery.s3.amazonaws.com/profiles/profile_4_75sq_1292324747_debug.jpg",
-        "id": "4",
-        "last_name": "Krieger!!"
-    }
-
     :param id: The ID of a user. Default is ``self``.
+
+    .. warning::
+
+        The ``public_content`` scope mst be set on the access token if a user with
+        ``$id`` is not the owner of the access token.
+
+    **Example request**:
+
+    .. code-block:: php
+
+        $client   = new Instagram($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->get(4);
+        echo json_encode($response);
+
+    **Example response**:
+
+    .. code-block:: json
+
+        {
+            "username": "mikeyk",
+            "first_name": "Mike",
+            "profile_picture": "http://distillery.s3.amazonaws.com/profiles/profile_4_75sq_1292324747_debug.jpg",
+            "id": "4",
+            "last_name": "Krieger!!"
+        }
 
 ``get($id = 'self')``
 ---------------------

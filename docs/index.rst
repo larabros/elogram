@@ -39,6 +39,6 @@ User Guide
 
     overview
     quickstart
-    endpoints
+    endpoints/*
     faq
     developers

@@ -10,7 +10,6 @@ use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
 use \Mockery as m;
 
-
 class RedirectLoginHelperTest extends TestCase
 {
     /**

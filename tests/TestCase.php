@@ -11,7 +11,8 @@ class TestCase extends \PHPUnit_Framework_TestCase
      * This method is called before a test is executed.
      */
     protected function setUp()
-    {}
+    {
+    }
 
     /**
      * Tears down the fixture, for example, closes a network connection.

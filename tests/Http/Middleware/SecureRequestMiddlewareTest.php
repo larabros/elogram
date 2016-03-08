@@ -63,7 +63,7 @@ class SecureRequestMiddlewareTest extends TestCase
         $client->get('https://api.instagram.com/v1/users/self', [
             'query' => [
                 'access_token' => 'fb2e77d.47a0479900504cb3ab4a1f626d174d2d'
-        ]]);
+            ]]);
     }
 
     /**

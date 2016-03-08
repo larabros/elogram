@@ -11,9 +11,10 @@ page.
 Getting an access token
 =======================
 
-To make requests to the Instagram API, you need an access token. To do this, first instantiate
-``Instagram`` - the ``$clientId``, ``$clientSecret`` and ``$redirectUrl`` **must** be the same
-as in the `Instagram Developer Panel <https://www.instagram.com/developer/clients/manage/>`_:
+To start making requests, you need an access token. To do this,
+first instantiate the ``Client`` class - the ``$clientId``, ``$clientSecret``
+and ``$redirectUrl`` **must** be the same as in the
+`Instagram Developer Panel <https://www.instagram.com/developer/clients/manage/>`_:
 
 
 Creating a Client
@@ -39,7 +40,7 @@ The constructor accepts the following parameters:
     Assuming you do not currently have one, use ``null``.
 
 ``redirectUrl``
-    The URL to redirect to after a user authorizes the Instagram client.
+    The URL to redirect to after a user authorizes the Instagram application.
 
 After instantiating the client, retrieve the the authorization page URL (or
 retrieve an access token if the user has already authorized):
@@ -82,7 +83,7 @@ Paginated Requests
 
 The `Response` object that you receive from making requests contains the data
 from the multiple requests combined, including the first one. You can also pass
-a ``$limit`` as an optional parameter to ``Instagram::paginate()``, which sets
+a ``$limit`` as an optional parameter to ``Client::paginate()``, which sets
 the number of pages to request, assuming they are available.
 
 .. code-block:: php
@@ -90,11 +91,11 @@ the number of pages to request, assuming they are available.
     use Larabros\Elogram\Client;
 
     $client   = new Client($clientId, $clientSecret, $accessToken);
-    $response = $instagram->users()->follows();
+    $response = $client->users()->follows();
     echo json_encode($response->get());
 
-    $response = $instagram->paginate($response, 2);
+    $response = $client->paginate($response, 2);
     echo json_encode($response->get());
 
-    $response = $instagram->paginate($response);
+    $response = $client->paginate($response);
     echo json_encode($response->get());

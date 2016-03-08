@@ -10,7 +10,8 @@ Requirements
 
 .. note::
 
-    You can create an Instagram app at https://www.instagram.com/developer/clients/register/
+    You can create an Instagram application at
+    https://www.instagram.com/developer/clients/register/
 
 .. _installation:
 

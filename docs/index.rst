@@ -24,10 +24,10 @@ offers:
     $response = $client->media()->search(51.503349, -0.252271);
     echo json_encode($response->get());
 
-    $response = $instagram->users()->find('skrawg');
+    $response = $client->users()->find('skrawg');
     echo json_encode($response->get());
 
-    $response  = $instagram->users()->follows();
+    $response  = $client->users()->follows();
     echo json_encode($response->get());
 
     $response  = $client->paginate($response, 2);

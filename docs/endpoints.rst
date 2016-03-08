@@ -9,17 +9,22 @@ introductory examples. If you have not already acquired an access token, head
 over to the :ref:`access_token` page.
 
 
-User
-====
+Users
+=====
 
-.. http:get:: /users/(int:$id)
+.. http:get:: /users/(string:$id = 'self')
+
+.. warning::
+
+    The ``public_content`` scope mst be set on the access token if a user with
+    ``$id`` is not the owner of the access token.
 
 **Example request**:
 
 .. code-block:: php
 
     $client   = new Instagram($clientId, $clientSecret, $accessToken);
-    $response = $client->users()->get('4');
+    $response = $client->users()->get(4);
     echo json_encode($response);
 
 **Example response**:
@@ -33,7 +38,6 @@ User
         "id": "4",
         "last_name": "Krieger!!"
     }
-
 
 ``get($id = 'self')``
 ---------------------

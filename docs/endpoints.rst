@@ -12,7 +12,7 @@ over to the :ref:`access_token` page.
 Users
 =====
 
-.. http:get:: /users/(string:$id = 'self')
+.. http:get:: /users/(string:$id)
 
 .. warning::
 
@@ -38,6 +38,8 @@ Users
         "id": "4",
         "last_name": "Krieger!!"
     }
+
+:param id: The ID of a user. Default is ``self``.
 
 ``get($id = 'self')``
 ---------------------

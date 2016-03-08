@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Http\Clients;
+namespace Larabros\Elogram\Http\Clients;
 
 use GuzzleHttp\Exception\ClientException;
-use Elogram\Exceptions\Exception;
-use Elogram\Http\Response;
+use Larabros\Elogram\Exceptions\Exception;
+use Larabros\Elogram\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -55,7 +55,7 @@ abstract class AbstractAdapter implements AdapterInterface
         }
 
         $meta      = isset($response->meta) ? $response->meta : $response;
-        $class     = '\\Elogram\\Exceptions\\'.$meta->error_type;
+        $class     = '\\Larabros\\Elogram\\Exceptions\\'.$meta->error_type;
         return new $class($meta->error_message);
     }
 }

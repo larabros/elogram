@@ -1,14 +1,14 @@
 <?php
 
-namespace Elogram\Tests\Http;
+namespace Larabros\Elogram\Tests\Http;
 
-use Elogram\Container\Builder;
-use Elogram\Helpers\RedirectLoginHelper;
-use Elogram\Http\Clients\AdapterInterface;
-use Elogram\Providers\EntityServiceProvider;
-use Elogram\Providers\CoreServiceProvider;
-use Elogram\Providers\GuzzleServiceProvider;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Container\Builder;
+use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Providers\EntityServiceProvider;
+use Larabros\Elogram\Providers\CoreServiceProvider;
+use Larabros\Elogram\Providers\GuzzleServiceProvider;
+use Larabros\Elogram\Tests\TestCase;
 use League\Container\ContainerInterface;
 use Mockery as m;
 
@@ -32,9 +32,9 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Container\Builder::__construct()
-     * @covers Elogram\Container\Builder::createContainer()
-     * @covers Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
      */
     public function testGetContainerAfterInstantiation()
     {
@@ -42,10 +42,10 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Container\Builder::__construct()
-     * @covers Elogram\Container\Builder::createContainer()
-     * @covers Elogram\Container\Builder::createConfig()
-     * @covers Elogram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterProvider()
     {
@@ -58,11 +58,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Container\Builder::__construct()
-     * @covers Elogram\Container\Builder::createContainer()
-     * @covers Elogram\Container\Builder::createConfig()
-     * @covers Elogram\Container\Builder::registerProviders()
-     * @covers Elogram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProviders()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterProviders()
     {
@@ -86,11 +86,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Container\Builder::__construct()
-     * @covers Elogram\Container\Builder::createContainer()
-     * @covers Elogram\Container\Builder::createConfig()
-     * @covers Elogram\Container\Builder::registerProviders()
-     * @covers Elogram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProviders()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterNoProviders()
     {
@@ -110,11 +110,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Container\Builder::__construct()
-     * @covers Elogram\Container\Builder::createContainer()
-     * @covers Elogram\Container\Builder::createConfig()
-     * @covers Elogram\Container\Builder::registerProviders()
-     * @covers Elogram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProviders()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterDefaultProviders()
     {

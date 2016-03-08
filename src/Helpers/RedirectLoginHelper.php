@@ -1,9 +1,9 @@
 <?php
 
-namespace Elogram\Helpers;
+namespace Larabros\Elogram\Helpers;
 
-use Elogram\Exceptions\CsrfException;
-use Elogram\Http\Sessions\DataStoreInterface;
+use Larabros\Elogram\Exceptions\CsrfException;
+use Larabros\Elogram\Http\Sessions\DataStoreInterface;
 use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
 use League\OAuth2\Client\Token\AccessToken;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogram\Http\Sessions;
+namespace Larabros\Elogram\Http\Sessions;
 
 /**
  * Defines an interface for getting and setting values on the session.

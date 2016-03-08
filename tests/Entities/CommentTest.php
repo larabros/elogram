@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Elogram\Entities\Comment;
-use Elogram\Http\Clients\MockAdapter;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Entities\Comment;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class CommentTest extends TestCase
 {
@@ -22,8 +22,8 @@ class CommentTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Comment::__construct()
-     * @covers Elogram\Entities\Comment::get()
+     * @covers Larabros\Elogram\Entities\Comment::__construct()
+     * @covers Larabros\Elogram\Entities\Comment::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class CommentTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Comment::__construct()
-     * @covers Elogram\Entities\Comment::create()
+     * @covers Larabros\Elogram\Entities\Comment::__construct()
+     * @covers Larabros\Elogram\Entities\Comment::create()
      */
     public function testCreate()
     {
@@ -42,8 +42,8 @@ class CommentTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Comment::__construct()
-     * @covers Elogram\Entities\Comment::delete()
+     * @covers Larabros\Elogram\Entities\Comment::__construct()
+     * @covers Larabros\Elogram\Entities\Comment::delete()
      */
     public function testDelete()
     {

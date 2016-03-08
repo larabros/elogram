@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Http\Clients;
+namespace Larabros\Elogram\Http\Clients;
 
 use Exception;
 use GuzzleHttp\Exception\ClientException;
-use Elogram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 interface AdapterInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogram\Http\Middleware;
+namespace Larabros\Elogram\Http\Middleware;
 
 use Psr\Http\Message\RequestInterface;
 

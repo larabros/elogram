@@ -1,16 +1,16 @@
 <?php
 
-namespace Elogram\Tests\Http\Clients;
+namespace Larabros\Elogram\Tests\Http\Clients;
 
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Elogram\Exceptions\Exception as InstagramException;
-use Elogram\Exceptions\OAuthParameterException;
-use Elogram\Http\Clients\GuzzleAdapter;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Exceptions\Exception as InstagramException;
+use Larabros\Elogram\Exceptions\OAuthParameterException;
+use Larabros\Elogram\Http\Clients\GuzzleAdapter;
+use Larabros\Elogram\Tests\TestCase;
 use Mockery as m;
 
 class GuzzleAdapterTest extends TestCase
@@ -26,8 +26,8 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
      */
     public function testRequest()
     {
@@ -41,9 +41,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::paginate()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::paginate()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
      */
     public function testPaginateSingleResponse()
     {
@@ -57,9 +57,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::paginate()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::paginate()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
      */
     public function testPaginateWithLimit()
     {
@@ -88,9 +88,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::paginate()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::paginate()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
      */
     public function testPaginate()
     {
@@ -119,8 +119,8 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
      */
     public function testBadRequest()
     {
@@ -132,9 +132,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
-     * @covers Elogram\Http\Clients\AbstractAdapter::resolveExceptionClass()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\AbstractAdapter::resolveExceptionClass()
      */
     public function testRequestWithSomethingWrong()
     {
@@ -150,9 +150,9 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
-     * @covers Elogram\Http\Clients\AbstractAdapter::resolveExceptionClass()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\AbstractAdapter::resolveExceptionClass()
      */
     public function testRequestWithMissingParameters()
     {
@@ -172,8 +172,8 @@ class GuzzleAdapterTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Http\Clients\GuzzleAdapter::__construct()
-     * @covers Elogram\Http\Clients\GuzzleAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\GuzzleAdapter::request()
      */
     public function testBadResponse()
     {

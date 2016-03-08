@@ -1,9 +1,9 @@
 <?php
 
-namespace Elogram\Providers;
+namespace Larabros\Elogram\Providers;
 
-use Elogram\Helpers\RedirectLoginHelper;
-use Elogram\Http\Sessions\DataStoreInterface;
+use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
 

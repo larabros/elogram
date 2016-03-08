@@ -1,18 +1,18 @@
 <?php
 
-namespace Elogram\Providers;
+namespace Larabros\Elogram\Providers;
 
-use Elogram\Entities\Comment;
-use Elogram\Entities\LikeRepository;
-use Elogram\Entities\Location;
-use Elogram\Entities\Media;
-use Elogram\Entities\Tag;
-use Elogram\Entities\User;
-use Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Entities\Comment;
+use Larabros\Elogram\Entities\LikeRepository;
+use Larabros\Elogram\Entities\Location;
+use Larabros\Elogram\Entities\Media;
+use Larabros\Elogram\Entities\Tag;
+use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 /**
- * EntityServiceProvider
+ * Adds repository classes to the container.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>

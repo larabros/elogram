@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Elogram\Entities\Media;
-use Elogram\Http\Clients\MockAdapter;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Entities\Media;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class MediaTest extends TestCase
 {
@@ -22,8 +22,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Media::__construct()
-     * @covers Elogram\Entities\Media::get()
+     * @covers Larabros\Elogram\Entities\Media::__construct()
+     * @covers Larabros\Elogram\Entities\Media::get()
      */
     public function testGet()
     {
@@ -33,8 +33,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Media::__construct()
-     * @covers Elogram\Entities\Media::getByShortcode()
+     * @covers Larabros\Elogram\Entities\Media::__construct()
+     * @covers Larabros\Elogram\Entities\Media::getByShortcode()
      */
     public function testGetByShortcode()
     {
@@ -44,8 +44,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Media::__construct()
-     * @covers Elogram\Entities\Media::search()
+     * @covers Larabros\Elogram\Entities\Media::__construct()
+     * @covers Larabros\Elogram\Entities\Media::search()
      */
     public function testSearch()
     {

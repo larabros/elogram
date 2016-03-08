@@ -1,12 +1,12 @@
 <?php
 
-namespace Elogram\Providers;
+namespace Larabros\Elogram\Providers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
-use Elogram\Http\Clients\AdapterInterface;
-use Elogram\Http\Clients\GuzzleAdapter;
-use Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Http\Clients\GuzzleAdapter;
+use Larabros\Elogram\Http\Clients\MockAdapter;
 use League\Container\Argument\RawArgument;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 

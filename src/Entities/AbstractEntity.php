@@ -1,8 +1,8 @@
 <?php
 
-namespace Elogram\Entities;
+namespace Larabros\Elogram\Entities;
 
-use Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
 
 /**
  * AbstractEntity

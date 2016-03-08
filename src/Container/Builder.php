@@ -1,12 +1,12 @@
 <?php
 
-namespace Elogram\Container;
+namespace Larabros\Elogram\Container;
 
-use Elogram\Config;
-use Elogram\Providers\CoreServiceProvider;
-use Elogram\Providers\EntityServiceProvider;
-use Elogram\Providers\GuzzleServiceProvider;
-use Elogram\Providers\MiddlewareServiceProvider;
+use Larabros\Elogram\Config;
+use Larabros\Elogram\Providers\CoreServiceProvider;
+use Larabros\Elogram\Providers\EntityServiceProvider;
+use Larabros\Elogram\Providers\GuzzleServiceProvider;
+use Larabros\Elogram\Providers\MiddlewareServiceProvider;
 use League\Container\Container;
 use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Elogram;
+namespace Larabros\Elogram;
 
-use Elogram\Http\Clients\GuzzleAdapter;
-use Elogram\Http\Middleware\AuthMiddleware;
-use Elogram\Http\Middleware\SecureRequestMiddleware;
-use Elogram\Http\Sessions\NativeSessionStore;
+use Larabros\Elogram\Http\Clients\GuzzleAdapter;
+use Larabros\Elogram\Http\Middleware\AuthMiddleware;
+use Larabros\Elogram\Http\Middleware\SecureRequestMiddleware;
+use Larabros\Elogram\Http\Sessions\NativeSessionStore;
 use Noodlehaus\AbstractConfig;
 
 /**

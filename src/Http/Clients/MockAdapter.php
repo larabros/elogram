@@ -1,8 +1,8 @@
 <?php
 
-namespace Elogram\Http\Clients;
+namespace Larabros\Elogram\Http\Clients;
 
-use Elogram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 /**
  * A mock HTTP client adapter.

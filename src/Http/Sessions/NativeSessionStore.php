@@ -1,8 +1,8 @@
 <?php
 
-namespace Elogram\Http\Sessions;
+namespace Larabros\Elogram\Http\Sessions;
 
-use Elogram\Exceptions\Exception;
+use Larabros\Elogram\Exceptions\Exception;
 
 /**
  * An implementation of `DataStoreInterface` that uses PHP's native sessions.

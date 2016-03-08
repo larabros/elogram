@@ -1,8 +1,8 @@
 <?php
 
-namespace Elogram\Entities;
+namespace Larabros\Elogram\Entities;
 
-use Elogram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 /**
  * Tag

@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Elogram\Entities\Location;
-use Elogram\Http\Clients\MockAdapter;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Entities\Location;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class LocationTest extends TestCase
 {
@@ -22,8 +22,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Location::__construct()
-     * @covers Elogram\Entities\Location::get()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Location::__construct()
-     * @covers Elogram\Entities\Location::getRecentMedia()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -42,8 +42,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Location::__construct()
-     * @covers Elogram\Entities\Location::search()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::search()
      */
     public function testSearch()
     {
@@ -52,8 +52,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Location::__construct()
-     * @covers Elogram\Entities\Location::searchByFacebookPlacesId()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::searchByFacebookPlacesId()
      */
     public function testSearchByFacebookPlacesId()
     {
@@ -62,8 +62,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Location::__construct()
-     * @covers Elogram\Entities\Location::searchByFoursquareId()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::searchByFoursquareId()
      */
     public function testSearchByFoursquareId()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogram\Exceptions;
+namespace Larabros\Elogram\Exceptions;
 
 /**
  * Thrown if the response contents cannot be merged.

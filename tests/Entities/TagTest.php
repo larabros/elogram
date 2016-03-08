@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Elogram\Entities\Tag;
-use Elogram\Http\Clients\MockAdapter;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Entities\Tag;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class TagTest extends TestCase
 {
@@ -22,8 +22,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Tag::__construct()
-     * @covers Elogram\Entities\Tag::get()
+     * @covers Larabros\Elogram\Entities\Tag::__construct()
+     * @covers Larabros\Elogram\Entities\Tag::get()
      */
     public function testGet()
     {
@@ -33,8 +33,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Tag::__construct()
-     * @covers Elogram\Entities\Tag::getRecentMedia()
+     * @covers Larabros\Elogram\Entities\Tag::__construct()
+     * @covers Larabros\Elogram\Entities\Tag::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -43,8 +43,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\Tag::__construct()
-     * @covers Elogram\Entities\Tag::search()
+     * @covers Larabros\Elogram\Entities\Tag::__construct()
+     * @covers Larabros\Elogram\Entities\Tag::search()
      */
     public function testSearch()
     {

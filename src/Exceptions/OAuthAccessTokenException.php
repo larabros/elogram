@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogram\Exceptions;
+namespace Larabros\Elogram\Exceptions;
 
 /**
  * Thrown when an access token is invalid.

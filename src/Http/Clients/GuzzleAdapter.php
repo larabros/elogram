@@ -1,11 +1,11 @@
 <?php
 
-namespace Elogram\Http\Clients;
+namespace Larabros\Elogram\Http\Clients;
 
 use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
-use Elogram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 /**
  * A HTTP client adapter for Guzzle.

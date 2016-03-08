@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogram\Http\Middleware;
+namespace Larabros\Elogram\Http\Middleware;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;

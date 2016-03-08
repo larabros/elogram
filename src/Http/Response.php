@@ -1,9 +1,9 @@
 <?php
 
-namespace Elogram\Http;
+namespace Larabros\Elogram\Http;
 
 use Illuminate\Support\Collection;
-use Elogram\Exceptions\IncompatibleResponseException;
+use Larabros\Elogram\Exceptions\IncompatibleResponseException;
 
 /**
  * Represents a response returned from Instagram's API.

@@ -1,10 +1,10 @@
 <?php
 
-namespace Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Elogram\Entities\User;
-use Elogram\Http\Clients\MockAdapter;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -22,8 +22,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::get()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::getMedia()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::getMedia()
      */
     public function testGetMedia()
     {
@@ -42,8 +42,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::getLikedMedia()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::getLikedMedia()
      */
     public function testGetLikedMedia()
     {
@@ -52,8 +52,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::search()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::search()
      */
     public function testSearch()
     {
@@ -62,8 +62,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::find()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::find()
      */
     public function testFind()
     {
@@ -72,8 +72,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::find()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::find()
      */
     public function testFindReturnsNullWhenNothingFound()
     {
@@ -82,8 +82,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::follows()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::follows()
      */
     public function testFollows()
     {
@@ -92,8 +92,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::followedBy()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::followedBy()
      */
     public function testFollowedBy()
     {
@@ -102,8 +102,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::requestedBy()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::requestedBy()
      */
     public function testRequestedBy()
     {
@@ -112,8 +112,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::getRelationship()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::getRelationship()
      */
     public function testGetRelationship()
     {
@@ -123,8 +123,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Entities\User::__construct()
-     * @covers Elogram\Entities\User::setRelationship()
+     * @covers Larabros\Elogram\Entities\User::__construct()
+     * @covers Larabros\Elogram\Entities\User::setRelationship()
      */
     public function testSetRelationship()
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Elogram\Http\Middleware;
+namespace Larabros\Elogram\Http\Middleware;
 
 use GuzzleHttp\Psr7\Uri;
-use Elogram\Instagram;
+use Larabros\Elogram\Client;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -40,7 +40,7 @@ final class SecureRequestMiddleware extends AbstractMiddleware
 
     private function getPath($path)
     {
-        $pattern = '/^\/v'.Instagram::API_VERSION.'\//';
+        $pattern = '/^\/v'.Client::API_VERSION.'\//';
         return preg_replace($pattern, '/', $path);
     }
 

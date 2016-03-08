@@ -1,9 +1,9 @@
 <?php
 
-namespace Elogram\Tests\Http;
+namespace Larabros\Elogram\Tests\Http;
 
-use Elogram\Config;
-use Elogram\Tests\TestCase;
+use Larabros\Elogram\Config;
+use Larabros\Elogram\Tests\TestCase;
 use League\OAuth2\Client\Token\AccessToken;
 
 class ConfigTest extends TestCase
@@ -22,9 +22,9 @@ class ConfigTest extends TestCase
     }
 
     /**
-     * @covers Elogram\Config::__construct()
-     * @covers Elogram\Config::getDefaults()
-     * @covers Elogram\Config::get()
+     * @covers Larabros\Elogram\Config::__construct()
+     * @covers Larabros\Elogram\Config::getDefaults()
+     * @covers Larabros\Elogram\Config::get()
      */
     public function testCreateWithoutAccessToken()
     {

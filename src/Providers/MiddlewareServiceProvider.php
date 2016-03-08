@@ -1,6 +1,6 @@
 <?php
 
-namespace Elogram\Providers;
+namespace Larabros\Elogram\Providers;
 
 use GuzzleHttp\HandlerStack;
 use League\Container\ServiceProvider\AbstractServiceProvider;
@@ -56,14 +56,10 @@ class MiddlewareServiceProvider extends AbstractServiceProvider
                 new AccessToken(json_decode($config->get('access_token'), true))
             );
 
-            foreach ($config->get('middleware') as $name => $class) {
-                $container->add("middleware.$name", function () use ($class, $config) {
-                    return $class::create($config);
-                });
-            }
         }
 
         $this->addMiddleware();
+
     }
 
     protected function addMiddleware()
@@ -72,8 +68,8 @@ class MiddlewareServiceProvider extends AbstractServiceProvider
         $config    = $container->get('config');
         $stack     = $container->get(HandlerStack::class);
 
-        foreach ($config->get('middleware') as $name => $item) {
-            $stack->push($container->get("middleware.$name"), $name);
+        foreach ($config->get('middleware') as $name => $class) {
+            $stack->push($class::create($config), $name);
         }
     }
 }

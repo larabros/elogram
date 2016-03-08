@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Http\Clients;
+namespace Larabros\Elogram\Http\Clients;
 
 use Exception;
 use GuzzleHttp\Exception\ClientException;
-use Instagram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 interface AdapterInterface
 {

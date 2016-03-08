@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Http\Sessions;
+namespace Larabros\Elogram\Http\Sessions;
 
-use Instagram\Exceptions\Exception;
+use Larabros\Elogram\Exceptions\Exception;
 
 /**
  * An implementation of `DataStoreInterface` that uses PHP's native sessions.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class NativeSessionStore implements DataStoreInterface

@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Entities;
+namespace Larabros\Elogram\Entities;
 
-use Instagram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 /**
  * LikeRepository class.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class LikeRepository extends AbstractEntity

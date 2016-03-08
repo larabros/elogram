@@ -1,11 +1,11 @@
 <?php
 
-namespace Instagram\Tests\Http;
+namespace Larabros\Elogram\Tests\Http;
 
-use Instagram\Exceptions\CsrfException;
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Sessions\NativeSessionStore;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Exceptions\CsrfException;
+use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\Sessions\NativeSessionStore;
+use Larabros\Elogram\Tests\TestCase;
 use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
 use \Mockery as m;
@@ -54,8 +54,8 @@ class RedirectLoginHelperTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Helpers\RedirectLoginHelper::__construct()
-     * @covers Instagram\Helpers\RedirectLoginHelper::getLoginUrl()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::__construct()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::getLoginUrl()
      */
     public function testGetLoginUrl()
     {
@@ -65,10 +65,10 @@ class RedirectLoginHelperTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Helpers\RedirectLoginHelper::__construct()
-     * @covers Instagram\Helpers\RedirectLoginHelper::getAccessToken()
-     * @covers Instagram\Helpers\RedirectLoginHelper::validateCsrf()
-     * @covers Instagram\Helpers\RedirectLoginHelper::getInput()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::__construct()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::getAccessToken()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::validateCsrf()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::getInput()
      */
     public function testGetAccessToken()
     {
@@ -79,10 +79,10 @@ class RedirectLoginHelperTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Helpers\RedirectLoginHelper::__construct()
-     * @covers Instagram\Helpers\RedirectLoginHelper::getAccessToken()
-     * @covers Instagram\Helpers\RedirectLoginHelper::validateCsrf()
-     * @covers Instagram\Helpers\RedirectLoginHelper::getInput()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::__construct()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::getAccessToken()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::validateCsrf()
+     * @covers Larabros\Elogram\Helpers\RedirectLoginHelper::getInput()
      */
     public function testGetAccessTokenWithInvalidCsrf()
     {

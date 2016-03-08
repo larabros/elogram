@@ -1,13 +1,13 @@
 <?php
 
-namespace Instagram\Http\Sessions;
+namespace Larabros\Elogram\Http\Sessions;
 
 /**
  * Defines an interface for getting and setting values on the session.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 interface DataStoreInterface

@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Http\Clients;
+namespace Larabros\Elogram\Http\Clients;
 
-use Instagram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 /**
  * A mock HTTP client adapter.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 final class MockAdapter extends AbstractAdapter

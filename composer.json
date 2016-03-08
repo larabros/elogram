@@ -1,11 +1,12 @@
 {
-    "name": "hassankhan/instagram-sdk",
-    "description": "A simple SDK for accessing Instagram's API",
+    "name": "larabros/elogram",
+    "description": "An \"eloquent\" way of accessing Instagram's API",
     "keywords": [
-        "hassankhan",
-        "instagram-sdk"
+        "larabros",
+        "instagram",
+        "sdk"
     ],
-    "homepage": "https://github.com/hassankhan/instagram-sdk",
+    "homepage": "https://github.com/larabros/elogram",
     "license": "MIT",
     "authors": [
         {
@@ -31,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Instagram\\": "src"
+            "Larabros\\Elogram\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Instagram\\Tests\\": "tests"
+            "Larabros\\Elogram\\Tests\\": "tests"
         }
     },
     "scripts": {

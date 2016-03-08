@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Instagram\Entities\Tag;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Entities\Tag;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class TagTest extends TestCase
 {
@@ -22,8 +22,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Tag::__construct()
-     * @covers Instagram\Entities\Tag::get()
+     * @covers Larabros\Elogram\Entities\Tag::__construct()
+     * @covers Larabros\Elogram\Entities\Tag::get()
      */
     public function testGet()
     {
@@ -33,8 +33,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Tag::__construct()
-     * @covers Instagram\Entities\Tag::getRecentMedia()
+     * @covers Larabros\Elogram\Entities\Tag::__construct()
+     * @covers Larabros\Elogram\Entities\Tag::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -43,8 +43,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Tag::__construct()
-     * @covers Instagram\Entities\Tag::search()
+     * @covers Larabros\Elogram\Entities\Tag::__construct()
+     * @covers Larabros\Elogram\Entities\Tag::search()
      */
     public function testSearch()
     {

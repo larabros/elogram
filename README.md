@@ -1,4 +1,4 @@
-# instagram-sdk
+# elogram
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -11,13 +11,13 @@
 [![Build Status][ico-phpeye]][link-phpeye]
 [![Gitter][ico-gitter]][link-gitter]
 
-A modern Instagram SDK for PHP 5.5+.
+An "eloquent" way of accessing Instagram's API, for PHP 5.5+.
 
 ## Documentation
 
 Documentation for this project is available at the [ReadTheDocs page][link-docs].
 
-The API reference is available at http://instagram-sdk.readthedocs.org/en/latest/_static/api.
+The API reference is available at http://elogram.readthedocs.org/en/latest/_static/api.
 
 ## Change log
 
@@ -40,23 +40,23 @@ If you discover any security related issues, please email contact@hassankhan.me 
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/hassankhan/instagram-sdk.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/larabros/elogram.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/hassankhan/instagram-sdk/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/hassankhan/instagram-sdk.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/hassankhan/instagram-sdk.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/hassankhan/instagram-sdk.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/larabros/elogram/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/larabros/elogram.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/larabros/elogram.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/larabros/elogram.svg?style=flat-square
 [ico-docs]: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square
-[ico-phpeye]: http://php-eye.com/badge/hassankhan/instagram-sdk/tested.svg?style=flat-square
-[ico-gitter]: https://img.shields.io/gitter/room/hassankhan/instagram-sdk.svg?style=flat-square
+[ico-phpeye]: http://php-eye.com/badge/larabros/elogram/tested.svg?style=flat-square
+[ico-gitter]: https://img.shields.io/gitter/room/larabros/elogram.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/hassankhan/instagram-sdk
-[link-travis]: https://travis-ci.org/hassankhan/instagram-sdk
-[link-scrutinizer]: https://scrutinizer-ci.com/g/hassankhan/instagram-sdk/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/hassankhan/instagram-sdk
-[link-downloads]: https://packagist.org/packages/hassankhan/instagram-sdk
-[link-docs]: http://instagram-sdk.readthedocs.org/en/latest
-[link-phpeye]: http://php-eye.com/package/hassankhan/instagram-sdk
-[link-gitter]: https://gitter.im/hassankhan/instagram-sdk
+[link-packagist]: https://packagist.org/packages/larabros/elogram
+[link-travis]: https://travis-ci.org/larabros/elogram
+[link-scrutinizer]: https://scrutinizer-ci.com/g/larabros/elogram/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/larabros/elogram
+[link-downloads]: https://packagist.org/packages/larabros/elogram
+[link-docs]: http://elogram.readthedocs.org/en/latest
+[link-phpeye]: http://php-eye.com/package/larabros/elogram
+[link-gitter]: https://gitter.im/larabros/elogram
 [link-author]: https://github.com/hassankhan
 [link-contributors]: ../../contributors

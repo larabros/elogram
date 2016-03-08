@@ -1,11 +1,11 @@
 <?php
 
-namespace Instagram\Tests\Http;
+namespace Larabros\Elogram\Tests\Http;
 
 use Illuminate\Support\Collection;
-use Instagram\Exceptions\IncompatibleResponseException;
-use Instagram\Http\Response;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Exceptions\IncompatibleResponseException;
+use Larabros\Elogram\Http\Response;
+use Larabros\Elogram\Tests\TestCase;
 
 class ResponseTest extends TestCase
 {
@@ -21,8 +21,8 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::createFromJson()
-     * @covers Instagram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::createFromJson()
+     * @covers Larabros\Elogram\Http\Response::__construct()
      */
     public function testCreateFromJson()
     {
@@ -31,8 +31,8 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::getRaw()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::getRaw()
      */
     public function testGetRaw()
     {
@@ -42,10 +42,10 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::get()
-     * @covers Instagram\Http\Response::isCollection()
-     * @covers Instagram\Http\Response::isRecord()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::get()
+     * @covers Larabros\Elogram\Http\Response::isCollection()
+     * @covers Larabros\Elogram\Http\Response::isRecord()
      */
     public function testGet()
     {
@@ -54,10 +54,10 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::get()
-     * @covers Instagram\Http\Response::isCollection()
-     * @covers Instagram\Http\Response::isRecord()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::get()
+     * @covers Larabros\Elogram\Http\Response::isCollection()
+     * @covers Larabros\Elogram\Http\Response::isRecord()
      */
     public function testGetCollection()
     {
@@ -66,10 +66,10 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::merge()
-     * @covers Instagram\Http\Response::isCollection()
-     * @covers Instagram\Http\Response::isRecord()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::merge()
+     * @covers Larabros\Elogram\Http\Response::isCollection()
+     * @covers Larabros\Elogram\Http\Response::isRecord()
      */
     public function testMergeCollections()
     {
@@ -80,10 +80,10 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::merge()
-     * @covers Instagram\Http\Response::isCollection()
-     * @covers Instagram\Http\Response::isRecord()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::merge()
+     * @covers Larabros\Elogram\Http\Response::isCollection()
+     * @covers Larabros\Elogram\Http\Response::isRecord()
      */
     public function testMergeRecords()
     {
@@ -93,10 +93,10 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::merge()
-     * @covers Instagram\Http\Response::isCollection()
-     * @covers Instagram\Http\Response::isRecord()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::merge()
+     * @covers Larabros\Elogram\Http\Response::isCollection()
+     * @covers Larabros\Elogram\Http\Response::isRecord()
      */
     public function testMergeFailure()
     {
@@ -106,10 +106,10 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::get()
-     * @covers Instagram\Http\Response::isCollection()
-     * @covers Instagram\Http\Response::isRecord()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::get()
+     * @covers Larabros\Elogram\Http\Response::isCollection()
+     * @covers Larabros\Elogram\Http\Response::isRecord()
      */
     public function testGetNullResponse()
     {
@@ -119,9 +119,9 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::nextUrl()
-     * @covers Instagram\Http\Response::hasPages()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::nextUrl()
+     * @covers Larabros\Elogram\Http\Response::hasPages()
      */
     public function testNextUrl()
     {
@@ -131,9 +131,9 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::nextUrl()
-     * @covers Instagram\Http\Response::hasPages()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::nextUrl()
+     * @covers Larabros\Elogram\Http\Response::hasPages()
      */
     public function testNextWithNoPagination()
     {
@@ -142,8 +142,8 @@ class ResponseTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Response::__construct()
-     * @covers Instagram\Http\Response::__toString()
+     * @covers Larabros\Elogram\Http\Response::__construct()
+     * @covers Larabros\Elogram\Http\Response::__toString()
      */
     public function testToString()
     {

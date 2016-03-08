@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram\Http\Middleware;
+namespace Larabros\Elogram\Http\Middleware;
 
 use Noodlehaus\ConfigInterface;
 use Psr\Http\Message\RequestInterface;
@@ -8,9 +8,9 @@ use Psr\Http\Message\RequestInterface;
 /**
  * An abstract middleware class.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 abstract class AbstractMiddleware implements MiddlewareInterface

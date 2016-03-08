@@ -1,9 +1,9 @@
 <?php
 
-namespace Instagram\Tests\Http\Clients;
+namespace Larabros\Elogram\Tests\Http\Clients;
 
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 use Mockery as m;
 
 class MockAdapterTest extends TestCase
@@ -22,11 +22,11 @@ class MockAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Clients\MockAdapter::__construct()
-     * @covers Instagram\Http\Clients\MockAdapter::request()
-     * @covers Instagram\Http\Clients\MockAdapter::mapRequestToFile()
-     * @covers Instagram\Http\Clients\MockAdapter::cleanPath()
-     * @covers Instagram\Http\Clients\MockAdapter::mapRequestParameters()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::mapRequestToFile()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::cleanPath()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::mapRequestParameters()
      */
     public function testRequest()
     {
@@ -36,11 +36,11 @@ class MockAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Clients\MockAdapter::__construct()
-     * @covers Instagram\Http\Clients\MockAdapter::request()
-     * @covers Instagram\Http\Clients\MockAdapter::mapRequestToFile()
-     * @covers Instagram\Http\Clients\MockAdapter::cleanPath()
-     * @covers Instagram\Http\Clients\MockAdapter::mapRequestParameters()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::mapRequestToFile()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::cleanPath()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::mapRequestParameters()
      */
     public function testRequestWithParameters()
     {
@@ -52,12 +52,12 @@ class MockAdapterTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Clients\MockAdapter::__construct()
-     * @covers Instagram\Http\Clients\MockAdapter::paginate()
-     * @covers Instagram\Http\Clients\MockAdapter::request()
-     * @covers Instagram\Http\Clients\MockAdapter::mapRequestToFile()
-     * @covers Instagram\Http\Clients\MockAdapter::cleanPath()
-     * @covers Instagram\Http\Clients\MockAdapter::mapRequestParameters()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::__construct()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::paginate()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::request()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::mapRequestToFile()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::cleanPath()
+     * @covers Larabros\Elogram\Http\Clients\MockAdapter::mapRequestParameters()
      */
     public function testPaginateWithLimit()
     {

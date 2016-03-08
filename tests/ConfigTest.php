@@ -1,9 +1,9 @@
 <?php
 
-namespace Instagram\Tests\Http;
+namespace Larabros\Elogram\Tests\Http;
 
-use Instagram\Config;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Config;
+use Larabros\Elogram\Tests\TestCase;
 use League\OAuth2\Client\Token\AccessToken;
 
 class ConfigTest extends TestCase
@@ -22,9 +22,9 @@ class ConfigTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Config::__construct()
-     * @covers Instagram\Config::getDefaults()
-     * @covers Instagram\Config::get()
+     * @covers Larabros\Elogram\Config::__construct()
+     * @covers Larabros\Elogram\Config::getDefaults()
+     * @covers Larabros\Elogram\Config::get()
      */
     public function testCreateWithoutAccessToken()
     {

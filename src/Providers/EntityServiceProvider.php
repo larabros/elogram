@@ -1,22 +1,22 @@
 <?php
 
-namespace Instagram\Providers;
+namespace Larabros\Elogram\Providers;
 
-use Instagram\Entities\Comment;
-use Instagram\Entities\LikeRepository;
-use Instagram\Entities\Location;
-use Instagram\Entities\Media;
-use Instagram\Entities\Tag;
-use Instagram\Entities\User;
-use Instagram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Entities\Comment;
+use Larabros\Elogram\Entities\LikeRepository;
+use Larabros\Elogram\Entities\Location;
+use Larabros\Elogram\Entities\Media;
+use Larabros\Elogram\Entities\Tag;
+use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 /**
- * EntityServiceProvider
+ * Adds repository classes to the container.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class EntityServiceProvider extends AbstractServiceProvider

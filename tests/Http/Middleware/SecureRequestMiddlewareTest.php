@@ -1,14 +1,14 @@
 <?php
 
-namespace Instagram\Tests\Http\Middleware;
+namespace Larabros\Elogram\Tests\Http\Middleware;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Instagram\Config;
-use Instagram\Http\Middleware\SecureRequestMiddleware;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Config;
+use Larabros\Elogram\Http\Middleware\SecureRequestMiddleware;
+use Larabros\Elogram\Tests\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 class SecureRequestMiddlewareTest extends TestCase
@@ -32,13 +32,13 @@ class SecureRequestMiddlewareTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::create()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__construct()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getParams()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getPath()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::generateSig()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::create()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__construct()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getParams()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getPath()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::generateSig()
      */
     public function testGeneratesSigValue()
     {
@@ -67,13 +67,13 @@ class SecureRequestMiddlewareTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::create()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__construct()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getParams()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::getPath()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::generateSig()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::create()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__construct()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getParams()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getPath()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::generateSig()
      */
     public function testGeneratesSigValueWithRequestParameters()
     {
@@ -103,10 +103,10 @@ class SecureRequestMiddlewareTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::create()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__construct()
-     * @covers Instagram\Http\Middleware\SecureRequestMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::create()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__construct()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\AbstractMiddleware::__invoke()
      */
     public function testDoesNotAddSigValue()
     {

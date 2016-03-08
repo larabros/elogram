@@ -1,30 +1,31 @@
 <?php
 
-namespace Instagram;
+namespace Larabros\Elogram;
 
 use GuzzleHttp\HandlerStack;
-use Instagram\Container\Builder;
-use Instagram\Entities\Comment;
-use Instagram\Entities\LikeRepository;
-use Instagram\Entities\Location;
-use Instagram\Entities\Media;
-use Instagram\Entities\Tag;
-use Instagram\Entities\User;
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\AdapterInterface;
-use Instagram\Http\Response;
-use League\Container\Container;
+use Larabros\Elogram\Container\Builder;
+use Larabros\Elogram\Entities\Comment;
+use Larabros\Elogram\Entities\LikeRepository;
+use Larabros\Elogram\Entities\Location;
+use Larabros\Elogram\Entities\Media;
+use Larabros\Elogram\Entities\Tag;
+use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Http\Response;
+use League\Container\ContainerInterface;
 use League\OAuth2\Client\Token\AccessToken;
+use Noodlehaus\ConfigInterface;
 
 /**
- * Instagram class.
+ * Elogram client class.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-final class Instagram
+final class Client
 {
     /**
      * The current version of the API.
@@ -34,12 +35,12 @@ final class Instagram
     /**
      * The application IoC container.
      *
-     * @var Container
+     * @var ContainerInterface
      */
     protected $container;
 
     /**
-     * Create an instance of `Instagram`.
+     * Create an instance of `Client`.
      *
      * @param string        $clientId
      * @param string        $clientSecret
@@ -68,19 +69,11 @@ final class Instagram
      *
      * @param array       $options
      *
-     * @return \League\Container\ContainerInterface
+     * @return ContainerInterface
      */
     protected function buildContainer(array $options)
     {
         return (new Builder($options))->getContainer();
-    }
-
-    /**
-     * @return Config
-     */
-    public function getConfig()
-    {
-        return $this->container->get('config');
     }
 
     /**
@@ -164,7 +157,7 @@ final class Instagram
      *
      * @return Response
      *
-     * @see Instagram\Http\Clients\AdapterInterface::request()
+     * @see Elogram\Http\Clients\AdapterInterface::request()
      *
      * @codeCoverageIgnore
      */
@@ -182,7 +175,7 @@ final class Instagram
      *
      * @return Response
      *
-     * @see Instagram\Http\Clients\AdapterInterface::paginate()
+     * @see Elogram\Http\Clients\AdapterInterface::paginate()
      *
      * @codeCoverageIgnore
      */
@@ -205,7 +198,7 @@ final class Instagram
      *
      * @return string
      *
-     * @see Instagram\Helpers\RedirectLoginHelper::getLoginUrl()
+     * @see Elogram\Helpers\RedirectLoginHelper::getLoginUrl()
      *
      * @codeCoverageIgnore
      */
@@ -223,7 +216,7 @@ final class Instagram
      *
      * @return AccessToken
      *
-     * @see Instagram\Helpers\RedirectLoginHelper::getAccessToken()
+     * @see Elogram\Helpers\RedirectLoginHelper::getAccessToken()
      *
      * @codeCoverageIgnore
      */
@@ -241,13 +234,12 @@ final class Instagram
      *
      * @param AccessToken $token
      *
-     * @return Instagram
-     *
      * @codeCoverageIgnore
      */
     public function setAccessToken(AccessToken $token)
     {
-        $this->getConfig()->set('access_token', json_encode($token));
+        $this->container->get('config')
+            ->set('access_token', json_encode($token));
         $stack = $this->container->get(HandlerStack::class);
         $stack->push($this->container->get("middleware.auth"), 'auth');
     }
@@ -262,6 +254,7 @@ final class Instagram
      */
     public function secureRequests($enable = true)
     {
-        $this->getConfig()->set('secure_requests', $enable);
+        $this->container->get('config')
+            ->set('secure_requests', $enable);
     }
 }

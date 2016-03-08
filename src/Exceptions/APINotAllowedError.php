@@ -1,13 +1,13 @@
 <?php
 
-namespace Instagram\Exceptions;
+namespace Larabros\Elogram\Exceptions;
 
 /**
  * Thrown when an API endpoint is not allowed.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class APINotAllowedError extends Exception

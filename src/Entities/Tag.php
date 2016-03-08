@@ -1,20 +1,19 @@
 <?php
 
-namespace Instagram\Entities;
+namespace Larabros\Elogram\Entities;
 
-use Instagram\Http\Response;
+use Larabros\Elogram\Http\Response;
 
 /**
  * Tag
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class Tag extends AbstractEntity
 {
-
     /**
      * Get information about a tag object.
      *

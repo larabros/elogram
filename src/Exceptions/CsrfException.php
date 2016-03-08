@@ -1,13 +1,13 @@
 <?php
 
-namespace Instagram\Exceptions;
+namespace Larabros\Elogram\Exceptions;
 
 /**
  * Thrown if the CSRF verification failed.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class CsrfException extends Exception

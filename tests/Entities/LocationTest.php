@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Instagram\Entities\Location;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Entities\Location;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class LocationTest extends TestCase
 {
@@ -22,8 +22,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::get()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::getRecentMedia()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -42,8 +42,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::search()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::search()
      */
     public function testSearch()
     {
@@ -52,8 +52,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::searchByFacebookPlacesId()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::searchByFacebookPlacesId()
      */
     public function testSearchByFacebookPlacesId()
     {
@@ -62,8 +62,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::searchByFoursquareId()
+     * @covers Larabros\Elogram\Entities\Location::__construct()
+     * @covers Larabros\Elogram\Entities\Location::searchByFoursquareId()
      */
     public function testSearchByFoursquareId()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram\Tests;
+namespace Larabros\Elogram\Tests;
 
 use \Mockery as m;
 

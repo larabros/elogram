@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Instagram-SDK">
-    <description>PHPCS configuration for Instagram-SDK</description>
+<ruleset name="Elogram">
+    <description>PHPCS configuration for Elogram</description>
 
     <file>src</file>
 

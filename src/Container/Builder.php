@@ -1,12 +1,12 @@
 <?php
 
-namespace Instagram\Container;
+namespace Larabros\Elogram\Container;
 
-use Instagram\Config;
-use Instagram\Providers\CoreServiceProvider;
-use Instagram\Providers\EntityServiceProvider;
-use Instagram\Providers\GuzzleServiceProvider;
-use Instagram\Providers\MiddlewareServiceProvider;
+use Larabros\Elogram\Config;
+use Larabros\Elogram\Providers\CoreServiceProvider;
+use Larabros\Elogram\Providers\EntityServiceProvider;
+use Larabros\Elogram\Providers\GuzzleServiceProvider;
+use Larabros\Elogram\Providers\MiddlewareServiceProvider;
 use League\Container\Container;
 use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;
@@ -16,9 +16,9 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
 /**
  * Builds `Container` objects for use by the application.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class Builder implements ContainerAwareInterface

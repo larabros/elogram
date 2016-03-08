@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Entities;
 
-use Instagram\Entities\LikeRepository;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Entities\LikeRepository;
+use Larabros\Elogram\Http\Clients\MockAdapter;
+use Larabros\Elogram\Tests\TestCase;
 
 class LikeRepositoryTest extends TestCase
 {
@@ -22,8 +22,8 @@ class LikeRepositoryTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\LikeRepository::__construct()
-     * @covers Instagram\Entities\LikeRepository::get()
+     * @covers Larabros\Elogram\Entities\LikeRepository::__construct()
+     * @covers Larabros\Elogram\Entities\LikeRepository::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class LikeRepositoryTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\LikeRepository::__construct()
-     * @covers Instagram\Entities\LikeRepository::like()
+     * @covers Larabros\Elogram\Entities\LikeRepository::__construct()
+     * @covers Larabros\Elogram\Entities\LikeRepository::like()
      */
     public function testCreate()
     {
@@ -42,8 +42,8 @@ class LikeRepositoryTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\LikeRepository::__construct()
-     * @covers Instagram\Entities\LikeRepository::unlike()
+     * @covers Larabros\Elogram\Entities\LikeRepository::__construct()
+     * @covers Larabros\Elogram\Entities\LikeRepository::unlike()
      */
     public function testDelete()
     {

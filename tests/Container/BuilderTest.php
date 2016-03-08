@@ -1,14 +1,14 @@
 <?php
 
-namespace Instagram\Tests\Http;
+namespace Larabros\Elogram\Tests\Http;
 
-use Instagram\Container\Builder;
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\AdapterInterface;
-use Instagram\Providers\EntityServiceProvider;
-use Instagram\Providers\CoreServiceProvider;
-use Instagram\Providers\GuzzleServiceProvider;
-use Instagram\Tests\TestCase;
+use Larabros\Elogram\Container\Builder;
+use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Providers\EntityServiceProvider;
+use Larabros\Elogram\Providers\CoreServiceProvider;
+use Larabros\Elogram\Providers\GuzzleServiceProvider;
+use Larabros\Elogram\Tests\TestCase;
 use League\Container\ContainerInterface;
 use Mockery as m;
 
@@ -32,9 +32,9 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
      */
     public function testGetContainerAfterInstantiation()
     {
@@ -42,10 +42,10 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterProvider()
     {
@@ -58,11 +58,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProviders()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProviders()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterProviders()
     {
@@ -86,11 +86,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProviders()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProviders()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterNoProviders()
     {
@@ -110,11 +110,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProviders()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Larabros\Elogram\Container\Builder::__construct()
+     * @covers Larabros\Elogram\Container\Builder::createContainer()
+     * @covers Larabros\Elogram\Container\Builder::createConfig()
+     * @covers Larabros\Elogram\Container\Builder::registerProviders()
+     * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterDefaultProviders()
     {

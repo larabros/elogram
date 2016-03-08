@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `instagram-sdk` will be documented in this file
+All notable changes to `elogram` will be documented in this file
 
 ## NEXT - YYYY-MM-DD
 

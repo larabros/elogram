@@ -1,18 +1,18 @@
 <?php
 
-namespace Instagram\Providers;
+namespace Larabros\Elogram\Providers;
 
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Sessions\DataStoreInterface;
+use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
 
 /**
  * CoreServiceProvider
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
 class CoreServiceProvider extends AbstractServiceProvider

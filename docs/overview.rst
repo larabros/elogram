@@ -17,7 +17,7 @@ Requirements
 Installation
 ============
 
-The recommended way to install Instagram-SDK is with
+The recommended way to install Elogram is with
 `Composer <http://getcomposer.org>`_. Composer is a dependency management tool
 for PHP that allows you to declare the dependencies your project needs and
 installs them into your project.
@@ -27,20 +27,20 @@ installs them into your project.
     # Install Composer
     curl -sS https://getcomposer.org/installer | php
 
-You can add Instagram-SDK as a dependency using the composer.phar CLI:
+You can add Elogram as a dependency using the ``composer.phar`` CLI:
 
 .. code-block:: bash
 
-    php composer.phar require hassankhan/instagram-sdk:~1.0
+    php composer.phar require larabros/elogram:~1.0
 
 Alternatively, you can specify it as a dependency in your project's
-existing composer.json file:
+existing ``composer.json`` file:
 
 .. code-block:: js
 
     {
       "require": {
-         "hassankhan/instagram-sdk": "~1.0"
+         "larabros/elogram": "~1.0"
       }
    }
 
@@ -90,10 +90,10 @@ Documentation
 -------------
 
 Documentation for this project is available at
-http://instagram-sdk.readthedocs.org.
+http://elogram.readthedocs.org.
 
 The API reference is available at
-http://instagram-sdk.readthedocs.org/en/latest/_static/api.
+http://elogram.readthedocs.org/en/latest/_static/api.
 
 Guidelines
 ----------
@@ -101,7 +101,7 @@ Guidelines
 -  **PSR-2 Coding Standard** - The easiest way to apply the `Standard`_ is to
    install `PHP Code Sniffer`_.
 
--  **PHP 5.5** - Instagram-SDK has a minimum PHP version requirement of
+-  **PHP 5.5** - Elogram has a minimum PHP version requirement of
    PHP 5.5. Pull requests must not require a PHP version greater than
    PHP 5.5 unless the feature is only utilized conditionally.
 
@@ -132,14 +132,14 @@ and install dependencies using Composer:
 
 .. code:: bash
 
-    $ git clone https://github.com/hassankhan/instagram-sdk.git
-    $ cd instagram-sdk && composer install --dev
+    $ git clone https://github.com/larabros/elogram.git
+    $ cd elogram && composer install --dev
     $ php vendor/bin/phpunit
 
 Reporting a security vulnerability
 ----------------------------------
 
-We want to ensure that Instagram-SDK is secure for everyone. If you’ve
+We want to ensure that Elogram is secure for everyone. If you’ve
 discovered a security vulnerability, we appreciate your help in disclosing it to
 us in a `responsible manner`_.
 
@@ -155,7 +155,7 @@ will be deployed as soon as possible.
 
 **Happy coding**!
 
-.. _Github: https://github.com/hassankhan/instagram-sdk
+.. _Github: https://github.com/larabros/elogram
 .. _Standard: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 .. _PHP Code Sniffer: http://pear.php.net/package/PHP_CodeSniffer
 .. _SemVer v2: http://semver.org/

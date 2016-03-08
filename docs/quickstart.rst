@@ -2,7 +2,7 @@
 Quickstart
 ==========
 
-This page provides a quick introduction to Instagram-SDK and introductory examples.
+This page provides a quick introduction to Elogram and introductory examples.
 If you have not already installed, head over to the :ref:`installation`
 page.
 
@@ -21,11 +21,11 @@ Creating a Client
 
 .. code-block:: php
 
-    use Instagram\Instagram;
+    use Larabros\Elogram\Client;
 
-    $client = new Instagram($clientId, $clientSecret, null, $redirectUrl);
+    $client = new Client($clientId, $clientSecret, null, $redirectUrl);
 
-The client constructor accepts the following parameters:
+The constructor accepts the following parameters:
 
 ``clientId``
     Generated when you create a new application from the Instagram developer
@@ -41,13 +41,11 @@ The client constructor accepts the following parameters:
 ``redirectUrl``
     The URL to redirect to after a user authorizes the Instagram client.
 
-After instantiating the client, retrieve the login helper object and redirect to
-the authorization page (or retrieve an access token if the user has authorized):
+After instantiating the client, retrieve the the authorization page URL (or
+retrieve an access token if the user has already authorized):
 
 .. code-block:: php
 
-    // Create a client
-    $client = new Instagram($clientId, $clientSecret, null, $redirectUrl);
     // If we don't have an authorization code then get one
     if (!isset($_GET['code'])) {
         header('Location: ' . $client->getLoginUrl());
@@ -69,9 +67,9 @@ Simple requests
 
 .. code-block:: php
 
-    use Instagram\Instagram;
+    use Larabros\Elogram\Client;
 
-    $client   = new Instagram($clientId, $clientSecret, $accessToken);
+    $client   = new Client($clientId, $clientSecret, $accessToken);
     $response = $client->users()->find('skrawg');
     echo json_encode($response->get());
 
@@ -89,9 +87,9 @@ the number of pages to request, assuming they are available.
 
 .. code-block:: php
 
-    use Instagram\Instagram;
+    use Larabros\Elogram\Client;
 
-    $client   = new Instagram($clientId, $clientSecret, $accessToken);
+    $client   = new Client($clientId, $clientSecret, $accessToken);
     $response = $instagram->users()->follows();
     echo json_encode($response->get());
 

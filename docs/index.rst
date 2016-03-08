@@ -35,6 +35,7 @@ User Guide
 ==========
 
 .. toctree::
+    :glob:
     :maxdepth: 3
 
     overview

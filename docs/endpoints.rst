@@ -1,3 +1,5 @@
+.. module:: sphinxcontrib.httpdomain
+
 =========
 Endpoints
 =========

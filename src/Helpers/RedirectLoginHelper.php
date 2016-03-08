@@ -1,18 +1,18 @@
 <?php
 
-namespace Instagram\Helpers;
+namespace Elogram\Helpers;
 
-use Instagram\Exceptions\CsrfException;
-use Instagram\Http\Sessions\DataStoreInterface;
+use Elogram\Exceptions\CsrfException;
+use Elogram\Http\Sessions\DataStoreInterface;
 use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
 use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * RedirectLoginHelper
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class RedirectLoginHelper

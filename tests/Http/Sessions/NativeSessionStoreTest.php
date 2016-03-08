@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Http\Sessions;
+namespace Elogram\Tests\Http\Sessions;
 
-use Instagram\Exceptions\Exception;
-use Instagram\Http\Sessions\NativeSessionStore;
-use Instagram\Tests\TestCase;
+use Elogram\Exceptions\Exception;
+use Elogram\Http\Sessions\NativeSessionStore;
+use Elogram\Tests\TestCase;
 
 class NativeSessionStoreTest extends TestCase
 {
@@ -22,8 +22,8 @@ class NativeSessionStoreTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Sessions\NativeSessionStore::__construct()
-     * @covers Instagram\Http\Sessions\NativeSessionStore::get()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::__construct()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::get()
      * @runInSeparateProcess
      */
     public function testWhenSessionIsNotStarted()
@@ -34,8 +34,8 @@ class NativeSessionStoreTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Sessions\NativeSessionStore::__construct()
-     * @covers Instagram\Http\Sessions\NativeSessionStore::get()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::__construct()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::get()
      */
     public function testGetNonexistentKey()
     {
@@ -43,9 +43,9 @@ class NativeSessionStoreTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Sessions\NativeSessionStore::__construct()
-     * @covers Instagram\Http\Sessions\NativeSessionStore::set()
-     * @covers Instagram\Http\Sessions\NativeSessionStore::get()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::__construct()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::set()
+     * @covers Elogram\Http\Sessions\NativeSessionStore::get()
      */
     public function testSetAndGet()
     {

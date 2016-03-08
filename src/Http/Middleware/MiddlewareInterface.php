@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Http\Middleware;
+namespace Elogram\Http\Middleware;
 
 use Psr\Http\Message\RequestInterface;
 
 /**
  * An interface for PSR-7 compatible middleware.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 interface MiddlewareInterface

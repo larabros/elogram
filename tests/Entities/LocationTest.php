@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Elogram\Tests\Entities;
 
-use Instagram\Entities\Location;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Elogram\Entities\Location;
+use Elogram\Http\Clients\MockAdapter;
+use Elogram\Tests\TestCase;
 
 class LocationTest extends TestCase
 {
@@ -22,8 +22,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::get()
+     * @covers Elogram\Entities\Location::__construct()
+     * @covers Elogram\Entities\Location::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::getRecentMedia()
+     * @covers Elogram\Entities\Location::__construct()
+     * @covers Elogram\Entities\Location::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -42,8 +42,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::search()
+     * @covers Elogram\Entities\Location::__construct()
+     * @covers Elogram\Entities\Location::search()
      */
     public function testSearch()
     {
@@ -52,8 +52,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::searchByFacebookPlacesId()
+     * @covers Elogram\Entities\Location::__construct()
+     * @covers Elogram\Entities\Location::searchByFacebookPlacesId()
      */
     public function testSearchByFacebookPlacesId()
     {
@@ -62,8 +62,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Location::__construct()
-     * @covers Instagram\Entities\Location::searchByFoursquareId()
+     * @covers Elogram\Entities\Location::__construct()
+     * @covers Elogram\Entities\Location::searchByFoursquareId()
      */
     public function testSearchByFoursquareId()
     {

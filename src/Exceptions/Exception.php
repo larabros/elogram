@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Exceptions;
+namespace Elogram\Exceptions;
 
 use Exception as BaseException;
 
 /**
  * Base exception class for this package.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class Exception extends BaseException

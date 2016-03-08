@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Elogram\Tests\Entities;
 
-use Instagram\Entities\User;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Elogram\Entities\User;
+use Elogram\Http\Clients\MockAdapter;
+use Elogram\Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -22,8 +22,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::get()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::getMedia()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::getMedia()
      */
     public function testGetMedia()
     {
@@ -42,8 +42,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::getLikedMedia()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::getLikedMedia()
      */
     public function testGetLikedMedia()
     {
@@ -52,8 +52,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::search()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::search()
      */
     public function testSearch()
     {
@@ -62,8 +62,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::find()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::find()
      */
     public function testFind()
     {
@@ -72,8 +72,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::find()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::find()
      */
     public function testFindReturnsNullWhenNothingFound()
     {
@@ -82,8 +82,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::follows()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::follows()
      */
     public function testFollows()
     {
@@ -92,8 +92,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::followedBy()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::followedBy()
      */
     public function testFollowedBy()
     {
@@ -102,8 +102,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::requestedBy()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::requestedBy()
      */
     public function testRequestedBy()
     {
@@ -112,8 +112,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::getRelationship()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::getRelationship()
      */
     public function testGetRelationship()
     {
@@ -123,8 +123,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\User::__construct()
-     * @covers Instagram\Entities\User::setRelationship()
+     * @covers Elogram\Entities\User::__construct()
+     * @covers Elogram\Entities\User::setRelationship()
      */
     public function testSetRelationship()
     {

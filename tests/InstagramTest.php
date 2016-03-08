@@ -1,18 +1,18 @@
 <?php
 
-namespace Instagram\Tests;
+namespace Elogram\Tests;
 
-use Instagram\Config;
-use Instagram\Entities\Comment;
-use Instagram\Entities\LikeRepository;
-use Instagram\Entities\Location;
-use Instagram\Entities\Media;
-use Instagram\Entities\Tag;
-use Instagram\Entities\User;
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Http\Response;
-use Instagram\Instagram;
+use Elogram\Config;
+use Elogram\Entities\Comment;
+use Elogram\Entities\LikeRepository;
+use Elogram\Entities\Location;
+use Elogram\Entities\Media;
+use Elogram\Entities\Tag;
+use Elogram\Entities\User;
+use Elogram\Helpers\RedirectLoginHelper;
+use Elogram\Http\Clients\MockAdapter;
+use Elogram\Http\Response;
+use Elogram\Instagram;
 
 class InstagramTest extends TestCase
 {
@@ -34,9 +34,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::getConfig()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::getConfig()
      */
     public function testGetConfig()
     {
@@ -44,9 +44,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::users()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::users()
      */
     public function testUsers()
     {
@@ -55,9 +55,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::media()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::media()
      */
     public function testMedia()
     {
@@ -66,9 +66,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::comments()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::comments()
      */
     public function testComments()
     {
@@ -77,9 +77,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::likes()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::likes()
      */
     public function testLikes()
     {
@@ -88,9 +88,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::tags()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::tags()
      */
     public function testTags()
     {
@@ -99,9 +99,9 @@ class InstagramTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Instagram::__construct()
-     * @covers Instagram\Instagram::buildContainer()
-     * @covers Instagram\Instagram::locations()
+     * @covers Elogram\Instagram::__construct()
+     * @covers Elogram\Instagram::buildContainer()
+     * @covers Elogram\Instagram::locations()
      */
     public function testLocations()
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Elogram\Tests\Entities;
 
-use Instagram\Entities\Comment;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Elogram\Entities\Comment;
+use Elogram\Http\Clients\MockAdapter;
+use Elogram\Tests\TestCase;
 
 class CommentTest extends TestCase
 {
@@ -22,8 +22,8 @@ class CommentTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Comment::__construct()
-     * @covers Instagram\Entities\Comment::get()
+     * @covers Elogram\Entities\Comment::__construct()
+     * @covers Elogram\Entities\Comment::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class CommentTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Comment::__construct()
-     * @covers Instagram\Entities\Comment::create()
+     * @covers Elogram\Entities\Comment::__construct()
+     * @covers Elogram\Entities\Comment::create()
      */
     public function testCreate()
     {
@@ -42,8 +42,8 @@ class CommentTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Comment::__construct()
-     * @covers Instagram\Entities\Comment::delete()
+     * @covers Elogram\Entities\Comment::__construct()
+     * @covers Elogram\Entities\Comment::delete()
      */
     public function testDelete()
     {

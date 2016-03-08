@@ -1,13 +1,13 @@
 <?php
 
-namespace Instagram\Exceptions;
+namespace Elogram\Exceptions;
 
 /**
  * Thrown when a secure request fails.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class OAuthForbiddenException extends Exception

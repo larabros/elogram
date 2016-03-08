@@ -1,21 +1,21 @@
 <?php
 
-namespace Instagram\Providers;
+namespace Elogram\Providers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
-use Instagram\Http\Clients\AdapterInterface;
-use Instagram\Http\Clients\GuzzleAdapter;
-use Instagram\Http\Clients\MockAdapter;
+use Elogram\Http\Clients\AdapterInterface;
+use Elogram\Http\Clients\GuzzleAdapter;
+use Elogram\Http\Clients\MockAdapter;
 use League\Container\Argument\RawArgument;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 /**
  * GuzzleServiceProvider
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class GuzzleServiceProvider extends AbstractServiceProvider

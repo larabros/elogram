@@ -1,19 +1,19 @@
 <?php
 
-namespace Instagram;
+namespace Elogram;
 
-use Instagram\Http\Clients\GuzzleAdapter;
-use Instagram\Http\Middleware\AuthMiddleware;
-use Instagram\Http\Middleware\SecureRequestMiddleware;
-use Instagram\Http\Sessions\NativeSessionStore;
+use Elogram\Http\Clients\GuzzleAdapter;
+use Elogram\Http\Middleware\AuthMiddleware;
+use Elogram\Http\Middleware\SecureRequestMiddleware;
+use Elogram\Http\Sessions\NativeSessionStore;
 use Noodlehaus\AbstractConfig;
 
 /**
  * Stores the application configuration.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class Config extends AbstractConfig

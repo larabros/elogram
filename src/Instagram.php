@@ -1,27 +1,27 @@
 <?php
 
-namespace Instagram;
+namespace Elogram;
 
 use GuzzleHttp\HandlerStack;
-use Instagram\Container\Builder;
-use Instagram\Entities\Comment;
-use Instagram\Entities\LikeRepository;
-use Instagram\Entities\Location;
-use Instagram\Entities\Media;
-use Instagram\Entities\Tag;
-use Instagram\Entities\User;
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\AdapterInterface;
-use Instagram\Http\Response;
+use Elogram\Container\Builder;
+use Elogram\Entities\Comment;
+use Elogram\Entities\LikeRepository;
+use Elogram\Entities\Location;
+use Elogram\Entities\Media;
+use Elogram\Entities\Tag;
+use Elogram\Entities\User;
+use Elogram\Helpers\RedirectLoginHelper;
+use Elogram\Http\Clients\AdapterInterface;
+use Elogram\Http\Response;
 use League\Container\Container;
 use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Instagram class.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 final class Instagram
@@ -164,7 +164,7 @@ final class Instagram
      *
      * @return Response
      *
-     * @see Instagram\Http\Clients\AdapterInterface::request()
+     * @see Elogram\Http\Clients\AdapterInterface::request()
      *
      * @codeCoverageIgnore
      */
@@ -182,7 +182,7 @@ final class Instagram
      *
      * @return Response
      *
-     * @see Instagram\Http\Clients\AdapterInterface::paginate()
+     * @see Elogram\Http\Clients\AdapterInterface::paginate()
      *
      * @codeCoverageIgnore
      */
@@ -205,7 +205,7 @@ final class Instagram
      *
      * @return string
      *
-     * @see Instagram\Helpers\RedirectLoginHelper::getLoginUrl()
+     * @see Elogram\Helpers\RedirectLoginHelper::getLoginUrl()
      *
      * @codeCoverageIgnore
      */
@@ -223,7 +223,7 @@ final class Instagram
      *
      * @return AccessToken
      *
-     * @see Instagram\Helpers\RedirectLoginHelper::getAccessToken()
+     * @see Elogram\Helpers\RedirectLoginHelper::getAccessToken()
      *
      * @codeCoverageIgnore
      */

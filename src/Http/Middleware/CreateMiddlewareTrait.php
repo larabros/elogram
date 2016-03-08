@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram\Http\Middleware;
+namespace Elogram\Http\Middleware;
 
 use Closure;
 use Noodlehaus\ConfigInterface;
@@ -8,9 +8,9 @@ use Noodlehaus\ConfigInterface;
 /**
  * A trait for creating and registering middleware on a handler stack.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 trait CreateMiddlewareTrait

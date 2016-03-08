@@ -1,17 +1,17 @@
 <?php
 
-namespace Instagram\Http\Middleware;
+namespace Elogram\Http\Middleware;
 
 use GuzzleHttp\Psr7\Uri;
-use Instagram\Instagram;
+use Elogram\Instagram;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * A middleware class for making secure requests to Instagram's API.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 final class SecureRequestMiddleware extends AbstractMiddleware

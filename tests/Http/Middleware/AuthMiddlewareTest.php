@@ -1,14 +1,14 @@
 <?php
 
-namespace Instagram\Tests\Http\Middleware;
+namespace Elogram\Tests\Http\Middleware;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use Instagram\Config;
-use Instagram\Http\Middleware\AuthMiddleware;
-use Instagram\Tests\TestCase;
+use Elogram\Config;
+use Elogram\Http\Middleware\AuthMiddleware;
+use Elogram\Tests\TestCase;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\RequestInterface;
 
@@ -33,10 +33,10 @@ class AuthMiddlewareTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Middleware\AuthMiddleware::create()
-     * @covers Instagram\Http\Middleware\AuthMiddleware::__construct()
-     * @covers Instagram\Http\Middleware\AuthMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::create()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::__construct()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::__invoke()
+     * @covers Elogram\Http\Middleware\AbstractMiddleware::__invoke()
      */
     public function testAddsContentTypeHeader()
     {
@@ -56,10 +56,10 @@ class AuthMiddlewareTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Middleware\AuthMiddleware::create()
-     * @covers Instagram\Http\Middleware\AuthMiddleware::__construct()
-     * @covers Instagram\Http\Middleware\AuthMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::create()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::__construct()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::__invoke()
+     * @covers Elogram\Http\Middleware\AbstractMiddleware::__invoke()
      */
     public function testAddsAccessToken()
     {
@@ -82,10 +82,10 @@ class AuthMiddlewareTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Http\Middleware\AuthMiddleware::create()
-     * @covers Instagram\Http\Middleware\AuthMiddleware::__construct()
-     * @covers Instagram\Http\Middleware\AuthMiddleware::__invoke()
-     * @covers Instagram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::create()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::__construct()
+     * @covers Elogram\Http\Middleware\AuthMiddleware::__invoke()
+     * @covers Elogram\Http\Middleware\AbstractMiddleware::__invoke()
      */
     public function testDoesNotAddAccessToken()
     {

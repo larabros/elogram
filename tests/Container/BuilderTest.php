@@ -1,14 +1,14 @@
 <?php
 
-namespace Instagram\Tests\Http;
+namespace Elogram\Tests\Http;
 
-use Instagram\Container\Builder;
-use Instagram\Helpers\RedirectLoginHelper;
-use Instagram\Http\Clients\AdapterInterface;
-use Instagram\Providers\EntityServiceProvider;
-use Instagram\Providers\CoreServiceProvider;
-use Instagram\Providers\GuzzleServiceProvider;
-use Instagram\Tests\TestCase;
+use Elogram\Container\Builder;
+use Elogram\Helpers\RedirectLoginHelper;
+use Elogram\Http\Clients\AdapterInterface;
+use Elogram\Providers\EntityServiceProvider;
+use Elogram\Providers\CoreServiceProvider;
+use Elogram\Providers\GuzzleServiceProvider;
+use Elogram\Tests\TestCase;
 use League\Container\ContainerInterface;
 use Mockery as m;
 
@@ -32,9 +32,9 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
+     * @covers Elogram\Container\Builder::__construct()
+     * @covers Elogram\Container\Builder::createContainer()
+     * @covers Elogram\Container\Builder::createConfig()
      */
     public function testGetContainerAfterInstantiation()
     {
@@ -42,10 +42,10 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Elogram\Container\Builder::__construct()
+     * @covers Elogram\Container\Builder::createContainer()
+     * @covers Elogram\Container\Builder::createConfig()
+     * @covers Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterProvider()
     {
@@ -58,11 +58,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProviders()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Elogram\Container\Builder::__construct()
+     * @covers Elogram\Container\Builder::createContainer()
+     * @covers Elogram\Container\Builder::createConfig()
+     * @covers Elogram\Container\Builder::registerProviders()
+     * @covers Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterProviders()
     {
@@ -86,11 +86,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProviders()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Elogram\Container\Builder::__construct()
+     * @covers Elogram\Container\Builder::createContainer()
+     * @covers Elogram\Container\Builder::createConfig()
+     * @covers Elogram\Container\Builder::registerProviders()
+     * @covers Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterNoProviders()
     {
@@ -110,11 +110,11 @@ class BuilderTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Container\Builder::__construct()
-     * @covers Instagram\Container\Builder::createContainer()
-     * @covers Instagram\Container\Builder::createConfig()
-     * @covers Instagram\Container\Builder::registerProviders()
-     * @covers Instagram\Container\Builder::registerProvider()
+     * @covers Elogram\Container\Builder::__construct()
+     * @covers Elogram\Container\Builder::createContainer()
+     * @covers Elogram\Container\Builder::createConfig()
+     * @covers Elogram\Container\Builder::registerProviders()
+     * @covers Elogram\Container\Builder::registerProvider()
      */
     public function testRegisterDefaultProviders()
     {

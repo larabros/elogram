@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Entities;
+namespace Elogram\Entities;
 
-use Instagram\Http\Response;
+use Elogram\Http\Response;
 
 /**
  * User
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class User extends AbstractEntity

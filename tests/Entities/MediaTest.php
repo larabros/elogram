@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Elogram\Tests\Entities;
 
-use Instagram\Entities\Media;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Elogram\Entities\Media;
+use Elogram\Http\Clients\MockAdapter;
+use Elogram\Tests\TestCase;
 
 class MediaTest extends TestCase
 {
@@ -22,8 +22,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Media::__construct()
-     * @covers Instagram\Entities\Media::get()
+     * @covers Elogram\Entities\Media::__construct()
+     * @covers Elogram\Entities\Media::get()
      */
     public function testGet()
     {
@@ -33,8 +33,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Media::__construct()
-     * @covers Instagram\Entities\Media::getByShortcode()
+     * @covers Elogram\Entities\Media::__construct()
+     * @covers Elogram\Entities\Media::getByShortcode()
      */
     public function testGetByShortcode()
     {
@@ -44,8 +44,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\Media::__construct()
-     * @covers Instagram\Entities\Media::search()
+     * @covers Elogram\Entities\Media::__construct()
+     * @covers Elogram\Entities\Media::search()
      */
     public function testSearch()
     {

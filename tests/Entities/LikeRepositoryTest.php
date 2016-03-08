@@ -1,10 +1,10 @@
 <?php
 
-namespace Instagram\Tests\Entities;
+namespace Elogram\Tests\Entities;
 
-use Instagram\Entities\LikeRepository;
-use Instagram\Http\Clients\MockAdapter;
-use Instagram\Tests\TestCase;
+use Elogram\Entities\LikeRepository;
+use Elogram\Http\Clients\MockAdapter;
+use Elogram\Tests\TestCase;
 
 class LikeRepositoryTest extends TestCase
 {
@@ -22,8 +22,8 @@ class LikeRepositoryTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\LikeRepository::__construct()
-     * @covers Instagram\Entities\LikeRepository::get()
+     * @covers Elogram\Entities\LikeRepository::__construct()
+     * @covers Elogram\Entities\LikeRepository::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class LikeRepositoryTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\LikeRepository::__construct()
-     * @covers Instagram\Entities\LikeRepository::like()
+     * @covers Elogram\Entities\LikeRepository::__construct()
+     * @covers Elogram\Entities\LikeRepository::like()
      */
     public function testCreate()
     {
@@ -42,8 +42,8 @@ class LikeRepositoryTest extends TestCase
     }
 
     /**
-     * @covers Instagram\Entities\LikeRepository::__construct()
-     * @covers Instagram\Entities\LikeRepository::unlike()
+     * @covers Elogram\Entities\LikeRepository::__construct()
+     * @covers Elogram\Entities\LikeRepository::unlike()
      */
     public function testDelete()
     {

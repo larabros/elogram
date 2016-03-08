@@ -1,15 +1,15 @@
 <?php
 
-namespace Instagram\Entities;
+namespace Elogram\Entities;
 
-use Instagram\Http\Clients\AdapterInterface;
+use Elogram\Http\Clients\AdapterInterface;
 
 /**
  * AbstractEntity
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 abstract class AbstractEntity

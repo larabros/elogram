@@ -1,18 +1,18 @@
 <?php
 
-namespace Instagram\Http\Clients;
+namespace Elogram\Http\Clients;
 
 use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
-use Instagram\Http\Response;
+use Elogram\Http\Response;
 
 /**
  * A HTTP client adapter for Guzzle.
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 final class GuzzleAdapter extends AbstractAdapter

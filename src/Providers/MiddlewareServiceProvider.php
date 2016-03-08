@@ -1,6 +1,6 @@
 <?php
 
-namespace Instagram\Providers;
+namespace Elogram\Providers;
 
 use GuzzleHttp\HandlerStack;
 use League\Container\ServiceProvider\AbstractServiceProvider;
@@ -9,9 +9,9 @@ use League\OAuth2\Client\Token\AccessToken;
 /**
  * MiddlewareServiceProvider
  *
- * @package    Instagram
+ * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
- * @link       https://github.com/hassankhan/instagram-sdk
+ * @link       https://github.com/hassankhan/elogram-sdk
  * @license    MIT
  */
 class MiddlewareServiceProvider extends AbstractServiceProvider

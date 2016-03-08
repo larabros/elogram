@@ -39,7 +39,7 @@ Users
         "last_name": "Krieger!!"
     }
 
-:param id: The ID of a user. Default is ``self``.
+    :param id: The ID of a user. Default is ``self``.
 
 ``get($id = 'self')``
 ---------------------

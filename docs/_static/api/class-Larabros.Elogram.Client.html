@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Larabros\Elogram\Client</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Larabros.html">
+						Larabros<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Larabros.Elogram.html">
+						Elogram<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Larabros.Elogram.Container.html">
+						Container					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Entities.html">
+						Entities					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Helpers.html">
+						Helpers					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Larabros.Elogram.Http.Clients.html">
+						Clients					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Http.Middleware.html">
+						Middleware					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Http.Sessions.html">
+						Sessions					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Larabros.Elogram.Providers.html">
+						Providers					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Larabros.Elogram.Client.html">Client</a></li>
+				<li><a href="class-Larabros.Elogram.Config.html">Config</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Larabros.Elogram.html" title="Summary of Larabros\Elogram"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Client</h1>
+
+
+	<div class="description">
+	<p>Elogram client class.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		<b>Final</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Larabros.html">Larabros</a>\<a href="namespace-Larabros.Elogram.html">Elogram</a><br>
+		<b>Package:</b> Elogram<br>
+
+				<b>License:</b>
+				<a href="MIT">MIT</a><br>
+				<b>Author:</b>
+				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
+				<b>Link:</b>
+				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Client.html#20-260" title="Go to source code">Client.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#42-64" title="Go to source code">__construct</a>( <span>string <var>$clientId</var></span>, <span>string <var>$clientSecret</var></span>, <span>string|null <var>$accessToken</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$redirectUrl</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = [] </span> )</code>
+
+		<div class="description short">
+			<p>Create an instance of <code>Client</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create an instance of <code>Client</code>.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$clientId</var></dt>
+					<dd></dd>
+					<dt><var>$clientSecret</var></dt>
+					<dd></dd>
+					<dt><var>$accessToken</var></dt>
+					<dd></dd>
+					<dt><var>$redirectUrl</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="buildContainer" id="_buildContainer">
+
+		<td class="attributes"><code>
+			 protected 
+
+			League\Container\ContainerInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_buildContainer">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#66-77" title="Go to source code">buildContainer</a>( <span>array <var>$options</var></span> )</code>
+
+		<div class="description short">
+			<p>Takes the constructor parameters and uses them to instantiate and build a
+<code>Container</code> object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Takes the constructor parameters and uses them to instantiate and build a
+<code>Container</code> object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					League\Container\ContainerInterface
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="users" id="_users">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Entities.User.html">Larabros\Elogram\Entities\User</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_users">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#85-93" title="Go to source code">users</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the current instance of <code>User</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current instance of <code>User</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Entities.User.html">Larabros\Elogram\Entities\User</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="media" id="_media">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Entities.Media.html">Larabros\Elogram\Entities\Media</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_media">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#95-103" title="Go to source code">media</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the current instance of <code>Media</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current instance of <code>Media</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Entities.Media.html">Larabros\Elogram\Entities\Media</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="comments" id="_comments">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Entities.Comment.html">Larabros\Elogram\Entities\Comment</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_comments">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#105-113" title="Go to source code">comments</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the current instance of <code>Comment</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current instance of <code>Comment</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Entities.Comment.html">Larabros\Elogram\Entities\Comment</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="likes" id="_likes">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Entities.LikeRepository.html">Larabros\Elogram\Entities\LikeRepository</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_likes">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#115-123" title="Go to source code">likes</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the current instance of <code>LikeRepository</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current instance of <code>LikeRepository</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Entities.LikeRepository.html">Larabros\Elogram\Entities\LikeRepository</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="tags" id="_tags">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Entities.Tag.html">Larabros\Elogram\Entities\Tag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_tags">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#125-133" title="Go to source code">tags</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the current instance of <code>Tag</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current instance of <code>Tag</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Entities.Tag.html">Larabros\Elogram\Entities\Tag</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="locations" id="_locations">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Entities.Location.html">Larabros\Elogram\Entities\Location</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_locations">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#135-143" title="Go to source code">locations</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the current instance of <code>Location</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the current instance of <code>Location</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Entities.Location.html">Larabros\Elogram\Entities\Location</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="request" id="_request">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_request">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#151-168" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Sends a request and returns a <code>Response</code> instance.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sends a request and returns a <code>Response</code> instance.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd></dd>
+					<dt><var>$uri</var></dt>
+					<dd></dd>
+					<dt><var>$parameters</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code>
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						Elogram\Http\Clients\AdapterInterface::request()<br>
+				</div>
+				<h4>Codecoverageignore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="paginate" id="_paginate">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_paginate">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#170-186" title="Go to source code">paginate</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span>, <span>integer|null <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Paginates a <code>Response</code> and returns a new <code>Response</code> instance.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Paginates a <code>Response</code> and returns a new <code>Response</code> instance.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$response</var></dt>
+					<dd></dd>
+					<dt><var>$limit</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code>
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						Elogram\Http\Clients\AdapterInterface::paginate()<br>
+				</div>
+				<h4>Codecoverageignore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLoginUrl" id="_getLoginUrl">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLoginUrl">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#194-209" title="Go to source code">getLoginUrl</a>( <span>array <var>$options</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Gets the login URL.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the login URL.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						Elogram\Helpers\RedirectLoginHelper::getLoginUrl()<br>
+				</div>
+				<h4>Codecoverageignore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAccessToken" id="_getAccessToken">
+
+		<td class="attributes"><code>
+			 public 
+
+			League\OAuth2\Client\Token\AccessToken
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAccessToken">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#211-229" title="Go to source code">getAccessToken</a>( <span>string <var>$code</var></span>, <span>string <var>$grant</var> = <span class="php-quote">'authorization_code'</span></span> )</code>
+
+		<div class="description short">
+			<p>Sets and returns the access token.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sets and returns the access token.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd></dd>
+					<dt><var>$grant</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					League\OAuth2\Client\Token\AccessToken
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						Elogram\Helpers\RedirectLoginHelper::getAccessToken()<br>
+				</div>
+				<h4>Codecoverageignore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setAccessToken" id="_setAccessToken">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setAccessToken">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#231-245" title="Go to source code">setAccessToken</a>( <span>League\OAuth2\Client\Token\AccessToken <var>$token</var></span> )</code>
+
+		<div class="description short">
+			<p>Sets an access token and adds it to <code>AuthMiddleware</code> so the application
+can make authenticated requests.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sets an access token and adds it to <code>AuthMiddleware</code> so the application
+can make authenticated requests.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$token</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+				<h4>Codecoverageignore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="secureRequests" id="_secureRequests">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_secureRequests">#</a>
+		<code><a href="source-class-Larabros.Elogram.Client.html#247-259" title="Go to source code">secureRequests</a>( <span>boolean <var>$enable</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			<p>Enables or disables secure requests by adding or removing
+<code>SecureRequestMiddleware</code>.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Enables or disables secure requests by adding or removing
+<code>SecureRequestMiddleware</code>.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$enable</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+				<h4>Codecoverageignore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="API_VERSION" id="API_VERSION">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Larabros.Elogram.Client.html#30-33" title="Go to source code"><b>API_VERSION</b></a>
+			</code>
+
+			<div class="description short">
+				<p>The current version of the API.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The current version of the API.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#API_VERSION" class="anchor">#</a>
+				<code><span class="php-num">1</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="container" id="$container">
+		<td class="attributes"><code>
+			protected  
+			League\Container\ContainerInterface
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Larabros.Elogram.Client.html#35-40" title="Go to source code"><var>$container</var></a>
+
+			<div class="description short">
+				<p>The application IoC container.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The application IoC container.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$container" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

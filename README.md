@@ -17,7 +17,7 @@ An "eloquent" way of accessing Instagram's API, for PHP 5.5+.
 
 Documentation for this project is available at the [ReadTheDocs page][link-docs].
 
-The API reference is available at http://elogram.readthedocs.org/en/latest/_static/api.
+The API reference documentation is available at http://elogram.rtfd.org/en/stable/_static/api.
 
 ## Change log
 
@@ -46,7 +46,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/larabros/elogram.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/larabros/elogram.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/larabros/elogram.svg?style=flat-square
-[ico-docs]: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square
+[ico-docs]: https://img.shields.io/badge/docs-stable-brightgreen.svg?style=flat-square
 [ico-phpeye]: http://php-eye.com/badge/larabros/elogram/tested.svg?style=flat-square
 [ico-gitter]: https://img.shields.io/gitter/room/larabros/elogram.svg?style=flat-square
 
@@ -55,7 +55,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-scrutinizer]: https://scrutinizer-ci.com/g/larabros/elogram/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/larabros/elogram
 [link-downloads]: https://packagist.org/packages/larabros/elogram
-[link-docs]: http://elogram.readthedocs.org/en/latest
+[link-docs]: http://elogram.readthedocs.org/en/stable
 [link-phpeye]: http://php-eye.com/package/larabros/elogram
 [link-gitter]: https://gitter.im/larabros/elogram
 [link-author]: https://github.com/hassankhan

@@ -93,8 +93,8 @@ Documentation
 Documentation for this project is available at
 http://elogram.readthedocs.org.
 
-The API reference is available at
-http://elogram.readthedocs.org/en/latest/_static/api.
+The API reference documentation is available at
+http://elogram.rtfd.org/en/stable/_static/api.
 
 Guidelines
 ----------

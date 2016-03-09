@@ -18,7 +18,7 @@ class LikeRepository extends AbstractEntity
     /**
      * Get a list of likes on a media object.
      *
-     * @param string $mediaId  The ID of the media object
+     * @param int $mediaId  The ID of the media object
      *
      * @return Response
      *
@@ -32,7 +32,7 @@ class LikeRepository extends AbstractEntity
     /**
      * Set a like on a media object by the currently authenticated user.
      *
-     * @param string $mediaId  The ID of the media object
+     * @param int $mediaId  The ID of the media object
      *
      * @return Response
      *
@@ -46,7 +46,7 @@ class LikeRepository extends AbstractEntity
     /**
      * Remove a like on a media object by the currently authenticated user.
      *
-     * @param string $mediaId  The ID of the media object
+     * @param int $mediaId  The ID of the media object
      *
      * @return Response
      *

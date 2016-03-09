@@ -25,7 +25,7 @@ final class GuzzleAdapter extends AbstractAdapter
     protected $guzzle;
 
     /**
-     * Creates a new instance of `GuzzleAdapter`.
+     * Creates a new instance of :php:class:`GuzzleAdapter`.
      *
      * @param ClientInterface $guzzle
      */

@@ -6,7 +6,7 @@ use Closure;
 use Noodlehaus\ConfigInterface;
 
 /**
- * A trait for creating and registering middleware on a handler stack.
+ * A trait for creating callables for registering middleware on a handler stack.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>

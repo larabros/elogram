@@ -15,10 +15,9 @@ use Larabros\Elogram\Http\Response;
 class User extends AbstractEntity
 {
     /**
-     * Retrieves user information for a user. If no `$id` is provided,then the
-     * ID of the owner of the access token is used instead.
+     * Get information about a user.
      *
-     * @param string $id  The ID of the user
+     * @param string $id  The ID of the user. Default is ``self``
      *
      * @return Response
      *
@@ -30,10 +29,9 @@ class User extends AbstractEntity
     }
 
     /**
-     * Retrieves recent media for a user. If no `$id` is provided, then the ID
-     * of the owner of the access token is used instead.
+     * Get the most recent media published by a user.
      *
-     * @param string   $id     The ID of the user
+     * @param string   $id     The ID of the user. Default is ``self``
      * @param int|null $count  Count of media to return
      * @param int|null $minId  Return media later than this min_id
      * @param int|null $maxId  Return media earlier than this max_id
@@ -58,8 +56,7 @@ class User extends AbstractEntity
     }
 
     /**
-     * Retrieves all media liked by this user. This method only works for the
-     * owner of the access token being used to make the request.
+     * Get the list of recent media liked by the owner of the access token.
      *
      * @param int|null $count      Count of media to return
      * @param int|null $maxLikeId  Return media liked before this id
@@ -83,7 +80,7 @@ class User extends AbstractEntity
     }
 
     /**
-     * Searches for any users.
+     * Get a list of users matching the query.
      *
      * @param  string   $query  A query string to search for
      * @param  int|null $count  Number of users to return
@@ -107,8 +104,8 @@ class User extends AbstractEntity
     }
 
     /**
-     * Searches for and returns a single user's information for a user . If no
-     * results are found, `null` is returned.
+     * Searches for and returns a single user's information. If no results
+     * are found, ``null`` is returned.
      *
      * @param string $username  A username to search for
      *
@@ -126,8 +123,7 @@ class User extends AbstractEntity
     }
 
     /**
-     * Returns a list of users this user follows. This method only works for the
-     * owner of the access token being used to make the request.
+     * Get the list of users this user follows.
      *
      * @return Response
      *
@@ -139,8 +135,7 @@ class User extends AbstractEntity
     }
 
     /**
-     * Returns a list of users this user is followed by. This method only works
-     * for the owner of the access token being used to make the request.
+     * Get the list of users this user is followed by.
      *
      * @return Response
      *
@@ -152,9 +147,7 @@ class User extends AbstractEntity
     }
 
     /**
-     * Returns a list of users who have requested this user's permission to
-     * follow. This method only works for the owner of the access token being
-     * used to make the request.
+     * List the users who have requested this user's permission to follow.
      *
      * @return Response
      *
@@ -169,36 +162,31 @@ class User extends AbstractEntity
      * Get information about the relationship of the owner of the access token
      * to another user.
      *
-     * @param string $id
+     * @param string $targetUserId  The ID of the target user
      *
      * @return Response
      *
      * @link https://www.instagram.com/developer/endpoints/relationships/#get_relationship
      */
-    public function getRelationship($id)
+    public function getRelationship($targetUserId)
     {
-        return $this->client->request('GET', "users/$id/relationship");
+        return $this->client->request('GET', "users/$targetUserId/relationship");
     }
 
     /**
      * Modify the relationship between the owner of the access token and the
-     * target user with `$id`. `$action` can be one of the following:
+     * target user.
      *
-     * - 'follow'
-     * - 'unfollow'
-     * - 'approve'
-     * - 'ignore'
-     *
-     * @param string $id
-     * @param string $action
+     * @param string $targetUserId  The ID of the target user
+     * @param string $action        Can be one of:  ``follow | unfollow | approve | ignore``
      *
      * @return Response
      *
      * @link https://www.instagram.com/developer/endpoints/relationships/#post_relationship
      */
-    public function setRelationship($id, $action)
+    public function setRelationship($targetUserId, $action)
     {
         $params = ['form_params' => ['action' => $action]];
-        return $this->client->request('POST', "users/$id/relationship", $params);
+        return $this->client->request('POST', "users/$targetUserId/relationship", $params);
     }
 }

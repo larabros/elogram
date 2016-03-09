@@ -18,7 +18,7 @@ class Comment extends AbstractEntity
     /**
      * Get a list of recent comments on a media object.
      *
-     * @param string $mediaId  The ID of the media object
+     * @param int $mediaId  The ID of the media object
      *
      * @return Response
      *
@@ -37,7 +37,7 @@ class Comment extends AbstractEntity
      * - The comment cannot contain more than 1 URL.
      * - The comment cannot consist of all capital letters.
      *
-     * @param string $mediaId  The ID of the media object
+     * @param int    $mediaId  The ID of the media object
      * @param string $text     Text to post as a comment on the media object as specified by `$mediaId`
      *
      * @return Response
@@ -51,9 +51,10 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * Remove a comment either on a media object with `$id`.
+     * Remove a comment either on the owner of the access token's media object
+     * or authored by the owner of the access token.
      *
-     * @param string $mediaId    The ID of the media object
+     * @param int    $mediaId    The ID of the media object
      * @param string $commentId  The ID of the comment
      *
      * @return Response

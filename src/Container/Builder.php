@@ -14,7 +14,7 @@ use League\Container\ContainerInterface;
 use League\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
- * Builds `Container` objects for use by the application.
+ * Builds ``Container`` objects for use by the application.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -38,11 +38,10 @@ class Builder implements ContainerAwareInterface
     ];
 
     /**
-     * Creates a new instance of `Builder`. If `$registerProviders` is set to
-     * `true`, then the default providers are registered onto the container.
+     * Creates a new instance of :php:class:`Builder`.
      *
      * @param array $config
-     * @param bool  $registerProviders
+     * @param bool  $registerProviders  If ``false``, then the default providers are not added to the container.
      */
     public function __construct(array $config, $registerProviders = true)
     {
@@ -55,7 +54,7 @@ class Builder implements ContainerAwareInterface
     }
 
     /**
-     * Creates a `Config` object from raw parameters.
+     * Creates a :php:class:`Config` object from raw parameters.
      *
      * @param array $config
      *
@@ -95,8 +94,8 @@ class Builder implements ContainerAwareInterface
     }
 
     /**
-     * Creates and returns a new instance of `Container` after adding `$config`
-     * to it.
+     * Creates and returns a new instance of ``Container`` after adding
+     * ``$config`` to it.
      *
      * @param array $config
      *

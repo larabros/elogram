@@ -28,7 +28,7 @@ class RedirectLoginHelper
     protected $store;
 
     /**
-     * Creates an instance of `RedirectLoginHelper`.
+     * Creates an instance of :php:class:`RedirectLoginHelper`.
      *
      * @param InstagramProvider  $provider
      * @param DataStoreInterface $store
@@ -40,7 +40,7 @@ class RedirectLoginHelper
     }
 
     /**
-     * Sets CSRF nonce and returns the login URL.
+     * Sets CSRF value and returns the login URL.
      *
      * @param array $options
      *

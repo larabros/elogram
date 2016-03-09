@@ -9,11 +9,8 @@ use Larabros\Elogram\Http\Response;
 interface AdapterInterface
 {
     /**
-     * Sends a HTTP request using `$method` to the given `$uri`, with
-     * `$parameters` if provided.
-     *
-     * Use this method as a convenient way of making requests with built-in
-     * exception-handling.
+     * Sends a HTTP request. Use this method as a convenient way of making
+     * requests with built-in exception-handling.
      *
      * @param  string $method
      * @param  string $uri
@@ -27,11 +24,10 @@ interface AdapterInterface
     public function request($method, $uri, array $parameters = []);
 
     /**
-     * Paginates a `Response`. The pagination limit is set by `$limit` -
-     * setting it to `null` will paginate as far as possible.
+     * Paginates a :php:class:`Response`.
      *
      * @param Response  $response
-     * @param int|null  $limit
+     * @param int|null  $limit     If not set, the client will paginate as far as possible
      *
      * @return Response
      */

@@ -3,7 +3,7 @@
 namespace Larabros\Elogram\Http\Sessions;
 
 /**
- * Defines an interface for getting and setting values on the session.
+ * Defines an interface for getting and setting values from a data store.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -13,7 +13,7 @@ namespace Larabros\Elogram\Http\Sessions;
 interface DataStoreInterface
 {
     /**
-     * Get a value from a persistent data store.
+     * Get a value from a data store.
      *
      * @param string $key
      *
@@ -22,7 +22,7 @@ interface DataStoreInterface
     public function get($key);
 
     /**
-     * Set a value in the persistent data store.
+     * Set a value in the data store.
      *
      * @param string $key
      * @param mixed  $value

@@ -20,7 +20,7 @@ final class MockAdapter extends AbstractAdapter
     protected $fixturesPath;
 
     /**
-     * Creates a new instance of `MockAdapter`.
+     * Creates a new instance of :php:class:`MockAdapter`.
      *
      * @param string $fixturesPath
      */

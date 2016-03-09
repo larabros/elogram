@@ -40,7 +40,7 @@ final class Client
     protected $container;
 
     /**
-     * Create an instance of `Client`.
+     * Create an instance of :php:class:`Client`.
      *
      * @param string        $clientId
      * @param string        $clientSecret
@@ -65,7 +65,7 @@ final class Client
 
     /**
      * Takes the constructor parameters and uses them to instantiate and build a
-     * `Container` object.
+     * ``Container`` object.
      *
      * @param array       $options
      *
@@ -83,7 +83,7 @@ final class Client
      */
 
     /**
-     * Returns the current instance of `User`.
+     * Returns the current instance of :php:class:`User`.
      *
      * @return User
      */
@@ -93,7 +93,7 @@ final class Client
     }
 
     /**
-     * Returns the current instance of `Media`.
+     * Returns the current instance of :php:class:`Media`.
      *
      * @return Media
      */
@@ -103,7 +103,7 @@ final class Client
     }
 
     /**
-     * Returns the current instance of `Comment`.
+     * Returns the current instance of :php:class:`Comment`.
      *
      * @return Comment
      */
@@ -113,7 +113,7 @@ final class Client
     }
 
     /**
-     * Returns the current instance of `LikeRepository`.
+     * Returns the current instance of :php:class:`LikeRepository`.
      *
      * @return LikeRepository
      */
@@ -123,7 +123,7 @@ final class Client
     }
 
     /**
-     * Returns the current instance of `Tag`.
+     * Returns the current instance of :php:class:`Tag`.
      *
      * @return Tag
      */
@@ -133,7 +133,7 @@ final class Client
     }
 
     /**
-     * Returns the current instance of `Location`.
+     * Returns the current instance of :php:class:`Location`.
      *
      * @return Location
      */
@@ -149,7 +149,7 @@ final class Client
      */
 
     /**
-     * Sends a request and returns a `Response` instance.
+     * Sends a request.
      *
      * @param string $method
      * @param string $uri
@@ -168,7 +168,7 @@ final class Client
     }
 
     /**
-     * Paginates a `Response` and returns a new `Response` instance.
+     * Paginates a :php:class:`Response`.
      *
      * @param Response  $response
      * @param int|null  $limit

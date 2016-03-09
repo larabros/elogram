@@ -18,7 +18,7 @@ class Location extends AbstractEntity
     /**
      * Get information about a location.
      *
-     * @param string $id  ID of the location
+     * @param string $id  The ID of the location
      *
      * @return Response
      *
@@ -32,7 +32,7 @@ class Location extends AbstractEntity
     /**
      * Get a list of recent media objects from a given location.
      *
-     * @param string      $id     ID of the location
+     * @param string      $id     The ID of the location
      * @param string|null $minId  Return media before this min_id
      * @param string|null $maxId  Return media after this max_id
      *
@@ -52,9 +52,9 @@ class Location extends AbstractEntity
     /**
      * Search for a location by geographic coordinate.
      *
-     * @param int $latitude   Latitude of the center search coordinate. If used, lng is required
-     * @param int $longitude  Longitude of the center search coordinate. If used, lat is required
-     * @param int $distance   The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
+     * @param int $latitude   Latitude of the center search coordinate. If used, ``$longitude`` is required
+     * @param int $longitude  Longitude of the center search coordinate. If used, ``$latitude`` is required
+     * @param int $distance   The distance in metres. Default is ``1000``m, max distance is 5km
      *
      * @return Response
      *
@@ -72,7 +72,7 @@ class Location extends AbstractEntity
     }
 
     /**
-     * Search for a location by geographic coordinate.
+     * Search for a location by Facebook Places ID.
      *
      * @param int $facebookPlacesId  A Facebook Places ID
      *
@@ -87,7 +87,7 @@ class Location extends AbstractEntity
     }
 
     /**
-     * Search for a location by geographic coordinate.
+     * Search for a location by Foursquare location ID.
      *
      * @param string $foursquareId  A Foursquare V2 API location ID
      *

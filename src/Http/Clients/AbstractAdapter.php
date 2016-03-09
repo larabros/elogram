@@ -35,12 +35,12 @@ abstract class AbstractAdapter implements AdapterInterface
         $next   = $this->request('GET', $response->nextUrl());
         $merged = $response->merge($next);
 
-        // If `$limit` is not set then call itself indefinitely
+        // If ``$limit`` is not set then call itself indefinitely
         if ($limit === null) {
             return $this->paginate($merged);
         }
 
-        // If `$limit` is set, call itself while decrementing it each time
+        // If ``$limit`` is set, call itself while decrementing it each time
         $limit--;
         return $this->paginate($merged, $limit);
     }

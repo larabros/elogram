@@ -5,7 +5,7 @@ namespace Larabros\Elogram\Http\Sessions;
 use Larabros\Elogram\Exceptions\Exception;
 
 /**
- * An implementation of `DataStoreInterface` that uses PHP's native sessions.
+ * An implementation of `DataStoreInterface` that uses native sessions.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -20,7 +20,7 @@ class NativeSessionStore implements DataStoreInterface
     protected $sessionPrefix = 'IG_';
 
     /**
-     * Creates an instance of `NativeSessionStore`.
+     * Creates an instance of :php:class:`NativeSessionStore`.
      */
     public function __construct()
     {

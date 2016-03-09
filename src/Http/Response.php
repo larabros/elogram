@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Larabros\Elogram\Exceptions\IncompatibleResponseException;
 
 /**
- * Represents a response returned from Instagram's API.
+ * Represents a response returned from the API.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -36,7 +36,7 @@ class Response
     protected $pagination;
 
     /**
-     * Creates a new instance of `Response`.
+     * Creates a new instance of :php:class:`Response`.
      *
      * @param array $meta
      * @param array $data
@@ -58,7 +58,8 @@ class Response
     }
 
     /**
-     * Creates a new instance of `Response` from a JSON-decoded response body.
+     * Creates a new instance of :php:class:`Response` from a JSON-decoded
+     * response body.
      *
      * @param array $response
      *
@@ -74,7 +75,7 @@ class Response
     }
 
     /**
-     * Returns JSON-decoded raw response.
+     * Gets the JSON-decoded raw response.
      *
      * @return array
      */
@@ -84,7 +85,8 @@ class Response
     }
 
     /**
-     * Returns `data` from the response.
+     * Gets the response body. If the response contains multiple records,
+     * a ``Collection`` is returned.
      *
      * @return array|Collection
      */
@@ -96,8 +98,8 @@ class Response
     }
 
     /**
-     * Merges the contents of this response with `$response` and returns a new
-     * `Response` instance.
+     * Merges the contents of this response with ``$response`` and returns a new
+     * :php:class:`Response` instance.
      *
      * @param Response $response
      *
@@ -166,8 +168,8 @@ class Response
     }
 
     /**
-     * If the response has a `pagination` field with a `next_url` key, then
-     * returns `true`, otherwise `false`.
+     * If the response has a ``pagination`` field with a ``next_url`` key, then
+     * returns ``true``, otherwise ``false``.
      *
      * @return bool
      */
@@ -177,7 +179,7 @@ class Response
     }
 
     /**
-     * Returns the next URL, if available, otherwise `null`.
+     * Returns the next URL, if available, otherwise ``null``.
      *
      * @return string|null
      */

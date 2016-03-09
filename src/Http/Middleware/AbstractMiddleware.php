@@ -30,7 +30,7 @@ abstract class AbstractMiddleware implements MiddlewareInterface
     protected $config;
 
     /**
-     * Creates an instance of `AbstractMiddleware`.
+     * Creates an instance of :php:class:`AbstractMiddleware`.
      *
      * @param callable        $nextHandler
      * @param ConfigInterface $config

@@ -51,7 +51,7 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * Search for tags.
+     * Search for tags by name.
      *
      * @param $tag  Name of the tag
      *

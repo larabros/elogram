@@ -15,9 +15,9 @@ use Larabros\Elogram\Http\Response;
 class Media extends AbstractEntity
 {
     /**
-     * Retrieves information for a media object with `$id`.
+     * Get information about a media object.
      *
-     * @param string $id
+     * @param string $id  The ID of the media object
      *
      * @return Response
      *
@@ -29,9 +29,9 @@ class Media extends AbstractEntity
     }
 
     /**
-     * Retrieves information for a media object with `$shortcode`.
+     * This method returns the same response as :php:meth:`Media::get`
      *
-     * @param string $shortcode
+     * @param string $shortcode  The shortcode of the media object
      *
      * @return Response
      *
@@ -43,13 +43,11 @@ class Media extends AbstractEntity
     }
 
     /**
-     * Searches for recent media in a given area with `$latitude` and $longitude`.
-     * Optionally, `$minTimestamp`, $maxTimestamp` and `$distance` can also be
-     * provided to limit the search.
+     * Search for recent media in a given area.
      *
-     * @param int $latitude   Latitude of the center search coordinate. If used, lng is required
-     * @param int $longitude  Longitude of the center search coordinate. If used, lat is required
-     * @param int $distance   The distance in metres. Default is 1000m (distance=1000), max distance is 5km.
+     * @param int $latitude   Latitude of the center search coordinate. If used, ``$longitude`` is required
+     * @param int $longitude  Longitude of the center search coordinate. If used, ``$latitude`` is required
+     * @param int $distance   The distance in metres. Default is ``1000``m, max distance is 5km.
      *
      * @return Response
      *

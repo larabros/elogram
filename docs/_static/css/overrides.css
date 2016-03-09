@@ -17,3 +17,7 @@
     background: inherit !important;
     border-top: none !important;
 }
+
+.wy-nav-content {
+    max-width: 1200px;
+}

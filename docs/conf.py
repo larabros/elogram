@@ -7,7 +7,10 @@ lexers['php'] = PhpLexer(startinline=True, linenos=1)
 lexers['php-annotations'] = PhpLexer(startinline=True, linenos=1)
 primary_domain = 'php'
 
-extensions = []
+extensions = [
+    'sphinxcontrib.phpdomain',
+    'sphinx_rtd_theme',
+]
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
@@ -21,16 +24,9 @@ exclude_patterns = ['_build']
 html_static_path = ['_static']
 
 ##### ReadTheDocs theme
-
 import sphinx_rtd_theme
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme = "sphinx_rtd_theme"
-
-# Register the theme as an extension to generate a sitemap.xml
-extensions = [
-    "sphinxcontrib.httpdomain",
-    "sphinx_rtd_theme",
-]
 
 # Guzzle theme options (see theme.conf for more information)
 html_theme_options = {

@@ -18,6 +18,6 @@
     border-top: none !important;
 }
 
-.wy-nav-content {
+.wy-body-for-nav .wy-nav-content {
     max-width: 1200px;
 }

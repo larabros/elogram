@@ -22,7 +22,7 @@ Users
     .. code-block:: php
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
-        $response = $client->comments()->get('1109588739516340817_268047373');
+        $response = $client->users()->get(4);
         echo json_encode($response);
 
     **Example response:**
@@ -43,6 +43,19 @@ Users
     :param $maxId: Return media earlier than this max_id
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->getMedia('268047373');
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_media_recent.json
+        :language: php
+
 .. php:method:: getLikedMedia($count = null, $maxLikeId = null)
 
     Get the list of recent media liked by the owner of the access token.
@@ -53,6 +66,19 @@ Users
     :param $maxLikeId: Return media liked before this id
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->getLikedMedia();
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_media_liked.json
+        :language: php
+
 .. php:method:: search($query, $count = null)
 
     Get a list of users matching the query.
@@ -60,6 +86,19 @@ Users
     :param $query:
     :param $count:
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->search('skrawg');
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_search.json
+        :language: php
 
 .. php:method:: find($username)
 
@@ -69,6 +108,32 @@ Users
     :type $username: string
     :param $username: A username to search for
     :returns: Response|null
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->find('mikeyk');
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. code-block:: json
+
+        {
+            "meta":
+            {
+                "code": 200
+            },
+            "data": {
+                "username": "mikeyk",
+                "first_name": "Mike",
+                "profile_picture": "http://distillery.s3.amazonaws.com/profiles/profile_4_75sq_1292324747_debug.jpg",
+                "id": "4",
+                "last_name": "Krieger!!"
+            }
+        }
 
 
 Relationships
@@ -80,17 +145,56 @@ Relationships
 
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->follows();
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_follows.json
+        :language: php
+
 .. php:method:: followedBy()
 
     Get the list of users this user is followed by.
 
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->followedBy();
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_followed_by.json
+        :language: php
+
 .. php:method:: requestedBy()
 
     List the users who have requested this user's permission to follow.
 
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->requestedBy();
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_requested_by.json
+        :language: php
 
 .. php:method:: getRelationship($targetUserId)
 
@@ -100,6 +204,19 @@ Relationships
     :type $targetUserId: string
     :param $targetUserId: The ID of the target user
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->getRelationship('268047373');
+        echo json_encode($response)
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users_relationship.json
+        :language: php
 
 .. php:method:: setRelationship($targetUserId, $action)
 
@@ -111,6 +228,19 @@ Relationships
     :type $action: string
     :param $action: Can be one of:  ``follow | unfollow | approve | ignore``
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->users()->setRelationship('268047373', 'follows');
+        echo json_encode($response)
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/post_users_relationship.json
+        :language: php
 
 
 Media
@@ -124,6 +254,19 @@ Media
     :param $id: The ID of the media object
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->media()->get('315');
+        echo json_encode($response)
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_media.json
+        :language: php
+
 .. php:method:: getByShortcode($shortcode)
 
     This method returns the same response as :php:meth:`Media::get`
@@ -131,6 +274,19 @@ Media
     :type $shortcode: string
     :param $shortcode: The shortcode of the media object
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->media()->getByShortcode('9mDRRppRE7');
+        echo json_encode($response)
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_media.json
+        :language: php
 
 .. php:method:: search($latitude, $longitude, $distance = 1000)
 
@@ -143,6 +299,19 @@ Media
     :type $distance: int
     :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km.
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->media()->search(37.78, -122.22);
+        echo json_encode($response)
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_media_search.json
+        :language: php
 
 
 Comments

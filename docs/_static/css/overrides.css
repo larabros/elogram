@@ -1,0 +1,19 @@
+/*.rst-content dl.class {
+    background: #e7f2fa;
+    border-top: solid 3px #6ab0de;
+}
+
+.rst-content dl.class dt {
+    background: inherit !important;
+    border-top: none !important;
+}*/
+
+.rst-content dl.method {
+    background: #e7f2fa;
+    border-left: solid 3px #6ab0de;
+}
+
+.rst-content dl.method dt {
+    background: inherit !important;
+    border-top: none !important;
+}

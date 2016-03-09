@@ -8,8 +8,7 @@ lexers['php-annotations'] = PhpLexer(startinline=True, linenos=1)
 primary_domain = 'php'
 
 extensions = [
-    'sphinxcontrib.phpdomain',
-    'sphinx_rtd_theme',
+    'sphinxcontrib.phpdomain'
 ]
 templates_path = ['_templates']
 source_suffix = '.rst'

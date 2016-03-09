@@ -17,6 +17,19 @@ Users
     :param $id: The ID of the user. Default is ``self``
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->comments()->get('1109588739516340817_268047373');
+        echo json_encode($response);
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_users.json
+        :language: php
+
 .. php:method:: getMedia($id = 'self', $count = null, $minId = null, $maxId = null)
 
     Get the most recent media published by a user.

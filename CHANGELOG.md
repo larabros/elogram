@@ -19,6 +19,15 @@ All notable changes to `elogram` will be documented in this file
 ### Security
 - Nothing
 
+## 1.1.0 - 2016-03-09
+
+### Fixed
+- Package moved to new namespace `Larabros` and renamed to Elogram
+- Renamed `Instagram` to `Client`
+
+### Removed
+- Removed `Instagram::getConfig()`.
+
 ## 1.0.4 - 2016-03-08
 
 ### Added

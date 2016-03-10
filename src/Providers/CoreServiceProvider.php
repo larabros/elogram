@@ -2,13 +2,14 @@
 
 namespace Larabros\Elogram\Providers;
 
+use GuzzleHttp\Client;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
 use Larabros\Elogram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Provider\Instagram;
 
 /**
- * CoreServiceProvider
+ * Adds core classes to container.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>

@@ -7,7 +7,7 @@ use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\OAuth2\Client\Token\AccessToken;
 
 /**
- * MiddlewareServiceProvider
+ * Adds any middleware to the project.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>

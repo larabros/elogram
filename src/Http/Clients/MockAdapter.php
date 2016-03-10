@@ -55,6 +55,13 @@ final class MockAdapter extends AbstractAdapter
         return $this->fixturesPath.$filename.$suffix.'.json';
     }
 
+    /**
+     * Removes any unwanted suffixes and values from a URL path.
+     *
+     * @param $uri
+     *
+     * @return string
+     */
     protected function cleanPath($uri)
     {
         $urlPath   = parse_url($uri, PHP_URL_PATH);

@@ -11,7 +11,7 @@ use League\Container\Argument\RawArgument;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 /**
- * GuzzleServiceProvider
+ * Adds Guzzle to the project.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -30,6 +30,7 @@ class GuzzleServiceProvider extends AbstractServiceProvider
      * @var array
      */
     protected $provides = [
+        Client::class,
         AdapterInterface::class,
     ];
 

@@ -16,6 +16,12 @@ first instantiate the ``Client`` class - the ``$clientId``, ``$clientSecret``
 and ``$redirectUrl`` **must** be the same as in the
 `Instagram Developer Panel <https://www.instagram.com/developer/clients/manage/>`_:
 
+.. important::
+
+    You should always store your client ID and secret as an environment
+    variable, or otherwise out of source control. An excellent tool to help
+    you do this is the package `vlucas/phpdotenv <https://github.com/vlucas/phpdotenv>`.
+
 
 Creating a Client
 -----------------

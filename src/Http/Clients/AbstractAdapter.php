@@ -5,7 +5,6 @@ namespace Larabros\Elogram\Http\Clients;
 use GuzzleHttp\Exception\ClientException;
 use Larabros\Elogram\Exceptions\Exception;
 use Larabros\Elogram\Http\Response;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * An abstract HTTP client adapter.
@@ -45,6 +44,17 @@ abstract class AbstractAdapter implements AdapterInterface
         return $this->paginate($merged, $limit);
     }
 
+    /**
+     * Parses a ``ClientException`` for any specific exceptions thrown by the
+     * API in the response body. If the response body is not in JSON format,
+     * an ``Exception`` is returned.
+     *
+     * Check a ``ClientException`` to see if it has an associated
+     * ``ResponseInterface`` object.
+     *
+     * @param ClientException $exception
+     * @return Exception
+     */
     protected function resolveExceptionClass(ClientException $exception)
     {
         $response  = $exception->getResponse()->getBody();

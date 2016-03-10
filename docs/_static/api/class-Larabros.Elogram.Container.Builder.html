@@ -165,7 +165,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Container.Builder.html#16-112" title="Go to source code">Container/Builder.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Container.Builder.html#16-111" title="Go to source code">Container/Builder.php</a>
 		<br>
 	</div>
 
@@ -185,16 +185,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#40-55" title="Go to source code">__construct</a>( <span>array <var>$config</var></span>, <span>boolean <var>$registerProviders</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#40-54" title="Go to source code">__construct</a>( <span>array <var>$config</var></span>, <span>boolean <var>$registerProviders</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
-			<p>Creates a new instance of <code>Builder</code>. If <code>$registerProviders</code> is set to
-<code>true</code>, then the default providers are registered onto the container.</p>
+			<p>Creates a new instance of :php:class:<code>Builder</code>.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a new instance of <code>Builder</code>. If <code>$registerProviders</code> is set to
-<code>true</code>, then the default providers are registered onto the container.</p>
+			<p>Creates a new instance of :php:class:<code>Builder</code>.</p>
 
 
 				<h4>Parameters</h4>
@@ -202,7 +200,7 @@
 					<dt><var>$config</var></dt>
 					<dd></dd>
 					<dt><var>$registerProviders</var></dt>
-					<dd></dd>
+					<dd>If <code>false</code>, then the default providers are not added to the container.</dd>
 				</dl></div>
 
 
@@ -224,14 +222,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createConfig">#</a>
-		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#57-67" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#56-66" title="Go to source code">createConfig</a>( <span>array <var>$config</var></span> )</code>
 
 		<div class="description short">
-			<p>Creates a <code>Config</code> object from raw parameters.</p>
+			<p>Creates a :php:class:<code>Config</code> object from raw parameters.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a <code>Config</code> object from raw parameters.</p>
+			<p>Creates a :php:class:<code>Config</code> object from raw parameters.</p>
 
 
 				<h4>Parameters</h4>
@@ -263,7 +261,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_registerProviders">#</a>
-		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#69-82" title="Go to source code">registerProviders</a>( <span>array <var>$providers</var> = []</span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#68-81" title="Go to source code">registerProviders</a>( <span>array <var>$providers</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>Register default service providers onto the container.</p>
@@ -302,7 +300,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_registerProvider">#</a>
-		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#84-95" title="Go to source code">registerProvider</a>( <span>string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#83-94" title="Go to source code">registerProvider</a>( <span>string|League\Container\ServiceProvider\ServiceProviderInterface <var>$provider</var></span> )</code>
 
 		<div class="description short">
 			<p>Registers a service provider onto the container.</p>
@@ -341,16 +339,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createContainer">#</a>
-		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#97-111" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Container.Builder.html#96-110" title="Go to source code">createContainer</a>( <span>array <var>$config</var></span> )</code>
 
 		<div class="description short">
-			<p>Creates and returns a new instance of <code>Container</code> after adding <code>$config</code>
-to it.</p>
+			<p>Creates and returns a new instance of <code>Container</code> after adding
+<code>$config</code> to it.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates and returns a new instance of <code>Container</code> after adding <code>$config</code>
-to it.</p>
+			<p>Creates and returns a new instance of <code>Container</code> after adding
+<code>$config</code> to it.</p>
 
 
 				<h4>Parameters</h4>

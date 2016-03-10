@@ -173,7 +173,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Entities.User.html#7-204" title="Go to source code">Entities/User.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Entities.User.html#7-192" title="Go to source code">Entities/User.php</a>
 		<br>
 	</div>
 
@@ -193,22 +193,20 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#17-30" title="Go to source code">get</a>( <span>string <var>$id</var> = <span class="php-quote">'self'</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#17-29" title="Go to source code">get</a>( <span>string <var>$id</var> = <span class="php-quote">'self'</span></span> )</code>
 
 		<div class="description short">
-			<p>Retrieves user information for a user. If no <code>$id</code> is provided,then the
-ID of the owner of the access token is used instead.</p>
+			<p>Get information about a user.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieves user information for a user. If no <code>$id</code> is provided,then the
-ID of the owner of the access token is used instead.</p>
+			<p>Get information about a user.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd>The ID of the user</dd>
+					<dd>The ID of the user. Default is <code>self</code></dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -238,22 +236,20 @@ ID of the owner of the access token is used instead.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getMedia">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#32-58" title="Go to source code">getMedia</a>( <span>string <var>$id</var> = <span class="php-quote">'self'</span></span>, <span>integer|null <var>$count</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$minId</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$maxId</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#31-56" title="Go to source code">getMedia</a>( <span>string <var>$id</var> = <span class="php-quote">'self'</span></span>, <span>integer|null <var>$count</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$minId</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$maxId</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>Retrieves recent media for a user. If no <code>$id</code> is provided, then the ID
-of the owner of the access token is used instead.</p>
+			<p>Get the most recent media published by a user.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieves recent media for a user. If no <code>$id</code> is provided, then the ID
-of the owner of the access token is used instead.</p>
+			<p>Get the most recent media published by a user.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd>The ID of the user</dd>
+					<dd>The ID of the user. Default is <code>self</code></dd>
 					<dt><var>$count</var></dt>
 					<dd>Count of media to return</dd>
 					<dt><var>$minId</var></dt>
@@ -289,16 +285,14 @@ of the owner of the access token is used instead.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLikedMedia">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#60-83" title="Go to source code">getLikedMedia</a>( <span>integer|null <var>$count</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$maxLikeId</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#58-80" title="Go to source code">getLikedMedia</a>( <span>integer|null <var>$count</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$maxLikeId</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>Retrieves all media liked by this user. This method only works for the
-owner of the access token being used to make the request.</p>
+			<p>Get the list of recent media liked by the owner of the access token.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieves all media liked by this user. This method only works for the
-owner of the access token being used to make the request.</p>
+			<p>Get the list of recent media liked by the owner of the access token.</p>
 
 
 				<h4>Parameters</h4>
@@ -336,14 +330,14 @@ owner of the access token being used to make the request.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#85-107" title="Go to source code">search</a>( <span>string <var>$query</var></span>, <span>integer|null <var>$count</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#82-104" title="Go to source code">search</a>( <span>string <var>$query</var></span>, <span>integer|null <var>$count</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>Searches for any users.</p>
+			<p>Get a list of users matching the query.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Searches for any users.</p>
+			<p>Get a list of users matching the query.</p>
 
 
 				<h4>Parameters</h4>
@@ -381,16 +375,16 @@ owner of the access token being used to make the request.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_find">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#109-126" title="Go to source code">find</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#106-123" title="Go to source code">find</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
-			<p>Searches for and returns a single user's information for a user . If no
-results are found, <code>null</code> is returned.</p>
+			<p>Searches for and returns a single user's information. If no results
+are found, <code>null</code> is returned.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Searches for and returns a single user's information for a user . If no
-results are found, <code>null</code> is returned.</p>
+			<p>Searches for and returns a single user's information. If no results
+are found, <code>null</code> is returned.</p>
 
 
 				<h4>Parameters</h4>
@@ -422,16 +416,14 @@ results are found, <code>null</code> is returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_follows">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#128-139" title="Go to source code">follows</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#125-135" title="Go to source code">follows</a>( )</code>
 
 		<div class="description short">
-			<p>Returns a list of users this user follows. This method only works for the
-owner of the access token being used to make the request.</p>
+			<p>Get the list of users this user follows.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns a list of users this user follows. This method only works for the
-owner of the access token being used to make the request.</p>
+			<p>Get the list of users this user follows.</p>
 
 
 
@@ -462,16 +454,14 @@ owner of the access token being used to make the request.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_followedBy">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#141-152" title="Go to source code">followedBy</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#137-147" title="Go to source code">followedBy</a>( )</code>
 
 		<div class="description short">
-			<p>Returns a list of users this user is followed by. This method only works
-for the owner of the access token being used to make the request.</p>
+			<p>Get the list of users this user is followed by.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns a list of users this user is followed by. This method only works
-for the owner of the access token being used to make the request.</p>
+			<p>Get the list of users this user is followed by.</p>
 
 
 
@@ -502,18 +492,14 @@ for the owner of the access token being used to make the request.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_requestedBy">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#154-166" title="Go to source code">requestedBy</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#149-159" title="Go to source code">requestedBy</a>( )</code>
 
 		<div class="description short">
-			<p>Returns a list of users who have requested this user's permission to
-follow. This method only works for the owner of the access token being
-used to make the request.</p>
+			<p>List the users who have requested this user's permission to follow.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns a list of users who have requested this user's permission to
-follow. This method only works for the owner of the access token being
-used to make the request.</p>
+			<p>List the users who have requested this user's permission to follow.</p>
 
 
 
@@ -544,7 +530,7 @@ used to make the request.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRelationship">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#168-181" title="Go to source code">getRelationship</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#161-174" title="Go to source code">getRelationship</a>( <span>string <var>$targetUserId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get information about the relationship of the owner of the access token
@@ -558,8 +544,8 @@ to another user.</p>
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$id</var></dt>
-					<dd></dd>
+					<dt><var>$targetUserId</var></dt>
+					<dd>The ID of the target user</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -589,31 +575,24 @@ to another user.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setRelationship">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.User.html#183-203" title="Go to source code">setRelationship</a>( <span>string <var>$id</var></span>, <span>string <var>$action</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.User.html#176-191" title="Go to source code">setRelationship</a>( <span>string <var>$targetUserId</var></span>, <span>string <var>$action</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify the relationship between the owner of the access token and the
-target user with <code>$id</code>. <code>$action</code> can be one of the following:</p>
+target user.</p>
 		</div>
 
 		<div class="description detailed hidden">
 			<p>Modify the relationship between the owner of the access token and the
-target user with <code>$id</code>. <code>$action</code> can be one of the following:</p>
-
-<ul>
-<li>'follow'</li>
-<li>'unfollow'</li>
-<li>'approve'</li>
-<li>'ignore'</li>
-</ul>
+target user.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$id</var></dt>
-					<dd></dd>
+					<dt><var>$targetUserId</var></dt>
+					<dd>The ID of the target user</dd>
 					<dt><var>$action</var></dt>
-					<dd></dd>
+					<dd>Can be one of:  <code>follow | unfollow | approve | ignore</code></dd>
 				</dl></div>
 
 				<h4>Returns</h4>

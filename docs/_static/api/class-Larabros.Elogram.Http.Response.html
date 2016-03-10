@@ -130,7 +130,7 @@
 
 
 	<div class="description">
-	<p>Represents a response returned from Instagram's API.</p>
+	<p>Represents a response returned from the API.</p>
 	</div>
 
 
@@ -153,7 +153,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Response.html#8-200" title="Go to source code">Http/Response.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Response.html#8-202" title="Go to source code">Http/Response.php</a>
 		<br>
 	</div>
 
@@ -176,11 +176,11 @@
 		<code><a href="source-class-Larabros.Elogram.Http.Response.html#38-58" title="Go to source code">__construct</a>( <span>array <var>$meta</var> = []</span>, <span>array <var>$data</var> = []</span>, <span>array <var>$pagination</var> = []</span> )</code>
 
 		<div class="description short">
-			<p>Creates a new instance of <code>Response</code>.</p>
+			<p>Creates a new instance of :php:class:<code>Response</code>.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a new instance of <code>Response</code>.</p>
+			<p>Creates a new instance of :php:class:<code>Response</code>.</p>
 
 
 				<h4>Parameters</h4>
@@ -212,14 +212,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createFromJson">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#60-74" title="Go to source code">createFromJson</a>( <span>array <var>$response</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#60-75" title="Go to source code">createFromJson</a>( <span>array <var>$response</var></span> )</code>
 
 		<div class="description short">
-			<p>Creates a new instance of <code>Response</code> from a JSON-decoded response body.</p>
+			<p>Creates a new instance of :php:class:<code>Response</code> from a JSON-decoded
+response body.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a new instance of <code>Response</code> from a JSON-decoded response body.</p>
+			<p>Creates a new instance of :php:class:<code>Response</code> from a JSON-decoded
+response body.</p>
 
 
 				<h4>Parameters</h4>
@@ -251,14 +253,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRaw">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#76-84" title="Go to source code">getRaw</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#77-85" title="Go to source code">getRaw</a>( )</code>
 
 		<div class="description short">
-			<p>Returns JSON-decoded raw response.</p>
+			<p>Gets the JSON-decoded raw response.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns JSON-decoded raw response.</p>
+			<p>Gets the JSON-decoded raw response.</p>
 
 
 
@@ -285,14 +287,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#86-96" title="Go to source code">get</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#87-98" title="Go to source code">get</a>( )</code>
 
 		<div class="description short">
-			<p>Returns <code>data</code> from the response.</p>
+			<p>Gets the response body. If the response contains multiple records,
+a <code>Collection</code> is returned.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns <code>data</code> from the response.</p>
+			<p>Gets the response body. If the response contains multiple records,
+a <code>Collection</code> is returned.</p>
 
 
 
@@ -319,16 +323,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_merge">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#98-126" title="Go to source code">merge</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#100-128" title="Go to source code">merge</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span> )</code>
 
 		<div class="description short">
 			<p>Merges the contents of this response with <code>$response</code> and returns a new
-<code>Response</code> instance.</p>
+:php:class:<code>Response</code> instance.</p>
 		</div>
 
 		<div class="description detailed hidden">
 			<p>Merges the contents of this response with <code>$response</code> and returns a new
-<code>Response</code> instance.</p>
+:php:class:<code>Response</code> instance.</p>
 
 
 				<h4>Parameters</h4>
@@ -364,7 +368,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isCollection">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#128-149" title="Go to source code">isCollection</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#130-151" title="Go to source code">isCollection</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Tests the current response data to see if one or more records were
@@ -405,7 +409,7 @@ returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isRecord">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#151-166" title="Go to source code">isRecord</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#153-168" title="Go to source code">isRecord</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Tests the current response data to see if a single record was returned.</p>
@@ -444,7 +448,7 @@ returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hasPages">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#168-177" title="Go to source code">hasPages</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#170-179" title="Go to source code">hasPages</a>( )</code>
 
 		<div class="description short">
 			<p>If the response has a <code>pagination</code> field with a <code>next_url</code> key, then
@@ -480,7 +484,7 @@ returns <code>true</code>, otherwise <code>false</code>.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_nextUrl">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#179-189" title="Go to source code">nextUrl</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#181-191" title="Go to source code">nextUrl</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the next URL, if available, otherwise <code>null</code>.</p>
@@ -514,7 +518,7 @@ returns <code>true</code>, otherwise <code>false</code>.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#191-199" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#193-201" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the JSON-encoded raw response.</p>

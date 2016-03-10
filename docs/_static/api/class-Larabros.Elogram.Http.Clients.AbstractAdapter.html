@@ -173,7 +173,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#10-61" title="Go to source code">Http/Clients/AbstractAdapter.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#9-71" title="Go to source code">Http/Clients/AbstractAdapter.php</a>
 		<br>
 	</div>
 
@@ -193,16 +193,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_request">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#20-23" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#19-22" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
 
 		<div class="description short">
-			<p>Sends a HTTP request using <code>$method</code> to the given <code>$uri</code>, with
-<code>$parameters</code> if provided.</p>
+			<p>Sends a HTTP request. Use this method as a convenient way of making
+requests with built-in exception-handling.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Sends a HTTP request using <code>$method</code> to the given <code>$uri</code>, with
-<code>$parameters</code> if provided.</p>
+			<p>Sends a HTTP request. Use this method as a convenient way of making
+requests with built-in exception-handling.</p>
 
 
 				<h4>Parameters</h4>
@@ -245,16 +245,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_paginate">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#25-46" title="Go to source code">paginate</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span>, <span>integer|null <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#24-45" title="Go to source code">paginate</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span>, <span>integer|null <var>$limit</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>Paginates a <code>Response</code>. The pagination limit is set by <code>$limit</code> -
-setting it to <code>null</code> will paginate as far as possible.</p>
+			<p>Paginates a :php:class:<code>Response</code>.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Paginates a <code>Response</code>. The pagination limit is set by <code>$limit</code> -
-setting it to <code>null</code> will paginate as far as possible.</p>
+			<p>Paginates a :php:class:<code>Response</code>.</p>
 
 
 				<h4>Parameters</h4>
@@ -262,7 +260,7 @@ setting it to <code>null</code> will paginate as far as possible.</p>
 					<dt><var>$response</var></dt>
 					<dd></dd>
 					<dt><var>$limit</var></dt>
-					<dd></dd>
+					<dd>If not set, the client will paginate as far as possible</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -283,24 +281,40 @@ setting it to <code>null</code> will paginate as far as possible.</p>
 		<td class="attributes"><code>
 			 protected 
 
-			
+			<code><a href="class-Larabros.Elogram.Exceptions.Exception.html">Larabros\Elogram\Exceptions\Exception</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_resolveExceptionClass">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#48-60" title="Go to source code">resolveExceptionClass</a>( <span>GuzzleHttp\Exception\ClientException <var>$exception</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Clients.AbstractAdapter.html#47-70" title="Go to source code">resolveExceptionClass</a>( <span>GuzzleHttp\Exception\ClientException <var>$exception</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Parses a <code>ClientException</code> for any specific exceptions thrown by the
+API in the response body. If the response body is not in JSON format,
+an <code>Exception</code> is returned.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Parses a <code>ClientException</code> for any specific exceptions thrown by the
+API in the response body. If the response body is not in JSON format,
+an <code>Exception</code> is returned.</p>
+
+<p>Check a <code>ClientException</code> to see if it has an associated
+<code>ResponseInterface</code> object.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$exception</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Larabros.Elogram.Exceptions.Exception.html">Larabros\Elogram\Exceptions\Exception</a></code>
+				</div>
 
 
 

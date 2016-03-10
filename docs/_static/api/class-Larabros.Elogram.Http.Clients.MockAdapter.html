@@ -175,7 +175,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#7-100" title="Go to source code">Http/Clients/MockAdapter.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#7-107" title="Go to source code">Http/Clients/MockAdapter.php</a>
 		<br>
 	</div>
 
@@ -198,11 +198,11 @@
 		<code><a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#22-30" title="Go to source code">__construct</a>( <span>string <var>$fixturesPath</var></span> )</code>
 
 		<div class="description short">
-			<p>Creates a new instance of <code>MockAdapter</code>.</p>
+			<p>Creates a new instance of :php:class:<code>MockAdapter</code>.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Creates a new instance of <code>MockAdapter</code>.</p>
+			<p>Creates a new instance of :php:class:<code>MockAdapter</code>.</p>
 
 
 				<h4>Parameters</h4>
@@ -233,13 +233,13 @@
 		<code><a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#32-39" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>string <var>$uri</var></span>, <span>array <var>$parameters</var> = []</span> )</code>
 
 		<div class="description short">
-			<p>Sends a HTTP request using <code>$method</code> to the given <code>$uri</code>, with
-<code>$parameters</code> if provided.</p>
+			<p>Sends a HTTP request. Use this method as a convenient way of making
+requests with built-in exception-handling.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Sends a HTTP request using <code>$method</code> to the given <code>$uri</code>, with
-<code>$parameters</code> if provided.</p>
+			<p>Sends a HTTP request. Use this method as a convenient way of making
+requests with built-in exception-handling.</p>
 
 
 				<h4>Parameters</h4>
@@ -316,24 +316,33 @@
 		<td class="attributes"><code>
 			 protected 
 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cleanPath">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#58-64" title="Go to source code">cleanPath</a>( <span> <var>$uri</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#58-71" title="Go to source code">cleanPath</a>( <span> <var>$uri</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Removes any unwanted suffixes and values from a URL path.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Removes any unwanted suffixes and values from a URL path.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$uri</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
 
 
 
@@ -353,7 +362,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_mapRequestParameters">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#66-99" title="Go to source code">mapRequestParameters</a>( <span> <var>$parameters</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Clients.MockAdapter.html#73-106" title="Go to source code">mapRequestParameters</a>( <span> <var>$parameters</var></span> )</code>
 
 		<div class="description short">
 			<p>Parses any filename properties from the request parameters.</p>

@@ -173,7 +173,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Entities.Comment.html#7-67" title="Go to source code">Entities/Comment.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Entities.Comment.html#7-68" title="Go to source code">Entities/Comment.php</a>
 		<br>
 	</div>
 
@@ -193,7 +193,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.Comment.html#18-30" title="Go to source code">get</a>( <span>string <var>$mediaId</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.Comment.html#18-30" title="Go to source code">get</a>( <span>integer <var>$mediaId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get a list of recent comments on a media object.</p>
@@ -236,7 +236,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_create">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.Comment.html#32-51" title="Go to source code">create</a>( <span>string <var>$mediaId</var></span>, <span>string <var>$text</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.Comment.html#32-51" title="Go to source code">create</a>( <span>integer <var>$mediaId</var></span>, <span>string <var>$text</var></span> )</code>
 
 		<div class="description short">
 			<p>Create a comment on a media object using the following rules:</p>
@@ -288,14 +288,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.Comment.html#53-66" title="Go to source code">delete</a>( <span>string <var>$mediaId</var></span>, <span>string <var>$commentId</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.Comment.html#53-67" title="Go to source code">delete</a>( <span>integer <var>$mediaId</var></span>, <span>string <var>$commentId</var></span> )</code>
 
 		<div class="description short">
-			<p>Remove a comment either on a media object with <code>$id</code>.</p>
+			<p>Remove a comment either on the owner of the access token's media object
+or authored by the owner of the access token.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Remove a comment either on a media object with <code>$id</code>.</p>
+			<p>Remove a comment either on the owner of the access token's media object
+or authored by the owner of the access token.</p>
 
 
 				<h4>Parameters</h4>

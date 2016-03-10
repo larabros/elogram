@@ -173,7 +173,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Entities.Media.html#7-68" title="Go to source code">Entities/Media.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Entities.Media.html#7-66" title="Go to source code">Entities/Media.php</a>
 		<br>
 	</div>
 
@@ -196,17 +196,17 @@
 		<code><a href="source-class-Larabros.Elogram.Entities.Media.html#17-29" title="Go to source code">get</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
-			<p>Retrieves information for a media object with <code>$id</code>.</p>
+			<p>Get information about a media object.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieves information for a media object with <code>$id</code>.</p>
+			<p>Get information about a media object.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd></dd>
+					<dd>The ID of the media object</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -239,17 +239,17 @@
 		<code><a href="source-class-Larabros.Elogram.Entities.Media.html#31-43" title="Go to source code">getByShortcode</a>( <span>string <var>$shortcode</var></span> )</code>
 
 		<div class="description short">
-			<p>Retrieves information for a media object with <code>$shortcode</code>.</p>
+			<p>This method returns the same response as :php:meth:<code>Media::get</code></p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieves information for a media object with <code>$shortcode</code>.</p>
+			<p>This method returns the same response as :php:meth:<code>Media::get</code></p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$shortcode</var></dt>
-					<dd></dd>
+					<dd>The shortcode of the media object</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -279,28 +279,24 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Larabros.Elogram.Entities.Media.html#45-67" title="Go to source code">search</a>( <span>integer <var>$latitude</var></span>, <span>integer <var>$longitude</var></span>, <span>integer <var>$distance</var> = <span class="php-num">1000</span></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Entities.Media.html#45-65" title="Go to source code">search</a>( <span>integer <var>$latitude</var></span>, <span>integer <var>$longitude</var></span>, <span>integer <var>$distance</var> = <span class="php-num">1000</span></span> )</code>
 
 		<div class="description short">
-			<p>Searches for recent media in a given area with <code>$latitude</code> and $longitude<code>.
-Optionally,</code>$minTimestamp<code>, $maxTimestamp</code> and <code>$distance</code> can also be
-provided to limit the search.</p>
+			<p>Search for recent media in a given area.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Searches for recent media in a given area with <code>$latitude</code> and $longitude<code>.
-Optionally,</code>$minTimestamp<code>, $maxTimestamp</code> and <code>$distance</code> can also be
-provided to limit the search.</p>
+			<p>Search for recent media in a given area.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$latitude</var></dt>
-					<dd>Latitude of the center search coordinate. If used, lng is required</dd>
+					<dd>Latitude of the center search coordinate. If used, <code>$longitude</code> is required</dd>
 					<dt><var>$longitude</var></dt>
-					<dd>Longitude of the center search coordinate. If used, lat is required</dd>
+					<dd>Longitude of the center search coordinate. If used, <code>$latitude</code> is required</dd>
 					<dt><var>$distance</var></dt>
-					<dd>The distance in metres. Default is 1000m (distance=1000), max distance is 5km.</dd>
+					<dd>The distance in metres. Default is <code>1000</code>m, max distance is 5km.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>

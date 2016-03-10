@@ -127,6 +127,7 @@
 
 			<h3>Exceptions</h3>
 			<ul>
+				<li><a href="class-Larabros.Elogram.Exceptions.APIInvalidParametersError.html">Larabros\Elogram\Exceptions\APIInvalidParametersError</a></li>
 				<li><a href="class-Larabros.Elogram.Exceptions.APINotAllowedError.html">Larabros\Elogram\Exceptions\APINotAllowedError</a></li>
 				<li><a href="class-Larabros.Elogram.Exceptions.APINotFoundError.html">Larabros\Elogram\Exceptions\APINotFoundError</a></li>
 				<li><a href="class-Larabros.Elogram.Exceptions.CsrfException.html">Larabros\Elogram\Exceptions\CsrfException</a></li>
@@ -136,6 +137,7 @@
 				<li><a href="class-Larabros.Elogram.Exceptions.OAuthException.html">Larabros\Elogram\Exceptions\OAuthException</a></li>
 				<li><a href="class-Larabros.Elogram.Exceptions.OAuthForbiddenException.html">Larabros\Elogram\Exceptions\OAuthForbiddenException</a></li>
 				<li><a href="class-Larabros.Elogram.Exceptions.OAuthParameterException.html">Larabros\Elogram\Exceptions\OAuthParameterException</a></li>
+				<li><a href="class-Larabros.Elogram.Exceptions.OAuthPermissionsException.html">Larabros\Elogram\Exceptions\OAuthPermissionsException</a></li>
 				<li><a href="class-Larabros.Elogram.Exceptions.OAuthRateLimitException.html">Larabros\Elogram\Exceptions\OAuthRateLimitException</a></li>
 			</ul>
 
@@ -190,7 +192,7 @@
 </span><span id="18" class="l"><a href="#18">18: </a>    <span class="php-comment">/**
 </span></span><span id="19" class="l"><a href="#19">19: </a><span class="php-comment">     * Get a list of recent comments on a media object.
 </span></span><span id="20" class="l"><a href="#20">20: </a><span class="php-comment">     *
-</span></span><span id="21" class="l"><a href="#21">21: </a><span class="php-comment">     * @param string $mediaId  The ID of the media object
+</span></span><span id="21" class="l"><a href="#21">21: </a><span class="php-comment">     * @param int $mediaId  The ID of the media object
 </span></span><span id="22" class="l"><a href="#22">22: </a><span class="php-comment">     *
 </span></span><span id="23" class="l"><a href="#23">23: </a><span class="php-comment">     * @return Response
 </span></span><span id="24" class="l"><a href="#24">24: </a><span class="php-comment">     *
@@ -209,7 +211,7 @@
 </span></span><span id="37" class="l"><a href="#37">37: </a><span class="php-comment">     * - The comment cannot contain more than 1 URL.
 </span></span><span id="38" class="l"><a href="#38">38: </a><span class="php-comment">     * - The comment cannot consist of all capital letters.
 </span></span><span id="39" class="l"><a href="#39">39: </a><span class="php-comment">     *
-</span></span><span id="40" class="l"><a href="#40">40: </a><span class="php-comment">     * @param string $mediaId  The ID of the media object
+</span></span><span id="40" class="l"><a href="#40">40: </a><span class="php-comment">     * @param int    $mediaId  The ID of the media object
 </span></span><span id="41" class="l"><a href="#41">41: </a><span class="php-comment">     * @param string $text     Text to post as a comment on the media object as specified by `$mediaId`
 </span></span><span id="42" class="l"><a href="#42">42: </a><span class="php-comment">     *
 </span></span><span id="43" class="l"><a href="#43">43: </a><span class="php-comment">     * @return Response
@@ -223,21 +225,22 @@
 </span><span id="51" class="l"><a href="#51">51: </a>    }
 </span><span id="52" class="l"><a href="#52">52: </a>
 </span><span id="53" class="l"><a href="#53">53: </a>    <span class="php-comment">/**
-</span></span><span id="54" class="l"><a href="#54">54: </a><span class="php-comment">     * Remove a comment either on a media object with `$id`.
-</span></span><span id="55" class="l"><a href="#55">55: </a><span class="php-comment">     *
-</span></span><span id="56" class="l"><a href="#56">56: </a><span class="php-comment">     * @param string $mediaId    The ID of the media object
-</span></span><span id="57" class="l"><a href="#57">57: </a><span class="php-comment">     * @param string $commentId  The ID of the comment
-</span></span><span id="58" class="l"><a href="#58">58: </a><span class="php-comment">     *
-</span></span><span id="59" class="l"><a href="#59">59: </a><span class="php-comment">     * @return Response
-</span></span><span id="60" class="l"><a href="#60">60: </a><span class="php-comment">     *
-</span></span><span id="61" class="l"><a href="#61">61: </a><span class="php-comment">     * @link https://www.instagram.com/developer/endpoints/comments/#delete_media_comments
-</span></span><span id="62" class="l"><a href="#62">62: </a><span class="php-comment">     */</span>
-</span><span id="63" class="l"><a href="#63">63: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$mediaId</span>, <span class="php-var">$commentId</span>)
-</span><span id="64" class="l"><a href="#64">64: </a>    {
-</span><span id="65" class="l"><a href="#65">65: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;client-&gt;request(<span class="php-quote">'DELETE'</span>, <span class="php-quote">&quot;media/</span><span class="php-var">$mediaId</span><span class="php-quote">/comments/</span><span class="php-var">$commentId</span><span class="php-quote">&quot;</span>);
-</span><span id="66" class="l"><a href="#66">66: </a>    }
-</span><span id="67" class="l"><a href="#67">67: </a>}
-</span><span id="68" class="l"><a href="#68">68: </a></span></code></pre>
+</span></span><span id="54" class="l"><a href="#54">54: </a><span class="php-comment">     * Remove a comment either on the owner of the access token's media object
+</span></span><span id="55" class="l"><a href="#55">55: </a><span class="php-comment">     * or authored by the owner of the access token.
+</span></span><span id="56" class="l"><a href="#56">56: </a><span class="php-comment">     *
+</span></span><span id="57" class="l"><a href="#57">57: </a><span class="php-comment">     * @param int    $mediaId    The ID of the media object
+</span></span><span id="58" class="l"><a href="#58">58: </a><span class="php-comment">     * @param string $commentId  The ID of the comment
+</span></span><span id="59" class="l"><a href="#59">59: </a><span class="php-comment">     *
+</span></span><span id="60" class="l"><a href="#60">60: </a><span class="php-comment">     * @return Response
+</span></span><span id="61" class="l"><a href="#61">61: </a><span class="php-comment">     *
+</span></span><span id="62" class="l"><a href="#62">62: </a><span class="php-comment">     * @link https://www.instagram.com/developer/endpoints/comments/#delete_media_comments
+</span></span><span id="63" class="l"><a href="#63">63: </a><span class="php-comment">     */</span>
+</span><span id="64" class="l"><a href="#64">64: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$mediaId</span>, <span class="php-var">$commentId</span>)
+</span><span id="65" class="l"><a href="#65">65: </a>    {
+</span><span id="66" class="l"><a href="#66">66: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;client-&gt;request(<span class="php-quote">'DELETE'</span>, <span class="php-quote">&quot;media/</span><span class="php-var">$mediaId</span><span class="php-quote">/comments/</span><span class="php-var">$commentId</span><span class="php-quote">&quot;</span>);
+</span><span id="67" class="l"><a href="#67">67: </a>    }
+</span><span id="68" class="l"><a href="#68">68: </a>}
+</span><span id="69" class="l"><a href="#69">69: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
@@ -245,6 +248,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cb3925991615e04c245db04485b7c3fe92de84be"></script>
-<script src="elementlist.js?3796ff2275f61e5d7b979b4f858587524062142a"></script>
+<script src="elementlist.js?b89e94c9bd2437bec1cf48b7a2daa7a6a3c104ea"></script>
 </body>
 </html>

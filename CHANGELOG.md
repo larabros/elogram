@@ -11,13 +11,21 @@ All notable changes to `elogram` will be documented in this file
 - Nothing
 
 ### Fixed
-- `Response::getRaw()` now accepts a `$key` parameter
+- Nothing
 
 ### Removed
 - Nothing
 
 ### Security
 - Nothing
+
+## 1.1.2 - YYYY-MM-DD
+
+### Added
+- Documentation for lots of things
+
+### Fixed
+- `Response::getRaw()` now accepts a `$key` parameter
 
 ## 1.1.1 - 2016-03-10
 

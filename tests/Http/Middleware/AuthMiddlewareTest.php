@@ -24,7 +24,7 @@ class AuthMiddlewareTest extends TestCase
      */
     protected function setUp()
     {
-        $token = new AccessToken(json_decode('{"access_token":"fb2e77d.47a0479900504cb3ab4a1f626d174d2d"}', true));
+        $token        = new AccessToken(json_decode('{"access_token":"fb2e77d.47a0479900504cb3ab4a1f626d174d2d"}', true));
         $this->config = new Config([
             'client_id' => 'CS',
             'client_secret' => '6dc1787668c64c939929c17683d7cb74',

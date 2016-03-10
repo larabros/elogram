@@ -55,11 +55,9 @@ class MiddlewareServiceProvider extends AbstractServiceProvider
                 'access_token',
                 new AccessToken(json_decode($config->get('access_token'), true))
             );
-
         }
 
         $this->addMiddleware();
-
     }
 
     protected function addMiddleware()

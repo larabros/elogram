@@ -63,7 +63,7 @@ Login permissions (Scopes)
 ==========================
 
 You can request additional access scopes for the access token by passing an
-array to the :php:meth:`Instagram::getLoginUrl()` method:
+array to the :php:meth:`Client::getLoginUrl()` method:
 
 .. code-block:: php
 
@@ -73,6 +73,25 @@ array to the :php:meth:`Instagram::getLoginUrl()` method:
 Note that the scopes **must** separated by a space. Available scopes are listed
 on the `Instagram Developer
 <https://www.instagram.com/developer/authorization/>`_ website.
+
+Secure Requests
+===============
+
+.. important::
+
+    Secure requests **must** be enabled in the `Instagram Developer Panel
+    <https://www.instagram.com/developer/clients/manage/>`_ for your
+    application.
+
+Secure requests can be enabled by calling :php:meth:`Client::enableRequests()`.
+
+.. code-block:: php
+
+    $client->enableRequests();
+
+    // Disables secure requests
+    $client->enableRequests(false);
+
 
 Sending Requests
 ================

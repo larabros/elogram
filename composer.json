@@ -37,7 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Larabros\\Elogram\\": "tests"
+            "Larabros\\Elogram\\Tests\\": "tests"
         }
     },
     "scripts": {

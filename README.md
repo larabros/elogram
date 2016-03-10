@@ -6,9 +6,10 @@
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Documentation][ico-docs]][link-docs]
 
 [![Build Status][ico-phpeye]][link-phpeye]
+[![PSR2 Conformance][ico-styleci]][link-styleci]
+[![Documentation][ico-docs]][link-docs]
 [![Gitter][ico-gitter]][link-gitter]
 
 An "eloquent" way of accessing Instagram's API, for PHP 5.5+.
@@ -48,6 +49,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-downloads]: https://img.shields.io/packagist/dt/larabros/elogram.svg?style=flat-square
 [ico-docs]: https://img.shields.io/badge/docs-stable-brightgreen.svg?style=flat-square
 [ico-phpeye]: http://php-eye.com/badge/larabros/elogram/tested.svg?style=flat-square
+[ico-styleci]: https://styleci.io/repos/51898151/shield
 [ico-gitter]: https://img.shields.io/gitter/room/larabros/elogram.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/larabros/elogram
@@ -57,6 +59,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-downloads]: https://packagist.org/packages/larabros/elogram
 [link-docs]: http://elogram.readthedocs.org/en/stable
 [link-phpeye]: http://php-eye.com/package/larabros/elogram
+[link-styleci]: https://styleci.io/repos/51898151/
 [link-gitter]: https://gitter.im/larabros/elogram
 [link-author]: https://github.com/hassankhan
 [link-contributors]: ../../contributors

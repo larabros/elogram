@@ -2,9 +2,13 @@
 Endpoints
 =========
 
+This page provides an extensive list of all endpoints supported by Elogram.
+
 .. warning::
-    All code examples below assume you have already instantiated the ``Client``
-    class with a valid access token.
+    All code examples below assume you have already instantiated the
+    :php:class:`Client` class with a valid access token. If you do not already
+    have one, head over to the :ref:`access_token` page to read about how to
+    obtain one.
 
 Users
 =====
@@ -21,7 +25,7 @@ Users
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->get(4);
         echo json_encode($response->get());
 
@@ -47,7 +51,7 @@ Users
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->getMedia('268047373');
         echo json_encode($response->get());
 
@@ -70,7 +74,7 @@ Users
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->getLikedMedia();
         echo json_encode($response->get());
 
@@ -91,7 +95,7 @@ Users
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->search('skrawg');
         echo json_encode($response->get());
 
@@ -113,7 +117,7 @@ Users
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->find('mikeyk');
         echo json_encode($response->get());
 
@@ -149,7 +153,7 @@ Relationships
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->follows();
         echo json_encode($response->get());
 
@@ -168,7 +172,7 @@ Relationships
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->followedBy();
         echo json_encode($response->get());
 
@@ -187,7 +191,7 @@ Relationships
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->requestedBy();
         echo json_encode($response->get());
 
@@ -209,7 +213,7 @@ Relationships
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->getRelationship('268047373');
         echo json_encode($response->get());
 
@@ -233,7 +237,7 @@ Relationships
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->users()->setRelationship('268047373', 'follows');
         echo json_encode($response->get());
 
@@ -258,7 +262,7 @@ Media
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->media()->get('315');
         echo json_encode($response->get());
 
@@ -279,7 +283,7 @@ Media
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->media()->getByShortcode('9mDRRppRE7');
         echo json_encode($response->get());
 
@@ -297,14 +301,14 @@ Media
     :type $longitude: int
     :param $longitude: Longitude of the center search coordinate. If used, ``$latitude`` is required
     :type $distance: int
-    :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km.
+    :param $distance: The distance in metres. Default is ``1000`` m, max distance is 5km
     :returns: Response
 
     **Example request:**
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->media()->search(37.78, -122.22);
         echo json_encode($response->get());
 
@@ -329,7 +333,7 @@ Comments
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->comments()->get(420);
         echo json_encode($response->get());
 
@@ -356,7 +360,7 @@ Comments
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->comments()->create(315, 'A comment');
         echo json_encode($response->get());
 
@@ -379,7 +383,7 @@ Comments
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->comments()->delete(315, 1);
         echo json_encode($response->get());
 
@@ -404,7 +408,7 @@ Likes
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->likes()->get(420);
         echo json_encode($response->get());
 
@@ -425,7 +429,7 @@ Likes
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->likes()->like(315);
         echo json_encode($response->get());
 
@@ -446,7 +450,7 @@ Likes
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->likes()->unlike(315);
         echo json_encode($response->get());
 
@@ -471,7 +475,7 @@ Tags
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->tags()->get('nofilter');
         echo json_encode($response->get());
 
@@ -496,7 +500,7 @@ Tags
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->tags()->getRecentMedia('snowy');
         echo json_encode($response->get());
 
@@ -517,7 +521,7 @@ Tags
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->tags()->search('snowy');
         echo json_encode($response->get());
 
@@ -542,7 +546,7 @@ Locations
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->locations()->get('1');
         echo json_encode($response->get());
 
@@ -566,7 +570,7 @@ Locations
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->locations()->getRecentMedia('514276');
         echo json_encode($response->get());
 
@@ -584,14 +588,14 @@ Locations
     :type $longitude: int
     :param $longitude: Longitude of the center search coordinate. If used, ``$latitude`` is required
     :type $distance: int
-    :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km
+    :param $distance: The distance in metres. Default is ``1000`` m, max distance is 5km
     :returns: Response
 
     **Example request:**
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->locations()->search(48.858325999999998, 2.294505);
         echo json_encode($response->get());
 
@@ -612,7 +616,7 @@ Locations
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->locations()->searchByFacebookPlacesId(114226462057675);
         echo json_encode($response->get());
 
@@ -633,7 +637,7 @@ Locations
 
     .. code-block:: php
 
-        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $client   = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
         $response = $client->locations()->searchByFoursquareId('51a2445e5019c80b56934c75');
         echo json_encode($response->get());
 

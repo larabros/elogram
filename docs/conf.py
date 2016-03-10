@@ -1,4 +1,5 @@
 import sys, os
+import pypandoc
 from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer
 
@@ -58,3 +59,14 @@ html_theme_options = {
     # Allow the project link to be overriden to a custom URL.
     # projectlink = http://myproject.url
 }
+
+path = os.path.join(os.path.dirname(__file__), '..', 'CONTRIBUTING.md')
+contrib_md   = open(path, 'r')
+devdocs_rst  = open('developers.rst', 'r+')
+
+contributing = pypandoc.convert(contrib_md.read(), 'rst', format='md',
+    extra_args=['--reference-links'])
+replaced     = devdocs_rst.read().replace('<%CONTRIBUTING%>', contributing)
+devdocs_rst.seek(0)
+devdocs_rst.write(replaced)
+devdocs_rst.close()

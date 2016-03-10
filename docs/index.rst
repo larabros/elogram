@@ -18,7 +18,7 @@ offers:
 
     use Larabros\Elogram\Client;
 
-    $client = new Client($clientId, $clientSecret, $accessToken);
+    $client = new Client($clientId, $clientSecret, $accessToken, $redirectUrl);
 
     header('Content-Type: application/json');
     $response = $client->media()->search(51.503349, -0.252271);
@@ -46,3 +46,4 @@ User Guide
     endpoints
     faq
     developers
+    Larabros/Elogram/index

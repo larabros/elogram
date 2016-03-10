@@ -5,7 +5,7 @@ namespace Larabros\Elogram\Entities;
 use Larabros\Elogram\Http\Clients\AdapterInterface;
 
 /**
- * AbstractEntity
+ * An abstract entity class. Any new endpoints should extend this class.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
@@ -20,7 +20,7 @@ abstract class AbstractEntity
     protected $client;
 
     /**
-     * Creates a new instance of `User`.
+     * Creates a new instance of :php:class:`AbstractEntity`.
      *
      * @param AdapterInterface $client
      */

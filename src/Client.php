@@ -239,7 +239,6 @@ final class Client
     {
         $this->container->get('config')
             ->set('access_token', json_encode($token));
-        $stack = $this->container->get(HandlerStack::class);
     }
 
     /**

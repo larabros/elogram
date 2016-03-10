@@ -77,11 +77,15 @@ class Response
     /**
      * Gets the JSON-decoded raw response.
      *
+     * @param string|null $key
+     *
      * @return array
      */
-    public function getRaw()
+    public function getRaw($key = null)
     {
-        return $this->raw;
+        return $key === null
+            ? $this->raw
+            : $this->raw[$key];
     }
 
     /**
@@ -109,10 +113,10 @@ class Response
      */
     public function merge(Response $response)
     {
-        $meta       = $response->getRaw()['meta'];
+        $meta       = $response->getRaw('meta');
         $data       = $response->get();
         $pagination = $response->hasPages()
-            ? $response->getRaw()['pagination']
+            ? $response->getRaw('pagination')
             : [];
 
         if ($this->isCollection($this->data) && $this->isCollection($data)) {

@@ -11,7 +11,7 @@ All notable changes to `elogram` will be documented in this file
 - Nothing
 
 ### Fixed
-- Nothing
+- `Response::getRaw()` now accepts a `$key` parameter
 
 ### Removed
 - Nothing

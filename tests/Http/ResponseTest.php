@@ -113,7 +113,7 @@ class ResponseTest extends TestCase
      */
     public function testGetNullResponse()
     {
-        $meta     = $this->response->getRaw()['meta'];
+        $meta     = $this->response->getRaw('meta');
         $response = new Response($meta, null);
         $this->assertNull($response->get());
     }

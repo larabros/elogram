@@ -153,7 +153,7 @@
 				Hassan Khan <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;">&#x63;&#111;&#110;&#x74;&#97;&#99;&#x74;&#x40;&#104;a&#x73;&#115;&#97;&#x6e;&#x6b;&#104;a&#x6e;&#46;&#109;&#x65;</a><br>
 				<b>Link:</b>
 				<a href="https://github.com/larabros/elogram">https://github.com/larabros/elogram</a><br>
-			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Response.html#8-202" title="Go to source code">Http/Response.php</a>
+			<b>Located at</b> <a href="source-class-Larabros.Elogram.Http.Response.html#8-206" title="Go to source code">Http/Response.php</a>
 		<br>
 	</div>
 
@@ -253,7 +253,7 @@ response body.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRaw">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#77-85" title="Go to source code">getRaw</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#77-89" title="Go to source code">getRaw</a>( <span>string|null <var>$key</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Gets the JSON-decoded raw response.</p>
@@ -263,6 +263,11 @@ response body.</p>
 			<p>Gets the JSON-decoded raw response.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd></dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -287,7 +292,7 @@ response body.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#87-98" title="Go to source code">get</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#91-102" title="Go to source code">get</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the response body. If the response contains multiple records,
@@ -323,7 +328,7 @@ a <code>Collection</code> is returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_merge">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#100-128" title="Go to source code">merge</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#104-132" title="Go to source code">merge</a>( <span><code><a href="class-Larabros.Elogram.Http.Response.html">Larabros\Elogram\Http\Response</a></code> <var>$response</var></span> )</code>
 
 		<div class="description short">
 			<p>Merges the contents of this response with <code>$response</code> and returns a new
@@ -368,7 +373,7 @@ a <code>Collection</code> is returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isCollection">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#130-151" title="Go to source code">isCollection</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#134-155" title="Go to source code">isCollection</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Tests the current response data to see if one or more records were
@@ -409,7 +414,7 @@ returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isRecord">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#153-168" title="Go to source code">isRecord</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#157-172" title="Go to source code">isRecord</a>( <span>array|Illuminate\Support\Collection <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Tests the current response data to see if a single record was returned.</p>
@@ -448,7 +453,7 @@ returned.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hasPages">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#170-179" title="Go to source code">hasPages</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#174-183" title="Go to source code">hasPages</a>( )</code>
 
 		<div class="description short">
 			<p>If the response has a <code>pagination</code> field with a <code>next_url</code> key, then
@@ -484,7 +489,7 @@ returns <code>true</code>, otherwise <code>false</code>.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_nextUrl">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#181-191" title="Go to source code">nextUrl</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#185-195" title="Go to source code">nextUrl</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the next URL, if available, otherwise <code>null</code>.</p>
@@ -518,7 +523,7 @@ returns <code>true</code>, otherwise <code>false</code>.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-Larabros.Elogram.Http.Response.html#193-201" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-Larabros.Elogram.Http.Response.html#197-205" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the JSON-encoded raw response.</p>

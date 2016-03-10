@@ -22,7 +22,7 @@ Documentation for the API is available at http://elogram.readthedocs.org/en/late
 
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option.
 
-- **Create feature branches** - Don't ask us to pull from your master branch.
+- **Use Git Flow** - Don't ask us to pull from your master branch. Set up [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) and create a new feature branch from `develop`.
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 

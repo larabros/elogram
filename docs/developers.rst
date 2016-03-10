@@ -38,6 +38,9 @@ Guidelines
 -  **Consider our release cycle** - We try to follow `SemVer v2`_.
    Randomly breaking public APIs is not an option.
 
+   - **Use Git Flow** - Don't ask us to pull from your master branch. Set up
+   `Git Flow`_ and create a new feature branch from ``develop``.
+
 -  **Create feature branches** - Don’t ask us to pull from your master
    branch.
 
@@ -83,6 +86,7 @@ will be deployed as soon as possible.
 .. _Standard: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 .. _PHP Code Sniffer: http://pear.php.net/package/PHP_CodeSniffer
 .. _SemVer v2: http://semver.org/
+.. _Git Flow: http://nvie.com/posts/a-successful-git-branching-model/
 .. _squash them: http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages
 .. _responsible manner: http://en.wikipedia.org/wiki/Responsible_disclosure
 

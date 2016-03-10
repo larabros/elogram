@@ -8,19 +8,24 @@ page.
 
 .. _access_token:
 
-Getting an access token
-=======================
+Authentication
+==============
 
-To start making requests, you need an access token. To do this,
-first instantiate the ``Client`` class - the ``$clientId``, ``$clientSecret``
-and ``$redirectUrl`` **must** be the same as in the
-`Instagram Developer Panel <https://www.instagram.com/developer/clients/manage/>`_:
+To start making requests, you need to authenticate and retrieve an access token.
+To do this, first instantiate the ``Client`` class:
+
+.. important::
+
+    The ``$clientId``, ``$clientSecret`` and ``$redirectUrl`` **must** be the
+    same as in the `Instagram Developer Panel
+    <https://www.instagram.com/developer/clients/manage/>`_
 
 .. important::
 
     You should always store your client ID and secret as an environment
     variable, or otherwise out of source control. An excellent tool to help
-    you do this is the package `vlucas/phpdotenv <https://github.com/vlucas/phpdotenv>`.
+    you do this is the `vlucas/phpdotenv <https://github.com/vlucas/phpdotenv>`_
+    package.
 
 
 Creating a Client
@@ -32,21 +37,9 @@ Creating a Client
 
     $client = new Client($clientId, $clientSecret, null, $redirectUrl);
 
-The constructor accepts the following parameters:
 
-``clientId``
-    Generated when you create a new application from the Instagram developer
-    panel.
-
-``clientSecret``
-    Also generated when you create a new application from the Instagram developer
-    panel.
-
-``accessToken``
-    Assuming you do not currently have one, use ``null``.
-
-``redirectUrl``
-    The URL to redirect to after a user authorizes the Instagram application.
+Setting up the authentication flow
+----------------------------------
 
 After instantiating the client, retrieve the the authorization page URL (or
 retrieve an access token if the user has already authorized):
@@ -59,15 +52,31 @@ retrieve an access token if the user has already authorized):
         exit;
     } else {
         $token = $client->getAccessToken($_GET['code']);
-        echo json_encode($token);
+        echo json_encode($token); // Save this for future use
     }
 
     // You can now make requests to the API
     $client->users()->search('skrawg');
 
 
+Login permissions (Scopes)
+==========================
+
+You can request additional access scopes for the access token by passing an
+array to the :php:meth:`Instagram::getLoginUrl()` method:
+
+.. code-block:: php
+
+    $options  = ['scope' => 'basic public_content'];
+    $loginUrl = $client->getLoginUrl($options);
+
+Note that the scopes **must** separated by a space. Available scopes are listed
+on the `Instagram Developer
+<https://www.instagram.com/developer/authorization/>`_ website.
+
 Sending Requests
 ================
+
 
 Simple requests
 ---------------

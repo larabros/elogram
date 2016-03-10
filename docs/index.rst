@@ -46,3 +46,4 @@ User Guide
     endpoints
     faq
     developers
+    Larabros/Elogram/index

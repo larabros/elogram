@@ -28,7 +28,8 @@
         "scrutinizer/ocular": "~1.1",
         "vlucas/phpdotenv": "^2.2",
         "mockery/mockery": "^0.9.4",
-        "squizlabs/php_codesniffer": "^2.5"
+        "squizlabs/php_codesniffer": "^2.5",
+        "sphpdox/sphpdox": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -42,7 +43,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "apidocs": "rm -R ./docs/_static/api/ && apigen generate -s ./src -d ./docs/_static/api"
+        "docs": "sphpdox process -o docs/ -t \"API Reference\" \"Larabros\\Elogram\" src/ && sphinx-build docs/ docs/build/"
     },
     "extra": {
         "branch-alias": {

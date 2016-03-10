@@ -44,11 +44,13 @@ class CoreServiceProvider extends AbstractServiceProvider
         $container = $this->getContainer();
         $config    = $container->get('config');
 
-        $container->share('provider', function () use ($config) {
+        $container->share('provider', function () use ($config, $container) {
             return new Instagram([
                 'clientId'     => $config->get('client_id'),
                 'clientSecret' => $config->get('client_secret'),
                 'redirectUri'  => $config->get('redirect_url'),
+            ], [
+                'httpClient' => $container->get(Client::class)
             ]);
         });
 

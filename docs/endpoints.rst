@@ -23,7 +23,7 @@ Users
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->get(4);
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -49,7 +49,7 @@ Users
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->getMedia('268047373');
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -72,7 +72,7 @@ Users
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->getLikedMedia();
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -93,7 +93,7 @@ Users
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->search('skrawg');
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -115,7 +115,7 @@ Users
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->find('mikeyk');
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -151,7 +151,7 @@ Relationships
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->follows();
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -170,7 +170,7 @@ Relationships
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->followedBy();
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -189,7 +189,7 @@ Relationships
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->requestedBy();
-        echo json_encode($response);
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -211,7 +211,7 @@ Relationships
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->getRelationship('268047373');
-        echo json_encode($response)
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -235,7 +235,7 @@ Relationships
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->users()->setRelationship('268047373', 'follows');
-        echo json_encode($response)
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -260,7 +260,7 @@ Media
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->media()->get('315');
-        echo json_encode($response)
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -281,7 +281,7 @@ Media
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->media()->getByShortcode('9mDRRppRE7');
-        echo json_encode($response)
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -306,7 +306,7 @@ Media
 
         $client   = new Client($clientId, $clientSecret, $accessToken);
         $response = $client->media()->search(37.78, -122.22);
-        echo json_encode($response)
+        echo json_encode($response->get());
 
     **Example response:**
 
@@ -325,6 +325,19 @@ Comments
     :param $mediaId: The ID of the media object
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->comments()->get(420);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_media_comments.json
+        :language: php
+
 .. php:method:: create($mediaId, $text)
 
     Create a comment on a media object using the following rules:
@@ -339,6 +352,19 @@ Comments
     :param $text: Text to post as a comment on the media object as specified by `$mediaId`
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->comments()->create(315, 'A comment');
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/post_media_comments.json
+        :language: php
+
 .. php:method:: delete($mediaId, $commentId)
 
     Remove a comment either on the owner of the access token's media object
@@ -348,6 +374,19 @@ Comments
     :type $commentId: string
     :param $commentId: The ID of the comment
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->comments()->delete(315, 1);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/delete_media_comments.json
+        :language: php
 
 
 Likes
@@ -361,6 +400,19 @@ Likes
     :param $mediaId: The ID of the media object
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->likes()->get(420);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_media_likes.json
+        :language: php
+
 .. php:method:: like($mediaId)
 
     Set a like on a media object by the currently authenticated user.
@@ -369,6 +421,19 @@ Likes
     :param $mediaId: The ID of the media object
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->likes()->like(315);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/post_media_likes.json
+        :language: php
+
 .. php:method:: unlike($mediaId)
 
     Remove a like on a media object by the currently authenticated user.
@@ -376,6 +441,19 @@ Likes
     :type $mediaId: int
     :param $mediaId: The ID of the media object
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->likes()->unlike(315);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/delete_media_likes.json
+        :language: php
 
 
 Tags
@@ -393,11 +471,14 @@ Tags
 
     .. code-block:: php
 
-        $client   = new Instagram($clientId, $clientSecret, $accessToken);
-        $response = $client->users()->get(4);
-        echo json_encode($response);
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->tags()->get('nofilter');
+        echo json_encode($response->get());
 
     **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_tags_nofilter.json
+        :language: php
 
 .. php:method:: getRecentMedia($tag, $count = null, $minTagId = null, $maxTagId = null)
 
@@ -411,6 +492,19 @@ Tags
     :param $maxTagId: Return media after this max_tag_id
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->tags()->getRecentMedia('snowy');
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_tags_snowy_media_recent.json
+        :language: php
+
 .. php:method:: search($tag)
 
     Search for tags by name.
@@ -418,6 +512,19 @@ Tags
     :type $tag: string
     :param $tag: Name of the tag
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->tags()->search('snowy');
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_tags_search.json
+        :language: php
 
 
 Locations
@@ -431,6 +538,19 @@ Locations
     :param $id: The ID of the location
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->locations()->get('1');
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_locations.json
+        :language: php
+
 .. php:method:: getRecentMedia($id, $minId = null, $maxId = null)
 
     Get a list of recent media objects from a given location.
@@ -441,6 +561,19 @@ Locations
     :type $maxId: string|null
     :param $maxId: Return media after this max_id
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->locations()->getRecentMedia('514276');
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_locations_media_recent.json
+        :language: php
 
 .. php:method:: search($latitude, $longitude, $distance = 1000)
 
@@ -454,6 +587,19 @@ Locations
     :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->locations()->search(48.858325999999998, 2.294505);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_locations_search.json
+        :language: php
+
 .. php:method:: searchByFacebookPlacesId($facebookPlacesId)
 
     Search for a location by Facebook Places ID.
@@ -461,6 +607,19 @@ Locations
     :type $facebookPlacesId: int
     :param $facebookPlacesId: A Facebook Places ID
     :returns: Response
+
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->locations()->searchByFacebookPlacesId(114226462057675);
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_locations_search_facebook_places_id.json
+        :language: php
 
 .. php:method:: searchByFoursquareId($foursquareId)
 
@@ -470,3 +629,15 @@ Locations
     :param $foursquareId: A Foursquare V2 API location ID
     :returns: Response
 
+    **Example request:**
+
+    .. code-block:: php
+
+        $client   = new Client($clientId, $clientSecret, $accessToken);
+        $response = $client->locations()->searchByFoursquareId('51a2445e5019c80b56934c75');
+        echo json_encode($response->get());
+
+    **Example response:**
+
+    .. literalinclude:: /../tests/fixtures/get_locations_search_foursquare_v2_id.json
+        :language: php

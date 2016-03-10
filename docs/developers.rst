@@ -38,7 +38,7 @@ Guidelines
 -  **Consider our release cycle** - We try to follow `SemVer v2`_.
    Randomly breaking public APIs is not an option.
 
-   - **Use Git Flow** - Don't ask us to pull from your master branch. Set up
+- **Use Git Flow** - Don't ask us to pull from your master branch. Set up
    `Git Flow`_ and create a new feature branch from ``develop``.
 
 -  **Create feature branches** - Don’t ask us to pull from your master

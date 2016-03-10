@@ -5,9 +5,10 @@ Endpoints
 This page provides an extensive list of all endpoints supported by Elogram.
 
 .. warning::
-    All code examples below assume you have already instantiated the ``Client``
-    class with a valid access token. If you do not already have one, head over
-    to the :ref:`access_token` page to read about how to obtain one.
+    All code examples below assume you have already instantiated the
+    :php:class:`Client` class with a valid access token. If you do not already
+    have one, head over to the :ref:`access_token` page to read about how to
+    obtain one.
 
 Users
 =====

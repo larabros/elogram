@@ -12,7 +12,7 @@ Authentication
 ==============
 
 To start making requests, you need to authenticate and retrieve an access token.
-To do this, first instantiate the ``Client`` class:
+To do this, first instantiate the :php:class:`Client` class:
 
 .. important::
 
@@ -111,14 +111,15 @@ Secure Requests
     <https://www.instagram.com/developer/clients/manage/>`_ for your
     application.
 
-Secure requests can be enabled by calling :php:meth:`Client::enableRequests()`.
+Secure requests can be enabled by calling :php:meth:`Client::secureRequests()`.
 
 .. code-block:: php
 
-    $client->enableRequests();
+    // Enables secure requests
+    $client->secureRequests();
 
     // Disables secure requests
-    $client->enableRequests(false);
+    $client->secureRequests(false);
 
 
 Sending Requests

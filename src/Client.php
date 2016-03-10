@@ -15,7 +15,6 @@ use Larabros\Elogram\Http\Clients\AdapterInterface;
 use Larabros\Elogram\Http\Response;
 use League\Container\ContainerInterface;
 use League\OAuth2\Client\Token\AccessToken;
-use Noodlehaus\ConfigInterface;
 
 /**
  * Elogram client class.
@@ -241,7 +240,6 @@ final class Client
         $this->container->get('config')
             ->set('access_token', json_encode($token));
         $stack = $this->container->get(HandlerStack::class);
-        $stack->push($this->container->get("middleware.auth"), 'auth');
     }
 
     /**

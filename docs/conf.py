@@ -64,7 +64,8 @@ path = os.path.join(os.path.dirname(__file__), '..', 'CONTRIBUTING.md')
 contrib_md   = open(path, 'r')
 devdocs_rst  = open('developers.rst', 'r+')
 
-contributing = pypandoc.convert(contrib_md.read(), 'rst', format='md')
+contributing = pypandoc.convert(contrib_md.read(), 'rst', format='md',
+    extra_args=['--reference-links'])
 replaced     = devdocs_rst.read().replace('<%CONTRIBUTING%>', contributing)
 devdocs_rst.seek(0)
 devdocs_rst.write(replaced)

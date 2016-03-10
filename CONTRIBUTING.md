@@ -12,21 +12,23 @@ Documentation for the API is available at http://elogram.readthedocs.org/en/late
 
 ## Guidelines
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
+- **PSR-2 Coding Standard:** The easiest way to apply [the code standard]((https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)) is to install [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
-- **PHP 5.5** - Elogram has a minimum PHP version requirement of PHP 5.5. Pull requests must not require a PHP version greater than PHP 5.5 unless the feature is only utilized conditionally.
+- **PHP 5.5:** Elogram has a minimum PHP version requirement of PHP 5.5. Pull requests must not require a PHP version greater than PHP 5.5 unless the feature is only utilized conditionally.
 
-- **Add tests!** - All pull requests must include unit tests to ensure the change works as expected and to prevent regressions.
+- **Add tests!:** All pull requests must include unit tests to ensure the change works as expected and to prevent regressions.
 
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+- **Documentation format:** All documentation **except** this file, `CHANGELOG.md`, `LICENSE.md` and `README.md` are in [reStructuredText](http://docutils.sourceforge.net/docs/user/rst/quickstart.html) - this includes any code docblocks. Using reST allows us to generate a better experience for users browsing the documentation.
 
-- **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option.
+- **Document any change in behaviour:** Make sure the `README.md` and any other relevant documentation are kept up-to-date.
 
-- **Use Git Flow** - Don't ask us to pull from your master branch. Set up [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) and create a new feature branch from `develop`.
+- **Consider our release cycle:** We try to follow [SemVer v2](http://semver.org/). Randomly breaking public APIs is not an option.
 
-- **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
+- **Use Git Flow:** Don't ask us to pull from your master branch. Set up [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) and create a new feature branch from `develop`.
 
-- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
+- **One pull request per feature:** If you want to do more than one thing, send multiple pull requests.
+
+- **Send coherent history:** Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
 
 
 ## Running tests

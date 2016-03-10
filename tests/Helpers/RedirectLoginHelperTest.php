@@ -88,6 +88,5 @@ class RedirectLoginHelperTest extends TestCase
     {
         $this->setExpectedException(CsrfException::class);
         $this->helper->getAccessToken('1234')->getToken();
-
     }
 }

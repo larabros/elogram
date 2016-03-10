@@ -41,15 +41,12 @@ final class GuzzleAdapter extends AbstractAdapter
     {
         try {
             $response = $this->guzzle->request($method, $uri, $parameters);
-
         } catch (ClientException $e) {
-
             if (!$e->hasResponse()) {
                 throw $e;
             }
 
             throw $this->resolveExceptionClass($e);
-
         } catch (Exception $e) {
             throw $e;
         }

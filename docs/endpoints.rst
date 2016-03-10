@@ -297,7 +297,7 @@ Media
     :type $longitude: int
     :param $longitude: Longitude of the center search coordinate. If used, ``$latitude`` is required
     :type $distance: int
-    :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km.
+    :param $distance: The distance in metres. Default is ``1000`` m, max distance is 5km
     :returns: Response
 
     **Example request:**
@@ -584,7 +584,7 @@ Locations
     :type $longitude: int
     :param $longitude: Longitude of the center search coordinate. If used, ``$latitude`` is required
     :type $distance: int
-    :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km
+    :param $distance: The distance in metres. Default is ``1000`` m, max distance is 5km
     :returns: Response
 
     **Example request:**

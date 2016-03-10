@@ -19,6 +19,11 @@ All notable changes to `elogram` will be documented in this file
 ### Security
 - Nothing
 
+## 1.1.1 - 2016-03-10
+
+### Fixed
+- Incorrect handling after authorization fixed.
+
 ## 1.1.0 - 2016-03-09
 
 ### Fixed

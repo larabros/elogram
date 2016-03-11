@@ -14,11 +14,11 @@ extensions = [
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
-project = u'Instagram SDK'
+project = u'Elogram'
 copyright = u'2016, Hassan Khan'
 version = '1'
-html_title = "Instagram SDK Documentation"
-html_short_title = "Instagram SDK"
+html_title = "Elogram Documentation"
+html_short_title = "Elogram"
 
 exclude_patterns = ['_build']
 html_static_path = ['_static']

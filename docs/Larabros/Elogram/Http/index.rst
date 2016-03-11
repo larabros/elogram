@@ -8,5 +8,6 @@ Larabros\\Elogram\\Http
 
    Clients/index
    Middleware/index
+   OAuth2/index
    Response
    Sessions/index

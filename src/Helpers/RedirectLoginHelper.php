@@ -3,8 +3,8 @@
 namespace Larabros\Elogram\Helpers;
 
 use Larabros\Elogram\Exceptions\CsrfException;
+use Larabros\Elogram\Http\OAuth2\ProviderInterface;
 use Larabros\Elogram\Http\Sessions\DataStoreInterface;
-use League\OAuth2\Client\Provider\Instagram as InstagramProvider;
 use League\OAuth2\Client\Token\AccessToken;
 
 /**
@@ -18,7 +18,7 @@ use League\OAuth2\Client\Token\AccessToken;
 class RedirectLoginHelper
 {
     /**
-     * @var InstagramProvider
+     * @var ProviderInterface
      */
     protected $provider;
 
@@ -30,10 +30,10 @@ class RedirectLoginHelper
     /**
      * Creates an instance of :php:class:`RedirectLoginHelper`.
      *
-     * @param InstagramProvider  $provider
+     * @param ProviderInterface  $provider
      * @param DataStoreInterface $store
      */
-    public function __construct(InstagramProvider $provider, DataStoreInterface $store)
+    public function __construct(ProviderInterface $provider, DataStoreInterface $store)
     {
         $this->provider = $provider;
         $this->store    = $store;

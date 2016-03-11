@@ -4,9 +4,10 @@ namespace Larabros\Elogram\Providers;
 
 use GuzzleHttp\Client;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\OAuth2\LeagueProvider;
+use Larabros\Elogram\Http\OAuth2\ProviderInterface;
 use Larabros\Elogram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
-use League\OAuth2\Client\Provider\Instagram;
 
 /**
  * Adds core classes to container.
@@ -28,7 +29,7 @@ class CoreServiceProvider extends AbstractServiceProvider
      * @var array
      */
     protected $provides = [
-        'provider',
+        ProviderInterface::class,
         RedirectLoginHelper::class
     ];
 
@@ -44,8 +45,8 @@ class CoreServiceProvider extends AbstractServiceProvider
         $container = $this->getContainer();
         $config    = $container->get('config');
 
-        $container->share('provider', function () use ($config, $container) {
-            return new Instagram([
+        $container->share(ProviderInterface::class, function () use ($config, $container) {
+            return new LeagueProvider([
                 'clientId'     => $config->get('client_id'),
                 'clientSecret' => $config->get('client_secret'),
                 'redirectUri'  => $config->get('redirect_url'),

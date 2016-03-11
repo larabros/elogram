@@ -5,6 +5,7 @@ namespace Larabros\Elogram\Tests\Http;
 use Larabros\Elogram\Container\Builder;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
 use Larabros\Elogram\Http\Clients\AdapterInterface;
+use Larabros\Elogram\Http\OAuth2\ProviderInterface;
 use Larabros\Elogram\Providers\EntityServiceProvider;
 use Larabros\Elogram\Providers\CoreServiceProvider;
 use Larabros\Elogram\Providers\GuzzleServiceProvider;
@@ -53,7 +54,7 @@ class BuilderTest extends TestCase
 
         $container = $this->builder->registerProvider($providerMock)->getContainer();
 
-        $this->assertTrue($container->has('provider'));
+        $this->assertTrue($container->has(ProviderInterface::class));
         $this->assertTrue($container->has(RedirectLoginHelper::class));
     }
 
@@ -75,7 +76,7 @@ class BuilderTest extends TestCase
             ->getContainer();
 
         $this->assertTrue($container->has(RedirectLoginHelper::class));
-        $this->assertTrue($container->has('provider'));
+        $this->assertTrue($container->has(ProviderInterface::class));
         $this->assertTrue($container->has(AdapterInterface::class));
 
         $this->assertTrue($container->has('entity.user'));
@@ -99,7 +100,7 @@ class BuilderTest extends TestCase
             ->getContainer();
 
         $this->assertFalse($container->has(RedirectLoginHelper::class));
-        $this->assertFalse($container->has('provider'));
+        $this->assertFalse($container->has(ProviderInterface::class));
         $this->assertFalse($container->has(AdapterInterface::class));
 
         $this->assertFalse($container->has('entity.user'));
@@ -125,7 +126,7 @@ class BuilderTest extends TestCase
         ]))->getContainer();
 
         $this->assertTrue($container->has(RedirectLoginHelper::class));
-        $this->assertTrue($container->has('provider'));
+        $this->assertTrue($container->has(ProviderInterface::class));
         $this->assertTrue($container->has(AdapterInterface::class));
 
         $this->assertTrue($container->has('entity.user'));

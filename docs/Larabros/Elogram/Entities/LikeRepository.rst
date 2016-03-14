@@ -18,7 +18,7 @@ Larabros\\Elogram\\Entities\\LikeRepository
 
         :type $mediaId: int
         :param $mediaId: The ID of the media object
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: like($mediaId)
 
@@ -26,7 +26,7 @@ Larabros\\Elogram\\Entities\\LikeRepository
 
         :type $mediaId: int
         :param $mediaId: The ID of the media object
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: unlike($mediaId)
 
@@ -34,7 +34,7 @@ Larabros\\Elogram\\Entities\\LikeRepository
 
         :type $mediaId: int
         :param $mediaId: The ID of the media object
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: __construct(AdapterInterface $client)
 

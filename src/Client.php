@@ -233,6 +233,8 @@ final class Client
      *
      * @param AccessToken $token
      *
+     * @return  void
+     *
      * @codeCoverageIgnore
      */
     public function setAccessToken(AccessToken $token)
@@ -246,6 +248,8 @@ final class Client
      * `SecureRequestMiddleware`.
      *
      * @param bool $enable
+     *
+     * @return  void
      *
      * @codeCoverageIgnore
      */

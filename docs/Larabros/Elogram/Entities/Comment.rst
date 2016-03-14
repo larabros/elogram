@@ -18,7 +18,7 @@ Larabros\\Elogram\\Entities\\Comment
 
         :type $mediaId: int
         :param $mediaId: The ID of the media object
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: create($mediaId, $text)
 
@@ -32,7 +32,7 @@ Larabros\\Elogram\\Entities\\Comment
         :param $mediaId:
         :type $text: string
         :param $text: Text to post as a comment on the media object as specified by `$mediaId`
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: delete($mediaId, $commentId)
 
@@ -42,7 +42,7 @@ Larabros\\Elogram\\Entities\\Comment
         :param $mediaId:
         :type $commentId: string
         :param $commentId: The ID of the comment
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: __construct(AdapterInterface $client)
 

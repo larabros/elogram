@@ -42,7 +42,7 @@ Larabros\\Elogram\\Http\\Response
 
         :type $response: array
         :param $response:
-        :returns:  :php:class:`static`
+        :returns: static
 
     .. php:method:: getRaw($key = null)
 
@@ -50,14 +50,14 @@ Larabros\\Elogram\\Http\\Response
 
         :type $key: string|null
         :param $key:
-        :returns:  :php:class:`array`
+        :returns: array
 
     .. php:method:: get()
 
         Gets the response body. If the response contains multiple records,
         a ``Collection`` is returned.
 
-        :returns:  :php:class:`array|Collection`
+        :returns: array|Collection
 
     .. php:method:: merge(Response $response)
 
@@ -66,7 +66,7 @@ Larabros\\Elogram\\Http\\Response
 
         :type $response: Response
         :param $response:
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: isCollection($data)
 
@@ -75,7 +75,7 @@ Larabros\\Elogram\\Http\\Response
 
         :type $data: array|Collection
         :param $data:
-        :returns:  :php:class:`bool`
+        :returns: bool
 
     .. php:method:: isRecord($data)
 
@@ -83,23 +83,23 @@ Larabros\\Elogram\\Http\\Response
 
         :type $data: array|Collection
         :param $data:
-        :returns:  :php:class:`bool`
+        :returns: bool
 
     .. php:method:: hasPages()
 
         If the response has a ``pagination`` field with a ``next_url`` key, then
         returns ``true``, otherwise ``false``.
 
-        :returns:  :php:class:`bool`
+        :returns: bool
 
     .. php:method:: nextUrl()
 
         Returns the next URL, if available, otherwise ``null``.
 
-        :returns:  :php:class:`string|null`
+        :returns: string|null
 
     .. php:method:: __toString()
 
         Returns the JSON-encoded raw response.
 
-        :returns:  :php:class:`string`
+        :returns: string

@@ -28,7 +28,7 @@ Larabros\\Elogram\\Container\\Builder
 
         :type $config: array
         :param $config:
-        :returns:  :php:class:`Config`
+        :returns: Config
 
     .. php:method:: registerProviders($providers = [])
 
@@ -36,7 +36,7 @@ Larabros\\Elogram\\Container\\Builder
 
         :type $providers: array
         :param $providers:
-        :returns:  :php:class:`Builder`
+        :returns: Builder
 
     .. php:method:: registerProvider($provider)
 
@@ -44,7 +44,7 @@ Larabros\\Elogram\\Container\\Builder
 
         :type $provider: string|ServiceProviderInterface
         :param $provider:
-        :returns:  :php:class:`Builder`
+        :returns: Builder
 
     .. php:method:: createContainer($config)
 
@@ -53,4 +53,4 @@ Larabros\\Elogram\\Container\\Builder
 
         :type $config: array
         :param $config:
-        :returns:  :php:class:`ContainerInterface`
+        :returns: ContainerInterface

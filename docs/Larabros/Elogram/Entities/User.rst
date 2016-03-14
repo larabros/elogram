@@ -18,7 +18,7 @@ Larabros\\Elogram\\Entities\\User
 
         :type $id: string
         :param $id: The ID of the user. Default is ``self``
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getMedia($id = 'self', $count = null, $minId = null, $maxId = null)
 
@@ -31,7 +31,7 @@ Larabros\\Elogram\\Entities\\User
         :param $minId: Return media later than this min_id
         :type $maxId: int|null
         :param $maxId: Return media earlier than this max_id
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getLikedMedia($count = null, $maxLikeId = null)
 
@@ -41,7 +41,7 @@ Larabros\\Elogram\\Entities\\User
         :param $count: Count of media to return
         :type $maxLikeId: int|null
         :param $maxLikeId: Return media liked before this id
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: search($query, $count = null)
 
@@ -49,7 +49,7 @@ Larabros\\Elogram\\Entities\\User
 
         :param $query:
         :param $count:
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: find($username)
 
@@ -58,25 +58,25 @@ Larabros\\Elogram\\Entities\\User
 
         :type $username: string
         :param $username: A username to search for
-        :returns:  :php:class:`Response|null`
+        :returns: Response|null
 
     .. php:method:: follows()
 
         Get the list of users this user follows.
 
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: followedBy()
 
         Get the list of users this user is followed by.
 
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: requestedBy()
 
         List the users who have requested this user's permission to follow.
 
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getRelationship($targetUserId)
 
@@ -85,7 +85,7 @@ Larabros\\Elogram\\Entities\\User
 
         :type $targetUserId: string
         :param $targetUserId: The ID of the target user
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: setRelationship($targetUserId, $action)
 
@@ -96,7 +96,7 @@ Larabros\\Elogram\\Entities\\User
         :param $targetUserId: The ID of the target user
         :type $action: string
         :param $action: Can be one of:  ``follow | unfollow | approve | ignore``
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: __construct(AdapterInterface $client)
 

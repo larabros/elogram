@@ -6,6 +6,8 @@ Larabros\\Elogram\\Http\\Clients\\AdapterInterface
 
 .. php:interface:: AdapterInterface
 
+    An interface for HTTP clients.
+
     .. php:method:: request($method, $uri, $parameters = [])
 
         Sends a HTTP request. Use this method as a convenient way of making
@@ -14,7 +16,7 @@ Larabros\\Elogram\\Http\\Clients\\AdapterInterface
         :param $method:
         :param $uri:
         :param $parameters:
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: paginate(Response $response, $limit = null)
 
@@ -23,4 +25,4 @@ Larabros\\Elogram\\Http\\Clients\\AdapterInterface
         :type $response: Response
         :param $response:
         :param $limit:
-        :returns:  :php:class:`Response`
+        :returns: Response

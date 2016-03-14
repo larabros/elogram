@@ -34,43 +34,43 @@ Larabros\\Elogram\\Client
         ``Container`` object.
 
         :param $options:
-        :returns:  :php:class:`ContainerInterface`
+        :returns: ContainerInterface
 
     .. php:method:: users()
 
         Returns the current instance of :php:class:`User`.
 
-        :returns:  :php:class:`User`
+        :returns: User
 
     .. php:method:: media()
 
         Returns the current instance of :php:class:`Media`.
 
-        :returns:  :php:class:`Media`
+        :returns: Media
 
     .. php:method:: comments()
 
         Returns the current instance of :php:class:`Comment`.
 
-        :returns:  :php:class:`Comment`
+        :returns: Comment
 
     .. php:method:: likes()
 
         Returns the current instance of :php:class:`LikeRepository`.
 
-        :returns:  :php:class:`LikeRepository`
+        :returns: LikeRepository
 
     .. php:method:: tags()
 
         Returns the current instance of :php:class:`Tag`.
 
-        :returns:  :php:class:`Tag`
+        :returns: Tag
 
     .. php:method:: locations()
 
         Returns the current instance of :php:class:`Location`.
 
-        :returns:  :php:class:`Location`
+        :returns: Location
 
     .. php:method:: request($method, $uri, $parameters = [])
 
@@ -81,7 +81,7 @@ Larabros\\Elogram\\Client
         :type $uri: string
         :param $uri:
         :param $parameters:
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: paginate(Response $response, $limit = null)
 
@@ -90,7 +90,7 @@ Larabros\\Elogram\\Client
         :type $response: Response
         :param $response:
         :param $limit:
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getLoginUrl($options = [])
 
@@ -98,7 +98,7 @@ Larabros\\Elogram\\Client
 
         :type $options: array
         :param $options:
-        :returns:  :php:class:`string`
+        :returns: string
 
     .. php:method:: getAccessToken($code, $grant = 'authorization_code')
 
@@ -108,7 +108,7 @@ Larabros\\Elogram\\Client
         :param $code:
         :type $grant: string
         :param $grant:
-        :returns:  :php:class:`AccessToken`
+        :returns: AccessToken
 
     .. php:method:: setAccessToken(AccessToken $token)
 
@@ -117,6 +117,7 @@ Larabros\\Elogram\\Client
 
         :type $token: AccessToken
         :param $token:
+        :returns: unknown void
 
     .. php:method:: secureRequests($enable = true)
 
@@ -125,3 +126,4 @@ Larabros\\Elogram\\Client
 
         :type $enable: bool
         :param $enable:
+        :returns: unknown void

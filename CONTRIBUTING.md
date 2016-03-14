@@ -6,15 +6,15 @@ We accept contributions via Pull Requests on [Github](https://github.com/larabro
 
 ## Documentation
 
-Documentation for this project is available at http://elogram.readthedocs.org.
+Documentation for this project is available at the [ReadTheDocs page](http://elogram.readthedocs.org).
 
-Documentation for the API is available at http://elogram.readthedocs.org/en/latest/_static/api.
+The API reference documentation is available at [here](http://elogram.readthedocs.org/en/stable/Larabros/Elogram/index.html).
 
 ## Guidelines
 
 - **PSR-2 Coding Standard:** The easiest way to apply [the code standard]((https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)) is to install [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
-- **PHP 5.5:** Elogram has a minimum PHP version requirement of PHP 5.5. Pull requests must not require a PHP version greater than PHP 5.5 unless the feature is only utilized conditionally.
+- **PHP 5.5.9:** Elogram has a minimum PHP version requirement of PHP 5.5.9. Pull requests must not require a PHP version greater than PHP 5.5.9 unless the feature is only utilized conditionally.
 
 - **Add tests!:** All pull requests must include unit tests to ensure the change works as expected and to prevent regressions.
 
@@ -37,25 +37,17 @@ In order to contribute, you'll need to checkout the source from GitHub and insta
 
 ``` bash
 $ git clone https://github.com/larabros/elogram.git
-$ cd elogram && composer install --dev
+$ cd elogram && composer install
 $ php vendor/bin/phpunit
 ```
 
 ## Reporting a security vulnerability
 
-We want to ensure that Elogram is secure for everyone. If you've discovered
-a security vulnerability, we appreciate your help in disclosing it to
-us in a [responsible manner](http://en.wikipedia.org/wiki/Responsible_disclosure).
+We want to ensure that Elogram is secure for everyone. If you've discovered a security vulnerability, we appreciate your help in disclosing it to us in a [responsible manner](http://en.wikipedia.org/wiki/Responsible_disclosure).
 
-Publicly disclosing a vulnerability can put the entire community at risk. If
-you've discovered a security concern, please email us at
-contact@hassankhan.me. We'll work with you to make sure that we understand the
-scope of the issue, and that we fully address your concern. We consider
-correspondence sent to this email address our highest priority, and work to
-address any issues that arise as quickly as possible.
+Publicly disclosing a vulnerability can put the entire community at risk. If you've discovered a security concern, please email us at contact@hassankhan.me. We'll work with you to make sure that we understand the scope of the issue, and that we fully address your concern. We consider correspondence sent to this email address our highest priority, and work to address any issues that arise as quickly as possible.
 
-After a security vulnerability has been corrected, a security hotfix release will
-be deployed as soon as possible.
+After a security vulnerability has been corrected, a security hotfix release will be deployed as soon as possible.
 
 
 **Happy coding**!

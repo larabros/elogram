@@ -8,9 +8,14 @@
     border-top: none !important;
 }*/
 
+.rst-content dl dl.method dt {
+    border-left: none !important;
+}
+
 .rst-content dl.method {
     background: #e7f2fa;
     border-left: solid 3px #6ab0de;
+    padding-bottom: 6px;
 }
 
 .rst-content dl.method dt {

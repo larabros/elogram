@@ -23,3 +23,4 @@ Larabros\\Elogram\\Http\\Sessions\\DataStoreInterface
         :type $key: string
         :param $key:
         :param $value:
+        :returns: unknown void

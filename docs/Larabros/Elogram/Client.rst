@@ -117,6 +117,7 @@ Larabros\\Elogram\\Client
 
         :type $token: AccessToken
         :param $token:
+        :returns: unknown void
 
     .. php:method:: secureRequests($enable = true)
 
@@ -125,3 +126,4 @@ Larabros\\Elogram\\Client
 
         :type $enable: bool
         :param $enable:
+        :returns: unknown void

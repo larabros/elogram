@@ -6,6 +6,8 @@ Larabros\\Elogram\\Http\\Clients\\AdapterInterface
 
 .. php:interface:: AdapterInterface
 
+    An interface for HTTP clients.
+
     .. php:method:: request($method, $uri, $parameters = [])
 
         Sends a HTTP request. Use this method as a convenient way of making

@@ -10,17 +10,17 @@ Larabros\\Elogram\\Helpers\\RedirectLoginHelper
 
     .. php:attr:: provider
 
-        protected InstagramProvider
+        protected ProviderInterface
 
     .. php:attr:: store
 
         protected DataStoreInterface
 
-    .. php:method:: __construct(InstagramProvider $provider, DataStoreInterface $store)
+    .. php:method:: __construct(ProviderInterface $provider, DataStoreInterface $store)
 
         Creates an instance of :php:class:`RedirectLoginHelper`.
 
-        :type $provider: InstagramProvider
+        :type $provider: ProviderInterface
         :param $provider:
         :type $store: DataStoreInterface
         :param $store:

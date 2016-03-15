@@ -6,6 +6,14 @@ use Exception;
 use GuzzleHttp\Exception\ClientException;
 use Larabros\Elogram\Http\Response;
 
+/**
+ * An interface for HTTP clients.
+ *
+ * @package    Elogram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/larabros/elogram
+ * @license    MIT
+ */
 interface AdapterInterface
 {
     /**

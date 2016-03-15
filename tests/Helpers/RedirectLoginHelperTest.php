@@ -1,12 +1,12 @@
 <?php
 
-namespace Larabros\Elogram\Tests\Http;
+namespace Larabros\Elogram\Tests\Helpers;
 
 use Larabros\Elogram\Exceptions\CsrfException;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
+use Larabros\Elogram\Http\OAuth2\Providers\AdapterInterface as ProviderInterface;
 use Larabros\Elogram\Http\Sessions\NativeSessionStore;
 use Larabros\Elogram\Tests\TestCase;
-use League\OAuth2\Client\Provider\Instagram;
 use League\OAuth2\Client\Token\AccessToken;
 use \Mockery as m;
 
@@ -23,7 +23,7 @@ class RedirectLoginHelperTest extends TestCase
     protected function setUp()
     {
         $token    = m::mock(AccessToken::class, [['access_token' => "somenumbers"]]);
-        $provider = m::mock(Instagram::class);
+        $provider = m::mock(ProviderInterface::class);
         $store    = m::mock(NativeSessionStore::class);
 
         $token->shouldReceive('getToken')

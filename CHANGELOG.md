@@ -1,6 +1,8 @@
 # Changelog
 
-All notable changes to `elogram` will be documented in this file
+All notable changes to `elogram` will be documented in this file.
+
+Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
 ## NEXT - YYYY-MM-DD
 
@@ -19,12 +21,34 @@ All notable changes to `elogram` will be documented in this file
 ### Security
 - Nothing
 
+## 1.1.5 - 2016-03-15
+
+### Added
+- Nothing
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Changed concrete dependency on `League\OAuth2\Provider\Instagram` by adding a new interface `OAuth2\Providers\AdapterInterface`.
+
+### Removed
+- Nothing
+
+### Security
+- Nothing
+
 ## 1.1.4 - 2016-03-15
 
 ### Fixed
 - Pagination now works correctly when secure requests are enabled.
 
-## 1.1.2 - YYYY-MM-DD
+## 1.1.3 - 2016-03-15
+
+### Fixed
+- `Response::merge()` would return incorrect results when using older versions of the `illuminate/support` package.
+
+## 1.1.2 - 2016-03-10
 
 ### Added
 - Documentation for lots of things

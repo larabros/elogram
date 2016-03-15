@@ -21,7 +21,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Security
 - Nothing
 
-## 1.1.2 - YYYY-MM-DD
+## 1.1.3 - 2016-03-15
+
+### Fixed
+- `Response::merge()` would return incorrect results when using older versions of the `illuminate/support` package.
+
+## 1.1.2 - 2016-03-10
 
 ### Added
 - Documentation for lots of things

@@ -4,8 +4,8 @@ namespace Larabros\Elogram\Providers;
 
 use GuzzleHttp\Client;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
-use Larabros\Elogram\Http\OAuth2\LeagueProvider;
-use Larabros\Elogram\Http\OAuth2\ProviderInterface;
+use Larabros\Elogram\Http\OAuth2\Providers\LeagueAdapter;
+use Larabros\Elogram\Http\OAuth2\Providers\AdapterInterface;
 use Larabros\Elogram\Http\Sessions\DataStoreInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
@@ -29,7 +29,7 @@ class CoreServiceProvider extends AbstractServiceProvider
      * @var array
      */
     protected $provides = [
-        ProviderInterface::class,
+        AdapterInterface::class,
         RedirectLoginHelper::class
     ];
 
@@ -45,8 +45,8 @@ class CoreServiceProvider extends AbstractServiceProvider
         $container = $this->getContainer();
         $config    = $container->get('config');
 
-        $container->share(ProviderInterface::class, function () use ($config, $container) {
-            return new LeagueProvider([
+        $container->share(AdapterInterface::class, function () use ($config, $container) {
+            return new LeagueAdapter([
                 'clientId'     => $config->get('client_id'),
                 'clientSecret' => $config->get('client_secret'),
                 'redirectUri'  => $config->get('redirect_url'),

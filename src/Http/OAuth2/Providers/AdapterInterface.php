@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabros\Elogram\Http\OAuth2;
+namespace Larabros\Elogram\Http\OAuth2\Providers;
 
 use League\OAuth2\Client\Token\AccessToken;
 
@@ -12,7 +12,7 @@ use League\OAuth2\Client\Token\AccessToken;
  * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-interface ProviderInterface
+interface AdapterInterface
 {
     /**
      * Builds the authorization URL.

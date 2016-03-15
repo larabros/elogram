@@ -13,7 +13,24 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Nothing
 
 ### Fixed
-- Changed concrete dependency on League\OAuth2\Provider\Instagram by adding a new interface `OAuth2\ProviderInterface`.
+- Nothing
+
+### Removed
+- Nothing
+
+### Security
+- Nothing
+
+## 1.1.5 - 2016-03-15
+
+### Added
+- Nothing
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Changed concrete dependency on `League\OAuth2\Provider\Instagram` by adding a new interface `OAuth2\Providers\AdapterInterface`.
 
 ### Removed
 - Nothing

@@ -5,7 +5,7 @@ namespace Larabros\Elogram\Tests\Http;
 use Larabros\Elogram\Container\Builder;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
 use Larabros\Elogram\Http\Clients\AdapterInterface;
-use Larabros\Elogram\Http\OAuth2\ProviderInterface;
+use Larabros\Elogram\Http\OAuth2\Providers\AdapterInterface as ProviderInterface;
 use Larabros\Elogram\Providers\EntityServiceProvider;
 use Larabros\Elogram\Providers\CoreServiceProvider;
 use Larabros\Elogram\Providers\GuzzleServiceProvider;

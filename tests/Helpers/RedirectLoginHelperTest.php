@@ -4,7 +4,7 @@ namespace Larabros\Elogram\Tests\Helpers;
 
 use Larabros\Elogram\Exceptions\CsrfException;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
-use Larabros\Elogram\Http\OAuth2\ProviderInterface;
+use Larabros\Elogram\Http\OAuth2\Providers\AdapterInterface as ProviderInterface;
 use Larabros\Elogram\Http\Sessions\NativeSessionStore;
 use Larabros\Elogram\Tests\TestCase;
 use League\OAuth2\Client\Token\AccessToken;

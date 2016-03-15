@@ -1,18 +1,18 @@
 <?php
 
-namespace Larabros\Elogram\Entities;
+namespace Larabros\Elogram\Repositories;
 
 use Larabros\Elogram\Http\Response;
 
 /**
- * Media
+ * MediaRepository
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-class Media extends AbstractEntity
+class MediaRepository extends AbstractRepository
 {
     /**
      * Get information about a media object.
@@ -29,7 +29,7 @@ class Media extends AbstractEntity
     }
 
     /**
-     * This method returns the same response as :php:meth:`Media::get`
+     * This method returns the same response as :php:meth:`MediaRepository::get`
      *
      * @param string $shortcode  The shortcode of the media object
      *

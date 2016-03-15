@@ -1,15 +1,15 @@
 <?php
 
-namespace Larabros\Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Repositories;
 
-use Larabros\Elogram\Entities\Location;
+use Larabros\Elogram\Repositories\LocationsRepository;
 use Larabros\Elogram\Http\Clients\MockAdapter;
 use Larabros\Elogram\Tests\TestCase;
 
-class LocationTest extends TestCase
+class LocationsRepositoryTest extends TestCase
 {
     /**
-     * @var Location
+     * @var LocationsRepository
      */
     protected $location;
 
@@ -18,12 +18,12 @@ class LocationTest extends TestCase
      */
     protected function setUp()
     {
-        $this->location = new Location(new MockAdapter($this->getFixturesPath()));
+        $this->location = new LocationsRepository(new MockAdapter($this->getFixturesPath()));
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Location::__construct()
-     * @covers Larabros\Elogram\Entities\Location::get()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Location::__construct()
-     * @covers Larabros\Elogram\Entities\Location::getRecentMedia()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -42,8 +42,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Location::__construct()
-     * @covers Larabros\Elogram\Entities\Location::search()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::search()
      */
     public function testSearch()
     {
@@ -52,8 +52,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Location::__construct()
-     * @covers Larabros\Elogram\Entities\Location::searchByFacebookPlacesId()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::searchByFacebookPlacesId()
      */
     public function testSearchByFacebookPlacesId()
     {
@@ -62,8 +62,8 @@ class LocationTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Location::__construct()
-     * @covers Larabros\Elogram\Entities\Location::searchByFoursquareId()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\LocationsRepository::searchByFoursquareId()
      */
     public function testSearchByFoursquareId()
     {

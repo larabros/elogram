@@ -48,6 +48,9 @@ final class SecureRequestMiddleware extends AbstractMiddleware
     {
         $params = [];
         parse_str($query, $params);
+        if (array_key_exists('sig', $params)) {
+            unset($params['sig']);
+        }
         return $params;
     }
 

@@ -21,6 +21,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Security
 - Nothing
 
+## 1.1.4 - 2016-03-15
+
+### Fixed
+- Pagination now works correctly when secure requests are enabled.
+
 ## 1.1.3 - 2016-03-15
 
 ### Fixed

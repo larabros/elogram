@@ -18,7 +18,7 @@ trait UrlParserTrait
      */
     public function getPath(UriInterface $uri)
     {
-        $path = trim($uri->getPath(), '/');
+        $path  = trim($uri->getPath(), '/');
         $parts = explode('/', $path);
 
         if ($parts[0] === 'v'.Client::API_VERSION) {

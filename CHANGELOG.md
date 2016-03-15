@@ -21,6 +21,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Security
 - Nothing
 
+## 1.1.7 - 2016-03-15
+
+### Fixed
+- A bug in the instantiation of `RedirectLoginHelper`.
+
 ## 1.1.6 - 2016-03-15
 
 ### Fixed

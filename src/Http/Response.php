@@ -122,7 +122,6 @@ class Response
         $old = $this->get();
 
         if ($this->isCollection($old) && $this->isCollection($data)) {
-
             $old = !($old instanceof Collection) ?: $old->toArray();
             $new = !($data instanceof Collection) ?: $data->toArray();
 

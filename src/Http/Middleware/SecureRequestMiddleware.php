@@ -29,11 +29,11 @@ final class SecureRequestMiddleware extends AbstractMiddleware
             return $next($request, $options);
         }
 
-        $uri     = $request->getUri();
-        $params  = $this->getParams($uri->getQuery());
-        $path    = $this->getPath($uri->getPath());
-        $secret  = $this->config->get('client_secret');
-        $uri     = Uri::withQueryValue($uri, 'sig', $this->generateSig($path, $params, $secret));
+        $uri    = $request->getUri();
+        $params = $this->getParams($uri->getQuery());
+        $path   = $this->getPath($uri->getPath());
+        $secret = $this->config->get('client_secret');
+        $uri    = Uri::withQueryValue($uri, 'sig', $this->generateSig($path, $params, $secret));
 
         return parent::__invoke($request->withUri($uri), $options);
     }

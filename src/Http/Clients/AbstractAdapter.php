@@ -64,8 +64,8 @@ abstract class AbstractAdapter implements AdapterInterface
             return new Exception($exception->getMessage());
         }
 
-        $meta      = isset($response->meta) ? $response->meta : $response;
-        $class     = '\\Larabros\\Elogram\\Exceptions\\'.$meta->error_type;
+        $meta  = isset($response->meta) ? $response->meta : $response;
+        $class = '\\Larabros\\Elogram\\Exceptions\\'.$meta->error_type;
         return new $class($meta->error_message);
     }
 }

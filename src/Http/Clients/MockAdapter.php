@@ -64,9 +64,9 @@ final class MockAdapter extends AbstractAdapter
      */
     protected function cleanPath($uri)
     {
-        $urlPath   = parse_url($uri, PHP_URL_PATH);
-        $uri       = str_replace('v1/', '', $urlPath);
-        $path      = preg_replace('/(\/\w{10}$|self|\d*)/', '', $uri);
+        $urlPath = parse_url($uri, PHP_URL_PATH);
+        $uri     = str_replace('v1/', '', $urlPath);
+        $path    = preg_replace('/(\/\w{10}$|self|\d*)/', '', $uri);
         return trim(preg_replace('/\/{1,2}|\-/', '_', $path), '_');
     }
 

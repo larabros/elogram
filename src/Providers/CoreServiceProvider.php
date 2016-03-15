@@ -62,7 +62,7 @@ class CoreServiceProvider extends AbstractServiceProvider
 
         $container->share(RedirectLoginHelper::class, function () use ($container) {
             return new RedirectLoginHelper(
-                $container->get('provider'),
+                $container->get(AdapterInterface::class),
                 $container->get(DataStoreInterface::class)
             );
         });

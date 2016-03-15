@@ -18,7 +18,7 @@ Larabros\\Elogram\\Entities\\Tag
 
         :type $tag: string
         :param $tag: Name of the tag
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getRecentMedia($tag, $count = null, $minTagId = null, $maxTagId = null)
 
@@ -30,7 +30,7 @@ Larabros\\Elogram\\Entities\\Tag
         :param $minTagId: Return media before this min_tag_id
         :type $maxTagId: string|null
         :param $maxTagId: Return media after this max_tag_id
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: search($tag)
 
@@ -38,7 +38,7 @@ Larabros\\Elogram\\Entities\\Tag
 
         :type $tag: string
         :param $tag: Name of the tag
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: __construct(AdapterInterface $client)
 

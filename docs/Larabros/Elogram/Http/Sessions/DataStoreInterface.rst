@@ -14,7 +14,7 @@ Larabros\\Elogram\\Http\\Sessions\\DataStoreInterface
 
         :type $key: string
         :param $key:
-        :returns:  :php:class:`mixed`
+        :returns: mixed
 
     .. php:method:: set($key, $value)
 
@@ -23,3 +23,4 @@ Larabros\\Elogram\\Http\\Sessions\\DataStoreInterface
         :type $key: string
         :param $key:
         :param $value:
+        :returns: unknown void

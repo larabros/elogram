@@ -24,4 +24,4 @@ Larabros\\Elogram\\Providers\\EntityServiceProvider
         protected ``$this->container`` property or the ``getContainer`` method
         from the ``ContainerAwareTrait``.
 
-        :returns:  :php:class:`void`
+        :returns: void

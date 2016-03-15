@@ -36,21 +36,21 @@ Larabros\\Elogram\\Http\\Clients\\MockAdapter
         :type $uri: string
         :param $uri:
         :param $parameters:
-        :returns:  :php:class:`string`
+        :returns: string
 
     .. php:method:: cleanPath($uri)
 
         Removes any unwanted suffixes and values from a URL path.
 
         :param $uri:
-        :returns:  :php:class:`string`
+        :returns: string
 
     .. php:method:: mapRequestParameters($parameters)
 
         Parses any filename properties from the request parameters.
 
         :param $parameters:
-        :returns:  :php:class:`string`
+        :returns: string
 
     .. php:method:: paginate(Response $response, $limit = null)
 
@@ -71,4 +71,4 @@ Larabros\\Elogram\\Http\\Clients\\MockAdapter
 
         :type $exception: ClientException
         :param $exception:
-        :returns:  :php:class:`Exception`
+        :returns: Exception

@@ -24,6 +24,6 @@ Larabros\\Elogram\\Providers\\MiddlewareServiceProvider
         protected ``$this->container`` property or the ``getContainer`` method
         from the ``ContainerAwareTrait``.
 
-        :returns:  :php:class:`void`
+        :returns: void
 
     .. php:method:: addMiddleware()

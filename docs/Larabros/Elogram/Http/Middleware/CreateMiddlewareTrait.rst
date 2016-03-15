@@ -14,4 +14,4 @@ Larabros\\Elogram\\Http\\Middleware\\CreateMiddlewareTrait
 
         :type $config: ConfigInterface
         :param $config:
-        :returns:  :php:class:`Closure`
+        :returns: Closure

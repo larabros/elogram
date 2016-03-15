@@ -34,7 +34,7 @@ Larabros\\Elogram\\Http\\Middleware\\AuthMiddleware
 
         :type $config: ConfigInterface
         :param $config:
-        :returns:  :php:class:`Closure`
+        :returns: Closure
 
     .. php:method:: __construct($nextHandler, ConfigInterface $config)
 

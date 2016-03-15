@@ -18,7 +18,7 @@ Larabros\\Elogram\\Entities\\Location
 
         :type $id: string
         :param $id: The ID of the location
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getRecentMedia($id, $minId = null, $maxId = null)
 
@@ -29,7 +29,7 @@ Larabros\\Elogram\\Entities\\Location
         :param $minId: Return media before this min_id
         :type $maxId: string|null
         :param $maxId: Return media after this max_id
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: search($latitude, $longitude, $distance = 1000)
 
@@ -41,7 +41,7 @@ Larabros\\Elogram\\Entities\\Location
         :param $longitude: Longitude of the center search coordinate. If used, ``$latitude`` is required
         :type $distance: int
         :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: searchByFacebookPlacesId($facebookPlacesId)
 
@@ -49,7 +49,7 @@ Larabros\\Elogram\\Entities\\Location
 
         :type $facebookPlacesId: int
         :param $facebookPlacesId: A Facebook Places ID
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: searchByFoursquareId($foursquareId)
 
@@ -57,7 +57,7 @@ Larabros\\Elogram\\Entities\\Location
 
         :type $foursquareId: string
         :param $foursquareId: A Foursquare V2 API location ID
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: __construct(AdapterInterface $client)
 

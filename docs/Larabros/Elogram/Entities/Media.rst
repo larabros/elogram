@@ -18,7 +18,7 @@ Larabros\\Elogram\\Entities\\Media
 
         :type $id: string
         :param $id: The ID of the media object
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: getByShortcode($shortcode)
 
@@ -26,7 +26,7 @@ Larabros\\Elogram\\Entities\\Media
 
         :type $shortcode: string
         :param $shortcode: The shortcode of the media object
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: search($latitude, $longitude, $distance = 1000)
 
@@ -38,7 +38,7 @@ Larabros\\Elogram\\Entities\\Media
         :param $longitude: Longitude of the center search coordinate. If used, ``$latitude`` is required
         :type $distance: int
         :param $distance: The distance in metres. Default is ``1000``m, max distance is 5km.
-        :returns:  :php:class:`Response`
+        :returns: Response
 
     .. php:method:: __construct(AdapterInterface $client)
 

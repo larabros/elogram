@@ -48,4 +48,4 @@ Larabros\\Elogram\\Http\\Clients\\GuzzleAdapter
 
         :type $exception: ClientException
         :param $exception:
-        :returns:  :php:class:`Exception`
+        :returns: Exception

@@ -13,7 +13,7 @@ Larabros\\Elogram\\Http\\OAuth2\\ProviderInterface
         Builds the authorization URL.
 
         :param $options:
-        :returns:  :php:class:`string` Authorization URL
+        :returns: string Authorization URL
 
     .. php:method:: getAccessToken($grant, $options = [])
 
@@ -21,4 +21,4 @@ Larabros\\Elogram\\Http\\OAuth2\\ProviderInterface
 
         :param $grant:
         :param $options:
-        :returns:  :php:class:`AccessToken`
+        :returns: AccessToken

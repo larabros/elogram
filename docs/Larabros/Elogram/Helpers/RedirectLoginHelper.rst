@@ -31,7 +31,7 @@ Larabros\\Elogram\\Helpers\\RedirectLoginHelper
 
         :type $options: array
         :param $options:
-        :returns:  :php:class:`string`
+        :returns: string
 
     .. php:method:: getAccessToken($code, $grant = 'authorization_code')
 
@@ -41,7 +41,7 @@ Larabros\\Elogram\\Helpers\\RedirectLoginHelper
         :param $code:
         :type $grant: string
         :param $grant:
-        :returns:  :php:class:`AccessToken`
+        :returns: AccessToken
 
     .. php:method:: validateCsrf()
 
@@ -53,4 +53,4 @@ Larabros\\Elogram\\Helpers\\RedirectLoginHelper
 
         :type $key: string
         :param $key:
-        :returns:  :php:class:`string|null`
+        :returns: string|null

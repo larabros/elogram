@@ -16,4 +16,4 @@ Larabros\\Elogram\\Http\\Middleware\\MiddlewareInterface
         :param $request:
         :type $options: array
         :param $options:
-        :returns:  :php:class:`mixed`
+        :returns: mixed

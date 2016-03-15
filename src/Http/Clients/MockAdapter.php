@@ -102,6 +102,6 @@ final class MockAdapter extends AbstractAdapter
 
         $modifiers = array_except($parameters['query'], $exclude);
         $return    = implode('_', array_keys($modifiers));
-        return rtrim("_".$return, '_');
+        return rtrim("_$return", '_');
     }
 }

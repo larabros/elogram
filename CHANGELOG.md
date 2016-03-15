@@ -19,6 +19,11 @@ All notable changes to `elogram` will be documented in this file
 ### Security
 - Nothing
 
+## 1.1.4 - 2016-03-15
+
+### Fixed
+- Pagination now works correctly when secure requests are enabled.
+
 ## 1.1.2 - YYYY-MM-DD
 
 ### Added

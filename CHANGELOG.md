@@ -13,7 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Nothing
 
 ### Fixed
-- Nothing
+- Changed concrete dependency on League\OAuth2\Provider\Instagram by adding a new interface `OAuth2\ProviderInterface`.
 
 ### Removed
 - Nothing

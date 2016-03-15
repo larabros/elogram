@@ -2,10 +2,17 @@
 
 namespace Larabros\Elogram\Http;
 
-
 use Larabros\Elogram\Client;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Adds utility classes for parsing parts of a URL.
+ *
+ * @package    Elogram
+ * @author     Hassan Khan <contact@hassankhan.me>
+ * @link       https://github.com/larabros/elogram
+ * @license    MIT
+ */
 trait UrlParserTrait
 {
     /**

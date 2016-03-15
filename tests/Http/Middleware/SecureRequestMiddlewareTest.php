@@ -36,8 +36,8 @@ class SecureRequestMiddlewareTest extends TestCase
      * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__construct()
      * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__invoke()
      * @covers Larabros\Elogram\Http\Middleware\AbstractMiddleware::__invoke()
-     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getParams()
-     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getPath()
+     * @covers Larabros\Elogram\Http\UrlParserTrait::getQueryParams()
+     * @covers Larabros\Elogram\Http\UrlParserTrait::getPath()
      * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::generateSig()
      */
     public function testGeneratesSigValue()
@@ -71,8 +71,8 @@ class SecureRequestMiddlewareTest extends TestCase
      * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__construct()
      * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__invoke()
      * @covers Larabros\Elogram\Http\Middleware\AbstractMiddleware::__invoke()
-     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getParams()
-     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::getPath()
+     * @covers Larabros\Elogram\Http\UrlParserTrait::getQueryParams()
+     * @covers Larabros\Elogram\Http\UrlParserTrait::getPath()
      * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::generateSig()
      */
     public function testGeneratesSigValueWithRequestParameters()
@@ -98,6 +98,40 @@ class SecureRequestMiddlewareTest extends TestCase
         $client->get('https://api.instagram.com/v1/media/657988443280050001_25025320', [
             'query' => [
                 'access_token' => 'fb2e77d.47a0479900504cb3ab4a1f626d174d2d',
+                'count'        => 10
+            ]]);
+    }
+
+    /**
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::create()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__construct()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\Middleware\AbstractMiddleware::__invoke()
+     * @covers Larabros\Elogram\Http\UrlParserTrait::getQueryParams()
+     * @covers Larabros\Elogram\Http\UrlParserTrait::getPath()
+     * @covers Larabros\Elogram\Http\Middleware\SecureRequestMiddleware::generateSig()
+     */
+    public function testReplacesSigValueInRequestParameters()
+    {
+        $handler = new MockHandler([
+            function (RequestInterface $request) {
+                $query = [];
+                parse_str($request->getUri()->getQuery(), $query);
+
+                $this->assertArrayHasKey('sig', $query);
+                $this->assertNotEquals('sig', $query['sig']);
+                return new Response(200);
+            }
+        ]);
+
+        $middleware = SecureRequestMiddleware::create($this->config);
+        $stack      = new HandlerStack($handler);
+        $stack->push($middleware);
+        $client = new Client(['handler' => $stack]);
+        $client->get('https://api.instagram.com/v1/media/657988443280050001_25025320', [
+            'query' => [
+                'access_token' => 'fb2e77d.47a0479900504cb3ab4a1f626d174d2d',
+                'sig'          => 'sig',
                 'count'        => 10
             ]]);
     }

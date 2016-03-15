@@ -1,15 +1,15 @@
 <?php
 
-namespace Larabros\Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Repositories;
 
-use Larabros\Elogram\Entities\Tag;
+use Larabros\Elogram\Repositories\TagsRepository;
 use Larabros\Elogram\Http\Clients\MockAdapter;
 use Larabros\Elogram\Tests\TestCase;
 
-class TagTest extends TestCase
+class TagsRepositoryTest extends TestCase
 {
     /**
-     * @var Tag
+     * @var TagsRepository
      */
     protected $tag;
 
@@ -18,12 +18,12 @@ class TagTest extends TestCase
      */
     protected function setUp()
     {
-        $this->tag = new Tag(new MockAdapter($this->getFixturesPath()));
+        $this->tag = new TagsRepository(new MockAdapter($this->getFixturesPath()));
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Tag::__construct()
-     * @covers Larabros\Elogram\Entities\Tag::get()
+     * @covers Larabros\Elogram\Repositories\TagsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\TagsRepository::get()
      */
     public function testGet()
     {
@@ -33,8 +33,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Tag::__construct()
-     * @covers Larabros\Elogram\Entities\Tag::getRecentMedia()
+     * @covers Larabros\Elogram\Repositories\TagsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\TagsRepository::getRecentMedia()
      */
     public function testGetRecentMedia()
     {
@@ -43,8 +43,8 @@ class TagTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Tag::__construct()
-     * @covers Larabros\Elogram\Entities\Tag::search()
+     * @covers Larabros\Elogram\Repositories\TagsRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\TagsRepository::search()
      */
     public function testSearch()
     {

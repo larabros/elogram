@@ -4,12 +4,12 @@ namespace Larabros\Elogram;
 
 use GuzzleHttp\HandlerStack;
 use Larabros\Elogram\Container\Builder;
-use Larabros\Elogram\Entities\Comment;
-use Larabros\Elogram\Entities\LikeRepository;
-use Larabros\Elogram\Entities\Location;
-use Larabros\Elogram\Entities\Media;
-use Larabros\Elogram\Entities\Tag;
-use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Repositories\CommentsRepository;
+use Larabros\Elogram\Repositories\LikesRepository;
+use Larabros\Elogram\Repositories\LocationsRepository;
+use Larabros\Elogram\Repositories\MediaRepository;
+use Larabros\Elogram\Repositories\TagsRepository;
+use Larabros\Elogram\Repositories\UsersRepository;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
 use Larabros\Elogram\Http\Clients\AdapterInterface;
 use Larabros\Elogram\Http\Response;
@@ -82,63 +82,63 @@ final class Client
      */
 
     /**
-     * Returns the current instance of :php:class:`User`.
+     * Returns the current instance of :php:class:`UsersRepository`.
      *
-     * @return User
+     * @return UsersRepository
      */
     public function users()
     {
-        return $this->container->get('entity.user');
+        return $this->container->get('repo.user');
     }
 
     /**
-     * Returns the current instance of :php:class:`Media`.
+     * Returns the current instance of :php:class:`MediaRepository`.
      *
-     * @return Media
+     * @return MediaRepository
      */
     public function media()
     {
-        return $this->container->get('entity.media');
+        return $this->container->get('repo.media');
     }
 
     /**
-     * Returns the current instance of :php:class:`Comment`.
+     * Returns the current instance of :php:class:`CommentsRepository`.
      *
-     * @return Comment
+     * @return CommentsRepository
      */
     public function comments()
     {
-        return $this->container->get('entity.comment');
+        return $this->container->get('repo.comment');
     }
 
     /**
-     * Returns the current instance of :php:class:`LikeRepository`.
+     * Returns the current instance of :php:class:`LikesRepository`.
      *
-     * @return LikeRepository
+     * @return LikesRepository
      */
     public function likes()
     {
-        return $this->container->get('entity.like');
+        return $this->container->get('repo.like');
     }
 
     /**
-     * Returns the current instance of :php:class:`Tag`.
+     * Returns the current instance of :php:class:`TagsRepository`.
      *
-     * @return Tag
+     * @return TagsRepository
      */
     public function tags()
     {
-        return $this->container->get('entity.tag');
+        return $this->container->get('repo.tag');
     }
 
     /**
-     * Returns the current instance of :php:class:`Location`.
+     * Returns the current instance of :php:class:`LocationsRepository`.
      *
-     * @return Location
+     * @return LocationsRepository
      */
     public function locations()
     {
-        return $this->container->get('entity.location');
+        return $this->container->get('repo.location');
     }
 
     /**

@@ -1,18 +1,18 @@
 <?php
 
-namespace Larabros\Elogram\Entities;
+namespace Larabros\Elogram\Repositories;
 
 use Larabros\Elogram\Http\Response;
 
 /**
- * User
+ * UsersRepository
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-class User extends AbstractEntity
+class UsersRepository extends AbstractRepository
 {
     /**
      * Get information about a user.

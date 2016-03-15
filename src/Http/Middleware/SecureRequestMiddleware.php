@@ -3,7 +3,7 @@
 namespace Larabros\Elogram\Http\Middleware;
 
 use GuzzleHttp\Psr7\Uri;
-use Larabros\Elogram\Client;
+use Larabros\Elogram\Http\UrlParserTrait;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -16,7 +16,7 @@ use Psr\Http\Message\RequestInterface;
  */
 final class SecureRequestMiddleware extends AbstractMiddleware
 {
-    use CreateMiddlewareTrait;
+    use CreateMiddlewareTrait, UrlParserTrait;
 
     /**
      * {@inheritDoc}
@@ -30,31 +30,26 @@ final class SecureRequestMiddleware extends AbstractMiddleware
         }
 
         $uri    = $request->getUri();
-        $params = $this->getParams($uri->getQuery());
-        $path   = $this->getPath($uri->getPath());
-        $secret = $this->config->get('client_secret');
-        $uri    = Uri::withQueryValue($uri, 'sig', $this->generateSig($path, $params, $secret));
+        $sig    = $this->generateSig(
+            $this->getPath($uri),
+            $this->getQueryParams($uri),
+            $this->config->get('client_secret')
+        );
+        $uri    = Uri::withQueryValue($uri, 'sig', $sig);
 
         return parent::__invoke($request->withUri($uri), $options);
     }
 
-    private function getPath($path)
-    {
-        $pattern = '/^\/v'.Client::API_VERSION.'\//';
-        return preg_replace($pattern, '/', $path);
-    }
-
-    private function getParams($query)
-    {
-        $params = [];
-        parse_str($query, $params);
-        if (array_key_exists('sig', $params)) {
-            unset($params['sig']);
-        }
-        return $params;
-    }
-
-    protected function generateSig($endpoint, $params, $secret)
+    /**
+     * Generates a ``sig`` value for a request.
+     *
+     * @param  string $endpoint
+     * @param  array  $params
+     * @param  string $secret
+     *
+     * @return string
+     */
+    protected function generateSig($endpoint, array $params, $secret)
     {
         $sig = $endpoint;
         ksort($params);

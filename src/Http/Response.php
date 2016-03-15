@@ -119,13 +119,18 @@ class Response
             ? $response->getRaw('pagination')
             : [];
 
-        if ($this->isCollection($this->data) && $this->isCollection($data)) {
-            $data = array_flatten([$this->data, $data], 1);
-            return new Response($meta, $data, $pagination);
+        $old = $this->get();
+
+        if ($this->isCollection($old) && $this->isCollection($data)) {
+
+            $old = !($old instanceof Collection) ?: $old->toArray();
+            $new = !($data instanceof Collection) ?: $data->toArray();
+
+            return new Response($meta, array_merge($old, $new), $pagination);
         }
 
-        if ($this->isRecord($this->data) && $this->isRecord($data)) {
-            return new Response($meta, [$this->data, $data], $pagination);
+        if ($this->isRecord($old) && $this->isRecord($data)) {
+            return new Response($meta, [$old, $data], $pagination);
         }
 
         throw new IncompatibleResponseException('The response contents cannot be merged');

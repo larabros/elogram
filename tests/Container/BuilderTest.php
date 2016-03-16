@@ -79,11 +79,11 @@ class BuilderTest extends TestCase
         $this->assertTrue($container->has(ProviderInterface::class));
         $this->assertTrue($container->has(AdapterInterface::class));
 
-        $this->assertTrue($container->has('entity.user'));
-        $this->assertTrue($container->has('entity.media'));
-        $this->assertTrue($container->has('entity.comment'));
-        $this->assertTrue($container->has('entity.like'));
-        $this->assertTrue($container->has('entity.tag'));
+        $this->assertTrue($container->has('repo.user'));
+        $this->assertTrue($container->has('repo.media'));
+        $this->assertTrue($container->has('repo.comment'));
+        $this->assertTrue($container->has('repo.like'));
+        $this->assertTrue($container->has('repo.tag'));
     }
 
     /**
@@ -103,11 +103,11 @@ class BuilderTest extends TestCase
         $this->assertFalse($container->has(ProviderInterface::class));
         $this->assertFalse($container->has(AdapterInterface::class));
 
-        $this->assertFalse($container->has('entity.user'));
-        $this->assertFalse($container->has('entity.media'));
-        $this->assertFalse($container->has('entity.comment'));
-        $this->assertFalse($container->has('entity.like'));
-        $this->assertFalse($container->has('entity.tag'));
+        $this->assertFalse($container->has('repo.user'));
+        $this->assertFalse($container->has('repo.media'));
+        $this->assertFalse($container->has('repo.comment'));
+        $this->assertFalse($container->has('repo.like'));
+        $this->assertFalse($container->has('repo.tag'));
     }
 
     /**
@@ -129,11 +129,11 @@ class BuilderTest extends TestCase
         $this->assertTrue($container->has(ProviderInterface::class));
         $this->assertTrue($container->has(AdapterInterface::class));
 
-        $this->assertTrue($container->has('entity.user'));
-        $this->assertTrue($container->has('entity.media'));
-        $this->assertTrue($container->has('entity.comment'));
-        $this->assertTrue($container->has('entity.like'));
-        $this->assertTrue($container->has('entity.tag'));
+        $this->assertTrue($container->has('repo.user'));
+        $this->assertTrue($container->has('repo.media'));
+        $this->assertTrue($container->has('repo.comment'));
+        $this->assertTrue($container->has('repo.like'));
+        $this->assertTrue($container->has('repo.tag'));
     }
 
     private function createMockProvider($provider)

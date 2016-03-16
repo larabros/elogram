@@ -36,7 +36,7 @@ trait UrlParserTrait
     }
 
     /**
-     * Gets the query parameter from a ``UriInterface`` instance.
+     * Gets the query parameters as an array from a ``UriInterface`` instance.
      *
      * @param UriInterface $uri
      * @param array $exclude

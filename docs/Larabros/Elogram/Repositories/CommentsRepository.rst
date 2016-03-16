@@ -1,12 +1,12 @@
-------------------------------------
-Larabros\\Elogram\\Entities\\Comment
-------------------------------------
+---------------------------------------------------
+Larabros\\Elogram\\Repositories\\CommentsRepository
+---------------------------------------------------
 
-.. php:namespace: Larabros\\Elogram\\Entities
+.. php:namespace: Larabros\\Elogram\\Repositories
 
-.. php:class:: Comment
+.. php:class:: CommentsRepository
 
-    Comment
+    CommentsRepository
 
     .. php:attr:: client
 
@@ -31,7 +31,7 @@ Larabros\\Elogram\\Entities\\Comment
 
         :param $mediaId:
         :type $text: string
-        :param $text: Text to post as a comment on the media object as specified by `$mediaId`
+        :param $text: Text to post as a comment on the media object
         :returns: Response
 
     .. php:method:: delete($mediaId, $commentId)
@@ -46,7 +46,7 @@ Larabros\\Elogram\\Entities\\Comment
 
     .. php:method:: __construct(AdapterInterface $client)
 
-        Creates a new instance of :php:class:`AbstractEntity`.
+        Creates a new instance of :php:class:`AbstractRepository`.
 
         :type $client: AdapterInterface
         :param $client:

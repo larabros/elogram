@@ -11,3 +11,4 @@ Larabros\\Elogram\\Http
    OAuth2/index
    Response
    Sessions/index
+   UrlParserTrait

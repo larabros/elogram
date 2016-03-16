@@ -1,18 +1,18 @@
 <?php
 
-namespace Larabros\Elogram\Entities;
+namespace Larabros\Elogram\Repositories;
 
 use Larabros\Elogram\Http\Response;
 
 /**
- * Comment
+ * CommentsRepository
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-class Comment extends AbstractEntity
+class CommentsRepository extends AbstractRepository
 {
 
     /**
@@ -38,7 +38,7 @@ class Comment extends AbstractEntity
      * - The comment cannot consist of all capital letters.
      *
      * @param int    $mediaId  The ID of the media object
-     * @param string $text     Text to post as a comment on the media object as specified by `$mediaId`
+     * @param string $text     Text to post as a comment on the media object
      *
      * @return Response
      *

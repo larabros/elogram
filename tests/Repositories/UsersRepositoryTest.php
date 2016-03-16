@@ -1,15 +1,15 @@
 <?php
 
-namespace Larabros\Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Repositories;
 
-use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Repositories\UsersRepository;
 use Larabros\Elogram\Http\Clients\MockAdapter;
 use Larabros\Elogram\Tests\TestCase;
 
-class UserTest extends TestCase
+class UsersRepositoryTest extends TestCase
 {
     /**
-     * @var User
+     * @var UsersRepository
      */
     protected $user;
 
@@ -18,12 +18,12 @@ class UserTest extends TestCase
      */
     protected function setUp()
     {
-        $this->user = new User(new MockAdapter($this->getFixturesPath()));
+        $this->user = new UsersRepository(new MockAdapter($this->getFixturesPath()));
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::get()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::get()
      */
     public function testGet()
     {
@@ -32,8 +32,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::getMedia()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::getMedia()
      */
     public function testGetMedia()
     {
@@ -42,8 +42,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::getLikedMedia()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::getLikedMedia()
      */
     public function testGetLikedMedia()
     {
@@ -52,8 +52,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::search()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::search()
      */
     public function testSearch()
     {
@@ -62,8 +62,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::find()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::find()
      */
     public function testFind()
     {
@@ -72,8 +72,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::find()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::find()
      */
     public function testFindReturnsNullWhenNothingFound()
     {
@@ -82,8 +82,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::follows()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::follows()
      */
     public function testFollows()
     {
@@ -92,8 +92,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::followedBy()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::followedBy()
      */
     public function testFollowedBy()
     {
@@ -102,8 +102,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::requestedBy()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::requestedBy()
      */
     public function testRequestedBy()
     {
@@ -112,8 +112,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::getRelationship()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::getRelationship()
      */
     public function testGetRelationship()
     {
@@ -123,8 +123,8 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\User::__construct()
-     * @covers Larabros\Elogram\Entities\User::setRelationship()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\UsersRepository::setRelationship()
      */
     public function testSetRelationship()
     {

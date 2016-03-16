@@ -1,18 +1,18 @@
 <?php
 
-namespace Larabros\Elogram\Entities;
+namespace Larabros\Elogram\Repositories;
 
 use Larabros\Elogram\Http\Response;
 
 /**
- * Location
+ * LocationsRepository
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-class Location extends AbstractEntity
+class LocationsRepository extends AbstractRepository
 {
 
     /**

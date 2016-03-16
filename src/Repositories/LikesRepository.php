@@ -1,18 +1,18 @@
 <?php
 
-namespace Larabros\Elogram\Entities;
+namespace Larabros\Elogram\Repositories;
 
 use Larabros\Elogram\Http\Response;
 
 /**
- * LikeRepository class.
+ * LikesRepository class.
  *
  * @package    Elogram
  * @author     Hassan Khan <contact@hassankhan.me>
  * @link       https://github.com/larabros/elogram
  * @license    MIT
  */
-class LikeRepository extends AbstractEntity
+class LikesRepository extends AbstractRepository
 {
 
     /**

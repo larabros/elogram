@@ -1,15 +1,15 @@
 <?php
 
-namespace Larabros\Elogram\Tests\Entities;
+namespace Larabros\Elogram\Tests\Repositories;
 
-use Larabros\Elogram\Entities\Media;
+use Larabros\Elogram\Repositories\MediaRepository;
 use Larabros\Elogram\Http\Clients\MockAdapter;
 use Larabros\Elogram\Tests\TestCase;
 
-class MediaTest extends TestCase
+class MediaRepositoryTest extends TestCase
 {
     /**
-     * @var Media
+     * @var MediaRepository
      */
     protected $media;
 
@@ -18,12 +18,12 @@ class MediaTest extends TestCase
      */
     protected function setUp()
     {
-        $this->media = new Media(new MockAdapter($this->getFixturesPath()));
+        $this->media = new MediaRepository(new MockAdapter($this->getFixturesPath()));
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Media::__construct()
-     * @covers Larabros\Elogram\Entities\Media::get()
+     * @covers Larabros\Elogram\Repositories\MediaRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\MediaRepository::get()
      */
     public function testGet()
     {
@@ -33,8 +33,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Media::__construct()
-     * @covers Larabros\Elogram\Entities\Media::getByShortcode()
+     * @covers Larabros\Elogram\Repositories\MediaRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\MediaRepository::getByShortcode()
      */
     public function testGetByShortcode()
     {
@@ -44,8 +44,8 @@ class MediaTest extends TestCase
     }
 
     /**
-     * @covers Larabros\Elogram\Entities\Media::__construct()
-     * @covers Larabros\Elogram\Entities\Media::search()
+     * @covers Larabros\Elogram\Repositories\MediaRepository::__construct()
+     * @covers Larabros\Elogram\Repositories\MediaRepository::search()
      */
     public function testSearch()
     {

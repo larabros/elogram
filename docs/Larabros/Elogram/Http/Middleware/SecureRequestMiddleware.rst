@@ -28,19 +28,14 @@ Larabros\\Elogram\\Http\\Middleware\\SecureRequestMiddleware
         :param $request:
         :param $options:
 
-    .. php:method:: getPath($path)
-
-        :param $path:
-
-    .. php:method:: getParams($query)
-
-        :param $query:
-
     .. php:method:: generateSig($endpoint, $params, $secret)
+
+        Generates a ``sig`` value for a request.
 
         :param $endpoint:
         :param $params:
         :param $secret:
+        :returns: string
 
     .. php:method:: create(ConfigInterface $config)
 
@@ -49,6 +44,27 @@ Larabros\\Elogram\\Http\\Middleware\\SecureRequestMiddleware
         :type $config: ConfigInterface
         :param $config:
         :returns: Closure
+
+    .. php:method:: getPath(UriInterface $uri)
+
+        Gets the path from a ``UriInterface`` instance after removing the version
+        prefix.
+
+        :type $uri: UriInterface
+        :param $uri:
+        :returns: string
+
+    .. php:method:: getQueryParams(UriInterface $uri, $exclude = ['sig'], $params = [])
+
+        Gets the query parameters as an array from a ``UriInterface`` instance.
+
+        :type $uri: UriInterface
+        :param $uri:
+        :type $exclude: array
+        :param $exclude:
+        :type $params: array
+        :param $params:
+        :returns: array
 
     .. php:method:: __construct($nextHandler, ConfigInterface $config)
 

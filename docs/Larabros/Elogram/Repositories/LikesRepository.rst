@@ -1,12 +1,12 @@
--------------------------------------------
-Larabros\\Elogram\\Entities\\LikeRepository
--------------------------------------------
+------------------------------------------------
+Larabros\\Elogram\\Repositories\\LikesRepository
+------------------------------------------------
 
-.. php:namespace: Larabros\\Elogram\\Entities
+.. php:namespace: Larabros\\Elogram\\Repositories
 
-.. php:class:: LikeRepository
+.. php:class:: LikesRepository
 
-    LikeRepository class.
+    LikesRepository class.
 
     .. php:attr:: client
 
@@ -38,7 +38,7 @@ Larabros\\Elogram\\Entities\\LikeRepository
 
     .. php:method:: __construct(AdapterInterface $client)
 
-        Creates a new instance of :php:class:`AbstractEntity`.
+        Creates a new instance of :php:class:`AbstractRepository`.
 
         :type $client: AdapterInterface
         :param $client:

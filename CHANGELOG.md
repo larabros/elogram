@@ -21,6 +21,14 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Security
 - Nothing
 
+## 1.1.8 - 2016-03-16
+
+### Added
+- Created `Http\UrlParserTrait` and moved methods `SecureRequestMiddleware::getPath()` and `SecureRequestMiddleware::getParams()` to it.
+
+### Fixed
+- Changed namespace `Entities` to `Repositories`.
+
 ## 1.1.7 - 2016-03-15
 
 ### Fixed

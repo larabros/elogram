@@ -3,12 +3,12 @@
 namespace Larabros\Elogram\Tests;
 
 use Larabros\Elogram\Config;
-use Larabros\Elogram\Entities\Comment;
-use Larabros\Elogram\Entities\LikeRepository;
-use Larabros\Elogram\Entities\Location;
-use Larabros\Elogram\Entities\Media;
-use Larabros\Elogram\Entities\Tag;
-use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Repositories\CommentsRepository;
+use Larabros\Elogram\Repositories\LikesRepository;
+use Larabros\Elogram\Repositories\LocationsRepository;
+use Larabros\Elogram\Repositories\MediaRepository;
+use Larabros\Elogram\Repositories\TagsRepository;
+use Larabros\Elogram\Repositories\UsersRepository;
 use Larabros\Elogram\Helpers\RedirectLoginHelper;
 use Larabros\Elogram\Http\Clients\MockAdapter;
 use Larabros\Elogram\Http\Response;
@@ -41,7 +41,7 @@ class ClientTest extends TestCase
     public function testUsers()
     {
         $users = $this->client->users();
-        $this->assertInstanceOf(User::class, $users);
+        $this->assertInstanceOf(UsersRepository::class, $users);
     }
 
     /**
@@ -52,7 +52,7 @@ class ClientTest extends TestCase
     public function testMedia()
     {
         $media = $this->client->media();
-        $this->assertInstanceOf(Media::class, $media);
+        $this->assertInstanceOf(MediaRepository::class, $media);
     }
 
     /**
@@ -63,7 +63,7 @@ class ClientTest extends TestCase
     public function testComments()
     {
         $comments = $this->client->comments();
-        $this->assertInstanceOf(Comment::class, $comments);
+        $this->assertInstanceOf(CommentsRepository::class, $comments);
     }
 
     /**
@@ -74,7 +74,7 @@ class ClientTest extends TestCase
     public function testLikes()
     {
         $likes = $this->client->likes();
-        $this->assertInstanceOf(LikeRepository::class, $likes);
+        $this->assertInstanceOf(LikesRepository::class, $likes);
     }
 
     /**
@@ -85,7 +85,7 @@ class ClientTest extends TestCase
     public function testTags()
     {
         $tags = $this->client->tags();
-        $this->assertInstanceOf(Tag::class, $tags);
+        $this->assertInstanceOf(TagsRepository::class, $tags);
     }
 
     /**
@@ -96,6 +96,6 @@ class ClientTest extends TestCase
     public function testLocations()
     {
         $locations = $this->client->locations();
-        $this->assertInstanceOf(Location::class, $locations);
+        $this->assertInstanceOf(LocationsRepository::class, $locations);
     }
 }

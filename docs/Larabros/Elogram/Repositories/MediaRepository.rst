@@ -1,12 +1,12 @@
-----------------------------------
-Larabros\\Elogram\\Entities\\Media
-----------------------------------
+------------------------------------------------
+Larabros\\Elogram\\Repositories\\MediaRepository
+------------------------------------------------
 
-.. php:namespace: Larabros\\Elogram\\Entities
+.. php:namespace: Larabros\\Elogram\\Repositories
 
-.. php:class:: Media
+.. php:class:: MediaRepository
 
-    Media
+    MediaRepository
 
     .. php:attr:: client
 
@@ -22,7 +22,7 @@ Larabros\\Elogram\\Entities\\Media
 
     .. php:method:: getByShortcode($shortcode)
 
-        This method returns the same response as :php:meth:`Media::get`
+        This method returns the same response as :php:meth:`MediaRepository::get`
 
         :type $shortcode: string
         :param $shortcode: The shortcode of the media object
@@ -42,7 +42,7 @@ Larabros\\Elogram\\Entities\\Media
 
     .. php:method:: __construct(AdapterInterface $client)
 
-        Creates a new instance of :php:class:`AbstractEntity`.
+        Creates a new instance of :php:class:`AbstractRepository`.
 
         :type $client: AdapterInterface
         :param $client:

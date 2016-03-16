@@ -1,12 +1,12 @@
------------------------------------------------
-Larabros\\Elogram\\Http\\OAuth2\\LeagueProvider
------------------------------------------------
+------------------------------------------------------------
+Larabros\\Elogram\\Http\\OAuth2\\Providers\\AdapterInterface
+------------------------------------------------------------
 
-.. php:namespace: Larabros\\Elogram\\Http\\OAuth2
+.. php:namespace: Larabros\\Elogram\\Http\\OAuth2\\Providers
 
-.. php:class:: LeagueProvider
+.. php:interface:: AdapterInterface
 
-    An OAuth2 provider for the League OAuth2 package.
+    An interface for OAuth2 providers.
 
     .. php:method:: getAuthorizationUrl($options = [])
 

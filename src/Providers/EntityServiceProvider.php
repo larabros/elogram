@@ -2,12 +2,12 @@
 
 namespace Larabros\Elogram\Providers;
 
-use Larabros\Elogram\Entities\Comment;
-use Larabros\Elogram\Entities\LikeRepository;
-use Larabros\Elogram\Entities\Location;
-use Larabros\Elogram\Entities\Media;
-use Larabros\Elogram\Entities\Tag;
-use Larabros\Elogram\Entities\User;
+use Larabros\Elogram\Repositories\CommentsRepository;
+use Larabros\Elogram\Repositories\LikesRepository;
+use Larabros\Elogram\Repositories\LocationsRepository;
+use Larabros\Elogram\Repositories\MediaRepository;
+use Larabros\Elogram\Repositories\TagsRepository;
+use Larabros\Elogram\Repositories\UsersRepository;
 use Larabros\Elogram\Http\Clients\AdapterInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
@@ -31,12 +31,12 @@ class EntityServiceProvider extends AbstractServiceProvider
      * @var array
      */
     protected $provides = [
-        'entity.user',
-        'entity.media',
-        'entity.comment',
-        'entity.like',
-        'entity.tag',
-        'entity.location',
+        'repo.user',
+        'repo.media',
+        'repo.comment',
+        'repo.like',
+        'repo.tag',
+        'repo.location',
     ];
 
     /**
@@ -48,11 +48,12 @@ class EntityServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        $this->getContainer()->share('entity.user', new User($this->getContainer()->get(AdapterInterface::class)));
-        $this->getContainer()->share('entity.media', new Media($this->getContainer()->get(AdapterInterface::class)));
-        $this->getContainer()->share('entity.comment', new Comment($this->getContainer()->get(AdapterInterface::class)));
-        $this->getContainer()->share('entity.like', new LikeRepository($this->getContainer()->get(AdapterInterface::class)));
-        $this->getContainer()->share('entity.tag', new Tag($this->getContainer()->get(AdapterInterface::class)));
-        $this->getContainer()->share('entity.location', new Location($this->getContainer()->get(AdapterInterface::class)));
+        $adapter = $this->getContainer()->get(AdapterInterface::class);
+        $this->getContainer()->share('repo.user', new UsersRepository($adapter));
+        $this->getContainer()->share('repo.media', new MediaRepository($adapter));
+        $this->getContainer()->share('repo.comment', new CommentsRepository($adapter));
+        $this->getContainer()->share('repo.like', new LikesRepository($adapter));
+        $this->getContainer()->share('repo.tag', new TagsRepository($adapter));
+        $this->getContainer()->share('repo.location', new LocationsRepository($adapter));
     }
 }

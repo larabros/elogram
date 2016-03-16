@@ -38,39 +38,39 @@ Larabros\\Elogram\\Client
 
     .. php:method:: users()
 
-        Returns the current instance of :php:class:`User`.
+        Returns the current instance of :php:class:`UsersRepository`.
 
-        :returns: User
+        :returns: UsersRepository
 
     .. php:method:: media()
 
-        Returns the current instance of :php:class:`Media`.
+        Returns the current instance of :php:class:`MediaRepository`.
 
-        :returns: Media
+        :returns: MediaRepository
 
     .. php:method:: comments()
 
-        Returns the current instance of :php:class:`Comment`.
+        Returns the current instance of :php:class:`CommentsRepository`.
 
-        :returns: Comment
+        :returns: CommentsRepository
 
     .. php:method:: likes()
 
-        Returns the current instance of :php:class:`LikeRepository`.
+        Returns the current instance of :php:class:`LikesRepository`.
 
-        :returns: LikeRepository
+        :returns: LikesRepository
 
     .. php:method:: tags()
 
-        Returns the current instance of :php:class:`Tag`.
+        Returns the current instance of :php:class:`TagsRepository`.
 
-        :returns: Tag
+        :returns: TagsRepository
 
     .. php:method:: locations()
 
-        Returns the current instance of :php:class:`Location`.
+        Returns the current instance of :php:class:`LocationsRepository`.
 
-        :returns: Location
+        :returns: LocationsRepository
 
     .. php:method:: request($method, $uri, $parameters = [])
 

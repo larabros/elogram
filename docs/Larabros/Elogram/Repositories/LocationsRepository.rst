@@ -1,12 +1,12 @@
--------------------------------------
-Larabros\\Elogram\\Entities\\Location
--------------------------------------
+----------------------------------------------------
+Larabros\\Elogram\\Repositories\\LocationsRepository
+----------------------------------------------------
 
-.. php:namespace: Larabros\\Elogram\\Entities
+.. php:namespace: Larabros\\Elogram\\Repositories
 
-.. php:class:: Location
+.. php:class:: LocationsRepository
 
-    Location
+    LocationsRepository
 
     .. php:attr:: client
 
@@ -61,7 +61,7 @@ Larabros\\Elogram\\Entities\\Location
 
     .. php:method:: __construct(AdapterInterface $client)
 
-        Creates a new instance of :php:class:`AbstractEntity`.
+        Creates a new instance of :php:class:`AbstractRepository`.
 
         :type $client: AdapterInterface
         :param $client:

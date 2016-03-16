@@ -1,12 +1,12 @@
---------------------------------
-Larabros\\Elogram\\Entities\\Tag
---------------------------------
+-----------------------------------------------
+Larabros\\Elogram\\Repositories\\TagsRepository
+-----------------------------------------------
 
-.. php:namespace: Larabros\\Elogram\\Entities
+.. php:namespace: Larabros\\Elogram\\Repositories
 
-.. php:class:: Tag
+.. php:class:: TagsRepository
 
-    Tag
+    TagsRepository
 
     .. php:attr:: client
 
@@ -42,7 +42,7 @@ Larabros\\Elogram\\Entities\\Tag
 
     .. php:method:: __construct(AdapterInterface $client)
 
-        Creates a new instance of :php:class:`AbstractEntity`.
+        Creates a new instance of :php:class:`AbstractRepository`.
 
         :type $client: AdapterInterface
         :param $client:

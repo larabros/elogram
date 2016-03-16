@@ -10,17 +10,17 @@ Larabros\\Elogram\\Helpers\\RedirectLoginHelper
 
     .. php:attr:: provider
 
-        protected ProviderInterface
+        protected AdapterInterface
 
     .. php:attr:: store
 
         protected DataStoreInterface
 
-    .. php:method:: __construct(ProviderInterface $provider, DataStoreInterface $store)
+    .. php:method:: __construct(AdapterInterface $provider, DataStoreInterface $store)
 
         Creates an instance of :php:class:`RedirectLoginHelper`.
 
-        :type $provider: ProviderInterface
+        :type $provider: AdapterInterface
         :param $provider:
         :type $store: DataStoreInterface
         :param $store:

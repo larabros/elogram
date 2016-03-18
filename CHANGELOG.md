@@ -21,6 +21,14 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Security
 - Nothing
 
+## 1.2.0 - 2016-03-18
+
+### Fixed
+- Internal classes can now properly be overridden.
+
+### Removed
+- Removed `$registerProviders` from `Builder::__construct()`'s method signature.
+
 ## 1.1.8 - 2016-03-16
 
 ### Added

@@ -7,6 +7,7 @@ use Larabros\Elogram\Helpers\RedirectLoginHelper;
 use Larabros\Elogram\Http\OAuth2\Providers\LeagueAdapter;
 use Larabros\Elogram\Http\OAuth2\Providers\AdapterInterface;
 use Larabros\Elogram\Http\Sessions\DataStoreInterface;
+use Larabros\Elogram\Http\Sessions\NativeSessionStore;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 /**
@@ -55,10 +56,11 @@ class CoreServiceProvider extends AbstractServiceProvider
             ]);
         });
 
-        $container->share(DataStoreInterface::class, function () use ($config) {
-            $class = $config->get('session_store');
-            return new $class();
-        });
+        if ($config->get('session_store') === NativeSessionStore::class) {
+            $container->share(DataStoreInterface::class, function () {
+                return new NativeSessionStore();
+            });
+        }
 
         $container->share(RedirectLoginHelper::class, function () use ($container) {
             return new RedirectLoginHelper(

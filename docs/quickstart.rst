@@ -41,10 +41,14 @@ Creating a Client
 Setting up the authentication flow
 ----------------------------------
 
-After instantiating the client, retrieve the the authorization page URL (or
-retrieve an access token if the user has already authorized):
+After instantiating the client, start a session and retrieve the the
+authorization page URL (or retrieve an access token if the user is already
+authorized):
 
 .. code-block:: php
+
+    // Start the session
+    session_start();
 
     // If we don't have an authorization code then get one
     if (!isset($_GET['code'])) {

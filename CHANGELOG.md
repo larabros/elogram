@@ -13,13 +13,18 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Nothing
 
 ### Fixed
-- Access token is not JSON-serialized when setting it by `Client::setAccessToken()`.
+- Nothing
 
 ### Removed
 - Nothing
 
 ### Security
 - Nothing
+
+## 1.2.1 - 2016-03-18
+
+### Fixed
+- Access token is not JSON-serialized when using `Client::setAccessToken()`.
 
 ## 1.2.0 - 2016-03-18
 

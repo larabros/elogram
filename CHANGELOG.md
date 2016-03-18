@@ -13,7 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Nothing
 
 ### Fixed
-- Nothing
+- Access token is not JSON-serialized when setting it by `Client::setAccessToken()`.
 
 ### Removed
 - Nothing

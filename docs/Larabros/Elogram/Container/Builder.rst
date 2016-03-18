@@ -14,13 +14,12 @@ Larabros\\Elogram\\Container\\Builder
 
         Default application service providers.
 
-    .. php:method:: __construct($config, $registerProviders = true)
+    .. php:method:: __construct($config)
 
         Creates a new instance of :php:class:`Builder`.
 
         :type $config: array
         :param $config:
-        :param $registerProviders:
 
     .. php:method:: createConfig($config)
 

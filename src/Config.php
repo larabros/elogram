@@ -43,6 +43,7 @@ class Config extends AbstractConfig
             'secure_requests' => false,
             'session_store'   => NativeSessionStore::class,
             'http_adapter'    => GuzzleAdapter::class,
+            'providers'       => [],
             'middleware'      => [
                 'auth'   => AuthMiddleware::class,
                 'secure' => SecureRequestMiddleware::class,

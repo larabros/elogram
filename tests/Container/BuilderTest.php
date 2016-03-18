@@ -29,7 +29,7 @@ class BuilderTest extends TestCase
             'client_id' => 'CID',
             'client_secret' => 'CS',
             'access_token' => null,
-        ], false);
+        ]);
     }
 
     /**
@@ -93,21 +93,28 @@ class BuilderTest extends TestCase
      * @covers Larabros\Elogram\Container\Builder::registerProviders()
      * @covers Larabros\Elogram\Container\Builder::registerProvider()
      */
-    public function testRegisterNoProviders()
+    public function testRegisterProvidersThroughConstructor()
     {
-        $container = $this->builder
-            ->registerProviders()
-            ->getContainer();
+        $providerMock1 = $this->createMockProvider(CoreServiceProvider::class);
+        $providerMock2 = $this->createMockProvider(GuzzleServiceProvider::class);
+        $providerMock3 = $this->createMockProvider(EntityServiceProvider::class);
 
-        $this->assertFalse($container->has(RedirectLoginHelper::class));
-        $this->assertFalse($container->has(ProviderInterface::class));
-        $this->assertFalse($container->has(AdapterInterface::class));
+        $container = (new Builder([
+            'client_id' => 'CID',
+            'client_secret' => 'CS',
+            'access_token' => null,
+            'providers' => [$providerMock1, $providerMock2, $providerMock3],
+        ]))->getContainer();
+        
+        $this->assertTrue($container->has(RedirectLoginHelper::class));
+        $this->assertTrue($container->has(ProviderInterface::class));
+        $this->assertTrue($container->has(AdapterInterface::class));
 
-        $this->assertFalse($container->has('repo.user'));
-        $this->assertFalse($container->has('repo.media'));
-        $this->assertFalse($container->has('repo.comment'));
-        $this->assertFalse($container->has('repo.like'));
-        $this->assertFalse($container->has('repo.tag'));
+        $this->assertTrue($container->has('repo.user'));
+        $this->assertTrue($container->has('repo.media'));
+        $this->assertTrue($container->has('repo.comment'));
+        $this->assertTrue($container->has('repo.like'));
+        $this->assertTrue($container->has('repo.tag'));
     }
 
     /**

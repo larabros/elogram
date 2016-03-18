@@ -41,16 +41,17 @@ class Builder implements ContainerAwareInterface
      * Creates a new instance of :php:class:`Builder`.
      *
      * @param array $config
-     * @param bool  $registerProviders  If ``false``, then the default providers are not added to the container.
      */
-    public function __construct(array $config, $registerProviders = true)
+    public function __construct(array $config)
     {
         $this->setContainer($this->createContainer($config));
         $this->createConfig($this->getContainer()->get('config.raw'));
 
-        if ($registerProviders) {
-            $this->registerProviders($this->defaultProviders);
-        }
+        $providers = array_key_exists('providers', $config)
+            ? $config['providers']
+            : [];
+        $this->registerProviders(
+            array_merge($this->defaultProviders, $providers));
     }
 
     /**

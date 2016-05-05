@@ -240,7 +240,7 @@ final class Client
     public function setAccessToken(AccessToken $token)
     {
         $this->container->get('config')
-            ->set('access_token', $token);
+            ->set('access_token', json_encode($token->jsonSerialize()));
     }
 
     /**

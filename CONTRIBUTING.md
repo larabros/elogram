@@ -8,7 +8,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/larabro
 
 Documentation for this project is available at the [ReadTheDocs page](http://elogram.readthedocs.org).
 
-The API reference documentation is available at [here](http://elogram.readthedocs.org/en/stable/Larabros/Elogram/index.html).
+The API reference documentation is available [here](http://elogram.readthedocs.org/en/stable/Larabros/Elogram/index.html).
 
 ## Guidelines
 

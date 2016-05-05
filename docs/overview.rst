@@ -5,7 +5,7 @@ Overview
 Requirements
 ============
 
-#. PHP 5.5.0
+#. PHP 5.5.9+
 #. An Instagram client ID and secret
 
 .. note::
